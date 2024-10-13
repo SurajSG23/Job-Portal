@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #ab91ff; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #414aff; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1900ff; 
+    cursor: pointer;
+  }
+
+html, body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+header {
+    width: 100%;
+    height: 13vh;
+    background-color: rgb(150, 150, 251);
+}
+
+header img {
+    width: 160px;
+    height: auto;
+}
+
+.headContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.headlinks {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.headlinks a,.apply-btn {
+    all: unset;
+    font-size: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+    padding: 4px 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 255);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.headlinks a:hover,.apply-btn:hover {
+    background-color: rgb(107, 107, 251);
+    transform: scale(1.1);
+    color: white;
+}
+
+.selector select{
+    width: 120px ;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: rgb(150, 150, 251);
+    border: 1px solid blue;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(77, 77, 246);
+    top: 0;
+}
+
+.footContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.footlinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footlinks a {
+    width: 50px;
+    height: 50px;
+    margin-top: 4px;
+}
+
+.fa-brands {
+    font-size: 40px;
+    color: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.fa-instagram:hover {
+    color: red
+}
+
+.fa-linkedin:hover {
+    color: rgb(1, 1, 156)
+}
+
+.fa-github:hover {
+    color: black
+}
+
+.body2 {
+    width: 100%;
+    height: 300vh;
+    flex: 1;
+    background-image: linear-gradient(rgb(150, 150, 251), rgb(83, 83, 255));    
+}
+
+.heading{
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.heading h2{
+    margin: 0 auto;
+    font-size: 40px;
+}
+.heading p{
+    margin: 0 auto;
+}
+.choice{
+    max-width: 70vw;
+    height: 6vh;
+    margin: 0 auto;
+}
+
+.job-id{
+    height: inherit;
+    display: flex;
+    gap:40px;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid rgb(0, 21, 255);
+    backdrop-filter: grayscale(20%);
+}
+.job-id li{
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.jobs-container{
+    max-width: 80vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 20px;
+    overflow-y:  auto;
+    overflow-x:hidden;
+    padding: 10px 20px;
+}
+
+.jList{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+    border: 1px solid blue;
+    border-radius: 5px;
+    box-shadow: 0 0 12px blue;
+    transition: all 0.2s ease-in-out;
+} 
+.jList img{
+    width: 50px;
+    filter: drop-shadow(0 0 4px rgb(255, 255, 255));
+    aspect-ratio: 1/1;
+}
+.jList h3{
+    width: 250px;
+    text-align: center;
+}
+
+.type{
+    width: 120px;
+    height: 40px;
+    border: 1px solid yellow;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    background-color: rgb(62, 97, 255);
+    color: white;
+}
+
+.jList:hover{
+    transform: scale(1.02);
+    box-shadow:0 0 3px blue;
+}
+.job-links{
+    all: unset;
+}
+
+.job-type{
+    display: flex;
+}
+
+.apply{
+    position: absolute;
+    width: 50vw;
+    height: 70vh;
+    border: 2px solid blue;
+    left: 22%;
+    top: 15%;
+    z-index: 1;
+    background-color: rgb(150, 150, 251);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.apply .input{
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    width: 35vw;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid blue;
+}
+.apply input{
+    padding-left: 10px;
+    font-size: 20px;
+}
+.job-type-apply{
+    display: flex;
+    gap: 10px;
+}
+
+.job-type-apply input{
+    cursor: pointer;
+}
+
+.apply button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: rgb(193, 193, 255);
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.apply button:hover{
+    transform: scale(1.1);
+    background-color: rgb(102, 102, 253);
+    color: white;
+}
+
+@media (max-width:555px){
+    .headContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        width: 100%;
+        height: 19vh;
+        background-color: rgb(150, 150, 251);
+    }
+    .heading{
+        padding: 30px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .apply{
+        position: absolute;
+        width: 95vw !important;
+        left: 1%;
+        top: 20%;
+    }
+    .apply .input{
+        width: 90vw;
+    }
+    .jobs-container{
+        max-width: 90vw;
+    }
+}
+@media (max-width:395px){
+    header {
+        width: 100%;
+        height: 30vh;
+        background-color: rgb(150, 150, 251);
+    }
+    .apply{
+        top: 10%;
+        height: 80vh !important;
+    }
+    .headlinks{
+        display: flex;
+        flex-direction: column;
+    }
+    .heading{
+        padding: 10px 0;
+    }
+    .jobs-container .type{
+        display: none;
+    }
+}

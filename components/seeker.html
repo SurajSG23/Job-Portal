@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Junction | Seeker</title>
+    <link rel="stylesheet" href="../components/seeker.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="headContainer">
+            <img src="../assets/logo.png" alt="logo">
+            <div class="headlinks">
+                <div>
+                    <a href="../components/about.html" target="_blank">About</a>
+                    <a href="../components/homepage.html">Home</a>
+                </div>
+                <div class="selector">
+                    <select name="jobs-type" id="" onchange="filter(value)">
+                        <option value="all">All</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                        <option value="Freelancer">Freelancing</option>
+                        <option value="recent">Recently Added</option>
+                    </select>
+                    <button class="apply-btn">Apply</button>
+               </div>   
+            </div>
+        </div>
+        <div class="apply">
+            <div>
+                <h2>Provide the below details:</h2>
+            </div>
+            <div>Name: <input type="text" name="name" id="name" class="input"></div>
+            <div>Skills: <input type="text" name="skils" id="skills" class="input"></div>
+            <div>Years of experience: <input type="number" id="yoe" class="input"></div>
+            <div>Contact number: <input type="number" name="number" id="phNo" class="input"></div>
+            <div>Email: <input type="email" name="" id="email" class="input"></div>
+            <div class="job-type-apply">Prefered type:
+                <input type="radio" name="job-type" value="Full Time">
+                <h4>Full Time</h4>
+                <input type="radio" name="job-type" value="Part Time">
+                <h4>Part Time</h4>
+                <input type="radio" name="job-type" value="Freelancing">
+                <h4>Freelancing</h4>
+            </div>
+            <div>
+                <button class="Submit">Submit</button>
+                <button class="Cancel">Cancel</button>
+            </div>
+        </div>
+    </header>
+    <hr>
+
+    <div class="body2">
+        <div class="heading">
+            <h2>Jobs In Demand</h2>
+            <p>Most viewed and all-time-top-selling servies</p>
+        </div>
+        <div class="jobs-container">
+
+        </div>
+    </div>
+
+    <footer>
+        <hr>
+        <div class="footContainer">
+            <div>
+                <h4>CopyRigth &copy; 2024 Job Junction | All Rights Reserved</h4>
+            </div>
+            <div class="footlinks">
+                <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target='_blank'>
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/SurajSG23" target='_blank'>
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="../components/seeker.js"></script>
+</body>
+
+</html>

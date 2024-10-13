@@ -1,0 +1,440 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(141, 141, 255);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: blue;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 13vh;
+    background-color: rgb(150, 150, 251);
+}
+
+header img {
+    width: 160px;
+    height: auto;
+}
+
+.headContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.headlinks {
+    display: flex;
+    gap: 20px;
+}
+
+.headlinks a,
+.req,.requests-container button{
+    all: unset;
+    font-size: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+    padding: 4px 10px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 255);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.req {
+    width: 80px;
+}
+.requests-container button{
+    position:absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.headlinks a:hover,
+.req:hover,.requests-container button:hover {
+    background-color: rgb(107, 107, 251);
+    transform: scale(1.1);
+    color: white;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(77, 77, 246);
+    bottom: 0;
+}
+
+.footContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.footlinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footlinks a {
+    width: 50px;
+    height: 50px;
+    margin-top: 4px;
+}
+
+.fa-brands {
+    font-size: 40px;
+    color: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.fa-instagram:hover {
+    color: red
+}
+
+.fa-linkedin:hover {
+    color: rgb(1, 1, 156)
+}
+
+.fa-github:hover {
+    color: black
+}
+
+.body2 {
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(rgb(150, 150, 251), rgb(83, 83, 255));
+    display: flex;
+    align-items: center;
+}
+
+.form {
+    position: relative;
+    max-width: 25vw;
+    height: 60vh;
+    border: 2px solid blue;
+    margin: 0 0 0 1vw;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(89, 89, 255);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.form h3 {
+    position: relative;
+    text-align: center;
+}
+
+.input {
+    display: flex;
+    margin: 0 auto;
+    height: 35px;
+    width: 20vw;
+    border-radius: 6px;
+    border: 2px solid blue;
+    background-color: rgb(152, 152, 255);
+    padding-left: 10px;
+    color: black;
+    font-size: 17px;
+}
+
+.input::placeholder {
+    color: black;
+    opacity: 0.5;
+}
+
+.job-type {
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.job-type input {
+    cursor: pointer;
+}
+
+.job-type h4 {
+    color: white;
+    margin-left: -17px;
+}
+
+.form button {
+    width: 100px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: rgb(152, 152, 255);
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+
+.form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 6px blue;
+}
+
+.submittedform {
+    position: relative;
+    left: 40px;
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    overflow-y: auto;
+}
+
+.forminfo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65vw;
+    min-height: 15vh;
+    border: 2px solid blue;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 10px blue;
+    transition: all 0.2s ease-in-out;
+}
+
+.forminfo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 2px blue;
+}
+
+.forminfo h3 {
+    font-size: 27px;
+}
+
+.forminfo h4 {
+    font-size: 20px;
+}
+
+.forminfo h6 {
+    font-size: 18px;
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 255);
+    color: white;
+}
+
+.requests-container {
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+    border: 1px solid blue;
+    z-index: 1;
+    left: 20%;
+    border-radius: 10px;
+    background-color: rgb(133, 133, 255);
+    overflow-y: auto;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.reqs {
+    width: 55vw;
+    height: 23vh;
+    border: 1px solid blue;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 0 10px blue;
+    cursor: pointer;
+}
+.personal{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cleary{
+    position: absolute;
+    left: 2vw !important;
+}
+
+@media (max-width:1010px) {
+    header {
+        width: 100%;
+        height: 16vh;
+        background-color: rgb(150, 150, 251);
+    }
+
+    .body2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form {
+        position: absolute;
+        margin: 7vh 0 10vh 0;
+        max-width: 85vw;
+        height: 60vh;
+    }
+
+    .submittedform {
+        left: 10px;
+        width: 70vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        overflow-y: auto;
+        top: 70vh;
+    }
+
+    .body2 {
+        position: absolute;
+        width: 100%;
+        height: 150vh;
+        background-image: linear-gradient(rgb(150, 150, 251), rgb(83, 83, 255));
+        display: flex;
+        align-items: center;
+    }
+
+    footer {
+        position: relative;
+        width: 100%;
+        height: 8vh;
+        background-color: rgb(77, 77, 246);
+        top: 140vh;
+    }
+
+    .input {
+        width: 60vw;
+    }
+}
+
+
+@media (max-width:555px) {
+    .submittedform {
+        left: 5px;
+        width: 90vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        overflow-y: scroll;
+        top: 70vh;
+    }
+
+    .forminfo {
+        width: 85vw;
+    }
+}
+
+@media (max-width:450px) {
+    .headContainer{
+        display:flex ;
+        flex-direction: column;
+    }
+    .submittedform {
+        left: 5px;
+        width: 90vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        overflow-y: scroll;
+        top: 70vh;
+    }
+    .requests-container {
+        position: absolute;
+        width: 90vw !important;
+        height: 60vh;
+        border: 1px solid blue;
+        z-index: 1;
+        left: 5%;
+        border-radius: 10px;
+        background-color: rgb(133, 133, 255);
+        overflow-y: auto;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+    }
+    .reqs {
+        width: 80vw;
+        height: 23vh;
+        border: 1px solid blue;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        box-shadow: 0 0 10px blue;
+        cursor: pointer;
+    }
+    .forminfo {
+        width: 85vw;
+    }
+
+    .forminfo h6 {
+        display: none;
+    }
+}
+
+@media (max-width:320px) {
+    header {
+        width: 100%;
+        height: 22vh;
+        background-color: rgb(150, 150, 251);
+    }
+
+    .submittedform {
+        left: 5px;
+        width: 90vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        overflow-y: scroll;
+        top: 70vh;
+    }
+
+    .forminfo {
+        width: 85vw;
+    }
+
+    .forminfo h6 {
+
+        display: none;
+    }
+
+    .headContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+}
