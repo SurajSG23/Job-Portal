@@ -3,12 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCO9lSfFC7DJJMYQMAdbPXx-Iapw4Qzen0",
-    authDomain: "jobportal-3f013.firebaseapp.com",
-    projectId: "jobportal-3f013",
-    storageBucket: "jobportal-3f013.appspot.com",
-    messagingSenderId: "295505547079",
-    appId: "1:295505547079:web:c2b981cacdbdde80748662"
+    //Confidentials
 };
 
 const app = initializeApp(firebaseConfig);
