@@ -3,12 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCO9lSfFC7DJJMYQMAdbPXx-Iapw4Qzen0",
-    authDomain: "jobportal-3f013.firebaseapp.com",
-    projectId: "jobportal-3f013",
-    storageBucket: "jobportal-3f013.appspot.com",
-    messagingSenderId: "295505547079",
-    appId: "1:295505547079:web:c2b981cacdbdde80748662"
+    
 };
 
 const app = initializeApp(firebaseConfig);
@@ -51,20 +46,20 @@ signUpButton.addEventListener('click', (event) => {
         });
 });
 
-signInButton.addEventListener('click', (event) => {
-    event.preventDefault();
+// signInButton.addEventListener('click', (event) => {
+//     event.preventDefault();
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
+//     const email = document.getElementById('email').value.trim();
+//     const password = document.getElementById('password').value;
 
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            window.location.href = 'components/homepage.html';  
-        })
-        .catch((error) => {
-            alert("Invalid email or password");
-        });
-});
+//     signInWithEmailAndPassword(auth, email, password)
+//         .then((userCredential) => {
+//             window.location.href = 'components/homepage.html';  
+//         })
+//         .catch((error) => {
+//             alert("Invalid email or password");
+//         });
+// });
 document.querySelector('.sign-in').addEventListener('click', switchToSignIn);
 document.querySelector('.sign-up').addEventListener('click', switchToSignUp);
 

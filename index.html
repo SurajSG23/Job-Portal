@@ -1,83 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Junction</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <script type="module" src="components/firebaseauth.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="logo"></div>
     <div id="signUpSection" class="sign-section">
-        <form>
-            <div class="box-sign">
-                <h2>Register</h2>
-                <div class="input-group">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" id="fName" placeholder="Suraj" required>
-                    <label for="fname">First name</label>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" id="lName" placeholder="S G" required>
-                    <label for="lname">Last name</label>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="rEmail" placeholder="Example@gmail.com" required>
-                    <label for="rEmail">Email</label>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="rPassword" placeholder="Password" required>
-                    <label for="rPassword">Password</label>
-                </div>
-                <button class="sign-up-btn">Sign Up</button>
-            </div>
-        </form>
-        <div class="signy">
-            <p>----------OR----------</p>
-            <div class="links">
-                <h5>Already have an account?</h5>
-                <button name="sign-in" class="sign-in">Sign-in</button>
-            </div>
+      <form>
+        <div class="box-sign">
+          <h2>Register</h2>
+          <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="fName" placeholder="Suraj" required />
+            <label for="fname">First name</label>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="lName" placeholder="S G" required />
+            <label for="lname">Last name</label>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              id="rEmail"
+              placeholder="Example@gmail.com"
+              required
+            />
+            <label for="rEmail">Email</label>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              id="rPassword"
+              placeholder="Password"
+              required
+            />
+            <label for="rPassword">Password</label>
+          </div>
+          <button class="sign-up-btn">Sign Up</button>
         </div>
+      </form>
+      <div class="signy">
+        <p>----------OR----------</p>
+        <div class="links">
+          <h5>Already have an account?</h5>
+          <button name="sign-in" class="sign-in">Sign-in</button>
+        </div>
+      </div>
     </div>
     <div id="signInSection" class="sign-section-2">
-        <form>
-            <div class="box-sign">
-                <h2>Login</h2>
-                <div class="input-group">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Example@gmail.com" required>
-                    <label for="email">Email</label>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="password" placeholder="Password" required>
-                    <label for="password">Password</label>
-                </div>
-                <button type="submit" class="sign-in-btn">Login</button>
-                <div class="signy">
-                    <p>----------OR----------</p>
-                    <div class="links2">
-                        <h5>Register new account?</h5>
-                        <button name="sign-up" class="sign-up">Sign-up</button>
-                    </div>
-                </div>
+      <form>
+        <div class="box-sign">
+          <h2>Login</h2>
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="Example@gmail.com"
+              required
+            />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+            <label for="password">Password</label>
+          </div>
+          <a href="components/homepage.html" class="sign-in-btn">Login</a>
+          <div class="signy">
+            <p>----------OR----------</p>
+            <div class="links2">
+              <h5>Register new account?</h5>
+              <button name="sign-up" class="sign-up">Sign-up</button>
             </div>
-        </form>
+          </div>
+        </div>
+      </form>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
