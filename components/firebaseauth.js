@@ -46,20 +46,20 @@ signUpButton.addEventListener('click', (event) => {
         });
 });
 
-signInButton.addEventListener('click', (event) => {
-    event.preventDefault();
+// signInButton.addEventListener('click', (event) => {
+    // event.preventDefault();
 
     // const email = document.getElementById('email').value.trim();
     // const password = document.getElementById('password').value;
 
     // signInWithEmailAndPassword(auth, email, password)
     //     .then((userCredential) => {
-            window.location.href = 'components/homepage.html';  
+            // window.location.href = 'components/homepage.html';  
         // })
         // .catch((error) => {
         //     alert("Invalid email or password");
         // });
-});
+// });
 document.querySelector('.sign-in').addEventListener('click', switchToSignIn);
 document.querySelector('.sign-up').addEventListener('click', switchToSignUp);
 
