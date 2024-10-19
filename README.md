@@ -1,6 +1,6 @@
 # Job-Portal
 
-https://surajsg23.github.io/Job-Portal/
+Click [here](https://surajsg23.github.io/Job-Portal/) to view the website 
 
 Watch Demo: 
 
