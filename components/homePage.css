@@ -8,7 +8,7 @@
 body {
     max-width: 100vw;
     height: 100vh;
-    background-image: url("../assets/homepage.jpg");
+    background-image: url("https://github.com/SurajSG23/Job-Portal/raw/main/assets/homepage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
