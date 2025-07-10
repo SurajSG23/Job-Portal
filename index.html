@@ -21,6 +21,8 @@
 
   <body>
     <div class="logo"></div>
+
+    <!-- Sign-Up Section -->
     <div id="signUpSection" class="sign-section">
       <form>
         <div class="box-sign">
@@ -28,12 +30,12 @@
           <div class="input-group">
             <i class="fa-solid fa-user"></i>
             <input type="text" id="fName" placeholder="Suraj" required />
-            <label for="fname">First name</label>
+            <label for="fName">First name</label>
           </div>
           <div class="input-group">
             <i class="fa-solid fa-user"></i>
             <input type="text" id="lName" placeholder="S G" required />
-            <label for="lname">Last name</label>
+            <label for="lName">Last name</label>
           </div>
           <div class="input-group">
             <i class="fa-solid fa-envelope"></i>
@@ -55,7 +57,7 @@
             />
             <label for="rPassword">Password</label>
           </div>
-          <button class="sign-up-btn">Sign Up</button>
+          <button class="sign-up-btn" type="submit">Sign Up</button>
         </div>
       </form>
       <div class="signy">
@@ -66,7 +68,9 @@
         </div>
       </div>
     </div>
-    <div id="signInSection" class="sign-section-2">
+
+    <!-- Sign-In Section -->
+    <div id="signInSection" class="sign-section-2" style="visibility: hidden">
       <form>
         <div class="box-sign">
           <h2>Login</h2>
@@ -90,7 +94,7 @@
             />
             <label for="password">Password</label>
           </div>
-          <a href="components/homepage.html" class="sign-in-btn">Login</a>
+          <button class="sign-in-btn" type="submit">Login</button>
           <div class="signy">
             <p>----------OR----------</p>
             <div class="links2">
@@ -101,7 +105,6 @@
         </div>
       </form>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
