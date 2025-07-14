@@ -1,30 +1,49 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .logo {
-    position: absolute;
-    background-image: url("assets/logo.png");
-    width: 300px;
-    height: 200px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    left: 20vw;
+  position: absolute;
+  background-image: url("assets/logo.png");
+  width: 300px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: 20vw;
 }
 
 body {
-    max-width: 100vw;
-    height: 100vh;
-    background-image: url("./assets/login-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
+  max-width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/login-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
+.box-sign {
+  position: absolute;
+  border: 3px solid rgba(22, 50, 160, 0.5);
+  backdrop-filter: blur(20px);
+  box-shadow: 5px 5px 10px rgb(115, 115, 255);
+  padding: 20px 30px;
+  right: 10vw;
+  top: 40%;
+  font-size: 20px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 800;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+/* 
 .sign-section {
     display: flex;
     flex-direction: column;
@@ -157,197 +176,205 @@ body {
 .links button:hover,
 .links2 button:hover {
     text-decoration: underline;
+} */
+
+@media (max-width: 1000px) {
+  .logo {
+    left: 32vw;
+  }
+
+  .sign-section,
+  .sign-section-2 {
+    max-width: 55vw;
+    height: 75vh;
+    left: 27vh;
+    top: 20vh;
+    margin-top: 10px;
+  }
+
+  .box-sign {
+    max-width: 35vw;
+  }
+
+  .signy {
+    max-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
 }
 
+@media (max-width: 655px) {
+  .logo {
+    left: 20vw;
+  }
 
-@media (max-width:1000px) {
-    .logo {
-        left: 32vw;
-    }
+  .sign-section,
+  .sign-section-2 {
+    max-width: 85vw;
+    height: 75vh;
+    left: 10vh;
+    top: 20vh;
+    margin-top: 10px;
+  }
 
-    .sign-section,.sign-section-2 {
-        max-width: 55vw;
-        height: 75vh;
-        left: 27vh;
-        top: 20vh;
-        margin-top: 10px;
-    }
+  .box-sign {
+    max-width: 65vw;
+  }
 
-    .box-sign {
-        max-width: 35vw;
-    }
+  .signy {
+    max-width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
 
-    .signy {
-        max-width: 40vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        gap: 20px;
-    }
+  .links,
+  .links2 {
+    gap: 2px;
+  }
 }
 
-@media (max-width:655px) {
-    .logo {
-        left: 20vw;
-    }
+@media (max-width: 430px) {
+  .logo {
+    left: 8vw;
+  }
 
-    .sign-section,.sign-section-2 {
-        max-width: 85vw;
-        height: 75vh;
-        left: 10vh;
-        top: 20vh;
-        margin-top: 10px;
-    }
+  .sign-section,
+  .sign-section-2 {
+    max-width: 85vw;
+    height: 75vh;
+    left: 3vh;
+    top: 20vh;
+    right: 1vh;
+  }
 
-    .box-sign {
-        max-width: 65vw;
-    }
+  .box-sign {
+    max-width: 60vw;
+    left: 0px;
+    margin: 0 10px;
+  }
 
-    .signy {
-        max-width: 50vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        gap: 20px;
-    }
+  .signy {
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
 
-    .links,.links2 {
-        gap: 2px;
-    }
+  .links,
+  .links2 {
+    gap: 3px;
+  }
 }
 
-@media (max-width:430px) {
-    .logo {
-        left: 8vw;
-    }
+@media (max-width: 360px) {
+  .logo {
+    left: 2vw;
+  }
 
-    .sign-section,.sign-section-2 {
-        max-width: 85vw;
-        height: 75vh;
-        left: 3vh;
-        top: 20vh;
-        right: 1vh;
-    }
+  .sign-section,
+  .sign-section-2 {
+    max-width: 85vw;
+    height: 75vh;
+    left: 3vh;
+    top: 20vh;
+    right: 1vh;
+  }
 
-    .box-sign {
-        max-width: 60vw;
-        left: 0px;
-        margin: 0 10px;
-    }
+  .box-sign {
+    max-width: 10vw;
+    left: 0px;
+    margin: 0 10px;
+  }
 
-    .signy {
-        max-width: 70vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        gap: 20px;
-    }
+  .signy {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
 
-    .links,.links2 {
-        gap: 3px;
-    }
+  .links,
+  .links2 {
+    gap: 3px;
+  }
+
+  .input-group input {
+    all: unset;
+    width: 200px;
+    height: 40px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    backdrop-filter: blur(500px);
+    padding-left: 10px;
+  }
 }
 
-@media (max-width:360px) {
-    .logo {
-        left: 2vw;
-    }
+@media (max-width: 300px) {
+  .logo {
+    left: -3vw;
+  }
 
-    .sign-section,.sign-section-2 {
-        max-width: 85vw;
-        height: 75vh;
-        left: 3vh;
-        top: 20vh;
-        right: 1vh;
-    }
+  .sign-section,
+  .sign-section-2 {
+    max-width: 100vw;
+    height: 75vh;
+    left: 3vh;
+    top: 23vh;
+    right: 1vh;
+  }
 
-    .box-sign {
-        max-width: 10vw;
-        left: 0px;
-        margin: 0 10px;
-    }
+  .box-sign {
+    max-width: 10vw;
+    left: 0px;
+    margin: 0 20px;
+  }
 
-    .signy {
-        width: 70vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        gap: 20px;
-    }
+  .signy {
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
 
-    .links,.links2 {
-        gap: 3px;
-    }
+  .links,
+  .links2 {
+    gap: 3px;
+  }
 
-    .input-group input {
-        all: unset;
-        width: 200px;
-        height: 40px;
-        border: 1px solid blue;
-        border-radius: 5px;
-        backdrop-filter: blur(500px);
-        padding-left: 10px;
-    }
-}
+  .input-group input {
+    width: 170px;
+    height: 40px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    backdrop-filter: blur(500px);
+    padding-left: 10px;
+  }
 
-@media (max-width:300px) {
-    .logo {
-        left: -3vw;
-    }
-
-    .sign-section,.sign-section-2 {
-        max-width: 100vw;
-        height: 75vh;
-        left: 3vh;
-        top: 23vh;
-        right: 1vh;
-    }
-
-    .box-sign {
-        max-width: 10vw;
-        left: 0px;
-        margin: 0 20px;
-    }
-
-    .signy {
-        max-width: 70vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        gap: 20px;
-    }
-
-    .links,.links2 {
-        gap: 3px;
-    }
-
-    .input-group input {
-        width: 170px;
-        height: 40px;
-        border: 1px solid blue;
-        border-radius: 5px;
-        backdrop-filter: blur(500px);
-        padding-left: 10px;
-    }
-
-    body {
-        max-width: 100vw;
-        height: 150vh;
-        background-image: url("./assets/login-bg.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        overflow-y: hidden;
-    }
+  body {
+    max-width: 100vw;
+    height: 150vh;
+    background-image: url("./assets/login-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
 }
