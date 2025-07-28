@@ -77,17 +77,6 @@ header img {
     color: white;
 }
 
-/* .selector select{
-    width: 120px ;
-    height: 30px;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 17px;
-    cursor: pointer;
-    background-color: rgb(150, 150, 251);
-    border: 1px solid blue;
-} */
-
 .custom-dropdown {
    background-color: white;
   border: none;
