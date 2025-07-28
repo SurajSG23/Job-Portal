@@ -124,6 +124,31 @@ h1{
     transform: translateX(-3px);
 }
 
+.about-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #1e3a8a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+.about-btn:hover, .about-btn:focus {
+    background: #2746b0;
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.18);
+    text-decoration: none;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px){
     .para{
