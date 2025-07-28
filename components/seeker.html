@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Junction | Seeker</title>
     <link rel="stylesheet" href="../components/seeker.css">
+    <link rel="stylesheet" href="../components/skills.css" />
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -36,10 +37,22 @@
                 <h2>Provide the below details:</h2>
             </div>
             <div>Name: <input type="text" name="name" id="name" class="input"></div>
-            <div>Skills: <input type="text" name="skils" id="skills" class="input"></div>
+
             <div>Years of experience: <input type="number" id="yoe" class="input"></div>
             <div>Contact number: <input type="number" name="number" id="phNo" class="input"></div>
             <div>Email: <input type="email" name="" id="email" class="input"></div>
+            <!-- Skills Input with Tagging -->
+<div class="skill-input-container">
+  <label for="skillInput">Skills:</label>
+  <div id="tag-container"></div>
+  <input
+    type="text"
+    id="skillInput"
+    placeholder="Start typing a skill..."
+    autocomplete="off"
+  />
+  <ul id="suggestions" class="suggestions-list"></ul>
+</div>
             <div class="job-type-apply">Prefered type:
                 <input type="radio" name="job-type" value="Full Time">
                 <h4>Full Time</h4>
@@ -86,6 +99,8 @@
         </div>
     </footer>
     <script src="../components/seeker.js"></script>
+    <script src="../components/skill.js" defer></script>
+
 </body>
 
 </html>
