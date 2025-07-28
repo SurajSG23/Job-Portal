@@ -63,6 +63,7 @@ header img {
 }
 
 .headlinks a,.apply-btn {
+    width: 100%;
     all: unset;
     font-size: 18px;
     cursor: pointer;
