@@ -19,7 +19,7 @@
                     <a href="../components/about.html" target="_blank">About</a>
                     <a href="../components/homepage.html">Home</a>
                 </div>
-                <div class="selector">
+                <!-- <div class="selector">
                     <select name="jobs-type" id="" onchange="filter(value)">
                         <option value="all">All</option>
                         <option value="Full Time">Full Time</option>
@@ -28,7 +28,23 @@
                         <option value="recent">Recently Added</option>
                     </select>
                     <button class="apply-btn">Apply</button>
-               </div>   
+               </div>    -->
+               <div class="selector">
+                  <div class="selector d-flex align-items-center gap-4">
+                 <div class="dropdown">
+                   <button class="btn custom-dropdown-toggle dropdown-toggle" type="button" id="jobDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                   All
+                 </button>
+           <ul class="dropdown-menu custom-dropdown" aria-labelledby="jobDropdown">
+             <li><a class="dropdown-item" href="#" onclick="updateDropdown('All'); filter('all')">All</a></li>
+             <li><a class="dropdown-item" href="#" onclick="updateDropdown('Full Time'); filter('Full Time')">Full Time</a></li>
+             <li><a class="dropdown-item" href="#" onclick="updateDropdown('Part Time'); filter('Part Time')">Part Time</a></li>
+             <li><a class="dropdown-item" href="#" onclick="updateDropdown('Freelancer'); filter('Freelancer')">Freelancer</a></li>
+             <li><a class="dropdown-item" href="#" onclick="updateDropdown('Recently Added'); filter('recent')">Recently Added</a></li>
+           </ul>
+            </div>
+           <button class="apply-btn">Apply</button>
+        </div>
             </div>
         </div>
         <div class="apply">

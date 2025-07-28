@@ -77,7 +77,7 @@ header img {
     color: white;
 }
 
-.selector select{
+/* .selector select{
     width: 120px ;
     height: 30px;
     text-align: center;
@@ -86,6 +86,38 @@ header img {
     cursor: pointer;
     background-color: rgb(150, 150, 251);
     border: 1px solid blue;
+} */
+
+.custom-dropdown {
+   background-color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  min-width: 140px; 
+  z-index: 1000; 
+  margin-top: 2px; 
+}
+
+.custom-dropdown-toggle:hover {
+ background-color: rgb(107, 107, 251);
+  transform: scale(1.1);
+  color: white;
+}
+
+.custom-dropdown .dropdown-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  padding: 8px 10px;
+  border: none; 
+  border-radius: 0;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: rgb(150, 150, 251);
+  color: white;
 }
 
 footer {
