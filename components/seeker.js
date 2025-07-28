@@ -1,3 +1,7 @@
+function updateDropdown(label) {
+  document.getElementById('jobDropdown').textContent = label;
+}
+
 const jlist = [
     {
         img: "../assets/google-logo.png",
