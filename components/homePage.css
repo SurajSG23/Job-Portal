@@ -8,7 +8,7 @@
 body {
     max-width: 100vw;
     height: 100vh;
-    background-image: url("https://github.com/SurajSG23/Job-Portal/raw/main/assets/homepage.jpg");
+    background-image: url("../assets/homepage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -18,8 +18,8 @@ body {
 .logo{
     position: absolute;
     background-image: url("../assets/logo.png");
-    width: 300px;
-    height: 200px;
+    width: 500px;
+    height: 850px;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -34,6 +34,7 @@ body {
     position: relative;
     width: 300px;
     height: 400px;
+    left: 50px;
     border: 1px solid rgb(0, 26, 255);
     border-radius: 10px;
     backdrop-filter: blur(50px);
