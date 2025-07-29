@@ -6,97 +6,128 @@
 }
 
 body {
-  max-width: 100vw;
-  height: 100vh;
-  background-image: url("./assets/login-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f7f9fc 100%);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
-/* Navbar styles */
+
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: #3d55b4;
+  height: 64px;
+  background: rgba(61,85,180,0.95);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 32px;
   z-index: 100;
-  height: 64px;
+  box-shadow: 0 2px 16px rgba(61,85,180,0.08);
+  backdrop-filter: blur(8px);
 }
+
 .nav-logo img {
-  height: 40px;
+  height: 44px;
+  filter: drop-shadow(0 2px 8px #25347a33);
 }
+
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   list-style: none;
   margin: 0;
 }
+
 .nav-links a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
 }
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
 .nav-toggle {
   display: none;
   font-size: 28px;
   cursor: pointer;
 }
 
-/* Main content spacing */
 main {
-  min-height: 80vh;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  background: #f7f9fc;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Hero section */
 .hero {
-  max-width: 700px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(61,85,180,0.10);
+  padding: 64px 40px 48px 40px;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
-  padding: 60px 24px 40px 24px;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(61,85,180,0.08);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  left: -80px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #3d55b4 40%, transparent 70%);
+  opacity: 0.12;
+  z-index: 0;
+}
+
 .hero h1 {
-  font-family: "Poppins", sans-serif;
   font-size: 48px;
   color: #3d55b4;
   text-align: right;
-  margin-bottom: 32px;
-  font-weight: 600;
+  margin-bottom: 36px;
+  font-weight: 700;
   line-height: 1.2;
-}
-.box-sign {
-  background: #3d55b4;
-  color: #fff;
-  padding: 16px 40px;
-  border-radius: 32px;
-  font-size: 22px;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(61,85,180,0.12);
-  transition: background 0.2s;
-}
-.box-sign:hover {
-  background: #25347a;
+  letter-spacing: 1px;
+  z-index: 1;
 }
 
-/* Footer styles */
+.box-sign {
+  background: linear-gradient(90deg, #3d55b4 60%, #5bb8ff 100%);
+  color: #fff;
+  padding: 18px 48px;
+  border-radius: 32px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(61,85,180,0.12);
+  border: none;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 1;
+  text-align: center;
+}
+
+.box-sign:hover {
+  background: linear-gradient(90deg, #25347a 60%, #5bb8ff 100%);
+  transform: scale(1.07);
+}
+
 .footer {
   width: 100%;
   background: #3d55b4;
@@ -108,14 +139,14 @@ main {
   bottom: 0;
   z-index: 99;
   box-shadow: 0 -2px 12px rgba(61,85,180,0.08);
-}
-.footer-content {
-  font-family: "Poppins", sans-serif;
   font-size: 16px;
   letter-spacing: 0.5px;
 }
 
-/* Responsive styles */
+.footer-content {
+  font-family: "Poppins", sans-serif;
+}
+
 @media (max-width: 700px) {
   .nav-links {
     display: none;
@@ -149,57 +180,7 @@ main {
   }
 }
 
-/* Prevent content overlap with fixed navbar and footer */
-body {
-  margin: 0;
-  padding: 0;
-  background: #f7f9fc;
-  font-family: "Poppins", sans-serif;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-/* Bigger Logo at Top Center */
-.logo {
-  background-image: url("assets/logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 360px;  /* increased from 300 */
-  height: 240px; /* increased from 200 */
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-/* Get Started Button - slightly left of far right */
-.box-sign {
-  position: absolute;
-  top: 60%;
-  right: 12vw; /* shifted slightly left */
-  transform: translateY(-50%);
-  border: 3px solid rgba(22, 50, 160, 0.5);
-  backdrop-filter: blur(20px);
-  box-shadow: 5px 5px 10px #DAECFA;
-  padding: 30px 50px;
-  font-size: 24px;
-  border-radius: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: 800;
-  color: white;
-  background-color: #3D55B4;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  text-align: center;
-}
-
-.box-sign:hover {
-  transform: translateY(-50%) scale(1.1);
-  background-color: #0056b3;
-}
-
 /* Forms and Inputs (Optional if hidden) */
-
 .input-group {
   display: flex;
   gap: 10px;
@@ -287,65 +268,36 @@ html {
 }
 
 /* RESPONSIVE MEDIA QUERIES */
-
 @media (max-width: 1000px) {
-  .logo {
-    width: 300px;
-    height: 200px;
+  .hero {
+    padding: 40px 16px 32px 16px;
+    max-width: 90vw;
   }
-
   .box-sign {
-    font-size: 22px;
-    padding: 18px 30px;
-    right: 6vw;
+    font-size: 20px;
+    padding: 14px 28px;
   }
 }
 
 @media (max-width: 655px) {
-  .logo {
-    width: 260px;
-    height: 180px;
+  .hero {
+    padding: 24px 8px 20px 8px;
+    max-width: 98vw;
   }
-
   .box-sign {
-    font-size: 20px;
-    padding: 16px 25px;
-    right: 5vw;
+    font-size: 18px;
+    padding: 12px 18px;
   }
 }
 
 @media (max-width: 430px) {
-  .logo {
-    width: 220px;
-    height: 160px;
+  .hero {
+    padding: 12px 2px 10px 2px;
+    max-width: 100vw;
   }
-
-  .box-sign {
-    font-size: 18px;
-    padding: 14px 20px;
-    right: 4vw;
-  }
-}
-
-@media (max-width: 300px) {
-  .logo {
-    width: 200px;
-    height: 140px;
-  }
-
   .box-sign {
     font-size: 16px;
-    padding: 12px 18px;
-    right: 3vw;
-  }
-
-  .input-group input {
-    width: 170px;
-  }
-
-  body {
-    height: 150vh;
-    overflow-y: hidden;
+    padding: 10px 12px;
   }
 }
 
