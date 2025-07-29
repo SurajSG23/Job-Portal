@@ -16,6 +16,9 @@ body {
   align-items: center;
   position: relative;
 }
+html{
+  scroll-behavior: smooth;
+}
 /* Navbar styles */
 .navbar {
   position: fixed;
