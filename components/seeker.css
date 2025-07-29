@@ -63,6 +63,7 @@ header img {
 }
 
 .headlinks a,.apply-btn {
+    width: 100%;
     all: unset;
     font-size: 18px;
     cursor: pointer;
@@ -81,20 +82,6 @@ header img {
     transform: translateY(-2px);
     color: white;
     box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-}
-
-.selector select{
-    width: 140px;
-    height: 40px;
-    text-align: center;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #1e3a8a;
-    color: #1e3a8a;
-    font-weight: 500;
-    margin-right: 10px;
 }
 
 footer {

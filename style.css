@@ -16,7 +16,103 @@ body {
   align-items: center;
   position: relative;
 }
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #3d55b4;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  height: 64px;
+}
+.nav-logo img {
+  height: 40px;
+}
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+.nav-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
 
+/* Hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 120px 7vw 0 7vw;
+  background: #f7f9fc;
+}
+.hero h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  color: #3d55b4;
+  text-align: right;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+.box-sign {
+  background: #3d55b4;
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 32px;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(61,85,180,0.12);
+  transition: background 0.2s;
+}
+.box-sign:hover {
+  background: #25347a;
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #3d55b4;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100vw;
+    padding: 16px 0;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .hero {
+    align-items: center;
+    padding: 120px 5vw 0 5vw;
+  }
+  .hero h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 /* Bigger Logo at Top Center */
 .logo {
   background-image: url("assets/logo.png");
