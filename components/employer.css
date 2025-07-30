@@ -162,7 +162,7 @@ footer {
 }
 
 .form {
-  position: fixed;
+  position: relative;
   width: 400px;
   height: auto;
   background: rgba(255, 255, 255, 0.95);
@@ -174,9 +174,10 @@ footer {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  left: 20px;
+  margin: 0 auto;
   gap: 20px;
 }
+
 
 .form h3 {
   text-align: center;
