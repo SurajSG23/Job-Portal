@@ -1,3 +1,7 @@
+/*
+  Reminder: Periodically audit and remove unused CSS selectors and rules for optimal performance.
+  Use tools like PurgeCSS, UnCSS, or browser DevTools Coverage tab.
+*/
 * {
     margin: 0;
     padding: 0;
