@@ -116,7 +116,8 @@ Any static server works. With **VS Code**:
 - Follow the style guide, submit a **Pull Request**, and respond to reviews
 
 
-  ## 🧑‍💻 Contribution Workflow
+
+## 🧑‍💻 Contribution Workflow & Community Guidelines
 
 | Step                                                     |
 |----------------------------------------------------------|
@@ -126,6 +127,15 @@ Any static server works. With **VS Code**:
 | Commit: `git commit -m "Add: feature description"`       |
 | Push: `git push origin your-feature-name`                |
 | Open a Pull Request on GitHub                            |
+
+
+### 📜 Code of Conduct
+
+By participating in this project, you agree to abide by our [Code of Conduct](./CODE_OF_CONDUCT.md) to foster a welcoming and respectful community.
+
+### 📝 Issue & PR Templates
+
+Please use the provided GitHub Issue and Pull Request templates to help us triage bugs, review features, and keep contributions consistent.
 
 
 ## 🛣️ Roadmap (Upcoming)
