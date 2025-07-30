@@ -1,80 +1,82 @@
+// Reminder: Periodically audit and remove unused JavaScript code for optimal performance.
+// Use browser DevTools Coverage tab or static analysis tools to find dead code.
 function updateDropdown(label) {
   document.getElementById('jobDropdown').textContent = label;
 }
 
 const jlist = [
     {
-        img: "../assets/google-logo.png",
+        img: "../assets/google-logo.webp",
         position: "Web Developer",
         salary: "$900-1200/m",
         type: "Full Time",
         link: "https://www.google.com/about/careers/applications/"
     },
     {
-        img: "../assets/netflix-logo.png",
+        img: "../assets/netflix-logo.webp",
         position: "Designer",
         salary: "$700-1100/m",
         type: "Part Time",
         link: "https://jobs.netflix.com/"
     },
     {
-        img: "../assets/github-logo.png",
+        img: "../assets/github-logo.webp",
         position: "Open source contributor",
         salary: "$900-1200/m",
         type: "Freelancer",
         link: "https://www.github.careers/careers-home"
     },
     {
-        img: "../assets/amazon-logo.png",
+        img: "../assets/amazon-logo.webp",
         position: "Customer Service",
         salary: "$600-900/m",
         type: "Full time",
         link: "https://www.amazon.jobs/en/"
     },
     {
-        img: "../assets/apple-logo.png",
+        img: "../assets/apple-logo.webp",
         position: "Front End Developer",
         salary: "$700-1400/m",
         type: "Part Time",
         link: "https://www.apple.com/careers/in/"
     },
     {
-        img: "../assets/meta-logo.png",
+        img: "../assets/meta-logo.webp",
         position: "Designer",
         salary: "$500-1200/m",
         type: "Part Time",
         link: "https://www.metacareers.com/jobs"
     },
     {
-        img: "../assets/linkedin-logo.png",
+        img: "../assets/linkedin-logo.webp",
         position: "Human Resource",
         salary: "$400-900/m",
         type: "Part Time",
         link: "https://www.linkedin.com/jobs/"
     },
     {
-        img: "../assets/samsung-logo.png",
+        img: "../assets/samsung-logo.webp",
         position: "Back-end Developer",
         salary: "$1100-1700/m",
         type: "Freelancer",
         link: "https://www.samsung.com/in/about-us/careers/?srsltid=AfmBOooetR8lgJbiBWWHc3NO0CRxOUE-8ornVLq-Q2I4ZnpIXxCHqjOK"
     },
     {
-        img: "../assets/udemy-logo.png",
+        img: "../assets/udemy-logo.webp",
         position: "Teacher/Professor",
         salary: "$500-1200/m",
         type: "Full time",
         link: "https://about.udemy.com/careers/"
     },
     {
-        img: "../assets/ChatGPT-logo.png",
+        img: "../assets/ChatGPT-logo.webp",
         position: "AI Engineer",
         salary: "$1200-1600/m",
         type: "Part Time",
         link: "https://openai.com/careers/"
     },
     {
-        img: "../assets/insta-logo.png",
+        img: "../assets/insta-logo.webp",
         position: "Content Creator",
         salary: "$200-600/m",
         type: "Freelancer",
@@ -134,6 +136,34 @@ const filter = (value) => {
         }
 
 };
+function searchandfilterInput(){
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const salary = document.getElementById('salaryFilter').value.toLowerCase();
+
+    const filteredJobs = jlist.filter(job => {
+    const minSalary = parseInt(job.salary.replace(/[^0-9\-]/g, '').split('-')[0]);
+    const matchesQuery = job.position.toLowerCase().includes(query);
+    const matchesSalary = !salary || minSalary >= parseInt(salary);
+    return matchesQuery && matchesSalary;
+    });
+
+    jobsContainer.innerHTML = '';
+    for (const job of filteredJobs) {
+        jobsContainer.innerHTML += `
+        <a href="${job.link}" class="job-links" target="_blank">
+            <div class="jList">
+                <img src="${job.img}" alt="">
+                <h3>${job.position}</h3>
+                <p>${job.salary}</p>
+                <div class="type">
+                    <p>${job.type}</p>
+                </div>
+            </div>
+        </a>`;
+    }
+}
+document.getElementById('searchInput').addEventListener('input', searchandfilterInput);
+document.getElementById('salaryFilter').addEventListener('change', searchandfilterInput);
 
 document.getElementsByClassName("apply-btn")[0].addEventListener("click", () => {
     document.getElementsByClassName("apply")[0].style.visibility = "visible"

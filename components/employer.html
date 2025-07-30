@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "logo": "../assets/logo.webp",
+      "sameAs": [
+        "https://github.com/SurajSG23/Job-Portal"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Junction | Employer</title>
+    <meta name="description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
+    <meta name="keywords" content="employer, job portal, post jobs, manage applications, hire, HTML, CSS, JavaScript, Firebase" />
+    <meta name="author" content="Job Junction Team" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Job Junction | Employer" />
+    <meta property="og:description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
+    <meta property="og:image" content="../assets/logo.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/employer.html" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Job Junction | Employer" />
+    <meta name="twitter:description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
+    <meta name="twitter:image" content="../assets/logo.webp" />
+    <!-- For development: -->
     <link rel="stylesheet" href="../components/employer.css" />
-    <link
-      rel="shortcut icon"
-      href="../assets/favicon.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <!-- For production, use minified: -->
+    <!-- <link rel="stylesheet" href="../components/employer.min.css" /> -->
+    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   </head>
 
   <body>
     <header>
       <div class="headContainer">
-        <img src="../assets/logo.png" alt="logo" />
+        <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
         <div class="headlinks">
           <a href="about.html" target="_blank">About</a>
           <a href="homepage.html">Home</a>

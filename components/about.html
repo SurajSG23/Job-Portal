@@ -2,17 +2,60 @@
 <html lang="en">
 
 <head>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "logo": "../assets/logo.webp",
+      "sameAs": [
+        "https://github.com/SurajSG23/Job-Portal"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Junction | About</title>
-    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <meta name="description" content="Learn more about Job Junction, a modern job portal connecting seekers and employers. Discover our mission and features." />
+    <meta name="keywords" content="about, job portal, job search, careers, employment, HTML, CSS, JavaScript, Firebase" />
+    <meta name="author" content="Job Junction Team" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Job Junction | About" />
+    <meta property="og:description" content="Learn more about Job Junction, a modern job portal connecting seekers and employers." />
+    <meta property="og:image" content="../assets/logo.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/about.html" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Job Junction | About" />
+    <meta name="twitter:description" content="Learn more about Job Junction, a modern job portal connecting seekers and employers." />
+    <meta name="twitter:image" content="../assets/logo.webp" />
+    <!-- For development: -->
     <link rel="stylesheet" href="about.css">
+    <!-- For production, use minified: -->
+    <!-- <link rel="stylesheet" href="about.min.css" /> -->
+    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
 </head>
 
 <body>
     <header>
         <div class="headContainer">
-            <img src="../assets/logo.png" alt="logo" />
+            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
             <!-- <div class="headlinks">
                 <a href="about.html" target="_blank">About</a>
                 <a href="homepage.html">Home</a>

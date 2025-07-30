@@ -1,3 +1,10 @@
+## 🧹 Code Cleanliness & Performance
+
+To keep Job Junction fast and maintainable:
+- Periodically audit and remove unused CSS and JavaScript code.
+- Use tools like PurgeCSS, UnCSS, or browser DevTools Coverage tab to find dead code.
+- Minify assets for production (see minified files in the repo).
+
 # 💼 Job Junction
 
 **Job Junction** is a responsive and modern job portal web application built with HTML, CSS, and JavaScript. It provides a clean interface for users to explore job opportunities. The project is currently under development as part of open-source contributions in the GirlScript Summer of Code (GSSoC).
@@ -54,10 +61,10 @@ Client (Browser) ─────────────────────
 
 | Page               | Preview                                                   |
 |--------------------|-----------------------------------------------------------|
-| Landing Page       | ![Landing](./assets/screenshots/landing-page.png)         |
-| User Role Selector | ![User Role](./assets/screenshots/user-role.png)          |
-| Seeker Dashboard   | ![Seeker](./assets/screenshots/seeker-dashboard.png)      |
-| Employer Dashboard | ![Employer](./assets/screenshots/employer-dashboard.png)  |
+| Landing Page       | ![Landing](./assets/screenshots/landing-page.webp)         |
+| User Role Selector | ![User Role](./assets/screenshots/user-role.webp)          |
+| Seeker Dashboard   | ![Seeker](./assets/screenshots/seeker-dashboard.webp)      |
+| Employer Dashboard | ![Employer](./assets/screenshots/employer-dashboard.webp)  |
 
 
 
@@ -109,7 +116,8 @@ Any static server works. With **VS Code**:
 - Follow the style guide, submit a **Pull Request**, and respond to reviews
 
 
-  ## 🧑‍💻 Contribution Workflow
+
+## 🧑‍💻 Contribution Workflow & Community Guidelines
 
 | Step                                                     |
 |----------------------------------------------------------|
@@ -119,6 +127,15 @@ Any static server works. With **VS Code**:
 | Commit: `git commit -m "Add: feature description"`       |
 | Push: `git push origin your-feature-name`                |
 | Open a Pull Request on GitHub                            |
+
+
+### 📜 Code of Conduct
+
+By participating in this project, you agree to abide by our [Code of Conduct](./CODE_OF_CONDUCT.md) to foster a welcoming and respectful community.
+
+### 📝 Issue & PR Templates
+
+Please use the provided GitHub Issue and Pull Request templates to help us triage bugs, review features, and keep contributions consistent.
 
 
 ## 🛣️ Roadmap (Upcoming)
