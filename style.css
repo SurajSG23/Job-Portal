@@ -127,20 +127,20 @@ html {
   margin-top: 20px;
   margin-bottom: 40px;
 }
+ 
+  .box-sign {
+  position: fixed;          /* stays on screen while scrolling */
+  top: 50%;                 /* center vertically */
+  right: 20px;              /* 20px from right edge */
+  transform: translateY(-50%);  /* adjust to exact middle */
 
-/* Get Started Button - slightly left of far right */
-.box-sign {
-  position: absolute;
-  top: 60%;
-  right: 12vw; /* shifted slightly left */
-  transform: translateY(-50%);
   border: 3px solid rgba(22, 50, 160, 0.5);
   backdrop-filter: blur(20px);
   box-shadow: 5px 5px 10px #DAECFA;
   padding: 30px 50px;
   font-size: 24px;
   border-radius: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
   font-weight: 800;
   color: white;
   background-color: #3D55B4;
@@ -153,6 +153,8 @@ html {
   transform: translateY(-50%) scale(1.1);
   background-color: #0056b3;
 }
+ 
+
 
 /* Forms and Inputs (Optional if hidden) */
 
