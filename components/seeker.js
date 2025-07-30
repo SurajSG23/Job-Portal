@@ -134,6 +134,34 @@ const filter = (value) => {
         }
 
 };
+function searchandfilterInput(){
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const salary = document.getElementById('salaryFilter').value.toLowerCase();
+
+    const filteredJobs = jlist.filter(job => {
+    const minSalary = parseInt(job.salary.replace(/[^0-9\-]/g, '').split('-')[0]);
+    const matchesQuery = job.position.toLowerCase().includes(query);
+    const matchesSalary = !salary || minSalary >= parseInt(salary);
+    return matchesQuery && matchesSalary;
+    });
+
+    jobsContainer.innerHTML = '';
+    for (const job of filteredJobs) {
+        jobsContainer.innerHTML += `
+        <a href="${job.link}" class="job-links" target="_blank">
+            <div class="jList">
+                <img src="${job.img}" alt="">
+                <h3>${job.position}</h3>
+                <p>${job.salary}</p>
+                <div class="type">
+                    <p>${job.type}</p>
+                </div>
+            </div>
+        </a>`;
+    }
+}
+document.getElementById('searchInput').addEventListener('input', searchandfilterInput);
+document.getElementById('salaryFilter').addEventListener('change', searchandfilterInput);
 
 document.getElementsByClassName("apply-btn")[0].addEventListener("click", () => {
     document.getElementsByClassName("apply")[0].style.visibility = "visible"
