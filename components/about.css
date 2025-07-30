@@ -49,6 +49,7 @@ h1{
 }
 
 .para{
+    transition: all 0.3s ease;
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
@@ -58,6 +59,13 @@ h1{
     padding: 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.para:hover {
+  transform: translateY(-8px); /* subtle lift on hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* stronger shadow */
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .para p{
