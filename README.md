@@ -1,3 +1,10 @@
+## 🧹 Code Cleanliness & Performance
+
+To keep Job Junction fast and maintainable:
+- Periodically audit and remove unused CSS and JavaScript code.
+- Use tools like PurgeCSS, UnCSS, or browser DevTools Coverage tab to find dead code.
+- Minify assets for production (see minified files in the repo).
+
 # 💼 Job Junction
 
 **Job Junction** is a responsive and modern job portal web application built with HTML, CSS, and JavaScript. It provides a clean interface for users to explore job opportunities. The project is currently under development as part of open-source contributions in the GirlScript Summer of Code (GSSoC).
@@ -54,10 +61,10 @@ Client (Browser) ─────────────────────
 
 | Page               | Preview                                                   |
 |--------------------|-----------------------------------------------------------|
-| Landing Page       | ![Landing](./assets/screenshots/landing-page.png)         |
-| User Role Selector | ![User Role](./assets/screenshots/user-role.png)          |
-| Seeker Dashboard   | ![Seeker](./assets/screenshots/seeker-dashboard.png)      |
-| Employer Dashboard | ![Employer](./assets/screenshots/employer-dashboard.png)  |
+| Landing Page       | ![Landing](./assets/screenshots/landing-page.webp)         |
+| User Role Selector | ![User Role](./assets/screenshots/user-role.webp)          |
+| Seeker Dashboard   | ![Seeker](./assets/screenshots/seeker-dashboard.webp)      |
+| Employer Dashboard | ![Employer](./assets/screenshots/employer-dashboard.webp)  |
 
 
 

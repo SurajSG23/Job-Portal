@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "logo": "assets/logo.webp",
+      "sameAs": [
+        "https://github.com/SurajSG23/Job-Portal"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Junction</title>
+    <title>Job Junction | Modern Job Portal</title>
+    <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career. Built with HTML, CSS, JavaScript, and Firebase." />
+    <meta name="keywords" content="job portal, job search, careers, employment, HTML, CSS, JavaScript, Firebase" />
+    <meta name="author" content="Job Junction Team" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Job Junction | Modern Job Portal" />
+    <meta property="og:description" content="Explore job opportunities and start your career with Job Junction." />
+    <meta property="og:image" content="assets/logo.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Job Junction | Modern Job Portal" />
+    <meta name="twitter:description" content="Explore job opportunities and start your career with Job Junction." />
+    <meta name="twitter:image" content="assets/logo.webp" />
+    <!-- For development: -->
     <link rel="stylesheet" href="style.css" />
+    <!-- For production, use minified: -->
+    <!-- <link rel="stylesheet" href="style.min.css" /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -15,14 +58,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
     <script type="module" src="components/firebaseauth.js"></script>
-  
   </head>
 <body>
   <nav class="navbar">
     <div class="nav-logo">
-      <img src="assets/logo.png" alt="Job Junction" />
+      <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
     </div>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
@@ -48,6 +90,10 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- For development: -->
+  <script src="script.js"></script>
+  <!-- For production, use minified: -->
+  <!-- <script src="script.min.js"></script> -->
   <script>
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');

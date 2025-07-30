@@ -2,19 +2,63 @@
 <html lang="en">
 
 <head>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "logo": "../assets/logo.webp",
+      "sameAs": [
+        "https://github.com/SurajSG23/Job-Portal"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Junction | Seeker</title>
+    <meta name="description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
+    <meta name="keywords" content="seeker, job portal, find jobs, apply, careers, HTML, CSS, JavaScript, Firebase" />
+    <meta name="author" content="Job Junction Team" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Job Junction | Seeker" />
+    <meta property="og:description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
+    <meta property="og:image" content="../assets/logo.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/seeker.html" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Job Junction | Seeker" />
+    <meta name="twitter:description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
+    <meta name="twitter:image" content="../assets/logo.webp" />
+    <!-- For development: -->
     <link rel="stylesheet" href="../components/seeker.css">
     <link rel="stylesheet" href="../components/skills.css" />
-    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <!-- For production, use minified: -->
+    <!-- <link rel="stylesheet" href="../components/seeker.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../components/skills.min.css" /> -->
+    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <header>
         <div class="headContainer">
-            <img src="../assets/logo.png" alt="logo">
+            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy">
             <div class="headlinks">
                 <div>
                     <a href="../components/about.html" target="_blank">About</a>
