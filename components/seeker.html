@@ -61,7 +61,7 @@
             <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy">
             <div class="headlinks">
                 <div>
-                    <a href="../components/about.html" target="_blank">About</a>
+                    <a href="../components/about.html" target="_self">About</a>
                     <a href="../components/homepage.html">Home</a>
                 </div>
                 <div class="selector">
@@ -118,6 +118,15 @@
             <h2>Jobs In Demand</h2>
             <p>Most viewed and all-time-top-selling servies</p>
         </div>
+        <div class="search-filter-container">
+        <input type="text" id="searchInput" class="search-bar" placeholder="Search by position..." />
+        <select id="salaryFilter" class="filter-dropdown">
+          <option value="">All Salaries</option>
+          <option value="500">$500+/m</option>
+          <option value="900">$900+/m</option>
+          <option value="1200">$1200+/m</option>
+        </select>
+      </div>
         <div class="jobs-container">
 
         </div>
