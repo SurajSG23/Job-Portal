@@ -131,8 +131,8 @@ footer {
 }
 
 .footlinks a {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-top: 4px;
 }
 
@@ -221,6 +221,8 @@ footer {
     margin-top: 20px;
     margin-bottom: 40px;
     padding: 20px;
+    padding-bottom: 100px;
+
 }
 
 /* JOB CARD STYLING */
@@ -473,6 +475,8 @@ footer {
         max-width: 95vw;
         gap: 20px;
         padding: 15px;
+        padding-bottom: 100px;
+
     }
     
     .jList {
