@@ -149,18 +149,47 @@ main {
 
 @media (max-width: 700px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #3d55b4;
-    position: absolute;
-    top: 64px;
+    display: none;                /* hide nav links by default */
+    flex-direction: column;      /* stack links vertically */
+    background-color: #3d55b4;   /* navbar bg color */
+    position: absolute;          /* position dropdown */
+    top: 64px;                   /* below navbar */
     right: 0;
-    width: 100vw;
+    width: 100%;                 /* full width (use % instead of vw) */
     padding: 16px 0;
+    text-align: center;          /* center text */
+    z-index: 100;                /* above other content */
+    transition: all 0.3s ease;   /* smooth toggle */
   }
+
+  .nav-links.active {
+    display: flex;               /* show nav links on toggle */
+  }
+
   .nav-toggle {
     display: block;
+    z-index: 200;                
   }
+
+  .navbar {
+    flex-wrap: wrap;             /* allow wrapping on small screens */
+    align-items: center;
+  }
+
+  .nav-logo img {
+    height: 40px;                /* smaller logo on mobile */
+  }
+
+  main {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+  .footer {
+    padding: 24px 0 12px 0;
+    font-size: 14px;
+  }
+}
+
   .hero {
     align-items: center;
     padding: 40px 8vw 32px 8vw;
@@ -178,7 +207,7 @@ main {
     padding: 24px 0 12px 0;
     font-size: 14px;
   }
-}
+
 
 /* Forms and Inputs (Optional if hidden) */
 .input-group {
