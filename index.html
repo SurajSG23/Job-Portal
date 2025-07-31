@@ -71,6 +71,9 @@
       <li><a href="./components/about.html">About</a></li>
     </ul>
     <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+
+    <button id="darkModeToggle" class="dark-toggle">🌙</button>
+
   </nav>
 
   <main>
@@ -95,13 +98,36 @@
   <!-- For production, use minified: -->
   <!-- <script src="script.min.js"></script> -->
 <script>
+  
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
 
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
+
+  
+  const toggleButton = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggleButton.textContent = "☀️";
+  }
+
+  toggleButton.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      toggleButton.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggleButton.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
 </script>
+
 
 </body>
 </html>
