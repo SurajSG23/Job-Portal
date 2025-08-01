@@ -385,3 +385,17 @@ body.dark-mode .footer {
   cursor: pointer;
   margin-left: 16px;
 }
+
+main {
+  padding: 32px 16px;
+}
+
+section {
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+.hero {
+  padding: 48px 16px 32px 16px;
+  margin-bottom: 48px;
+}
