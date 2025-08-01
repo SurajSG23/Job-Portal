@@ -14,7 +14,7 @@
         "https://github.com/SurajSG23/Job-Portal"
       ]
     }
-    </script>
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,7 +27,7 @@
         "query-input": "required name=search_term_string"
       }
     }
-    </script>
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Junction | Employer</title>
@@ -71,45 +71,45 @@
       <button class="cleary" onclick="{clearReqs()}">Clear</button>
     </div>
   </header>
+
   <hr />
+
   <div class="body2">
-  <div class="form">
-    <h3>Provide Job Description</h3>
-    
-    <form id="jobForm">
-      <input type="text" class="input" id="company" placeholder="Your Company Name" />
-      <span id="companyError" class="error"></span>
+    <div class="form">
+      <h3>Provide Job Description</h3>
+      <form id="jobForm">
+        <input type="text" class="input" id="company" placeholder="Your Company Name" />
+        <span id="companyError" class="error"></span>
 
-      <input type="text" class="input" id="position" placeholder="Position" />
-      <span id="positionError" class="error"></span>
+        <input type="text" class="input" id="position" placeholder="Position" />
+        <span id="positionError" class="error"></span>
 
-      <input type="number" class="input" id="salary" placeholder="Average Salary in Dollars" />
-      <span id="salaryError" class="error"></span>
+        <input type="number" class="input" id="salary" placeholder="Average Salary in Dollars" />
+        <span id="salaryError" class="error"></span>
 
-      <div class="job-type">
-        <input type="radio" name="job-type" value="Full Time" />
-        <h4>Full Time</h4>
-        <input type="radio" name="job-type" value="Part Time" />
-        <h4>Part Time</h4>
-        <input type="radio" name="job-type" value="Freelancing" />
-        <h4>Freelancing</h4>
-      </div>
-      <span id="jobTypeError" class="error"></span>
+        <div class="job-type">
+          <input type="radio" name="job-type" value="Full Time" />
+          <h4>Full Time</h4>
+          <input type="radio" name="job-type" value="Part Time" />
+          <h4>Part Time</h4>
+          <input type="radio" name="job-type" value="Freelancing" />
+          <h4>Freelancing</h4>
+        </div>
+        <span id="jobTypeError" class="error"></span>
 
-      <button type="button" onclick="submitform()">Submit</button>
-      <button type="button" onclick="clearJobs()">Clear</button>
-    </form>
-
+        <button type="button" onclick="submitform()">Submit</button>
+        <button type="button" onclick="clearJobs()">Clear</button>
+      </form>
+    </div>
   </div>
-</div>
 
   <div class="submittedform"></div>
-  </div>
+
   <footer>
     <hr />
     <div class="footContainer">
       <div>
-        <h4>CopyRigth &copy; 2024 Job Junction | All Rights Reserved</h4>
+        <h4>Copyright &copy; 2024 Job Junction | All Rights Reserved</h4>
       </div>
       <div class="footlinks">
         <a href="https://www.instagram.com/suraj_sg23/" target="_blank">
@@ -124,6 +124,7 @@
       </div>
     </div>
   </footer>
+
   <script src="employer.js"></script>
 </body>
 
