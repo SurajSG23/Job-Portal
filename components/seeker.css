@@ -1,3 +1,7 @@
+/*
+  Reminder: Periodically audit and remove unused CSS selectors and rules for optimal performance.
+  Use tools like PurgeCSS, UnCSS, or browser DevTools Coverage tab.
+*/
 * {
     margin: 0;
     padding: 0;
@@ -47,6 +51,30 @@ header img {
     height: auto;
 }
 
+.job-btn {
+    height: 2.3rem;
+    width: 6.5rem;
+    text-align: center;
+    margin-left: 0rem;
+    margin-right: 1rem;
+    /* padding: 8px 16px; */
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #1e3a8a;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #1e3a8a;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.job-btn:hover {
+    /* background: #1e3a8a; */
+    /* transform: translateY(-2px); */
+    /* color: white; */
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
 .headContainer {
     display: flex;
     align-items: center;
@@ -84,6 +112,27 @@ header img {
     box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
+#dropdown{
+    padding: 6px;
+    font-size: .8rem;
+    border-radius: 8px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 2px solid rgb(159, 198, 224);
+    transition: all 0.5s ease;
+}
+
+#dropdown:focus{
+    border: 1px solid rgb(198, 225, 243);
+    outline: none;
+}
+
+#dropdown:hover{
+    background-color: rgb(226, 248, 255);
+    box-shadow: 0px 2px 5px rgb(74, 183, 216);
+
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -106,8 +155,8 @@ footer {
 }
 
 .footlinks a {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-top: 4px;
 }
 
@@ -196,6 +245,8 @@ footer {
     margin-top: 20px;
     margin-bottom: 40px;
     padding: 20px;
+    padding-bottom: 100px;
+
 }
 
 /* JOB CARD STYLING */
@@ -448,6 +499,8 @@ footer {
         max-width: 95vw;
         gap: 20px;
         padding: 15px;
+        padding-bottom: 100px;
+
     }
     
     .jList {
@@ -549,4 +602,85 @@ footer {
         position: static;
         margin-top: 8px;
     }
+}
+.search-filter-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-bar {
+    padding: 12px 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    width: 250px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar::placeholder {
+    color: #999;
+}
+
+.search-bar:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+.filter-dropdown {
+    padding: 12px 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%233b82f6'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 1em;
+    padding-right: 36px;
+}
+
+.filter-dropdown:hover {
+    border-color: #b3d9ff;
+}
+
+.filter-dropdown:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.clear-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s ease;
+    display: none;
+}
+
+.clear-search:hover {
+    color: #333;
 }

@@ -1,2 +1,40 @@
+# Ignore environment files
 .env
+.env.*
+
+# Ignore sensitive JS config
 components/firebaseauth.js
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
+
+# OS generated files
+*.swp
+*.swo
+
+# Temp files
+temp/
+
+# Firebase local emulators
+.firebase/
+
+# Misc
+*.bak
+*.tmp
+
+# Ignore screenshots if not needed in repo
+# assets/screenshots/

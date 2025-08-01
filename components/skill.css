@@ -1,0 +1,83 @@
+/* skill.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 40px;
+}
+
+.skill-input-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#tag-container {
+  display: flex;
+  cursor: default;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  min-height: 50px;
+  margin-top: 4px;
+
+}
+
+.tag {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tag .remove-tag {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 4px;
+}
+
+#skillInput {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  max-height: 160px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  background: white;
+  border-top: none;
+  pointer-events: auto !important;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  font-size: 15px;
+ cursor: pointer !important; /* Force cursor change */
+  user-select: none;
+    pointer-events: auto;
+  background-color: white;
+
+}
+
+.suggestions-list li:hover {
+  background-color: #f1f1f1;
+}

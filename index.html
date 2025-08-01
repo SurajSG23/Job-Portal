@@ -62,6 +62,7 @@
     <script type="module" src="components/firebaseauth.js"></script>
   </head>
 <body>
+  <header>
   <nav class="navbar">
     <div class="nav-logo">
       <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
@@ -74,8 +75,6 @@
       <i id="theme-icon" class="fa fa-moon"></i>
     </button>
     <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-  </nav>
-
   <div class="headlinks">
     <a href="about.html" target="_blank">About</a>
     <a href="homepage.html">Home</a>
@@ -84,7 +83,10 @@
       <i id="theme-icon" class="fa fa-moon"></i>
     </button>
   </div>
+    <button id="darkModeToggle" class="dark-toggle">🌙</button>
 
+  </nav>
+</header>
   <main>
     <section class="hero">
       <h1>Don't just search.<br>Start your career!</h1>
@@ -96,9 +98,9 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-content">
+   <section>
       <p>&copy; 2025 Job Junction. All rights reserved.</p>
-    </div>
+    </section>
   </footer>
 
   <!-- Add theme toggle button -->
@@ -166,6 +168,36 @@ body.dark {
     setTheme(isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   };
+</script>
+<script>
+  
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  
+  const toggleButton = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggleButton.textContent = "☀️";
+  }
+
+  toggleButton.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      toggleButton.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggleButton.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
 </script>
 </body>
 </html>

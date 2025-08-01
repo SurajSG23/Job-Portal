@@ -52,6 +52,18 @@ header img {
   height: auto;
 }
 
+h3 {
+  z-index: 1;
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-bottom: 10px;
+  display: block;
+}
+
 .headContainer {
   display: flex;
   align-items: center;
@@ -111,6 +123,12 @@ footer {
   top: 0;
 }
 
+#company {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
 .footContainer {
   display: flex;
   align-items: center;
@@ -153,7 +171,7 @@ footer {
   color: black;
 }
 
-.body2 {
+/* .body2 {
   width: 100%;
   min-height: calc(100vh - 23vh);
   flex: 1;
@@ -163,8 +181,16 @@ footer {
   justify-content: center;
   gap: 40px;
   padding: 40px 20px;
-}
+} */
 
+.body2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
 .form-wrapper {
   display: flex;
   justify-content: center;
@@ -273,14 +299,16 @@ button:hover {
   box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
 }
 
-.submittedform {
+/* .submittedform {
   position: absolute;
-  right: 50px;
+  right: unset;
   flex: 1;
-  min-width: 800px;
-  height: 70vh;
+  min-width: 500px;
+  margin-left: 20px;
+  height: auto;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
   cursor: pointer;
   overflow-y: auto;
   padding: 0 20px;
@@ -291,13 +319,26 @@ button:hover {
   box-shadow: 0 4px 16px rgba(61, 85, 180, 0.08);
   padding: 24px;
   margin-left: 16px;
+} */
+
+.submittedform {
+  position: relative;
+  right: unset;
+  flex: 1;
+  margin-left: 20px;
+  min-width: 600px;
+  height: auto;
+  pointer-events: none;
 }
+
 
 .forminfo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 60%;
+  float: right;
+  
   min-height: 120px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
