@@ -51,6 +51,30 @@ header img {
     height: auto;
 }
 
+.footer {
+  width: 100%;
+  height: 4rem;
+  background: #3d55b4;
+  color: #fff;
+  text-align: center;
+  /* padding: 23px 0 18px 0; */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  box-shadow: 0 -2px 12px rgba(61,85,180,0.08);
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+.footer-content {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  margin-left: 29.5rem;
+}
+
 .headContainer {
     display: flex;
     align-items: center;
@@ -106,6 +130,7 @@ footer {
 .footlinks {
     display: flex;
     align-items: center;
+    float: right;
     gap: 20px;
 }
 
