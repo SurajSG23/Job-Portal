@@ -68,45 +68,7 @@
     </header>
     <hr />
     <div class="body2">
-      <div class="form-wrapper">
-        <div class="form">
-          <h3>Provide Job Description</h3>
-          <input
-            type="text"
-            class="input"
-            id="company"
-            placeholder="Your Company Name"
-          />
-          <input type="text" class="input" id="position" placeholder="Position" />
-          <input
-            type="number"
-            class="input"
-            id="salary"
-            placeholder="Average Salary in Dollars"
-          />
-          <div class="job-type">
-            <input type="radio" name="job-type" value="Full Time" />
-            <h4>Full Time</h4>
-            <input type="radio" name="job-type" value="Part Time" />
-            <h4>Part Time</h4>
-            <input type="radio" name="job-type" value="Freelancing" />
-            <h4>Freelancing</h4>
-          </div>
-          <button onclick="{submitform()}">Submit</button>
-          <button onclick="{clearJobs()}">Clear</button>
-        </div>
-        <div class="submittedform"></div>
-      </div>
-    </div>
-    <div class="requests-container">
-      <button class="closy">Close</button>
-      <button class="cleary" onclick="{clearReqs()}">Clear</button>
-    </div>
-  </header>
-
-  <hr />
-
-  <div class="body2">
+  <div class="form-wrapper">
     <div class="form">
       <h3>Provide Job Description</h3>
       <form id="jobForm">
@@ -116,24 +78,25 @@
         <input type="text" class="input" id="position" placeholder="Position" />
         <span id="positionError" class="error"></span>
 
-        <input type="number" class="input" id="salary" placeholder="Average Salary in Dollars" />
+        <input type="number" class="input" id="salary" placeholder="Average Salary in USD" />
         <span id="salaryError" class="error"></span>
 
         <div class="job-type">
-          <input type="radio" name="job-type" value="Full Time" />
-          <h4>Full Time</h4>
-          <input type="radio" name="job-type" value="Part Time" />
-          <h4>Part Time</h4>
-          <input type="radio" name="job-type" value="Freelancing" />
-          <h4>Freelancing</h4>
+          <label><input type="radio" name="job-type" value="Full Time" /> Full Time</label>
+          <label><input type="radio" name="job-type" value="Part Time" /> Part Time</label>
+          <label><input type="radio" name="job-type" value="Freelancing" /> Freelancing</label>
         </div>
         <span id="jobTypeError" class="error"></span>
 
-        <button type="button" onclick="submitform()">Submit</button>
-        <button type="button" onclick="clearJobs()">Clear</button>
+        <div class="form-buttons">
+          <button type="button" onclick="submitform()">Submit</button>
+          <button type="button" onclick="clearJobs()">Clear</button>
+        </div>
       </form>
     </div>
-  <div class="submittedform"></div>
+  </div>
+</div>
+
 
   <footer class="footer">
     <hr />
