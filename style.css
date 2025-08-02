@@ -404,3 +404,20 @@ section {
   color: #666;
   margin: 20px 0;
 }
+
+button:hover,
+.req:hover,
+.box-sign:hover {
+  background-color: #5bb8ff; 
+  color: white;
+  transform: scale(1.05); 
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+a:hover {
+  color: #3d55b4; 
+  text-decoration: underline; 
+  transition: color 0.2s ease;
+}
