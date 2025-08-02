@@ -26,6 +26,11 @@ body {
   overflow-x: hidden;
   color: var(--text);
   font-family: "Poppins", sans-serif;
+
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -144,13 +149,25 @@ body.dark {
 }
 
 main {
-  padding-top: 96px;
+  /* padding-top: 96px;
   padding-bottom: 96px;
   min-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+
+  padding-top: 96px;
+  padding-bottom: 96px;
+  min-height: calc(100vh - 160px); /* Ensures full height minus header/footer */
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* Adds space between children */
+  align-items: center;
+  justify-content: flex-start; /* Aligns children from top */
+  text-align: center; /* Centers text for headings/paragraphs */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero {
@@ -212,7 +229,7 @@ main {
   transform: scale(1.07);
 }
 
-.footer {
+/* .footer {
   width: 100%;
   background: #3d55b4;
   color: #fff;
@@ -225,6 +242,13 @@ main {
   box-shadow: 0 -2px 12px rgba(61,85,180,0.08);
   font-size: 16px;
   letter-spacing: 0.5px;
+} */
+
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 0px 0;
 }
 
 .footer-content {
@@ -470,9 +494,9 @@ body.dark-mode .footer {
   margin-left: 16px;
 }
 
-main {
+/* main {
   padding: 32px 16px;
-}
+} */
 
 section {
   padding: 16px;
