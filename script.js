@@ -3,10 +3,10 @@ function Redirect(){
 }
 
 let jobCount = 0;
-const limit = 5; 
+const limit = 5; // Number of jobs per scroll
 const jobList = document.getElementById("job-list");
 const loader = document.getElementById("loader");
-
+ 
 function generateJobCard(index) {
   return `
     <div class="job-card">
@@ -15,6 +15,7 @@ function generateJobCard(index) {
       <p>Description for job ${index + 1}</p>
     </div>`;
 }
+
 
 function loadJobs() {
   loader.style.display = "block";
@@ -35,3 +36,19 @@ window.addEventListener("scroll", () => {
     loadJobs();
   }
 });
+
+  let mybutton = document.getElementById("backToTopBtn");
+
+  
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  };
+
+  mybutton.onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
