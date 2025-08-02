@@ -31,9 +31,6 @@ body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background: var(--bg);
   color: var(--text);
   font-family: "Poppins", sans-serif;
@@ -331,7 +328,6 @@ button:hover {
   pointer-events: none;
 }
 
-
 .forminfo {
   display: flex;
   justify-content: space-between;
@@ -460,6 +456,19 @@ button:hover {
     width: 90%;
     max-width: 800px;
     height: 50vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .form-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 98vw;
+  }
+  .form, .submittedform {
+    width: 90vw;
+    margin: 0;
   }
 }
 
@@ -592,4 +601,14 @@ button:hover {
   header img {
     width: 180px; /* Increased from 150px to 180px */
   }
+}
+
+:root {
+  --bg: #f7f9fc;
+  --text: #222;
+  --card: #fff;
+  --primary: #3d55b4;
+  --secondary: #5bb8ff;
+  --footer-bg: #3d55b4;
+  --footer-text: #fff;
 }
