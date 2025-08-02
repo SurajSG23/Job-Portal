@@ -754,3 +754,31 @@ footer {
 .clear-search:hover {
     color: #333;
 }
+
+/* Back to Top Button */
+
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  font-size: 20px;
+  background-color: #3b82f6;
+  color: #f7f9fc;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+#backToTopBtn.show {
+  display: block;
+  opacity: 1;
+}
+#backToTopBtn:hover {
+  background-color: #1e40af;
+}
