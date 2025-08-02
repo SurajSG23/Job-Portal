@@ -16,11 +16,16 @@
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: linear-gradient(135deg, rgba(224, 231, 255, 0.9) 0%, rgba(247, 249, 252, 0.95) 100%), 
+              url('assets/homepage-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
 }
 
 body.dark {
@@ -92,9 +97,10 @@ main {
 }
 
 .hero {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 32px;
-  box-shadow: 0 8px 32px rgba(61,85,180,0.10);
+  box-shadow: 0 8px 32px rgba(61,85,180,0.15);
   padding: 64px 40px 48px 40px;
   max-width: 600px;
   width: 100%;
