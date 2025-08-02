@@ -59,34 +59,40 @@
 
 <body>
     <header>
-        <div class="headContainer">
-            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy">
-            <div class="headlinks">
-                <div>
-                    <a href="../components/about.html" target="_self">About</a>
-                    <a href="../components/homepage.html">Home</a>
-                </div>
+<div class="headContainer">
+    <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
+
+    <nav class="headlinks">
+      <a href="../components/about.html" target="_self">About</a>
+      <a href="../components/homepage.html">Home</a>
+      <button class="apply-btn">Apply</button>
+    </nav>
+  </div>
+        </div>
+        <div class="apply">
+            <div>
+                <h2>Provide the below details:</h2>
                 <div class="selector">
-                    <select name="jobs-type" id="dropdown" onchange="filter(value)" class="job-btn">
+                    <select name="jobs-type" id="dropdown" onchange="filter(value)">
                         <option value="all">All</option>
                         <option value="Full Time">Full Time</option>
                         <option value="Part Time">Part Time</option>
                         <option value="Freelancer">Freelancing</option>
                         <option value="recent">Recently Added</option>
                     </select>
-                    <button class="apply-btn">Apply</button>
-              </div>
-            </div>
-        </div>
-        <div class="apply">
-            <div>
-                <h2>Provide the below details:</h2>
+<button class="apply-btn">Apply</button>
+      </div>
+    </div>
+</div>
+<div class="apply">
+    <div>
+        <h2>Provide the below details:</h2>
+
             </div>
             <div>Name: <input type="text" name="name" id="name" class="input"></div>
             <div>Years of experience: <input type="number" id="yoe" class="input"></div>
             <div>Contact number: <input type="number" name="number" id="phNo" class="input"></div>
             <div>Email: <input type="email" name="" id="email" class="input"></div>
-
             <!-- Skills Input with Tagging -->
             <div class="skill-input-container">
                 <label for="skillInput">Skills:</label>
