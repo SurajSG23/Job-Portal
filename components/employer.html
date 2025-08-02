@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
+
+<head>
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -13,8 +14,8 @@
         "https://github.com/SurajSG23/Job-Portal"
       ]
     }
-    </script>
-    <script type="application/ld+json">
+  </script>
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -26,99 +27,98 @@
         "query-input": "required name=search_term_string"
       }
     }
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Junction | Employer</title>
-    <meta name="description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
-    <meta name="keywords" content="employer, job portal, post jobs, manage applications, hire, HTML, CSS, JavaScript, Firebase" />
-    <meta name="author" content="Job Junction Team" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Job Junction | Employer" />
-    <meta property="og:description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
-    <meta property="og:image" content="../assets/logo.webp" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/employer.html" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Job Junction | Employer" />
-    <meta name="twitter:description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
-    <meta name="twitter:image" content="../assets/logo.webp" />
-    <!-- For development: -->
-    <link rel="stylesheet" href="../components/employer.css" />
-    <!-- For production, use minified: -->
-    <!-- <link rel="stylesheet" href="../components/employer.min.css" /> -->
-    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  </head>
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Junction | Employer</title>
+  <meta name="description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
+  <meta name="keywords"
+    content="employer, job portal, post jobs, manage applications, hire, HTML, CSS, JavaScript, Firebase" />
+  <meta name="author" content="Job Junction Team" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Job Junction | Employer" />
+  <meta property="og:description"
+    content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
+  <meta property="og:image" content="../assets/logo.webp" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/employer.html" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Job Junction | Employer" />
+  <meta name="twitter:description"
+    content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
+  <meta name="twitter:image" content="../assets/logo.webp" />
+  <!-- For development: -->
+  <link rel="stylesheet" href="../components/employer.css" />
+  <!-- For production, use minified: -->
+  <!-- <link rel="stylesheet" href="../components/employer.min.css" /> -->
+  <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
 
-  <body>
-    <header>
-      <div class="headContainer">
-        <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
-        <div class="headlinks">
-          <a href="about.html" target="_blank">About</a>
-          <a href="homepage.html">Home</a>
-          <button class="req">Requests</button>
-        </div>
-      </div>
-      <div class="requests-container">
-        <button class="closy">Close</button>
-        <button class="cleary" onclick="{clearReqs()}">Clear</button>
+<body>
+  <header>
+    <div class="headContainer">
+      <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
+      <div class="headlinks">
+        <a href="about.html" target="_blank">About</a>
+        <a href="homepage.html">Home</a>
+        <button class="req">Requests</button>
       </div>
     </header>
     <hr />
     <div class="body2">
-      <div class="form">
-        <h3>Provide Job Description</h3>
-        <input
-          type="text"
-          class="input"
-          id="company"
-          placeholder="Your Company Name"
-        />
+  <div class="form-wrapper">
+    <div class="form">
+      <h3>Provide Job Description</h3>
+      <form id="jobForm">
+        <input type="text" class="input" id="company" placeholder="Your Company Name" />
+        <span id="companyError" class="error"></span>
+
         <input type="text" class="input" id="position" placeholder="Position" />
-        <input
-          type="number"
-          class="input"
-          id="salary"
-          placeholder="Average Salary in Dollars"
-        />
+        <span id="positionError" class="error"></span>
+
+        <input type="number" class="input" id="salary" placeholder="Average Salary in USD" />
+        <span id="salaryError" class="error"></span>
+
         <div class="job-type">
-          <input type="radio" name="job-type" value="Full Time" />
-          <h4>Full Time</h4>
-          <input type="radio" name="job-type" value="Part Time" />
-          <h4>Part Time</h4>
-          <input type="radio" name="job-type" value="Freelancing" />
-          <h4>Freelancing</h4>
+          <label><input type="radio" name="job-type" value="Full Time" /> Full Time</label>
+          <label><input type="radio" name="job-type" value="Part Time" /> Part Time</label>
+          <label><input type="radio" name="job-type" value="Freelancing" /> Freelancing</label>
         </div>
-        <button onclick="{submitform()}">Submit</button>
-        <button onclick="{clearJobs()}">Clear</button>
-      </div>
-      <div class="submittedform"></div>
+        <span id="jobTypeError" class="error"></span>
+
+        <div class="form-buttons">
+          <button type="button" onclick="submitform()">Submit</button>
+          <button type="button" onclick="clearJobs()">Clear</button>
+        </div>
+      </form>
     </div>
-    <footer>
-      <hr />
-      <div class="footContainer">
-        <div>
-          <h4>CopyRigth &copy; 2024 Job Junction | All Rights Reserved</h4>
-        </div>
-        <div class="footlinks">
-          <a href="https://www.instagram.com/suraj_sg23/" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/"
-            target="_blank"
-          >
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/SurajSG23" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
+  </div>
+</div>
+
+
+  <footer class="footer">
+    <hr />
+    <div class="footContainer">
+      <div class="footer-content">
+        <p>&copy; 2025 Job Junction. All rights reserved.</p>
       </div>
-    </footer>
-    <script src="employer.js"></script>
-  </body>
+      <div class="footlinks">
+        <a href="https://www.instagram.com/suraj_sg23/" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/SurajSG23" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="employer.js"></script>
+</body>
+
 </html>
