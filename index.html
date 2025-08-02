@@ -52,69 +52,6 @@
     <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
     <script type="module" src="components/firebaseauth.js"></script>
   </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="nav-logo">
-          <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
-        </div>
-        <ul class="nav-links">
-          <li><a href="./components/homepage.html">Home</a></li>
-          <li><a href="./components/about.html">About</a></li>
-        </ul>
-        <button id="theme-toggle" aria-label="Toggle theme" style="margin-left:24px;font-size:22px;cursor:pointer;background:none;border:none;">
-          <i id="theme-icon" class="fa fa-moon"></i>
-        </button>
-        <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-      </nav>
-    </header>
-    <main>
-      <section class="hero">
-        <h1>Don't just search.<br>Start your career!</h1>
-        <div onclick="Redirect()" class="box-sign">
-          Get Started
-        </div>
-      </section>
-      <!-- Add other homepage sections here if needed -->
-    </main>
-    <footer class="footer">
-      <section>
-        <p>&copy; 2025 Job Junction. All rights reserved.</p>
-      </section>
-    </footer>
-    <script src="script.js"></script>
-    <script>
-      // Theme toggle logic
-      const themeToggle = document.getElementById('theme-toggle');
-      const themeIcon = document.getElementById('theme-icon');
-      function setTheme(dark) {
-        if (dark) {
-          document.body.classList.add('dark');
-          themeIcon.classList.remove('fa-moon');
-          themeIcon.classList.add('fa-sun');
-        } else {
-          document.body.classList.remove('dark');
-          themeIcon.classList.remove('fa-sun');
-          themeIcon.classList.add('fa-moon');
-        }
-      }
-      // Load theme from localStorage
-      const darkMode = localStorage.getItem('theme') === 'dark';
-      setTheme(darkMode);
-      themeToggle.onclick = () => {
-        const isDark = !document.body.classList.contains('dark');
-        setTheme(isDark);
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      };
-
-      // Navbar mobile toggle
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-    </script>
-  </body>
 <body>
   <header>
   <nav class="navbar">
@@ -151,7 +88,6 @@
   <button id="darkModeToggle" class="dark-toggle">🌙</button>
 </nav>
 
-
 </header>
 
 
@@ -165,6 +101,10 @@
     <section id="about-section">
   <h2>About Us</h2>
   <p>Welcome to Job Junction, a modern job portal to explore opportunities and start your career.</p>
+</section>
+<section id="jobs-section">
+  <h2>Available Jobs</h2>
+  <div id="job-list"></div> <!-- This is where jobs will load -->
 </section>
 
     <!-- Add other homepage sections here if needed -->
