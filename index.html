@@ -124,13 +124,6 @@
   <script src="script.js"></script>
   <!-- For production, use minified: -->
   <!-- <script src="script.min.js"></script> -->
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    navToggle.addEventListener('click', () => {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
 
   <style>
     :root {
@@ -158,30 +151,6 @@ body.dark {
   --footer-text: #f7f9fc;
 }
   </style>
-  <script>
-  // Theme toggle logic
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  function setTheme(dark) {
-    if (dark) {
-      document.body.classList.add('dark');
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-    } else {
-      document.body.classList.remove('dark');
-      themeIcon.classList.remove('fa-sun');
-      themeIcon.classList.add('fa-moon');
-    }
-  }
-  // Load theme from localStorage
-  const darkMode = localStorage.getItem('theme') === 'dark';
-  setTheme(darkMode);
-  themeToggle.onclick = () => {
-    const isDark = !document.body.classList.contains('dark');
-    setTheme(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  };
-</script>
 <script>
   
   const navToggle = document.querySelector('.nav-toggle');
@@ -196,14 +165,14 @@ body.dark {
   const body = document.body;
 
   if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
+    body.classList.add("dark");
     toggleButton.textContent = "☀️";
   }
 
   toggleButton.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
+    body.classList.toggle("dark");
 
-    if (body.classList.contains("dark-mode")) {
+    if (body.classList.contains("dark")) {
       toggleButton.textContent = "☀️";
       localStorage.setItem("theme", "dark");
     } else {

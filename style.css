@@ -112,8 +112,12 @@ body.dark {
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
+  transition-duration: 0.5s;
 }
-
+.profile-img:hover{
+  height: 34px;
+  width: 34px;
+}
 .nav-toggle {
   display: none;
   font-size: 1.5rem;
