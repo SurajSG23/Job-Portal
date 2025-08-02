@@ -43,7 +43,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Job Junction | Seeker" />
-    <meta name="twitter:description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
+    <meta name="twitter:description"
+        content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
     <meta name="twitter:image" content="../assets/logo.webp" />
     <!-- For development: -->
     <link rel="stylesheet" href="../components/seeker.css">
@@ -53,50 +54,52 @@
     <!-- <link rel="stylesheet" href="../components/skills.min.css" /> -->
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
     <header>
-        <div class="headContainer">
-            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy">
-            <div class="headlinks">
-                <div>
-                    <a href="../components/about.html" target="_self">About</a>
-                    <a href="../components/homepage.html">Home</a>
-                </div>
+<div class="headContainer">
+    <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
+
+    <nav class="headlinks">
+      <a href="../components/about.html" target="_self">About</a>
+      <a href="../components/homepage.html">Home</a>
+      <button class="apply-btn">Apply</button>
+    </nav>
+  </div>
+        </div>
+        <div class="apply">
+            <div>
+                <h2>Provide the below details:</h2>
                 <div class="selector">
-                    <select name="jobs-type" id="" onchange="filter(value)">
+                    <select name="jobs-type" id="dropdown" onchange="filter(value)">
                         <option value="all">All</option>
                         <option value="Full Time">Full Time</option>
                         <option value="Part Time">Part Time</option>
                         <option value="Freelancer">Freelancing</option>
                         <option value="recent">Recently Added</option>
                     </select>
-                    <button class="apply-btn">Apply</button>
-               </div>   
-            </div>
-        </div>
-        <div class="apply">
-            <div>
-                <h2>Provide the below details:</h2>
+<button class="apply-btn">Apply</button>
+      </div>
+    </div>
+</div>
+<div class="apply">
+    <div>
+        <h2>Provide the below details:</h2>
+
             </div>
             <div>Name: <input type="text" name="name" id="name" class="input"></div>
-
             <div>Years of experience: <input type="number" id="yoe" class="input"></div>
             <div>Contact number: <input type="number" name="number" id="phNo" class="input"></div>
             <div>Email: <input type="email" name="" id="email" class="input"></div>
             <!-- Skills Input with Tagging -->
-<div class="skill-input-container">
-  <label for="skillInput">Skills:</label>
-  <div id="tag-container"></div>
-  <input
-    type="text"
-    id="skillInput"
-    placeholder="Start typing a skill..."
-    autocomplete="off"
-  />
-  <ul id="suggestions" class="suggestions-list"></ul>
-</div>
+            <div class="skill-input-container">
+                <label for="skillInput">Skills:</label>
+                <div id="tag-container"></div>
+                <input type="text" id="skillInput" placeholder="Start typing a skill..." autocomplete="off" />
+                <ul id="suggestions" class="suggestions-list"></ul>
+            </div>
             <div class="job-type-apply">Prefered type:
                 <input type="radio" name="job-type" value="Full Time">
                 <h4>Full Time</h4>
@@ -119,25 +122,49 @@
             <p>Most viewed and all-time-top-selling servies</p>
         </div>
         <div class="search-filter-container">
-        <input type="text" id="searchInput" class="search-bar" placeholder="Search by position..." />
-        <select id="salaryFilter" class="filter-dropdown">
-          <option value="">All Salaries</option>
-          <option value="500">$500+/m</option>
-          <option value="900">$900+/m</option>
-          <option value="1200">$1200+/m</option>
-        </select>
-      </div>
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search by position..." />
+            <select id="salaryFilter" class="filter-dropdown">
+                <option value="">All Salaries</option>
+                <option value="500">$500+/m</option>
+                <option value="900">$900+/m</option>
+                <option value="1200">$1200+/m</option>
+            </select>
+        </div>
         <div class="jobs-container">
 
         </div>
     </div>
 
-    <footer>
-        <hr>
+
+
+    <footer class="footer">
         <div class="footContainer">
+            
+                <div class="footer-content">
+                    <p>&copy; 2025 Job Junction. All rights reserved.</p>
+                </div>
+
+                <div class="footlinks">
+                    <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target='_blank'>
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/SurajSG23" target='_blank'>
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            
+        </div>
+        </footer>
+
+        <!-- <footer>
+            <div class="footContainer">
             <div>
-                <h4>CopyRigth &copy; 2024 Job Junction | All Rights Reserved</h4>
+                <h4>Copyright &copy; 2024 Job Junction | All Rights Reserved</h4>
             </div>
+            
             <div class="footlinks">
                 <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
                     <i class="fa-brands fa-instagram"></i>
@@ -150,7 +177,7 @@
                 </a>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <script src="../components/seeker.js"></script>
     <script src="../components/skill.js" defer></script>
 
