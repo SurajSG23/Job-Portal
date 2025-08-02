@@ -16,16 +16,17 @@
 }
 
 body {
-  background: linear-gradient(135deg, rgba(224, 231, 255, 0.9) 0%, rgba(247, 249, 252, 0.95) 100%), 
-              url('assets/homepage-bg.jpg');
+  background: linear-gradient(135deg, #e0ecff, #f6faff);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
   width: 100vw;
+  margin: 0;
   overflow-x: hidden;
   color: var(--text);
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e0ecff, #f6faff);
 }
 
 
@@ -144,8 +145,8 @@ body.dark {
 }
 
 main {
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   min-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
@@ -154,62 +155,137 @@ main {
 }
 
 .hero {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(145deg, #ffffff, #f0f4ff);
+  backdrop-filter: blur(12px);
   border-radius: 32px;
-  box-shadow: 0 8px 32px rgba(61,85,180,0.15);
+  box-shadow: 0 10px 40px rgba(61, 85, 180, 0.15);
   padding: 64px 40px 48px 40px;
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  max-width: 650px;
+  width: 90%;
+  margin: 0 auto 60px auto;
+  text-align: center;
   position: relative;
   overflow: hidden;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  left: -80px;
-  top: -80px;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, #3d55b4 40%, transparent 70%);
-  opacity: 0.12;
-  z-index: 0;
+  left: -100px;
+  top: -100px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, #3d55b4 35%, transparent 75%);
+  opacity: 0.15;
+  animation: pulse 4s infinite alternate;
 }
 
 .hero h1 {
-  font-size: 48px;
-  color: #3d55b4;
-  text-align: right;
-  margin-bottom: 36px;
+  font-size: 2.8rem;
+  color: #2c3e9e;
+  margin-bottom: 30px;
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 1px;
+  line-height: 1.3;
+  letter-spacing: 0.8px;
   z-index: 1;
 }
 
 .box-sign {
-  background: linear-gradient(90deg, #3d55b4 60%, #5bb8ff 100%);
+  background: linear-gradient(90deg, #3d55b4 0%, #5bb8ff 100%);
   color: #fff;
-  padding: 18px 48px;
+  padding: 16px 48px;
   border-radius: 32px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(61,85,180,0.12);
+  box-shadow: 0 6px 18px rgba(61, 85, 180, 0.25);
   border: none;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.3s ease, transform 0.2s ease;
   z-index: 1;
-  text-align: center;
+  display: inline-block;
 }
 
 .box-sign:hover {
-  background: linear-gradient(90deg, #25347a 60%, #5bb8ff 100%);
-  transform: scale(1.07);
+  background: linear-gradient(90deg, #243072 0%, #5bb8ff 100%);
+  transform: scale(1.08);
+}
+
+.content-section {
+  max-width: 800px;
+  width: 90%;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  animation: slideUp 1s ease-in-out;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #3d55b4;
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.highlight {
+  color: #3d55b4;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.18;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .box-sign {
+    font-size: 18px;
+    padding: 14px 36px;
+  }
+
+  .content-section {
+    padding: 24px;
+  }
 }
 
 .footer {
