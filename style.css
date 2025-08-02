@@ -420,3 +420,8 @@ section {
   padding: 48px 16px 32px 16px;
   margin-bottom: 48px;
 }
+#loader p {
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0;
+}
