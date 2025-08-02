@@ -65,6 +65,38 @@
         <a href="homepage.html">Home</a>
         <button class="req">Requests</button>
       </div>
+    </header>
+    <hr />
+    <div class="body2">
+      <div class="form-wrapper">
+        <div class="form">
+          <h3>Provide Job Description</h3>
+          <input
+            type="text"
+            class="input"
+            id="company"
+            placeholder="Your Company Name"
+          />
+          <input type="text" class="input" id="position" placeholder="Position" />
+          <input
+            type="number"
+            class="input"
+            id="salary"
+            placeholder="Average Salary in Dollars"
+          />
+          <div class="job-type">
+            <input type="radio" name="job-type" value="Full Time" />
+            <h4>Full Time</h4>
+            <input type="radio" name="job-type" value="Part Time" />
+            <h4>Part Time</h4>
+            <input type="radio" name="job-type" value="Freelancing" />
+            <h4>Freelancing</h4>
+          </div>
+          <button onclick="{submitform()}">Submit</button>
+          <button onclick="{clearJobs()}">Clear</button>
+        </div>
+        <div class="submittedform"></div>
+      </div>
     </div>
     <div class="requests-container">
       <button class="closy">Close</button>
