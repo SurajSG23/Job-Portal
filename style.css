@@ -12,52 +12,109 @@ body {
   overflow-x: hidden;
 }
 
+
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 64px;
-  background: rgba(61,85,180,0.95);
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
-  z-index: 100;
-  box-shadow: 0 2px 16px rgba(61,85,180,0.08);
-  backdrop-filter: blur(8px);
+  padding: 1rem 1rem;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.nav-logo img {
+  align-items: left;
+  width: 130px;  
+  height: auto;
 }
 
-.nav-logo img {
-  height: 44px;
-  filter: drop-shadow(0 2px 8px #25347a33);
-}
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 1.5rem;
   list-style: none;
-  margin: 0;
+  margin-left: auto;
+}
+
+.nav-links li {
+  position: relative;
 }
 
 .nav-links a {
-  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  transition: color 0.2s;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: color 0.3s;
 }
 
+.nav-links a.active,
 .nav-links a:hover {
-  color: #ffd700;
+  color: #007BFF;
+  border-bottom: 2px solid #007BFF;
+  font-weight: 600;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  top: 2.5rem;
+  left: 0;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu,
+.profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-menu li a {
+  color: #333;
+  font-weight: 400;
+}
+
+
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .nav-toggle {
   display: none;
-  font-size: 28px;
+  font-size: 1.5rem;
   cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 4rem;
+    width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
 }
 
 main {

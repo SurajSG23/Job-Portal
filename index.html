@@ -63,18 +63,38 @@
   </head>
 <body>
   <nav class="navbar">
-    <div class="nav-logo">
-      <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
-    </div>
-    <ul class="nav-links">
-      <li><a href="./components/homepage.html">Home</a></li>
-      <li><a href="./components/about.html">About</a></li>
-    </ul>
-    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+  <div class="nav-logo">
+    <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
+  </div>
 
-    <button id="darkModeToggle" class="dark-toggle">🌙</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="homepage.html" class="active">Home</a></li>
 
-  </nav>
+    <li class="dropdown">
+      <a href="about.html">About <i class="fas fa-caret-down"></i></a>
+      <ul class="dropdown-menu">
+        <li><a href="team.html">Team</a></li>
+        <li><a href="vision.html">Vision</a></li>
+        <li><a href="partners.html">Partners</a></li>
+      </ul>
+    </li>
+    <li><a href="./login.html">Login</a></li>
+    <li><a href="./signup.html">Sign Up</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+
+    <li class="profile-dropdown">
+      <img src="OIPP.jpg" alt="Profile" class="profile-img" />
+      <ul class="dropdown-menu">
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
+</nav>
+
 
   <main>
     <section class="hero">
