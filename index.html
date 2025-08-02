@@ -55,29 +55,41 @@
 <body>
   <header>
   <nav class="navbar">
-    <div class="nav-logo">
-      <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
-    </div>
-    <ul class="nav-links">
-   <li><a href="#hero">Home</a></li>
-  <li><a href="#about-section">About</a></li>
-    </ul>
-    <button id="theme-toggle" aria-label="Toggle theme" style="margin-left:24px;font-size:22px;cursor:pointer;background:none;border:none;">
-      <i id="theme-icon" class="fa fa-moon"></i>
-    </button>
-    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-  <div class="headlinks">
-    <a href="about.html" target="_blank">About</a>
-    <a href="homepage.html">Home</a>
-    <button class="req">Requests</button>
-    <button id="theme-toggle" aria-label="Toggle theme" style="margin-left:20px;font-size:20px;cursor:pointer;background:none;border:none;">
-      <i id="theme-icon" class="fa fa-moon"></i>
-    </button>
-  </div>
-    <button id="darkModeToggle" class="dark-toggle">🌙</button>
 
-  </nav>
+  <div class="nav-logo">
+    <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="homepage.html" class="active">Home</a></li>
+
+    <li class="dropdown">
+      <a href="about.html">About <i class="fas fa-caret-down"></i></a>
+      <ul class="dropdown-menu">
+        <li><a href="team.html">Team</a></li>
+        <li><a href="vision.html">Vision</a></li>
+        <li><a href="partners.html">Partners</a></li>
+      </ul>
+    </li>
+    <li><a href="./login.html">Login</a></li>
+    <li><a href="./signup.html">Sign Up</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+
+    <li class="profile-dropdown">
+      <img src="OIPP.jpg" alt="Profile" class="profile-img" />
+      <ul class="dropdown-menu">
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
+</nav>
+
 </header>
+
 
   <main>
     <section id="hero" class ="hero">
