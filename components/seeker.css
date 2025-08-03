@@ -34,10 +34,10 @@ html, body{
 }
 
 body {
+    background: linear-gradient(135deg, #E6F3FF, #CCE7FF, #B3D9FF);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(135deg, #E6F3FF, #CCE7FF, #B3D9FF);
 }
 
 /* Header Styling */
