@@ -68,171 +68,144 @@
     <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
     <script type="module" src="components/firebaseauth.js"></script>
   </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="nav-logo">
-          <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
-        </div>
+<body>
+  <header>
+  <nav class="navbar">
 
-        <ul class="nav-links" id="navLinks">
-          <li><a href="homepage.html" class="active">Home</a></li>
+  <div class="nav-logo">
+    <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
+  </div>
 
-          <li class="dropdown">
-            <a href="about.html">About <i class="fas fa-caret-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="team.html">Team</a></li>
-              <li><a href="vision.html">Vision</a></li>
-              <li><a href="partners.html">Partners</a></li>
-            </ul>
-          </li>
-          <li><a href="./login.html">Login</a></li>
-          <li><a href="./signup.html">Sign Up</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="homepage.html" class="active">Home</a></li>
 
-          <li class="profile-dropdown">
-            <img src="OIPP.jpg" alt="Profile" class="profile-img" />
-            <ul class="dropdown-menu">
-              <li><a href="settings.html">Settings</a></li>
-              <li><a href="#">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
+    <li class="dropdown">
+      <a href="about.html">About <i class="fas fa-caret-down"></i></a>
+      <ul class="dropdown-menu">
+        <li><a href="team.html">Team</a></li>
+        <li><a href="vision.html">Vision</a></li>
+        <li><a href="partners.html">Partners</a></li>
+      </ul>
+    </li>
+    <li><a href="./login.html">Login</a></li>
+    <li><a href="./signup.html">Sign Up</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
 
-        <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-        <button id="darkModeToggle" class="dark-toggle">🌙</button>
-      </nav>
-    </header>
+    <li class="profile-dropdown">
+      <img src="OIPP.jpg" alt="Profile" class="profile-img" />
+      <ul class="dropdown-menu">
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
 
-    <main>
-      <section id="hero" class="hero">
-        <h1>Don't just search.<br />Start your career!</h1>
-        <div onclick="Redirect()" class="box-sign">Get Started</div>
-      </section>
+  <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
+</nav>
 
-      <section id="about-section" class="content-section">
-        <h2>About Us</h2>
-        <p>
-          Welcome to <span class="highlight">Job Junction</span>, a modern job
-          portal to explore opportunities and start your career journey.
-        </p>
-      </section>
+</header>
 
-      <section id="jobs-section" class="content-section">
-        <h2>Available Jobs</h2>
-        <div id="job-list"></div>
-        <!-- Jobs will load here -->
-      </section>
-    </main>
 
-    <footer class="footer">
-      <section>
-        <p>&copy; 2025 Job Junction. All rights reserved.</p>
-      </section>
-    </footer>
+  <main>
+    <section id="hero" class ="hero">
+      <h1>Don't just search.<br>Start your career!</h1>
+      <div onclick="Redirect()" class="box-sign">
+        Get Started
+      </div>
+    </section>
+    <section id="about-section">
+  <h2>About Us</h2>
+  <p>Welcome to Job Junction, a modern job portal to explore opportunities and start your career.</p>
+</section>
+<section id="jobs-section">
+  <h2>Available Jobs</h2>
+  <div id="job-list"></div> <!-- This is where jobs will load -->
+</section>
 
-    <!-- Add theme toggle button -->
+    <!-- Add other homepage sections here if needed -->
+  </main>
 
-    <script src="script.js"></script>
-    <!-- For development: -->
-    <script src="script.js"></script>
-    <!-- For production, use minified: -->
-    <!-- <script src="script.min.js"></script> -->
-    <script>
-      const navToggle = document.querySelector(".nav-toggle");
-      const navLinks = document.querySelector(".nav-links");
-      navToggle.addEventListener("click", () => {
-        navLinks.style.display =
-          navLinks.style.display === "flex" ? "none" : "flex";
-      });
-    </script>
+  <footer class="footer">
+   <section>
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    </section>
+  </footer>
 
-    <style>
-      :root {
-        --bg: #f7f9fc;
-        --text: #222;
-        --card: #fff;
-        --primary: #3d55b4;
-        --secondary: #5bb8ff;
-        --footer-bg: #3d55b4;
-        --footer-text: #fff;
-      }
+  <!-- Add theme toggle button -->
+  
 
-      body {
-        background: var(--bg);
-        color: var(--text);
-      }
+  <script src="script.js"></script>
+  <!-- For development: -->
+  <script src="script.js"></script>
+  <!-- For production, use minified: -->
+  <!-- <script src="script.min.js"></script> -->
 
-      body.dark {
-        --bg: #181c24;
-        --text: #f7f9fc;
-        --card: #232a36;
-        --primary: #5bb8ff;
-        --secondary: #3d55b4;
-        --footer-bg: #232a36;
-        --footer-text: #f7f9fc;
-      }
-    </style>
-    <script>
-      // Theme toggle logic
-      const themeToggle = document.getElementById("theme-toggle");
-      const themeIcon = document.getElementById("theme-icon");
-      function setTheme(dark) {
-        if (dark) {
-          document.body.classList.add("dark");
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        } else {
-          document.body.classList.remove("dark");
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        }
-      }
-      // Load theme from localStorage
-      const darkMode = localStorage.getItem("theme") === "dark";
-      setTheme(darkMode);
-      themeToggle.onclick = () => {
-        const isDark = !document.body.classList.contains("dark");
-        setTheme(isDark);
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      };
-    </script>
-    <script>
-      const navToggle = document.querySelector(".nav-toggle");
-      const navLinks = document.querySelector(".nav-links");
+  <style>
+    :root {
+  --bg: #f7f9fc;
+  --text: #222;
+  --card: #fff;
+  --primary: #3d55b4;
+  --secondary: #5bb8ff;
+  --footer-bg: #3d55b4;
+  --footer-text: #fff;
+}
 
-      navToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
-      const toggleButton = document.getElementById("darkModeToggle");
-      const body = document.body;
+body.dark {
+  --bg: #181c24;
+  --text: #f7f9fc;
+  --card: #232a36;
+  --primary: #5bb8ff;
+  --secondary: #3d55b4;
+  --footer-bg: #232a36;
+  --footer-text: #f7f9fc;
+}
+  </style>
+<script>
+  
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-      if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-        toggleButton.textContent = "☀️";
-      }
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 
-      toggleButton.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
+  
+  const toggleButton = document.getElementById("darkModeToggle");
+  const body = document.body;
 
-        if (body.classList.contains("dark-mode")) {
-          toggleButton.textContent = "☀️";
-          localStorage.setItem("theme", "dark");
-        } else {
-          toggleButton.textContent = "🌙";
-          localStorage.setItem("theme", "light");
-        }
-      });
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-      });
-    </script>
-  </body>
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    toggleButton.textContent = "☀️";
+  }
+
+  toggleButton.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+      toggleButton.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggleButton.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
 </html>
+
