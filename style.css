@@ -502,66 +502,16 @@ main {
   font-size: 2rem;
   color: #030303;
 }
-body.dark-mode {
-  background: linear-gradient(120deg, #1c1c1e 0%, #2c2c2e 100%);
-  color: #f1f1f1;
-}
 
-body.dark-mode .navbar {
-  background: rgba(28, 28, 30, 0.95);
-  color: #fff;
-}
-
-body.dark-mode .nav-links a {
-  color: #f1f1f1;
-}
-
-body.dark-mode .nav-links a:hover {
-  color: #ffd700;
-}
-
-body.dark-mode .hero {
-  background: rgba(44, 44, 46, 0.95);
-  color: #f1f1f1;
-}
-
-body.dark-mode .hero h1 {
-  color: #5bb8ff;
-}
-
-body.dark-mode .box-sign {
-  background: linear-gradient(90deg, #444 60%, #777 100%);
-}
-
-body.dark-mode .footer {
-  background: #1c1c1e;
-  color: #f1f1f1;
-}
-
-.dark-toggle {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 20px;
+button:hover {
+  background-color: #2980b9;
   cursor: pointer;
-  margin-left: 16px;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
-main {
-  padding: 32px 16px;
-}
-
-section {
-  padding: 16px;
-  margin-bottom: 32px;
-}
-
-.hero {
-  padding: 48px 16px 32px 16px;
-  margin-bottom: 48px;
-}
-#loader p {
-  font-size: 14px;
-  color: #666;
-  margin: 20px 0;
+a:hover {
+  color: #1abc9c;
+  text-decoration: underline;
+  transition: all 0.3s ease;
 }
