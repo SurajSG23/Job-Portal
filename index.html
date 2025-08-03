@@ -172,22 +172,33 @@
         --footer-bg: #232a36;
         --footer-text: #f7f9fc;
       }
+      #jobs-section {
+        margin-bottom: 4rem; /* or padding-bottom: 4rem; */
+      }
     </style>
     <script>
       // Theme toggle logic
-      const themeToggle = document.getElementById("theme-toggle");
-      const themeIcon = document.getElementById("theme-icon");
-      function setTheme(dark) {
-        if (dark) {
-          document.body.classList.add("dark");
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        } else {
-          document.body.classList.remove("dark");
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        }
+      const toggleButton = document.getElementById("darkModeToggle");
+      const body = document.body;
+
+      // Load theme from localStorage
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        toggleButton.textContent = "☀️";
       }
+
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          toggleButton.textContent = "☀️";
+          localStorage.setItem("theme", "dark");
+        } else {
+          toggleButton.textContent = "🌙";
+          localStorage.setItem("theme", "light");
+        }
+      });
+
       // Load theme from localStorage
       const darkMode = localStorage.getItem("theme") === "dark";
       setTheme(darkMode);

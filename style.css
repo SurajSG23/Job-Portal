@@ -29,7 +29,6 @@ body {
   background: linear-gradient(135deg, #e0ecff, #f6faff);
 }
 
-
 body.dark {
   --bg: #181c24;
   --text: #f7f9fc;
@@ -40,21 +39,33 @@ body.dark {
   --footer-text: #f7f9fc;
 }
 
-
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333; /* For light mode - dark icon */
+  margin-left: auto;
+}
+
+/* Dark mode override */
+body.dark-mode .nav-toggle {
+  color: #fff; /* White icon in dark background */
 }
 .nav-logo img {
   align-items: left;
-  width: 130px;  
+  width: 130px;
   height: auto;
 }
-
 
 .nav-links {
   display: flex;
@@ -77,8 +88,8 @@ body.dark {
 
 .nav-links a.active,
 .nav-links a:hover {
-  color: #007BFF;
-  border-bottom: 2px solid #007BFF;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
   font-weight: 600;
 }
 
@@ -90,7 +101,7 @@ body.dark {
   top: 2.5rem;
   left: 0;
   min-width: 150px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
@@ -108,7 +119,6 @@ body.dark {
   font-weight: 400;
 }
 
-
 .profile-img {
   width: 32px;
   height: 32px;
@@ -122,7 +132,6 @@ body.dark {
   cursor: pointer;
 }
 
-
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -132,7 +141,7 @@ body.dark {
     right: 0;
     top: 4rem;
     width: 200px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     padding: 1rem;
   }
 
@@ -295,11 +304,10 @@ main {
   color: #fff;
   text-align: center;
   padding: 32px 0 16px 0;
-  position: fixed;
   left: 0;
   bottom: 0;
   z-index: 99;
-  box-shadow: 0 -2px 12px rgba(61,85,180,0.08);
+  box-shadow: 0 -2px 12px rgba(61, 85, 180, 0.08);
   font-size: 16px;
   letter-spacing: 0.5px;
 }
@@ -310,35 +318,35 @@ main {
 
 @media (max-width: 700px) {
   .nav-links {
-    display: none;                /* hide nav links by default */
-    flex-direction: column;      /* stack links vertically */
-    background-color: #3d55b4;   /* navbar bg color */
-    position: absolute;          /* position dropdown */
-    top: 64px;                   /* below navbar */
+    display: none; /* hide nav links by default */
+    flex-direction: column; /* stack links vertically */
+    background-color: #3d55b4; /* navbar bg color */
+    position: absolute; /* position dropdown */
+    top: 64px; /* below navbar */
     right: 0;
-    width: 100%;                 /* full width (use % instead of vw) */
+    width: 100%; /* full width (use % instead of vw) */
     padding: 16px 0;
-    text-align: center;          /* center text */
-    z-index: 100;                /* above other content */
-    transition: all 0.3s ease;   /* smooth toggle */
+    text-align: center; /* center text */
+    z-index: 100; /* above other content */
+    transition: all 0.3s ease; /* smooth toggle */
   }
 
   .nav-links.active {
-    display: flex;               
+    display: flex;
   }
 
   .nav-toggle {
     display: block;
-    z-index: 200;                
+    z-index: 200;
   }
 
   .navbar {
-    flex-wrap: wrap;            
+    flex-wrap: wrap;
     align-items: center;
   }
 
   .nav-logo img {
-    height: 40px;                
+    height: 40px;
   }
 
   main {
@@ -351,24 +359,23 @@ main {
   }
 }
 
-  .hero {
-    align-items: center;
-    padding: 40px 8vw 32px 8vw;
-    max-width: 98vw;
-  }
-  .hero h1 {
-    font-size: 32px;
-    text-align: center;
-  }
-  main {
-    padding-top: 80px;
-    padding-bottom: 120px;
-  }
-  .footer {
-    padding: 24px 0 12px 0;
-    font-size: 14px;
-  }
-
+.hero {
+  align-items: center;
+  padding: 40px 8vw 32px 8vw;
+  max-width: 98vw;
+}
+.hero h1 {
+  font-size: 32px;
+  text-align: center;
+}
+main {
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+.footer {
+  padding: 24px 0 12px 0;
+  font-size: 14px;
+}
 
 /* Forms and Inputs (Optional if hidden) */
 .input-group {
