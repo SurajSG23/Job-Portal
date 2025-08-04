@@ -34,6 +34,7 @@ html, body{
 }
 
 body {
+    background: linear-gradient(135deg, #E6F3FF, #CCE7FF, #B3D9FF);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,7 +43,6 @@ body {
 /* Header Styling */
 header {
   width: 100%;
-  background: rgba(33, 181, 204, 0.2); 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
