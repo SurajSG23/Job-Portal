@@ -65,6 +65,28 @@
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
 
+
+        <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+        <div class="notification-icon" id="notificationIcon">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge" id="notificationBadge">0</span>
+          <div class="notification-dropdown" id="notificationDropdown">
+            <div class="notification-header">
+              <h3>Notifications</h3>
+              <div class="notification-actions">
+                <button id="refreshNotifications" title="Refresh Jobs"><i class="fas fa-sync-alt"></i></button>
+                <button id="refreshEmployerNotifications" title="Refresh Employer Jobs"><i class="fas fa-building"></i></button>
+                <button id="markAllRead">Mark all as read</button>
+              </div>
+            </div>
+            <div class="notification-list" id="notificationList">
+              <!-- Notifications will appear here -->
+              <div class="empty-notification">No new notifications</div>
+            </div>
+          </div>
+        </div>
+        <button id="darkModeToggle" class="dark-toggle">🌙</button>
+
         <div class="nav-actions">
           <button class="theme-toggle" id="themeToggle">
             <i class="fas fa-moon"></i>
@@ -78,6 +100,7 @@
           <span></span>
           <span></span>
         </button>
+
       </nav>
     </header>
 
@@ -267,6 +290,19 @@
     </footer>
 
 
+
+    <script src="script.js"></script>
+    <!-- For production, use minified: -->
+    <!-- <script src="script.min.js"></script> -->
+    <script>
+       navToggle = document.querySelector(".nav-toggle");
+       navLinks = document.querySelector(".nav-links");
+      navToggle.addEventListener("click", () => {
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+      });
+    </script>
+
         <div class="footer-section">
           <h4>For Job Seekers</h4>
           <ul>
@@ -298,12 +334,52 @@
         </div>
       </div>
 
+
+      body.dark {
+        --bg: #181c24;
+        --text: #f7f9fc;
+        --card: #232a36;
+        --primary: #5bb8ff;
+        --secondary: #3d55b4;
+        --footer-bg: #232a36;
+        --footer-text: #f7f9fc;
+      }
+    </style>
+    <script>
+      // Theme toggle logic - check if elements exist first
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      
+      if (themeToggle && themeIcon) {
+        function setTheme(dark) {
+          if (dark) {
+            document.body.classList.add("dark");
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+          } else {
+            document.body.classList.remove("dark");
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+          }
+        }
+        // Load theme from localStorage
+        const darkMode = localStorage.getItem("theme") === "dark";
+        setTheme(darkMode);
+        themeToggle.onclick = () => {
+          const isDark = !document.body.classList.contains("dark");
+          setTheme(isDark);
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      }
+    </script>
+
       <div class="footer-bottom">
         <p>&copy; 2025 Job Junction. All rights reserved.</p>
       </div>
     </footer>
 
     <script src="script.js"></script>
+
     <script>
       // Mobile Navigation Toggle
       const mobileToggle = document.getElementById('mobileToggle');
