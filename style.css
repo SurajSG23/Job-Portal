@@ -289,6 +289,42 @@ main {
   }
 }
 
+.footlinks {
+    display: flex;
+    align-items: center;
+    float: right;
+    gap: 20px;
+}
+
+.footlinks a {
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+    margin-right: 1rem;
+}
+
+.fa-brands {
+    font-size: 40px;
+    color: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.fa-instagram:hover {
+    color: red
+}
+
+.fa-linkedin:hover {
+    color: rgb(1, 1, 156)
+}
+
+.fa-github:hover {
+    color: black
+}
+
 .footer {
   width: 100%;
   background: #3d55b4;
