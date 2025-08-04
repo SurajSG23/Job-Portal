@@ -1,4 +1,4 @@
-//To check the password
+// To check the password
 function togglePassword(toggleElement) {
     const input = toggleElement.previousElementSibling;
   
@@ -10,7 +10,7 @@ function togglePassword(toggleElement) {
       toggleElement.textContent = "👁️";
     }
   }
-//To check wheather is there any issue in password
+// To check wheather is there any issue in password
 const resetbutton=document.getElementById("resetpass-button")
 resetbutton.addEventListener("click",function (e){
   e.preventDefault();
