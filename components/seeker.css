@@ -142,8 +142,6 @@ header {
   box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
-}
-
 .headContainer {
     display: flex;
     align-items: center;
@@ -760,7 +758,7 @@ footer {
 #backToTopBtn {
   display: none;
   position: fixed;
-  bottom: 40px;
+  bottom: 90px;
   right: 40px;
   z-index: 999;
   font-size: 20px;
