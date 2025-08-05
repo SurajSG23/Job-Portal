@@ -312,3 +312,49 @@ main {
   font-size: 2rem;
   color: #030303;
 }
+
+.job-card-skeleton {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.skeleton-title,
+.skeleton-lines {
+  height: 16px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 20px;
+}
+
+.skeleton-lines.short {
+  width: 40%;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
