@@ -1327,148 +1327,51 @@ body.dark .footer {
   overflow-y: auto;
   border: 1px solid #e0e0e0;
   font-family: "Poppins", sans-serif;
-  animation: fadeIn 0.3s ease;
-  margin-top: 10px;
+
+
+  font-size: 2rem;
+  color: #030303;
 }
 
-/* Add arrow pointer to dropdown */
-.notification-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  right: 20px;
-  border-width: 6px;
-  border-style: solid;
-  border-color: transparent transparent #fff transparent;
-  z-index: 1000;
+.job-card-skeleton {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
 }
 
-.notification-dropdown::after {
-  content: '';
-  position: absolute;
-  top: -11px;
-  right: 19px;
-  border-width: 7px;
-  border-style: solid;
-  border-color: transparent transparent #e0e0e0 transparent;
-}
-
-/* Header inside dropdown */
-.notification-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #f9f9f9;
-  border-radius: 8px 8px 0 0;
-  font-size: 14px;
-}
-
-.notification-header h3 {
-  margin: 0;
-  color: #333;
-  font-weight: 600;
-}
-
-#markAllRead {
-  background: none;
-  border: none;
-  color: #3d55b4;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 4px 8px;
+.skeleton-title,
+.skeleton-lines {
+  height: 16px;
+  background-color: #e0e0e0;
   border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-#markAllRead:hover {
-  background-color: rgba(61, 85, 180, 0.1);
-  color: #2a3b8f;
-}
-
-/* Notification list and items */
-.notification-list {
-  padding: 0;
-  list-style: none;
-}
-
-.notification-item {
-  padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  transition: background-color 0.2s ease;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.notification-item:hover {
-  background-color: #f5f7fa;
-}
-
-.notification-item.unread {
-  background-color: #eef2ff;
+  margin-bottom: 12px;
   position: relative;
+  overflow: hidden;
 }
 
-.notification-item.unread::before {
-  content: '';
+.skeleton-title {
+  width: 60%;
+  height: 20px;
+}
+
+.skeleton-lines.short {
+  width: 40%;
+}
+
+.shimmer::after {
+  content: "";
   position: absolute;
-  left: 0;
   top: 0;
+  left: -150px;
   height: 100%;
-  width: 4px;
-  background-color: #3d55b4;
-  border-radius: 0 2px 2px 0;
+  width: 150px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 1.5s infinite;
 }
-
-.notification-content {
-  margin: 0;
-}
-
-.notification-title {
-  font-weight: 500;
-  margin-bottom: 4px;
-  color: #3d55b4;
-}
-
-.notification-message {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 6px;
-}
-
-.notification-time {
-  font-size: 12px;
-  color: #888;
-  display: flex;
-  align-items: center;
-}
-
-.notification-time::before {
-  content: '⏱️';
-  font-size: 10px;
-  margin-right: 4px;
-  opacity: 0.7;
-}
-
-/* Show class for toggling */
-.notification-show {
-  display: block;
-}
-
-/* Dark mode support */
-body.dark-mode .notification-dropdown {
-  background: #232a36;
-  border: 1px solid #3d3d3d;
-}
-
-body.dark-mode .notification-dropdown::before {
-  border-color: transparent transparent #232a36 transparent;
-}
-
 body.dark-mode .notification-header {
   background-color: #1a2130;
   border-color: #3d3d3d;
@@ -1526,5 +1429,8 @@ body.dark-mode .notification-time {
   .logo, .footer-brand img {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
+@keyframes shimmer {
+  100% {
+    left: 100%;
   }
 }
