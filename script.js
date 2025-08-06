@@ -1,9 +1,6 @@
 function Redirect(){
   window.location.href = "components/homepage.html";
 }
-<<<<<<< HEAD
-=======
-
 
 const jobList = document.getElementById("job-list");
 let jobCount = 0;
@@ -252,4 +249,4 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchJobsList();
   fetchEmployerJobs();
 });
->>>>>>> upstream/main
+
