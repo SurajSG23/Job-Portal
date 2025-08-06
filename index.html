@@ -422,7 +422,6 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
-
   <script>
     // Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
@@ -430,5 +429,37 @@
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      darkModeToggle.textContent =
+        document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    // Notification Dropdown
+    const notificationIcon = document.getElementById('notificationIcon');
+    const notificationDropdown = document.getElementById('notificationDropdown');
+    notificationIcon.addEventListener('click', () => {
+      notificationDropdown.classList.toggle('show');
+    });
+
+    // Close notification dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+      if (!notificationIcon.contains(event.target)) {
+        notificationDropdown.classList.remove('show');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
+
 
 
