@@ -326,3 +326,135 @@ h1{
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ====== testimonials ====== */
+.testimonials {
+  background: whitesmoke;
+  color: black;
+  padding: clamp(2.5rem, 4vw + 1rem, 5rem) 1.25rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  text-align: center;
+  margin: 0;
+}
+.section-subtitle {
+  text-align: center;
+  color: #a7b1c2;
+  margin: .75rem auto 1.25rem;
+  max-width: 42rem;
+}
+
+/* Controls */
+.ts-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: .5rem;
+  margin-bottom: .5rem;
+}
+.ts-btn {
+  background: transparent;
+  border: 1px solid black;
+  color: black;
+  padding: .5rem .7rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.ts-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(108,140,255,.35); }
+.ts-btn:focus-visible { outline: 3px solid rgba(108,140,255,.35); }
+
+/* Slider */
+.ts-viewport {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+}
+.ts-track {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.ts-track::-webkit-scrollbar { height: 8px; }
+.ts-track::-webkit-scrollbar-thumb { background: black; border-radius: 999px; }
+.ts-slide {
+  flex: 0 0 84%;
+  max-width: 84%;
+  scroll-snap-align: start;
+  list-style: none;
+}
+@media (min-width: 640px) {
+  .ts-slide { flex-basis: 48%; max-width: 48%; }
+}
+@media (min-width: 1024px) {
+  .ts-slide { flex-basis: 32%; max-width: 32%; }
+}
+
+/* Card */
+.ts-card {
+  background: whitesmoke;
+  border: 1px solid black;
+  border-radius: 16px;
+  padding: 1.2rem;
+  display: grid;
+  gap: 1rem;
+  min-height: 160px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.ts-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(12,18,40,.55);
+}
+.ts-card blockquote {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.ts-card figcaption {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: black;
+}
+.ts-card figcaption img {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+/* Dots */
+.ts-dots {
+  display: flex;
+  justify-content: center;
+  gap: .4rem;
+  margin-top: .8rem;
+}
+.ts-dots button {
+  width: 9px; height: 9px; border-radius: 999px; border: 0;
+  background: black;
+  opacity: .3;
+  cursor: pointer;
+}
+.ts-dots button[aria-selected="true"] { background: black; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ts-track { scroll-behavior: auto; }
+  .ts-card { transition: none; }
+}
+
+
+
