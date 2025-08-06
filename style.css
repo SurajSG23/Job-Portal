@@ -106,7 +106,6 @@ body {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: var(--shadow-md);
 }
-
 .navbar {
   display: flex;
   align-items: center;
@@ -1138,6 +1137,11 @@ body.dark .footer {
   .hero-title {
     font-size: 2.5rem;
   }
+<<<<<<< HEAD
+}
+ 
+=======
+>>>>>>> upstream/main
 
   .hero-description {
     font-size: 1.1rem;
