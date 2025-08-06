@@ -13,8 +13,7 @@ function toggleBookmark(button) {
     icon.classList.add('fa-regular');
   }
 }
-  window.location.href = "components/homepage.html";
-}
+
 
 const jobList = document.getElementById("job-list");
 let jobCount = 0;
