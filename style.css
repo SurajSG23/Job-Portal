@@ -649,6 +649,35 @@ body {
 
 .footer-content {
   font-family: "Poppins", sans-serif;
+
+  font-size: 2rem;
+  color: #030303;
+}
+.job-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  position: relative;
+  width: 300px;
+}
+
+.bookmark-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #3d55b4;
+}
+
+.bookmark-btn.saved i {
+  color: gold;
+}
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -785,7 +814,6 @@ body.dark .footer {
   font-weight: 500;
 }
 
-/* Features Section */
 .features {
   padding: var(--section-padding);
   background: var(--surface);
@@ -1435,3 +1463,4 @@ body.dark-mode .notification-time {
     left: 100%;
   }
 }
+

@@ -4,6 +4,7 @@
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
     {
+      
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Job Junction",
@@ -430,49 +431,4 @@
       navMenu.classList.toggle('active');
     });
 
-    // Mobile Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    if (mobileToggle) {
-      mobileToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
-      });
-    }
 
-    // Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('theme-icon');
-
-    function setTheme(dark) {
-      if (dark) {
-        document.body.classList.add('dark');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-      } else {
-        document.body.classList.remove('dark');
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-      }
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    const darkMode = savedTheme === 'dark';
-    setTheme(darkMode);
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const isDark = !document.body.classList.contains('dark');
-        setTheme(isDark);
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
