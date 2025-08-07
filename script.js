@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     savedJobsContainer.appendChild(jobDiv);
   });
 
-  // Save job on button click
+
   saveButtons.forEach(btn => {
     btn.addEventListener('click', function () {
       const jobCard = this.parentElement;
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
       savedJobs.push(jobHTML);
       localStorage.setItem('savedJobs', JSON.stringify(savedJobs));
 
-      // Add to Saved Jobs section
       const jobDiv = document.createElement('div');
       jobDiv.className = 'job-card';
       jobDiv.innerHTML = jobHTML;
