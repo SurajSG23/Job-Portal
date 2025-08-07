@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Junction</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-    <script type="module" src="components/firebaseauth.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <!-- <script type="module" src="components/firebaseauth.js"></script> -->
 </head>
 
 <body>
@@ -22,22 +22,22 @@
                 <h2>Register</h2>
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" id="fName" placeholder="Suraj" required>
+                    <input type="text" id="fName" placeholder="Suraj" required />
                     <label for="fname">First name</label>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" id="lName" placeholder="S G" required>
+                    <input type="text" id="lName" placeholder="S G" required />
                     <label for="lname">Last name</label>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="rEmail" placeholder="Example@gmail.com" required>
+                    <input type="email" id="rEmail" placeholder="Example@gmail.com" required />
                     <label for="rEmail">Email</label>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="rPassword" placeholder="Password" required>
+                    <input type="password" id="rPassword" placeholder="Password" required />
                     <label for="rPassword">Password</label>
                 </div>
                 <button class="sign-up-btn">Sign Up</button>
@@ -49,6 +49,7 @@
                 <h5>Already have an account?</h5>
                 <button name="sign-in" class="sign-in">Sign-in</button>
             </div>
+            <button class="guestLogin" onclick="guestLogin()">Guest Login</button>
         </div>
     </div>
     <div id="signInSection" class="sign-section-2">
@@ -57,12 +58,12 @@
                 <h2>Login</h2>
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Example@gmail.com" required>
+                    <input type="email" id="email" placeholder="Example@gmail.com" required />
                     <label for="email">Email</label>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" placeholder="Password" required />
                     <label for="password">Password</label>
                 </div>
                 <button type="submit" class="sign-in-btn">Login</button>
@@ -72,6 +73,9 @@
                         <h5>Register new account?</h5>
                         <button name="sign-up" class="sign-up">Sign-up</button>
                     </div>
+                    <button class="guestLogin" onclick="guestLogin()">
+              Guest Login
+            </button>
                 </div>
             </div>
         </form>

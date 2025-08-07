@@ -7,7 +7,7 @@
 
 .logo {
     position: absolute;
-    background-image: url("assets/logo.png");
+    background-image: url("assets/logo.webp");
     width: 300px;
     height: 200px;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@
 body {
     max-width: 100vw;
     height: 100vh;
-    background-image: url("./assets/login-bg.png");
+    background-image: url("./assets/login-bg.webp");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -105,7 +105,8 @@ body {
 }
 
 .sign-in-btn,
-.sign-up-btn {
+.sign-up-btn,
+.guestLogin {
     all: unset;
     margin: 0 auto;
     border: 1px solid blue;
@@ -119,7 +120,8 @@ body {
 
 .sign-up-btn:hover,
 .fa-google:hover,
-.sign-in-btn:hover {
+.sign-in-btn:hover,
+.guestLogin:hover {
     background-color: #5bb8ff;
     transform: scale(1.1);
 }
@@ -133,7 +135,6 @@ body {
     margin: 0 auto;
     gap: 20px;
 }
-
 
 .sign-section h2,
 .sign-section-2 h2 {
@@ -159,24 +160,21 @@ body {
     text-decoration: underline;
 }
 
-
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
     .logo {
         left: 32vw;
     }
-
-    .sign-section,.sign-section-2 {
+    .sign-section,
+    .sign-section-2 {
         max-width: 55vw;
         height: 75vh;
         left: 27vh;
         top: 20vh;
         margin-top: 10px;
     }
-
     .box-sign {
         max-width: 35vw;
     }
-
     .signy {
         max-width: 40vw;
         display: flex;
@@ -188,23 +186,21 @@ body {
     }
 }
 
-@media (max-width:655px) {
+@media (max-width: 655px) {
     .logo {
         left: 20vw;
     }
-
-    .sign-section,.sign-section-2 {
+    .sign-section,
+    .sign-section-2 {
         max-width: 85vw;
         height: 75vh;
         left: 10vh;
         top: 20vh;
         margin-top: 10px;
     }
-
     .box-sign {
         max-width: 65vw;
     }
-
     .signy {
         max-width: 50vw;
         display: flex;
@@ -214,31 +210,29 @@ body {
         margin: 0 auto;
         gap: 20px;
     }
-
-    .links,.links2 {
+    .links,
+    .links2 {
         gap: 2px;
     }
 }
 
-@media (max-width:430px) {
+@media (max-width: 430px) {
     .logo {
         left: 8vw;
     }
-
-    .sign-section,.sign-section-2 {
+    .sign-section,
+    .sign-section-2 {
         max-width: 85vw;
         height: 75vh;
         left: 3vh;
         top: 20vh;
         right: 1vh;
     }
-
     .box-sign {
         max-width: 60vw;
         left: 0px;
         margin: 0 10px;
     }
-
     .signy {
         max-width: 70vw;
         display: flex;
@@ -248,31 +242,29 @@ body {
         margin: 0 auto;
         gap: 20px;
     }
-
-    .links,.links2 {
+    .links,
+    .links2 {
         gap: 3px;
     }
 }
 
-@media (max-width:360px) {
+@media (max-width: 360px) {
     .logo {
         left: 2vw;
     }
-
-    .sign-section,.sign-section-2 {
+    .sign-section,
+    .sign-section-2 {
         max-width: 85vw;
         height: 75vh;
         left: 3vh;
         top: 20vh;
         right: 1vh;
     }
-
     .box-sign {
         max-width: 10vw;
         left: 0px;
         margin: 0 10px;
     }
-
     .signy {
         width: 70vw;
         display: flex;
@@ -282,11 +274,10 @@ body {
         margin: 0 auto;
         gap: 20px;
     }
-
-    .links,.links2 {
+    .links,
+    .links2 {
         gap: 3px;
     }
-
     .input-group input {
         all: unset;
         width: 200px;
@@ -298,25 +289,23 @@ body {
     }
 }
 
-@media (max-width:300px) {
+@media (max-width: 300px) {
     .logo {
         left: -3vw;
     }
-
-    .sign-section,.sign-section-2 {
+    .sign-section,
+    .sign-section-2 {
         max-width: 100vw;
         height: 75vh;
         left: 3vh;
         top: 23vh;
         right: 1vh;
     }
-
     .box-sign {
         max-width: 10vw;
         left: 0px;
         margin: 0 20px;
     }
-
     .signy {
         max-width: 70vw;
         display: flex;
@@ -326,11 +315,10 @@ body {
         margin: 0 auto;
         gap: 20px;
     }
-
-    .links,.links2 {
+    .links,
+    .links2 {
         gap: 3px;
     }
-
     .input-group input {
         width: 170px;
         height: 40px;
@@ -339,7 +327,6 @@ body {
         backdrop-filter: blur(500px);
         padding-left: 10px;
     }
-
     body {
         max-width: 100vw;
         height: 150vh;
