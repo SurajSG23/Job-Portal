@@ -190,6 +190,10 @@
 </section>
 
         
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to Top">
+  ↑
+</button>
 
 
     <footer>
@@ -241,6 +245,27 @@ document.addEventListener("DOMContentLoaded", () => {
   prevBtn.addEventListener("click", () => scrollBySlides(-1));
   nextBtn.addEventListener("click", () => scrollBySlides(1));
 });
+
+// Back to Top Button Logic
+const backToTopBtn = document.getElementById("backToTopBtn");
+
+// Show/hide button on scroll
+window.onscroll = function () {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+};
+
+// Scroll to top smoothly
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
 </script>
 
 </body>
