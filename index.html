@@ -198,9 +198,7 @@
       };
     </script>
     <script>
-      const navToggle = document.querySelector(".nav-toggle");
-      const navLinks = document.querySelector(".nav-links");
-
+      // Use previously declared navToggle and navLinks
       navToggle.addEventListener("click", () => {
         navLinks.classList.toggle("active");
       });
@@ -234,5 +232,87 @@
         });
       });
     </script>
+  
+<!-- Add this before your closing </body> tag -->
+<button id="chatbot-toggle" aria-label="Open chat" aria-controls="chatbot" aria-expanded="false" style="position:fixed;bottom:24px;right:24px;z-index:1000;">💬</button>
+
+<div id="chatbot" role="dialog" aria-modal="true" aria-labelledby="chatbot-title" tabindex="-1" style="display:none;position:fixed;bottom:80px;right:24px;width:320px;max-width:90vw;background:#fff;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,0.15);z-index:1001;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 16px;background:#3d55b4;color:#fff;border-radius:8px 8px 0 0;">
+    <span id="chatbot-title">Job Junction Chatbot</span>
+    <button id="chatbot-close" aria-label="Close chat" style="background:none;border:none;color:#fff;font-size:1.2em;cursor:pointer;">&times;</button>
+  </div>
+  <div id="chatbot-messages" style="padding:16px;height:180px;overflow-y:auto;font-size:0.95em;"></div>
+  <div style="display:flex;padding:8px 16px;border-top:1px solid #eee;">
+    <input type="text" id="chatbot-input" placeholder="Type your message..." aria-label="Type your message" style="flex:1;padding:6px 8px;border-radius:4px;border:1px solid #ccc;" />
+    <button id="chatbot-send" aria-label="Send message" style="margin-left:8px;padding:6px 12px;background:#3d55b4;color:#fff;border:none;border-radius:4px;cursor:pointer;">Send</button>
+  </div>
+</div>
+<script>
+  const chatbotToggle = document.getElementById("chatbot-toggle");
+  const chatbot = document.getElementById("chatbot");
+  const chatbotClose = document.getElementById("chatbot-close");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotInput = document.getElementById("chatbot-input");
+  const chatbotSend = document.getElementById("chatbot-send");
+
+  let greeted = false;
+
+  chatbotToggle.addEventListener("click", () => {
+    chatbot.style.display = "block";
+    chatbotToggle.setAttribute("aria-expanded", "true");
+    chatbotInput.focus();
+    if (!greeted) {
+      appendMessage("Bot", "Hello! How can I help you today?");
+      greeted = true;
+    }
+  });
+
+  chatbotClose.addEventListener("click", () => {
+    chatbot.style.display = "none";
+    chatbotToggle.setAttribute("aria-expanded", "false");
+    chatbotToggle.focus();
+  });
+
+  chatbotSend.addEventListener("click", sendMessage);
+  chatbotInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  chatbot.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      chatbot.style.display = "none";
+      chatbotToggle.setAttribute("aria-expanded", "false");
+      chatbotToggle.focus();
+    }
+  });
+
+  function sendMessage() {
+    const userMsg = chatbotInput.value.trim();
+    if (!userMsg) return;
+
+    appendMessage("You", userMsg);
+    chatbotInput.value = "";
+
+    setTimeout(() => {
+      const botReply = getBotReply(userMsg);
+      appendMessage("Bot", botReply);
+    }, 600);
+  }
+
+  function appendMessage(sender, text) {
+    const msg = document.createElement("div");
+    msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatbotMessages.appendChild(msg);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function getBotReply(input) {
+    input = input.toLowerCase();
+    if (input.includes("hello")) return "Hi there! How can I assist you?";
+    if (input.includes("job")) return "You can browse job listings below.";
+    if (input.includes("apply")) return "Click on a job card to view details and apply.";
+    return "I'm here to help with job-related queries!";
+  }
+</script>
   </body>
 </html>
