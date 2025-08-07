@@ -1,21 +1,20 @@
 console.log("Script loaded");
-  let mybutton = document.getElementById("backToTopBtn");
 
-  
-  window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  };
+// Back to Top Button
+let mybutton = document.getElementById("backToTopBtn");
 
-  mybutton.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-// ------------------
-// Job Card Loader
-// ------------------
+window.onscroll = function () {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+};
+
+mybutton.onclick = function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 // ------------------
 // Job Card Loader
 // ------------------
@@ -50,6 +49,9 @@ function loadJobs() {
 
 loadJobs();
 
+// ------------------
+// Chatbot Logic
+// ------------------
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("chatbot-toggle");
   const chatbot = document.getElementById("chatbot");
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   toggleBtn.addEventListener("click", () => {
-    chatbot.style.display = "flex"; // match your CSS
+    chatbot.style.display = "flex";
     toggleBtn.setAttribute("aria-expanded", "true");
     inputField.focus();
     if (!greeted) {
@@ -115,5 +117,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input.includes("job")) return "You can browse job listings below.";
     if (input.includes("apply")) return "Click on a job card to view details and apply.";
     return "I'm here to help with job-related queries!";
+  }
+
+  // ------------------
+  // Sign-in / Sign-up Toggle
+  // ------------------
+  let sign_in_btn = document.getElementsByClassName("sign-in")[0];
+  let sign_up_btn = document.getElementsByClassName("sign-up")[0];
+  let sign_up_section = document.getElementsByClassName("sign-section")[0];
+  let sign_in_section = document.getElementsByClassName("sign-section-2")[0];
+
+  sign_in_btn.addEventListener("click", () => {
+    sign_up_section.style.visibility = "hidden";
+    sign_in_section.style.visibility = "visible";
+  });
+
+  sign_up_btn.addEventListener("click", () => {
+    sign_in_section.style.visibility = "hidden";
+    sign_up_section.style.visibility = "visible";
+  });
+
+  function guestLogin() {
+    window.location.href = "components/homepage.html";
   }
 });
