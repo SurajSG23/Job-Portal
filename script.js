@@ -143,8 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "components/homepage.html";
   }
 });
-=======
-=======
+
 
 function Redirect(){
     window.location.href = "components/homepage.html"
@@ -200,8 +199,4 @@ sign_up_btn.addEventListener("click", () => {
 function guestLogin() {
     window.location.href = "components/homepage.html";
 }
- feat/CHATBOT
-main
-=======
 
-main
