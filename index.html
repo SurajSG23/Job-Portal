@@ -28,6 +28,9 @@
       <li><a href="#">Home</a></li>
       <li><a href="#">About</a></li>
     </ul>
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
     <div class="nav-toggle"><i class="fa fa-bars"></i></div>
   </nav>
 
@@ -49,10 +52,93 @@
 
   <script src="script.js"></script>
   <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    navToggle.addEventListener('click', () => {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    // Enhanced Theme Toggle System - Works across all pages
+    class ThemeManager {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        // Apply saved theme immediately to prevent flash
+        const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
+        this.applyTheme(savedTheme, false);
+        
+        // Set up theme toggle functionality
+        this.setupThemeToggle();
+        
+        // Set up mobile navigation
+        this.setupMobileNav();
+      }
+
+      applyTheme(theme, animate = true) {
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+        
+        if (animate) {
+          body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+
+        if (theme === 'dark') {
+          body.classList.add('dark');
+          if (themeIcon) {
+            themeIcon.className = 'fas fa-sun';
+            themeIcon.style.transform = 'rotate(180deg)';
+          }
+        } else {
+          body.classList.remove('dark');
+          if (themeIcon) {
+            themeIcon.className = 'fas fa-moon';
+            themeIcon.style.transform = 'rotate(0deg)';
+          }
+        }
+
+        // Store theme preference
+        localStorage.setItem('jobPortalTheme', theme);
+        
+        // Dispatch custom event for other pages to listen
+        window.dispatchEvent(new CustomEvent('themeChanged', { 
+          detail: { theme } 
+        }));
+      }
+
+      setupThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          this.applyTheme(newTheme);
+        });
+      }
+
+      setupMobileNav() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (navToggle && navLinks) {
+          navToggle.addEventListener('click', () => {
+            const isActive = navLinks.classList.contains('active');
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger icon
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
+            }
+          });
+        }
+      }
+    }
+
+    // Initialize theme manager when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new ThemeManager();
+    });
+
+    // Listen for theme changes from other pages
+    window.addEventListener('themeChanged', (e) => {
+      console.log(`Theme changed to: ${e.detail.theme}`);
     });
   </script>
 </body>
