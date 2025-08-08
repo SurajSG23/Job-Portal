@@ -37,7 +37,7 @@ body {
     background: linear-gradient(135deg, #E6F3FF, #CCE7FF, #B3D9FF);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 /* Header Styling */
@@ -68,28 +68,6 @@ header {
   height: auto;
 }
 
-.footer {
-  width: 100%;
-  height: 4rem;
-  background: #3d55b4;
-  color: #fff;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 99;
-  box-shadow: 0 -2px 12px rgba(61, 85, 180, 0.08);
-  font-size: 17px;
-  letter-spacing: 0.5px;
-}
-
-.footer-content {
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  margin-left: 29.5rem;
-}
 
 /* Navigation links & button container */
 .headlinks {
@@ -200,16 +178,73 @@ header {
     box-shadow: 0px 2px 5px rgb(74, 183, 216);
 
 }
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 8vh;
-    background-color: rgb(77, 77, 246);
+#footer1{
+  background:linear-gradient(45deg, #3d55b4, #5bb8ff);;
+  padding:10px;
+  height: 600px;
 }
+#footer-description{
+  font-size: 15px;
+  margin-left :6%;
+  margin-right:6%;
+  margin-top: 10px;
+}
+#footer-in{
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+#footer-bottom{
+  display: flex;
+  justify-content: center;
+  margin:10px;
+  font-size: 25px;
+}
+.footer-buttons{
+  background-color: transparent;
+  border: none;
+}
+#Social  {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+i{
+  font-size: 30px;
+  margin: 10px;
+  color: black;
+}
+.footer-section{
+  position: relative;
+}
+.footer-button-pos{
+  position: absolute;
+  margin-left:25px ;
+}
+.footer-button-pos1{
+  position: relative;
+  margin-left:25px;
+}
+footer {
+    position: relative;      
+    width: 100%;   
+    /* height: 4rem; */
+     background: linear-gradient(180deg, #f0f8ff 0%, #e0eaff 100%);
 
-.footContainer {
+    color: white;
+    padding: 0.5rem 0;
+    z-index: 10;        
+    box-shadow: 0 -2px 12px rgba(61, 85, 180, 0.08); 
+}
+ /* footer {
+    /* position: fixed; */
+    /* bottom: 0;
+    width: 100%;
+    height:30vh;
+    background-color: rgb(77, 77, 246);
+} */ */
+
+/* .footContainer {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -227,7 +262,7 @@ footer {
     width: 40px;
     height: 40px;
     margin-top: 4px;
-}
+} */ */
 
 .fa-brands {
     font-size: 40px;
@@ -253,9 +288,10 @@ footer {
 
 .body2 {
     width: 100%;
-    min-height: calc(100vh - 23vh);
-    flex: 1;
     background: linear-gradient(135deg, #E6F3FF, #CCE7FF, #B3D9FF);
+    flex: 1 0 auto;    
+    padding-bottom: 0;    
+    min-height: auto; 
 }
 
 .heading{
