@@ -186,6 +186,278 @@ body {
     }
 }
 
+ feat/CHATBOT
+@media (max-width: 655px) {}
+  .hero {
+  padding: 12px 2px 10px 2px;
+  max-width: 100vw;
+  padding: 48px 16px 32px 16px;
+  margin-bottom: 48px;
+}
+
+.box-sign {
+  font-size: 16px;
+  padding: 10px 12px;
+  max-width: 60vw;
+  left: 0px;
+  margin: 0 10px;
+}
+
+.select-role-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.select-role-text h1 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  color: #030303;
+}
+
+body.dark-mode {
+  background: linear-gradient(120deg, #1c1c1e 0%, #2c2c2e 100%);
+  color: #f1f1f1;
+}
+
+body.dark-mode .navbar {
+  background: rgba(28, 28, 30, 0.95);
+  color: #fff;
+}
+
+body.dark-mode .nav-links a {
+  color: #f1f1f1;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #ffd700;
+}
+
+body.dark-mode .hero {
+  background: rgba(44, 44, 46, 0.95);
+  color: #f1f1f1;
+}
+
+body.dark-mode .hero h1 {
+  color: #5bb8ff;
+}
+
+body.dark-mode .box-sign {
+  background: linear-gradient(90deg, #444 60%, #777 100%);
+}
+
+body.dark-mode .footer {
+  background: #1c1c1e;
+  color: #f1f1f1;
+}
+
+.dark-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+main {
+  padding: 32px 16px;
+}
+
+section {
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+#loader p {
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0;
+}
+
+#chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #5bb8ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#chatbot {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  max-height: 400px;
+  background-color: #f7f9fc;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+#chatbot-header {
+  background-color: #3d55b4;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+#chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#chatbot-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+
+#chatbot-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+#chatbot-send {
+  background-color: #5bb8ff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logo {
+  left: 8vw;
+}
+
+.sign-section,
+.sign-section-2 {
+  max-width: 85vw;
+  height: 75vh;
+  left: 3vh;
+  top: 20vh;
+  right: 1vh;
+}
+
+.signy {
+  max-width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.links,
+.links2 {
+  gap: 3px;
+}
+
+@media (max-width: 360px) {
+  .logo {
+    left: 2vw;
+  }
+
+  .box-sign {
+    max-width: 10vw;
+    left: 0px;
+    margin: 0 10px;
+  }
+
+  .signy {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .input-group input {
+    all: unset;
+    width: 200px;
+    height: 40px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    backdrop-filter: blur(500px);
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .logo {
+    left: -3vw;
+  }
+
+  .sign-section,
+  .sign-section-2 {
+    max-width: 100vw;
+    height: 75vh;
+    left: 3vh;
+    top: 23vh;
+    right: 1vh;
+  }
+
+  .box-sign {
+    max-width: 10vw;
+    left: 0px;
+    margin: 0 20px;
+  }
+
+  .signy {
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .input-group input {
+    width: 170px;
+    height: 40px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    backdrop-filter: blur(500px);
+    padding-left: 10px;
+  }
+
+  body {
+    max-width: 100vw;
+    height: 150vh;
+    background-image: url("./assets/login-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+=======
 @media (max-width: 655px) {
     .logo {
         left: 20vw;
@@ -337,4 +609,12 @@ body {
         flex-direction: column;
         overflow-y: hidden;
     }
+feat/CHATBOT
+ main
 }
+=======
+}
+ feat/CHATBOT
+
+main
+==== main
