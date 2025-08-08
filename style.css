@@ -1,19 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
 
-.logo {
-    position: absolute;
-    background-image: url("assets/logo.webp");
-    width: 300px;
-    height: 200px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    left: 20vw;
-}
 
 body {
     max-width: 100vw;
@@ -23,6 +8,166 @@ body {
     background-size: cover;
     display: flex;
     flex-direction: column;
+}
+/* Reset + font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* LOGO */
+.logo {
+    background-image: url("assets/logo.webp");
+    width: 180px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-shrink: 0; /* Prevents logo from shrinking in flex layout */
+}
+
+/* NAVBAR BASE */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2rem;
+  background: linear-gradient(90deg, rgba(106, 90, 205, 0.95), rgba(123, 104, 238, 0.95));
+  color: #fff;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0 0 12px 12px;
+  gap: 2rem; /* Space between logo and nav items */
+}
+
+/* LOGO SECTION */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-img {
+  width: 42px;
+  height: 42px;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap; /* Helps on smaller widths */
+}
+
+.nav-links a {
+  position: relative;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  padding: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffe47a;
+  text-shadow: 0 0 8px rgba(255, 228, 122, 0.6);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #ffe47a;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* THEME BUTTON */
+.theme-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* MOBILE MENU TOGGLE */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .logo {
+    width: 140px; /* Smaller logo for mobile */
+    height: 50px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 2rem;
+    background: rgba(106, 90, 205, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 1rem;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* DARK MODE SUPPORT */
+body.dark .navbar {
+  background: rgba(20, 20, 20, 0.85);
+}
+
+body.dark .nav-links a:hover {
+  color: #facc15;
+}
+
+body.dark .nav-links a::after {
+  background: #facc15;
 }
 
 .sign-section {
