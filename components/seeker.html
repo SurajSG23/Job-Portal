@@ -59,18 +59,18 @@
 
 <body>
     <header>
-<div class="headContainer">
-    <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
+        <div class="headContainer">
+            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
 
-    <nav class="headlinks">
-        <a href="../index.html">Home</a>
-      <a href="../components/about.html" target="_self">About</a>
-      <a href="../components/homepage.html">Role</a>
-      <button class="apply-btn">Apply</button>
-    </nav>
-  </div>
+            <nav class="headlinks">
+                <a href="../index.html">Home</a>
+                <a href="../components/about.html" target="_self">About</a>
+                <a href="../components/homepage.html">Role</a>
+                <button class="apply-btn">Apply</button>
+            </nav>
         </div>
-        <div class="apply">
+        <!-- </div> -->
+        <!-- <div class="apply">
             <div>
                 <h2>Provide the below details:</h2>
                 <div class="selector">
@@ -81,15 +81,15 @@
                         <option value="Freelancer">Freelancing</option>
                         <option value="recent">Recently Added</option>
                     </select>
-<button class="apply-btn">Apply</button>
-      </div>
-    </div>
-</div>
-<div class="apply">
-    <div>
-        <h2>Provide the below details:</h2>
-
+                    <button class="apply-btn">Apply</button>
+                </div>
             </div>
+        </div> -->
+        <div class="apply">
+            <button class="modal-close-btn" type="button">×</button>
+
+            <h2>Provide the below details:</h2>
+            
             <div>Name: <input type="text" name="name" id="name" class="input"></div>
             <div>Years of experience: <input type="number" id="yoe" class="input"></div>
             <div>Contact number: <input type="number" name="number" id="phNo" class="input"></div>
@@ -123,20 +123,15 @@
             <p>Most viewed and all-time-top-selling servies</p>
         </div>
         <div class="search-filter-container">
-  <input
-    type="text"
-    id="searchInput"
-    class="search-bar fancy-input"
-    placeholder=" Search by position..."
-  />
-  
-  <select id="salaryFilter" class="filter-dropdown fancy-select">
-    <option value=""> All Salaries</option>
-    <option value="500">$500+/m</option>
-    <option value="900">$900+/m</option>
-    <option value="1200">$1200+/m</option>
-  </select>
-</div>
+            <input type="text" id="searchInput" class="search-bar fancy-input" placeholder=" Search by position..." />
+
+            <select id="salaryFilter" class="filter-dropdown fancy-select">
+                <option value=""> All Salaries</option>
+                <option value="500">$500+/m</option>
+                <option value="900">$900+/m</option>
+                <option value="1200">$1200+/m</option>
+            </select>
+        </div>
 
 
         <div class="jobs-container">
@@ -145,32 +140,32 @@
     </div>
 
 
-     <!-- Back to Top Button -->
+    <!-- Back to Top Button -->
     <button id="backToTopBtn" title="Go to top">↑</button>
 
     <footer class="footer">
         <div class="footContainer">
-            
-                <div class="footer-content">
-                    <p>&copy; 2025 Job Junction. All rights reserved.</p>
-                </div>
 
-                <div class="footlinks">
-                    <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target='_blank'>
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/SurajSG23" target='_blank'>
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-            
+            <div class="footer-content">
+                <p>&copy; 2025 Job Junction. All rights reserved.</p>
+            </div>
+
+            <div class="footlinks">
+                <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target='_blank'>
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/SurajSG23" target='_blank'>
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
         </div>
-        </footer>
+    </footer>
 
-        <!-- <footer>
+    <!-- <footer>
             <div class="footContainer">
             <div>
                 <h4>Copyright &copy; 2024 Job Junction | All Rights Reserved</h4>
