@@ -1,0 +1,115 @@
+/* General page styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Jobs Container */
+.jobs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Job Card */
+.jList {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jList:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.jList img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.jList h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #222;
+}
+
+.jList p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Job Type Badge */
+.type p {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Links */
+.job-links {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Save Job Button */
+.save-job-btn {
+    margin-top: 10px;
+    padding: 8px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.save-job-btn:hover {
+    background: #1976d2;
+}
+
+/* Back to Top Button */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s ease;
+}
+
+#backToTopBtn:hover {
+    background: #1976d2;
+}
+
+#backToTopBtn.show {
+    display: block;
+}
+
