@@ -373,3 +373,74 @@ button:hover {
 #profile-new-username {
     margin-top: 10px;
 }
+/* ===== Auth Sections ===== */
+#login-section, 
+#register-section, 
+#profile-section {
+  max-width: 350px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#login-section h2, 
+#register-section h2, 
+#profile-section h2 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+#login-section input, 
+#register-section input, 
+#profile-section input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border 0.3s ease;
+}
+
+#login-section input:focus, 
+#register-section input:focus, 
+#profile-section input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#login-section button, 
+#register-section button, 
+#profile-section button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#login-section button:hover, 
+#register-section button:hover, 
+#profile-section button:hover {
+  background: linear-gradient(135deg, #0056d2, #003a9e);
+}
+
+#profile-section p {
+  margin: 1rem 0;
+  color: #555;
+}
+
+#profile-section span {
+  font-weight: 600;
+  color: #222;
+}
