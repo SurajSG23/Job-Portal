@@ -200,6 +200,7 @@ document.getElementsByClassName("Submit")[0].addEventListener("click", () => {
         document.getElementsByClassName("apply")[0].style.visibility = "hidden"
         document.getElementsByClassName("apply")[0].style.width = "50vw"
         document.getElementsByClassName("apply")[0].style.height = "60vh"
+
         alert("Submission successfull!")
         document.getElementById("name").value = ''
         document.getElementById("skills").value = ''
@@ -208,6 +209,13 @@ document.getElementsByClassName("Submit")[0].addEventListener("click", () => {
         document.getElementById("email").value = ''
         document.querySelector('input[name="job-type"]:checked').value = ''
     }
+})
+
+// Close modal when clicking the X button
+document.querySelector(".modal-close-btn").addEventListener("click", () => {
+    document.getElementsByClassName("apply")[0].style.visibility = "hidden"
+    document.getElementsByClassName("apply")[0].style.width = "50vw"
+    document.getElementsByClassName("apply")[0].style.height = "60vh"
 })
 
 

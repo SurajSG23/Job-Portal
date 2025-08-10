@@ -1,124 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "logo": "../assets/logo.webp",
-      "sameAs": [
-        "https://github.com/SurajSG23/Job-Portal"
-      ]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Junction | Employer</title>
-  <meta name="description" content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
-  <meta name="keywords"
-    content="employer, job portal, post jobs, manage applications, hire, HTML, CSS, JavaScript, Firebase" />
-  <meta name="author" content="Job Junction Team" />
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Job Junction | Employer" />
-  <meta property="og:description"
-    content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
-  <meta property="og:image" content="../assets/logo.webp" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/employer.html" />
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Job Junction | Employer" />
-  <meta name="twitter:description"
-    content="Employers: Post jobs, manage applications, and find top talent on Job Junction." />
-  <meta name="twitter:image" content="../assets/logo.webp" />
-  <!-- For development: -->
-  <link rel="stylesheet" href="../components/employer.css" />
-  <!-- For production, use minified: -->
-  <!-- <link rel="stylesheet" href="../components/employer.min.css" /> -->
-  <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Dashboard - Job Portal</title>
+    <link rel="stylesheet" href="employer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-  <header>
-    <div class="headContainer">
-      <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
-      <div class="headlinks">
-        <a href="about.html" target="_blank">About</a>
-        <a href="homepage.html">Home</a>
-        <button class="req">Requests</button>
-      </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2><i class="fas fa-briefcase"></i> Job Portal</h2>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#" onclick="logout()">Logout</a>
+            </nav>
+        </div>
     </header>
-    <hr />
-    <div class="body2">
-  <div class="form-wrapper">
-    <div class="form">
-      <h3>Provide Job Description</h3>
-      <form id="jobForm">
-        <input type="text" class="input" id="company" placeholder="Your Company Name" />
-        <span id="companyError" class="error"></span>
 
-        <input type="text" class="input" id="position" placeholder="Position" />
-        <span id="positionError" class="error"></span>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3 id="employerName">Employer Name</h3>
+                <p id="companyName">Company Name</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" onclick="showSection('dashboard')">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('jobs')">
+                    <i class="fas fa-briefcase"></i> My Jobs
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('applications')">
+                    <i class="fas fa-file-alt"></i> Applications
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('profile')">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+            </nav>
+        </aside>
 
-        <input type="number" class="input" id="salary" placeholder="Average Salary in USD" />
-        <span id="salaryError" class="error"></span>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="section-header">
+                    <h2>Dashboard Overview</h2>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalJobs">0</h3>
+                            <p>Total Jobs Posted</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalApplications">0</h3>
+                            <p>Total Applications</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="activeJobs">0</h3>
+                            <p>Active Jobs</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="job-type">
-          <label><input type="radio" name="job-type" value="Full Time" /> Full Time</label>
-          <label><input type="radio" name="job-type" value="Part Time" /> Part Time</label>
-          <label><input type="radio" name="job-type" value="Freelancing" /> Freelancing</label>
-        </div>
-        <span id="jobTypeError" class="error"></span>
+            <!-- Jobs Section -->
+            <section id="jobs" class="content-section">
+                <div class="section-header">
+                    <h2>Job Management</h2>
+                    <button class="btn btn-primary" onclick="showAddJobForm()">
+                        <i class="fas fa-plus"></i> Add New Job
+                    </button>
+                </div>
 
-        <div class="form-buttons">
-          <button type="button" onclick="submitform()">Submit</button>
-          <button type="button" onclick="clearJobs()">Clear</button>
-        </div>
-      </form>
+                <!-- Add Job Form (Initially Hidden) -->
+                <div id="addJobForm" class="job-form-container" style="display: none;">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <h3>Post New Job</h3>
+                            <button class="close-btn" onclick="hideAddJobForm()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <form id="jobForm" onsubmit="addJob(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="jobTitle">Job Title *</label>
+                                    <input type="text" id="jobTitle" name="jobTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jobLocation">Location *</label>
+                                    <input type="text" id="jobLocation" name="jobLocation" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="jobType">Job Type *</label>
+                                    <select id="jobType" name="jobType" required>
+                                        <option value="">Select Job Type</option>
+                                        <option value="full-time">Full-time</option>
+                                        <option value="part-time">Part-time</option>
+                                        <option value="contract">Contract</option>
+                                        <option value="internship">Internship</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jobSalary">Salary Range</label>
+                                    <input type="text" id="jobSalary" name="jobSalary" placeholder="e.g., $50,000 - $70,000">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="jobDescription">Job Description *</label>
+                                <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="jobRequirements">Requirements</label>
+                                <textarea id="jobRequirements" name="jobRequirements" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="hideAddJobForm()">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Post Job</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Jobs List -->
+                <div id="jobsList" class="jobs-container">
+                    <!-- Empty state message -->
+                    <div id="emptyState" class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>No Jobs Posted Yet</h3>
+                        <p>Start by posting your first job to attract talented candidates.</p>
+                        <button class="btn btn-primary" onclick="showAddJobForm()">
+                            <i class="fas fa-plus"></i> Post Your First Job
+                        </button>
+                    </div>
+                    
+                    <!-- Jobs will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Applications Section -->
+            <section id="applications" class="content-section">
+                <div class="section-header">
+                    <h2>Job Applications</h2>
+                    <div class="filter-options">
+                        <select id="statusFilter" onchange="filterApplications()">
+                            <option value="all">All Applications</option>
+                            <option value="pending">Pending</option>
+                            <option value="reviewing">Under Review</option>
+                            <option value="shortlisted">Shortlisted</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="applicationsList" class="applications-container">
+                    <!-- Applications will be dynamically loaded here -->
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>No Applications Yet</h3>
+                        <p>Applications will appear here once candidates start applying to your jobs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <div class="section-header">
+                    <h2>Company Profile</h2>
+                </div>
+                
+                <div class="profile-form-container">
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="companyNameInput">Company Name *</label>
+                                <input type="text" id="companyNameInput" name="companyName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">Industry *</label>
+                                <input type="text" id="industry" name="industry" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="website">Website</label>
+                                <input type="url" id="website" name="website">
+                            </div>
+                            <div class="form-group">
+                                <label for="companySize">Company Size</label>
+                                <select id="companySize" name="companySize">
+                                    <option value="">Select Size</option>
+                                    <option value="1-10">1-10 employees</option>
+                                    <option value="11-50">11-50 employees</option>
+                                    <option value="51-200">51-200 employees</option>
+                                    <option value="201-1000">201-1000 employees</option>
+                                    <option value="1000+">1000+ employees</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="companyDescription">Company Description</label>
+                            <textarea id="companyDescription" name="companyDescription" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
     </div>
-  </div>
-</div>
 
-
-  <footer class="footer">
-    <hr />
-    <div class="footContainer">
-      <div class="footer-content">
-        <p>&copy; 2025 Job Junction. All rights reserved.</p>
-      </div>
-      <div class="footlinks">
-        <a href="https://www.instagram.com/suraj_sg23/" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/SurajSG23" target="_blank">
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </div>
+    <!-- Application Details Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Application Details</h3>
+                <button class="close-btn" onclick="closeApplicationModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="applicationDetails" class="modal-body">
+                <!-- Application details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeApplicationModal()">Close</button>
+                <button class="btn btn-success" onclick="updateApplicationStatus('shortlisted')">Shortlist</button>
+                <button class="btn btn-danger" onclick="updateApplicationStatus('rejected')">Reject</button>
+            </div>
+        </div>
     </div>
-  </footer>
 
-  <script src="employer.js"></script>
+    <script src="employer.js"></script>
 </body>
-
 </html>
