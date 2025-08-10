@@ -42,12 +42,26 @@
           <a href="#" class="nav-link">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
-          <div class="dropdown-content">
-            <a href="components/seeker.html">Browse Jobs</a>
-            <a href="#">Remote Jobs</a>
-            <a href="#">Featured Jobs</a>
-            <a href="#">Internships</a>
-          </div>
+          <ul class="dropdown-content">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li class="dropdown">
+              <a href="#">Remote Jobs <i class="fas fa-chevron-right"></i></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Full-Time Remote</a></li>
+                <li><a href="#">Part-Time Remote</a></li>
+                <li class="dropdown">
+                  <a href="#">By Region <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">Americas</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="#">Internships</a></li>
+          </ul>
         </li>
         <li><a href="#companies" class="nav-link">Companies</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
@@ -476,3 +490,7 @@
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
+    });
+  </script>
+</body>
+</html>
