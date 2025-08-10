@@ -79,6 +79,44 @@
       <div onclick="Redirect()" class="box-sign">
         Get Started
       </div>
+
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal - Authentication</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Your CSS file -->
+</head>
+<body>
+
+  <div id="login-section">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+
+  <div id="register-section">
+    <h2>Register</h2>
+    <input type="text" id="register-username" placeholder="Username">
+    <input type="password" id="register-password" placeholder="Password">
+    <button onclick="register()">Register</button>
+  </div>
+
+  <div id="profile-section" style="display:none;">
+    <h2>My Profile</h2>
+    <p><strong>Username:</strong> <span id="profile-username"></span></p>
+    <input type="text" id="profile-new-username" placeholder="New Username">
+    <button onclick="updateProfile()">Update Profile</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script src="script.js"></script> <!-- Your JavaScript file -->
+</body>
+</html>
+
     </section>
     <!-- Add other homepage sections here if needed -->
   </main>
