@@ -1,11 +1,33 @@
-function Redirect(){
+ feat/CHATBOT
+ feat/CHATBOT
+console.log("Script loaded");
+
+// Back to Top Button
+let mybutton = document.getElementById("backToTopBtn");
+
+window.onscroll = function () {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+};
+
+mybutton.onclick = function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// ------------------
+// Job Card Loader
+// ------------------
+function Redirect() {
   window.location.href = "components/homepage.html";
 }
 
-
-const jobList = document.getElementById("job-list");
 let jobCount = 0;
 const limit = 5;
+const jobList = document.getElementById("job-list");
+const loader = document.getElementById("loader");
 
 function generateJobCard(index) {
   return `
@@ -17,236 +39,164 @@ function generateJobCard(index) {
 }
 
 function loadJobs() {
-  if (!jobList) return;
+  loader.style.display = "block";
   setTimeout(() => {
     for (let i = 0; i < limit; i++) {
       jobList.innerHTML += generateJobCard(jobCount);
       jobCount++;
     }
+    loader.style.display = "none";
   }, 1000);
 }
 
-if (jobList) {
-  loadJobs();
+loadJobs();
 
-  window.addEventListener("scroll", () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-      loadJobs();
-    }
-  });
-}
+// ------------------
+// Chatbot Logic
+// ------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("chatbot-toggle");
+  const chatbot = document.getElementById("chatbot");
+  const closeBtn = document.getElementById("chatbot-close");
+  const messages = document.getElementById("chatbot-messages");
+  const inputField = document.getElementById("chatbot-input");
+  const sendBtn = document.getElementById("chatbot-send");
 
+  let greeted = false;
 
+  function appendMessage(sender, text) {
+    const msg = document.createElement("div");
+    msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
 
-const mybutton = document.getElementById("backToTopBtn");
-if (mybutton) {
-  window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  };
-
-  mybutton.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-}
-
-
-const notificationIcon = document.getElementById('notificationIcon');
-const notificationBadge = document.getElementById('notificationBadge');
-const notificationDropdown = document.getElementById('notificationDropdown');
-const notificationList = document.getElementById('notificationList');
-const markAllReadBtn = document.getElementById('markAllRead');
-
-if (notificationIcon && notificationBadge && notificationDropdown && notificationList) {
-  let notifications = [];
-
-  notificationIcon.addEventListener('click', () => {
-    notificationDropdown.classList.toggle('notification-show');
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!notificationIcon.contains(event.target) && notificationDropdown.classList.contains('notification-show')) {
-      notificationDropdown.classList.remove('notification-show');
+  toggleBtn.addEventListener("click", () => {
+    chatbot.style.display = "flex";
+    toggleBtn.setAttribute("aria-expanded", "true");
+    inputField.focus();
+    if (!greeted) {
+      appendMessage("Bot", "Hello! How can I help you today?");
+      greeted = true;
     }
   });
 
-  if (markAllReadBtn) {
-    markAllReadBtn.addEventListener('click', () => {
-      notifications.forEach(notification => notification.read = true);
-      updateNotifications();
-    });
-  }
-
-  function addNotification(title, message) {
-    const newNotification = {
-      id: Date.now(),
-      title,
-      message,
-      time: new Date(),
-      read: false
-    };
-
-    notifications.unshift(newNotification);
-    updateNotifications();
-    notificationBadge.textContent = getUnreadCount();
-  }
-
-  function updateNotifications() {
-    const unreadCount = getUnreadCount();
-    notificationBadge.textContent = unreadCount;
-
-    notificationBadge.style.display = unreadCount === 0 ? 'none' : 'flex';
-
-    notificationList.innerHTML = '';
-
-    if (notifications.length === 0) {
-      notificationList.innerHTML = '<div class="empty-notification">No job notifications available</div>';
-      return;
-    }
-
-    notifications.forEach(notification => {
-      const notificationItem = document.createElement('div');
-      notificationItem.className = `notification-item ${notification.read ? '' : 'unread'}`;
-
-      const timeAgo = getTimeAgo(notification.time);
-
-      notificationItem.innerHTML = `
-        <div class="notification-content">
-          <div class="notification-title">${notification.title}</div>
-          <div class="notification-message">${notification.message}</div>
-          <div class="notification-time">${timeAgo}</div>
-        </div>
-      `;
-
-      notificationItem.addEventListener('click', () => {
-        notification.read = true;
-        updateNotifications();
-
-        if (notification.title.startsWith('New Employer Job:')) {
-          window.location.href = 'components/employer.html';
-        } else {
-          window.location.href = 'components/seeker.html';
-        }
-      });
-
-      notificationList.appendChild(notificationItem);
-    });
-  }
-
-  function getUnreadCount() {
-    return notifications.filter(notification => !notification.read).length;
-  }
-
-  function getTimeAgo(date) {
-    const seconds = Math.floor((new Date() - date) / 1000);
-
-    let interval = Math.floor(seconds / 31536000);
-    if (interval >= 1) return interval + " year" + (interval === 1 ? "" : "s") + " ago";
-
-    interval = Math.floor(seconds / 2592000);
-    if (interval >= 1) return interval + " month" + (interval === 1 ? "" : "s") + " ago";
-
-    interval = Math.floor(seconds / 86400);
-    if (interval >= 1) return interval + " day" + (interval === 1 ? "" : "s") + " ago";
-
-    interval = Math.floor(seconds / 3600);
-    if (interval >= 1) return interval + " hour" + (interval === 1 ? "" : "s") + " ago";
-
-    interval = Math.floor(seconds / 60);
-    if (interval >= 1) return interval + " minute" + (interval === 1 ? "" : "s") + " ago";
-
-    return Math.floor(seconds) + " second" + (seconds === 1 ? "" : "s") + " ago";
-  }
-
-  function fetchJobsList() {
-    try {
-      const script = document.createElement('script');
-      script.onload = function() {
-        if (typeof jlist !== 'undefined') {
-          const jobsList = jlist.slice();
-          createJobNotifications(jobsList);
-        }
-      };
-      script.onerror = function() {
-        console.log('Failed to load seeker.js');
-      };
-      script.src = 'components/seeker.js';
-      document.head.appendChild(script);
-    } catch (error) {
-      console.error('Error fetching jobs list:', error);
-    }
-  }
-
- 
-  function createJobNotifications(jobsList) {
-    if (!jobsList || jobsList.length === 0) {
-      updateNotifications();
-      return;
-    }
-
-    const recentJobs = jobsList.slice(-3).reverse();
-
-    notifications = [];
-
-    recentJobs.forEach(job => {
-      addNotification(
-        `New Job: ${job.position}`,
-        `${job.position} position is available with salary ${job.salary} (${job.type})`
-      );
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    fetchJobsList();
+  closeBtn.addEventListener("click", () => {
+    chatbot.style.display = "none";
+    toggleBtn.setAttribute("aria-expanded", "false");
+    toggleBtn.focus();
   });
 
-  const refreshBtn = document.getElementById('refreshNotifications');
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', fetchJobsList);
-  }
-}
-
-
-function fetchEmployerJobs() {
-  try {
-    const jobs = JSON.parse(localStorage.getItem('jobs')) || [];
-
-    if (jobs.length > 0) {
-      createEmployerNotifications(jobs);
-    }
-  } catch (error) {
-    console.error('Error fetching employer jobs:', error);
-  }
-}
-
-function createEmployerNotifications(jobs) {
-  if (!jobs || jobs.length === 0) {
-    updateNotifications();
-    return;
-  }
-
-  const recentJobs = jobs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 3);
-
-  notifications = [];
-
-  recentJobs.forEach(job => {
-    addNotification(
-      `New Employer Job: ${job.position}`,
-      `${job.company_name} is hiring for ${job.position} with salary $${job.salary}/m (${job.job_type})`
-    );
+  sendBtn.addEventListener("click", sendMessage);
+  inputField.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
   });
-}
 
-const refreshEmployerBtn = document.getElementById('refreshEmployerNotifications');
-if (refreshEmployerBtn) {
-  refreshEmployerBtn.addEventListener('click', fetchEmployerJobs);
-}
+  chatbot.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      chatbot.style.display = "none";
+      toggleBtn.setAttribute("aria-expanded", "false");
+      toggleBtn.focus();
+    }
+  });
 
+  function sendMessage() {
+    const userMsg = inputField.value.trim();
+    if (!userMsg) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchJobsList();
-  fetchEmployerJobs();
+    appendMessage("You", userMsg);
+    inputField.value = "";
+
+    setTimeout(() => {
+      const botReply = getBotReply(userMsg);
+      appendMessage("Bot", botReply);
+    }, 600);
+  }
+
+  function getBotReply(input) {
+    input = input.toLowerCase();
+    if (input.includes("hello")) return "Hi there! How can I assist you?";
+    if (input.includes("job")) return "You can browse job listings below.";
+    if (input.includes("apply")) return "Click on a job card to view details and apply.";
+    return "I'm here to help with job-related queries!";
+  }
+
+  // ------------------
+  // Sign-in / Sign-up Toggle
+  // ------------------
+  let sign_in_btn = document.getElementsByClassName("sign-in")[0];
+  let sign_up_btn = document.getElementsByClassName("sign-up")[0];
+  let sign_up_section = document.getElementsByClassName("sign-section")[0];
+  let sign_in_section = document.getElementsByClassName("sign-section-2")[0];
+
+  sign_in_btn.addEventListener("click", () => {
+    sign_up_section.style.visibility = "hidden";
+    sign_in_section.style.visibility = "visible";
+  });
+
+  sign_up_btn.addEventListener("click", () => {
+    sign_in_section.style.visibility = "hidden";
+    sign_up_section.style.visibility = "visible";
+  });
+
+  function guestLogin() {
+    window.location.href = "components/homepage.html";
+  }
 });
+
+
+function Redirect(){
+    window.location.href = "components/homepage.html"
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const saveButtons = document.querySelectorAll('.save-job-btn');
+  const savedJobsContainer = document.getElementById('saved-jobs-container');
+
+  // Load saved jobs from localStorage on page load
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
+  savedJobs.forEach(job => {
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'job-card';
+    jobDiv.innerHTML = job;
+    savedJobsContainer.appendChild(jobDiv);
+  });
+
+
+  saveButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const jobCard = this.parentElement;
+      const jobHTML = jobCard.outerHTML;
+      savedJobs.push(jobHTML);
+      localStorage.setItem('savedJobs', JSON.stringify(savedJobs));
+
+      const jobDiv = document.createElement('div');
+      jobDiv.className = 'job-card';
+      jobDiv.innerHTML = jobHTML;
+      savedJobsContainer.appendChild(jobDiv);
+
+      this.disabled = true;
+      this.innerText = '✅ Saved';
+    });
+  });
+});
+main
+let sign_in_btn = document.getElementsByClassName("sign-in")[0];
+let sign_up_btn = document.getElementsByClassName("sign-up")[0];
+let sign_up_section = document.getElementsByClassName("sign-section")[0];
+let sign_in_section = document.getElementsByClassName("sign-section-2")[0];
+
+sign_in_btn.addEventListener("click", () => {
+    sign_up_section.style.visibility = "hidden";
+    sign_in_section.style.visibility = "visible";
+});
+
+sign_up_btn.addEventListener("click", () => {
+    sign_in_section.style.visibility = "hidden";
+    sign_up_section.style.visibility = "visible";
+});
+
+function guestLogin() {
+    window.location.href = "components/homepage.html";
+}
+

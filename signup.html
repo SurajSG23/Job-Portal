@@ -8,37 +8,49 @@
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
+      transition: all 0.3s ease;
     }
     body {
-      background:  white;
+      background: url('https://images.unsplash.com/photo-1572557798994-41431698dc8d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
     }
+
     .container {
       background: white;
       padding: 2rem;
       border-radius: 12px;
-     width: 100%;
+      width: 100%;
       max-width: 400px;
-      box-shadow: 0 8px 150px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 150px rgba(0, 0, 0, 0.15);
       border: 1px solid #ccc;
       font-weight: 500;
+      animation: fadeIn 1s ease;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     h2 {
       text-align: center;
       margin-bottom: 1rem;
     }
+
     .form-group {
       margin-bottom: 1rem;
       position: relative;
     }
+
     label {
       display: block;
       margin-bottom: 5px;
     }
+
     input[type="email"],
     input[type="password"],
     input[type="text"] {
@@ -47,32 +59,60 @@
       padding-right: 40px;
       border: 1px solid #ccc;
       border-radius: 6px;
+      outline: none;
     }
+
+    input:focus {
+      border-color: #3d55b4;
+      box-shadow: 0 0 5px rgba(61, 85, 180, 0.4);
+    }
+
     .toggle-password {
       position: absolute;
       right: 10px;
       top: 38px;
       cursor: pointer;
       color: #555;
+      font-size: 1rem;
+      transition: color 0.3s ease;
     }
+
+    .toggle-password:hover {
+      color: #3d55b4;
+    }
+
     .inline-feedback {
       font-size: 0.85rem;
       color: red;
       margin-top: 5px;
     }
+
     .btn {
       width: 100%;
       padding: 10px;
       border: none;
       border-radius: 6px;
-      background-color:#3d55b4;
+      background-color: #3d55b4;
       color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
+    .btn:hover {
+      background-color: #2e44a3;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
     .btn:disabled {
       background-color: #999;
+      cursor: not-allowed;
     }
+
     .spinner {
       display: none;
       width: 24px;
@@ -84,22 +124,31 @@
       animation: spin 1s linear infinite;
       margin-top: 1rem;
     }
+
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
     .login-page {
       display: block;
       text-align: center;
       margin-top: 1rem;
       font-size: 0.9rem;
-      color:#3d55b4;
+      color: #3d55b4;
       text-decoration: none;
     }
+
+    .login-page a {
+      color: #3d55b4;
+      text-decoration: underline;
+    }
+
     .social-buttons {
       display: flex;
       gap: 10px;
       margin-top: 1rem;
     }
+
     .social-btn {
       flex: 1;
       padding: 8px;
@@ -115,27 +164,27 @@
   <div class="container">
     <h2>Sign Up</h2>
     <form id="signup-form">
-        <div class="form-group">
+      <div class="form-group">
         <label>Name</label>
-        <input type="text" id="name" required />
-        <div id="name" class="name"></div>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <div id="nameFeedback" class="inline-feedback"></div>
       </div>
 
       <div class="form-group">
         <label>Email</label>
-        <input type="email" id="email" required />
+        <input type="email" id="email" placeholder="Enter your email" required />
         <div id="emailFeedback" class="inline-feedback"></div>
       </div>
 
       <div class="form-group">
         <label>Password</label>
-        <input type="password" id="password" required />
+        <input type="password" id="password" placeholder="Enter Password" required />
         <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
       </div>
 
       <div class="form-group">
         <label>Confirm Password</label>
-        <input type="password" id="confirm-password" required />
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required />
         <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
         <div id="matchFeedback" class="inline-feedback"></div>
       </div>
@@ -146,6 +195,8 @@
       <div class="login-page">
         <p>Already have an account? <a href="login.html">Login</a></p>
       </div>
+    </form>
+  </div>
 
   <script>
     function togglePassword(id) {
@@ -168,7 +219,7 @@
     });
 
     email.addEventListener("input", () => {
-      const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       emailFeedback.textContent = regex.test(email.value)
         ? ""
         : "Enter a valid email address";
