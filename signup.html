@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      transition: all 0.3s ease;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1572557798994-41431698dc8d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 150px rgba(0, 0, 0, 0.15);
+      border: 1px solid #ccc;
+      font-weight: 500;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      padding-right: 40px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #3d55b4;
+      box-shadow: 0 0 5px rgba(61, 85, 180, 0.4);
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 38px;
+      cursor: pointer;
+      color: #555;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .toggle-password:hover {
+      color: #3d55b4;
+    }
+
+    .inline-feedback {
+      font-size: 0.85rem;
+      color: red;
+      margin-top: 5px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #3d55b4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #2e44a3;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      display: none;
+      width: 24px;
+      height: 24px;
+      margin: 0 auto;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3d55b4;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-top: 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .login-page {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #3d55b4;
+      text-decoration: none;
+    }
+
+    .login-page a {
+      color: #3d55b4;
+      text-decoration: underline;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <div id="nameFeedback" class="inline-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+        <div id="emailFeedback" class="inline-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter Password" required />
+        <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required />
+        <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+        <div id="matchFeedback" class="inline-feedback"></div>
+      </div>
+
+      <button type="submit" class="btn">Sign Up</button>
+      <div class="spinner" id="spinner"></div>
+
+      <div class="login-page">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    const form = document.getElementById("signup-form");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm-password");
+    const email = document.getElementById("email");
+    const matchFeedback = document.getElementById("matchFeedback");
+    const emailFeedback = document.getElementById("emailFeedback");
+    const spinner = document.getElementById("spinner");
+
+    confirmPassword.addEventListener("input", () => {
+      matchFeedback.textContent = confirmPassword.value !== password.value
+        ? "Passwords do not match"
+        : "";
+    });
+
+    email.addEventListener("input", () => {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      emailFeedback.textContent = regex.test(email.value)
+        ? ""
+        : "Enter a valid email address";
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (password.value.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+      }
+
+      if (password.value !== confirmPassword.value) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        spinner.style.display = "none";
+        alert("Account created successfully!");
+        form.reset();
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

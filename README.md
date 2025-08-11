@@ -95,7 +95,7 @@ JOB-PORTAL/
 ### 1. Clone
 
 ```bash
-git clone https://github.com/your-username/Job-Portal.git
+git clone https://github.com/SurajSG23/Job-Portal
 cd Job-Portal
 ```
 
