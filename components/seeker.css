@@ -63,6 +63,7 @@ header {
     z-index: 1000;
     transition: all 0.3s ease;
   width: 100%;
+  background: rgba(33, 181, 204, 0.2); 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -120,14 +121,13 @@ header {
   margin-left: 29.5rem;
 }
 
-/* Navigation links & button container */
+/* Enhanced Navigation */
 .headlinks {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
-/* Links & Button Styles */
 .headlinks a,
 .apply-btn {
   all: unset;
@@ -151,26 +151,34 @@ header {
   transform: translateY(-2px);
 }
 
+
 .job-btn {
-  height: 2.3rem;
-  width: 6.5rem;
-  text-align: center;
-  margin-left: 0rem;
-  margin-right: 1rem;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 2px solid #1e3a8a;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  color: #1e3a8a;
-  background: rgba(255, 255, 255, 0.8);
+    height: 2.3rem;
+    width: 6.5rem;
+    text-align: center;
+    margin-left: 0rem;
+    margin-right: 1rem;
+    /* padding: 8px 16px; */
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #1e3a8a;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #1e3a8a;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .job-btn:hover {
-  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-}
 
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+
+    /* background: #1e3a8a; */
+    /* transform: translateY(-2px); */
+    /* color: white; */
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+
+}
 
 .headContainer {
     display: flex;
@@ -190,6 +198,7 @@ header {
 .headlinks a,
 .apply-btn {
     all: unset;
+    font-size: 18px;
     font-size: 16px;
     padding: 12px 20px;
     border: 2px solid #1e3a8a;
@@ -230,15 +239,12 @@ header {
 .footlinks {
     display: flex;
     align-items: center;
-    float: right;
     gap: 20px;
 }
-
 .headlinks a:hover::before,
 .apply-btn:hover::before {
     left: 100%;
 }
-
 .headlinks a:hover,
 .apply-btn:hover {
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
@@ -321,7 +327,18 @@ header {
     outline: none;
     transform: translateY(-2px);
 }
+}
 
+.search-bar::placeholder {
+    color: rgba(30, 58, 138, 0.6);
+}
+
+.search-bar:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
+    outline: none;
+    transform: translateY(-2px);
+}
 /* Enhanced Jobs Container */
 .jobs-container {
     max-width: 1200px;
@@ -402,6 +419,331 @@ footer {
     height: 45px;
     display: flex;
     align-items: center;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.job-salary {
+    font-weight: 600;
+    color: #059669;
+    font-size: 16px;
+}
+
+.job-time {
+    color: #9CA3AF;
+    font-size: 12px;
+}
+
+.job-links{
+    all: unset;
+    text-decoration: none;
+}
+
+.job-type{
+    display: flex;
+}
+
+/* Modal Close Button (X) in top right corner */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 50%;
+    color: #1e3a8a;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.12);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+.modal-close-btn:active {
+    transform: scale(0.95);
+}
+
+.apply{
+    position: fixed;
+    width: 50vw;
+    height: 80vh; 
+    border: 2px solid rgb(126, 126, 234);
+    left: 25%;
+    top: 10%; 
+    z-index: 1000;
+    background-color: rgba(150, 150, 251, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    gap: 15px;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; 
+}
+
+.apply h2 {
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #1e3a8a;
+    font-size: 16px;
+}
+
+.apply .input{
+    width: 100%; 
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #1e3a8a;
+    padding: 0 15px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.skill-input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.skill-input-container label {
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#tag-container {
+    min-height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #1e3a8a;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: flex-start;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+/* Individual Skill Tag Styling */
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+    transition: all 0.2s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.skill-tag .remove-tag {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.skill-tag .remove-tag:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Skill input field styling */
+#skillInput {
+    width: 100%;
+    height: 45px;
+    border: 2px solid #1e3a8a;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#skillInput:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: white;
+}
+
+#skillInput::placeholder {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Suggestions dropdown */
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #1e3a8a;
+    border-radius: 12px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 5px;
+}
+
+.suggestions-list li {
+    padding: 12px 16px;
+    cursor: pointer;
+    list-style: none;
+    color: #1e3a8a;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.suggestions-list li:last-child {
+    border-bottom: none;
+}
+
+.suggestions-list li:hover {
+    background: linear-gradient(135deg, #e6f3ff, #cce7ff);
+    color: #1e40af;
+    transform: translateX(5px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Empty state for tag container */
+#tag-container:empty::before {
+    content: "Selected skills will appear here...";
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Scrollbar for tag container */
+#tag-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#tag-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+#tag-container::-webkit-scrollbar-thumb {
+    background: #1e3a8a;
+    border-radius: 3px;
+}
+
+#tag-container::-webkit-scrollbar-thumb:hover {
+    background: #1e40af;
+}
+
+.job-type-apply{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.job-type-apply h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #1e3a8a;
+}
+
+.job-type-apply input[type="radio"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.apply button{
+    width: 120px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #1e3a8a;
+    color: #1e3a8a;
+}
+
+.apply button:hover{
+    transform: scale(1.05);
+    background-color: #1e3a8a;
+    color: white;
     justify-content: center;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
@@ -419,7 +761,19 @@ footer {
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+}
 
+.fa-brands {
+    font-size: 24px;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footlinks a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 .fa-instagram:hover {
     color: #e4405f;
 }
@@ -430,6 +784,7 @@ footer {
 
 .fa-github:hover {
     color: #333;
+
 }
 
 /* Responsive Design */
@@ -439,6 +794,7 @@ footer {
         max-width: 95vw;
         gap: 25px;
         padding: 15px;
+        padding-bottom: 100px;
         padding-bottom: 120px;
     }
     
@@ -453,6 +809,23 @@ footer {
     
     .search-bar {
         width: 90%;
+    }
+    
+    .skill-tag {
+        font-size: 13px;
+        padding: 6px 10px;
+        gap: 6px;
+    }
+    
+    .skill-tag .remove-tag {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+    }
+    
+    #tag-container {
+        min-height: 45px;
+        padding: 10px;
     }
 }
 
@@ -576,7 +949,7 @@ footer {
 #backToTopBtn {
   display: none;
   position: fixed;
-  bottom: 40px;
+  bottom: 90px;
   right: 40px;
   z-index: 999;
   font-size: 20px;
