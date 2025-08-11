@@ -355,6 +355,83 @@
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <!-- <script type="module" src="components/firebaseauth.js"></script> -->
 </head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li class="dropdown">
+              <a href="#">Remote Jobs <i class="fas fa-chevron-right"></i></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Full-Time Remote</a></li>
+                <li><a href="#">Part-Time Remote</a></li>
+                <li class="dropdown">
+                  <a href="#">By Region <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">Americas</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="#">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+
+      <div class="notification-icon" id="notificationIcon">
+        <i class="fas fa-bell"></i>
+        <span class="notification-badge" id="notificationBadge">0</span>
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="notification-header">
+            <h3>Notifications</h3>
+            <div class="notification-actions">
+              <button id="refreshNotifications" title="Refresh Jobs"><i class="fas fa-sync-alt"></i></button>
+              <button id="refreshEmployerNotifications" title="Refresh Employer Jobs"><i class="fas fa-building"></i></button>
+              <button id="markAllRead">Mark all as read</button>
+            </div>
+          </div>
+          <div class="notification-list" id="notificationList">
+            <div class="empty-notification">No new notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <button id="darkModeToggle" class="dark-toggle">🌙</button>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
 
 <body>
 <header class="navbar">
@@ -607,6 +684,18 @@
       chatbotToggle.setAttribute("aria-expanded", "false");
       chatbotToggle.focus();
     }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
   });
 
   function sendMessage() {
@@ -637,6 +726,5 @@
     return "I'm here to help with job-related queries!";
   }
 </script>
-
 </body>
 </html>
