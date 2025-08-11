@@ -616,3 +616,98 @@ footer hr {
 .footer-section ul {
         padding-left: 0;
     }
+
+    /* Vision Section */
+.vision {
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.vision .container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.vision h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #2746b0
+}
+
+.vision-intro {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #555;
+}
+
+.vision-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.vision-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.vision-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.vision-card p, 
+.vision-card ul {
+  color: #555;
+  line-height: 1.6;
+}
+
+.vision-card ul {
+  padding-left: 20px;
+}
+
+.vision-card li {
+  list-style: disc;
+  margin-bottom: 6px;
+}
+
+.vision-card blockquote {
+  font-style: italic;
+  color: #666;
+  border-left: 4px solid #2746b0;
+  padding-left: 10px;
+  margin: 10px 0 0;
+}
+
+#box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Base State */
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Animation Active State */
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .vision h2 {
+    font-size: 2rem;
+  }
+  .vision-intro {
+    font-size: 1rem;
+  }
+}
