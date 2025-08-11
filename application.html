@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Job Application Tracker</h1>
+
+    <form id="applicationForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" required>
+
+        <label for="resume">Upload Resume:</label>
+        <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+
+        <label for="status">Application Status:</label>
+        <select id="status">
+            <option value="Applied">Applied</option>
+            <option value="Interview Scheduled">Interview Scheduled</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <hr>
+
+   
+    <h2>Application History</h2>
+    <div id="applicationHistory"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
