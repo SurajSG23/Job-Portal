@@ -2086,8 +2086,143 @@ body {
   font-size: 1.1rem;
 }
 
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+#login-section, 
+#register-section, 
+#profile-section {
+    background: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+input[type="text"], 
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#profile-section p {
+    margin: 10px 0;
+}
+
+#profile-new-username {
+    margin-top: 10px;
+}
+
+#login-section, 
+#register-section, 
+#profile-section {
+  max-width: 350px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#login-section h2, 
+#register-section h2, 
+#profile-section h2 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+#login-section input, 
+#register-section input, 
+#profile-section input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border 0.3s ease;
+}
+
+#login-section input:focus, 
+#register-section input:focus, 
+#profile-section input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#login-section button, 
+#register-section button, 
+#profile-section button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#login-section button:hover, 
+#register-section button:hover, 
+#profile-section button:hover {
+  background: linear-gradient(135deg, #0056d2, #003a9e);
+}
+
+#profile-section p {
+  margin: 1rem 0;
+  color: #555;
+}
+
+#profile-section span {
+  font-weight: 600;
+  color: #222;
+}
+
 .footer-section ul {
   list-style: none;
+
 
 body.dark-mode {
   background: linear-gradient(120deg, #1c1c1e 0%, #2c2c2e 100%);
@@ -2673,7 +2808,6 @@ body.dark-mode {
 body.dark-mode .notification-time {
   color: #8a919e;
 
-/* Utility Classes */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
