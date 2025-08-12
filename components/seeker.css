@@ -98,29 +98,6 @@ header {
   height: auto;
 }
 
-.footer {
-  width: 100%;
-  height: 4rem;
-  background: #3d55b4;
-  color: #fff;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 99;
-  box-shadow: 0 -2px 12px rgba(61, 85, 180, 0.08);
-  font-size: 17px;
-  letter-spacing: 0.5px;
-}
-
-.footer-content {
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  margin-left: 29.5rem;
-}
-
 /* Enhanced Navigation */
 .headlinks {
     display: flex;
@@ -229,18 +206,7 @@ header {
     background-color: rgb(77, 77, 246);
 }
 
-.footContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
-}
 
-.footlinks {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
 .headlinks a:hover::before,
 .apply-btn:hover::before {
     left: 100%;
@@ -327,7 +293,6 @@ header {
     outline: none;
     transform: translateY(-2px);
 }
-}
 
 .search-bar::placeholder {
     color: rgba(30, 58, 138, 0.6);
@@ -387,42 +352,6 @@ header {
 }
 
 /* Enhanced Footer */
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 8vh;
-    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 -8px 32px rgba(30, 58, 138, 0.2);
-}
-
-.footContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
-    height: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footlinks {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.footlinks a {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
 
 .job-salary {
     font-weight: 600;
@@ -657,7 +586,114 @@ footer {
     color: #1e40af;
     transform: translateX(5px);
 }
+/* footer css  */
+/* ===== Footer Styles ===== */
+footer {
+    background: rgba(33, 181, 204, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #1e3a8a;
+    padding: 2rem 5%;
+    font-family: "Poppins", sans-serif;
+    border-top: 1px solid rgba(46, 7, 117, 0.3);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
 
+#footer-statement {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+#footer-statement p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+.footer-links {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    min-width: 200px;
+    margin: 0 1.5% 2rem 0;
+}
+
+.footer-links h3 {
+    color: #1e3a8a;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links button {
+    background: none;
+    border: none;
+    color: #1e3a8a;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.3rem 0;
+    text-align: left;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-links button:hover {
+    color: #3b82f6;
+    transform: translateX(5px);
+}
+
+footer > h3 {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #1e3a8a;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(30, 58, 138, 0.1);
+    opacity: 0.8;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #1e3a8a;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3b82f6;
+    transform: translateY(-3px);
+}
+/* Responsive Design */
+/* @media (max-width: 768px) {
+    .footer-links {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    #footer-statement p {
+        font-size: 1.2rem;
+    }
+} */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -756,12 +792,7 @@ footer {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footlinks a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-}
+
 
 .fa-brands {
     font-size: 24px;
@@ -769,11 +800,6 @@ footer {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footlinks a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
 .fa-instagram:hover {
     color: #e4405f;
 }
