@@ -457,6 +457,89 @@ h1{
 }
 
 
+/* ===== Additional Responsive Styles for Testimonials ===== */
+/* ===== Mobile Styles for Testimonials (max 640px) ===== */
+@media (max-width: 640px) {
+  .ts-slide {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .ts-track {
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  .ts-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  .ts-card blockquote {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .ts-card figcaption {
+    gap: 0.6rem;
+  }
+  .ts-card figcaption img {
+    width: 48px;
+    height: 48px;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Very small devices (max 400px) - show 1 card per row */
+@media (max-width: 400px) {
+  .ts-slide {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .ts-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  .ts-card blockquote {
+    font-size: 0.95rem;
+  }
+  .ts-card figcaption img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Medium tablets (640px - 900px) - slightly bigger cards */
+@media (min-width: 640px) and (max-width: 900px) {
+  .ts-slide {
+    flex-basis: 46%;
+    max-width: 46%;
+  }
+  .ts-card blockquote {
+    font-size: 1rem;
+  }
+}
+
+/* Large screens (min 1280px) - 4 cards per row if space allows */
+@media (min-width: 1280px) {
+  .ts-slide {
+    flex-basis: 24%;
+    max-width: 24%;
+  }
+}
+
+/* Ultra-wide screens (min 1600px) - increase gap and padding */
+@media (min-width: 1600px) {
+  .ts-track {
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  .ts-card {
+    padding: 1.5rem;
+  }
+}
+
 
 /*back to top button */
 /* Back to Top Button Styles */
