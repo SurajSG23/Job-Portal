@@ -73,6 +73,8 @@
     <div class="nav-toggle"><i class="fa fa-bars"></i></div>
   </nav>
 
+
+
   <main>
     <section class="hero">
       <h1>Don't just search.<br>Start your career!</h1>
@@ -80,6 +82,24 @@
         Get Started
       </div>
     </section>
+
+      <div id="job-alerts" style="margin: 20px 0;">
+  <h3>Subscribe for Job Alerts</h3>
+  <form id="jobAlertForm">
+    <label for="alertKeyword">Preferred Keyword:</label>
+    <input type="text" id="alertKeyword" placeholder="e.g. Developer" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <button id="simulateJobBtn" style="margin-top: 10px;">Simulate New Job</button>
+</div>
+
+
+<div id="jobAlertModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p id="alertMessage">New job posted!</p>
+  </div>
+</div>
     <!-- Add other homepage sections here if needed -->
   </main>
 
