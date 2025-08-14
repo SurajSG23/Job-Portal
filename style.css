@@ -312,3 +312,68 @@ main {
   font-size: 2rem;
   color: #030303;
 }
+
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+#chatbot-header {
+  background: #3f51b5;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+}
+
+#chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.chatbot-message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+.bot {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+
+.user {
+  background: #3f51b5;
+  color: white;
+  align-self: flex-end;
+}
+
+#chatbot-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chatbot-input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+}
+
+#chatbot-send {
+  background: #3f51b5;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
