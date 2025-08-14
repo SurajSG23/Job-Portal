@@ -494,14 +494,14 @@ body {
     transform: translateY(0);
   }
 
-  font-family: 'Inter', 'Poppins', sans-serif;
+  /* font-family: 'Inter', 'Poppins', sans-serif;
   color: var(--text-primary);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  transition: background 0.4s;
+  transition: background 0.4s; */
 
 }
 body.dark {
@@ -1036,7 +1036,6 @@ button:hover {
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
-.hero-actions {
 
 /* Hero Actions */
 .hero-actions {
@@ -1427,8 +1426,7 @@ body.dark .nav-links a:hover {
 
 body.dark .nav-links a::after {
   background: #facc15;
-
-
+}
 body {
     max-width: 100vw;
     height: 100vh;
@@ -1708,7 +1706,7 @@ body {
   text-decoration: none;
   transition: all 0.3s;
   border: 1px solid var(--gray-700);
-
+}
 .footer-brand img:hover {
   transform: scale(1.2);
   border-color: var(--primary-300);
@@ -1812,8 +1810,7 @@ body {
   }
 }
 
-@keyframes slideInUp {
-  from {
+
 
 @media (max-width: 900px) {
   .navbar, .header { padding: 0 1rem; }
@@ -2739,7 +2736,7 @@ body.dark-mode .notification-time {
   .grid {
     display: grid;
   }
-}
+
 
 body.dark-mode .notification-time {
   color: #8a919e;
@@ -2948,7 +2945,7 @@ body.dark-mode .notification-time {
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-
+}
 /* Footer Bottom */
 .footer-credit {
   text-align: center;
