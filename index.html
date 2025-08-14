@@ -25,29 +25,7 @@
   <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
   <script type="module" src="components/firebaseauth.js"></script>
   <style>
-    :root {
-      --bg: #f7f9fc;
-      --text: #222;
-      --card: #fff;
-      --primary: #3d55b4;
-      --secondary: #5bb8ff;
-      --footer-bg: #3d55b4;
-      --footer-text: #fff;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', 'Poppins', sans-serif;
-    }
-    body.dark {
-      --bg: #181c24;
-      --text: #f7f9fc;
-      --card: #232a36;
-      --primary: #5bb8ff;
-      --secondary: #3d55b4;
-      --footer-bg: #232a36;
-      --footer-text: #f7f9fc;
-    }
+    /* Minimal critical nav dropdown CSS for FCP */
     .nav-menu .dropdown-content,
     .nav-menu .dropdown-content .dropdown-content {
       display: none;
@@ -62,9 +40,7 @@
       padding: 0;
       list-style: none;
     }
-    .nav-menu li {
-      position: relative;
-    }
+    .nav-menu li { position: relative; }
     .nav-menu .dropdown:hover > .dropdown-content,
     .nav-menu .dropdown:focus-within > .dropdown-content {
       display: block;
@@ -115,17 +91,17 @@
 <body>
   <!-- Header -->
   <header class="header">
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
       <div class="nav-brand">
-        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+        <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
       </div>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li class="dropdown">
-          <a href="#" class="nav-link">
+          <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
-          <ul class="dropdown-content">
+          <ul class="dropdown-content" aria-label="submenu">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li class="dropdown">
               <a href="#">Remote Jobs <i class="fas fa-chevron-right"></i></a>
@@ -157,7 +133,7 @@
         <a href="./login.html" class="btn btn-ghost">Login</a>
         <a href="./signup.html" class="btn btn-primary">Sign Up</a>
       </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" tabindex="0">
         <span></span>
         <span></span>
         <span></span>
@@ -168,7 +144,7 @@
   <!-- Hero Section -->
   <main>
     <section class="hero" id="home">
-      <div class="hero-background">
+      <div class="hero-background" aria-hidden="true">
         <div class="hero-shapes">
           <div class="shape shape-1"></div>
           <div class="shape shape-2"></div>
@@ -191,17 +167,17 @@
             Browse through premium job listings from top companies worldwide.
           </p>
           <div class="hero-actions">
-            <a href="components/homepage.html" class="get-started-btn">
+            <a href="components/homepage.html" class="get-started-btn" aria-label="Get Started">
               <span>Get Started</span>
               <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="#features" class="learn-more-btn">
+            <a href="#features" class="learn-more-btn" aria-label="Learn More">
               <span>Learn More</span>
               <i class="fas fa-play"></i>
             </a>
           </div>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual" aria-hidden="true">
           <div class="hero-card">
             <div class="job-card-preview">
               <div class="company-info">
@@ -324,10 +300,10 @@
         </div>
         <p>Connecting talent with opportunities worldwide. Your dream career is just a click away.</p>
         <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
       <div class="footer-section">

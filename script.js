@@ -1,4 +1,4 @@
- feat/CHATBOT
+feat/CHATBOT
  feat/CHATBOT
 console.log("Script loaded");
 
@@ -199,4 +199,64 @@ sign_up_btn.addEventListener("click", () => {
 function guestLogin() {
     window.location.href = "components/homepage.html";
 }
+
+// Theme toggle (works across all pages)
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("theme-icon");
+function setTheme(dark) {
+  if (dark) {
+    document.body.classList.add("dark");
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+  } else {
+    document.body.classList.remove("dark");
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+  }
+}
+const darkMode = localStorage.getItem("theme") === "dark";
+setTheme(darkMode);
+if (themeToggle) {
+  themeToggle.onclick = () => {
+    const isDark = !document.body.classList.contains("dark");
+    setTheme(isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
+}
+
+// Multilevel dropdown for mobile
+document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const submenu = this.nextElementSibling;
+    if (submenu && submenu.classList.contains('dropdown-content')) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+        parentLi.forEach(li => {
+          if (li !== this.parentElement) li.classList.remove('open');
+        });
+        this.parentElement.classList.toggle('open');
+      }
+    }
+  });
+});
+document.addEventListener('click', function(e) {
+  document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+    if (!drop.contains(e.target)) drop.classList.remove('open');
+  });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Forgot password link styling should be placed in your CSS file, not here.
+// Remove this CSS block from the JS file.
 
