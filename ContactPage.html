@@ -10,7 +10,7 @@
         /* text-align: center; */
         margin: auto;
         /* margin-left: 2rem; */
-        margin-top: 10rem;
+        margin-top: 10rem;       
         width: 40rem;
         height: 28rem;
         border-radius: 1rem;
@@ -59,6 +59,181 @@
         font-size: 1.2rem;
       }
 
+
+      /* ===== Responsive & Animated Contact Form ===== */
+
+/* Fade & slide-in animation */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+
+      /* ===== Animated Responsive Header ===== */
+.contact-header {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: whitesmoke;
+  letter-spacing: 1px;
+  animation: fadeSlideIn 1.2s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.outer_div {
+  animation: fadeSlideUp 0.8s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .outer_div {
+    width: 90%;
+    height: auto;
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  .inner_div {
+    margin-left: 1rem;
+  }
+
+  .input-field {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #s-btn {
+    width: 100%;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #header1 {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+
+  #header2 {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .input-field {
+    font-size: 0.9rem;
+    height: 2rem;
+  }
+}
+/* ===== Hover & Focus Animations for Form ===== */
+.outer_div:hover{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  transform: translateY(-5px);
+  border: 1px solid rgb(13, 13, 160);
+}
+.input-field {
+  transition: all 0.3s ease;
+}
+
+.input-field:hover,
+.input-field:focus {
+  border-color: rgb(13, 13, 160);
+  box-shadow: 0 0 8px rgba(13, 13, 160, 0.3);
+  transform: scale(1.02);
+}
+
+/* Button hover animation */
+#s-btn {
+  transition: all 0.3s ease;
+}
+
+#s-btn:hover {
+  background-color: rgb(62, 62, 239);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(62, 62, 239, 0.3);
+}
+
+@media (max-width: 480px) {
+  .contact-header {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+  }
+}
+      /* ===== Footer Styles ===== */
+      /* ===== Footer Styles ===== */
+.site-footer {
+  background-color: rgb(13, 13, 160);
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Responsive footer text size */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Responsive footer text size */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Responsive footer text size */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+
     </style>
   </head>
   <body
@@ -66,6 +241,8 @@
       background-image: url('https://template.canva.com/EAGWyGhrv-A/1/0/1600w-HQtb5Nt0SbA.jpg');
     "
   >
+  <h1 class="contact-header">Contact Us</h1>
+
     <div class="outer_div">
       <h2 id="header1">Contact Us</h2>
       <h3 id="header2">Contact Us</h3>
@@ -108,6 +285,18 @@
         </div>
       </form>
     </div>
+
+    <!----footer----->
+    <footer class="site-footer">
+  <div class="footer-container">
+    <p> &copy; 2025 Job Junction | All Rights Reserved</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a>
+    </p>
+  </div>
+</footer>
+
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function (event) {
