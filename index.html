@@ -12,6 +12,90 @@
         "logo": "assets/logo.webp",
         "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
       }
+
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="./components/homepage.html">Home</a></li>
+      <li><a href="./components/about.html">About</a></li>
+    </ul>
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+    <div id="chatbot-container">
+  <div id="chatbot-header">Job Junction Assistant</div>
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Type your message..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li class="dropdown">
+              <a href="#">Remote Jobs <i class="fas fa-chevron-right"></i></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Full-Time Remote</a></li>
+                <li><a href="#">Part-Time Remote</a></li>
+                <li class="dropdown">
+                  <a href="#">By Region <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">Americas</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="#">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-background">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,6 +128,7 @@
       <nav class="navbar">
         <div class="nav-brand">
           <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+
         </div>
 
         <ul class="nav-menu" id="navMenu">
@@ -91,6 +176,45 @@
           </div>
         </div>
 
+
+  <nav class="nav-links navbar-links">
+    <a href="./components/homepage.html">Home</a>
+    <a href="./components/about.html">About</a>
+    <a href="job-application.html">Apply</a>
+    <a href="./components/saved-jobs.html">Saved Jobs</a>
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+
+
+  <main>
+    <section class="hero">
+      <h1>Don't just search.<br>Start your career!</h1>
+      <div onclick="Redirect()" class="box-sign">
+        Get Started
+
+  <button id="theme-toggle" class="theme-btn">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
+
+  <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+</header>
+
+    <div id="signUpSection" class="sign-section">
+        <form>
+            <div class="box-sign">
+                <h2>Register</h2>
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="fName" placeholder="Suraj" required />
+                    <label for="fname">First name</label>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="lName" placeholder="S G" required />
+                    <label for="lname">Last name</label>
+
         <div class="hero-container">
           <div class="hero-content">
             <div class="hero-badge">
@@ -130,6 +254,7 @@
                     <h4>Senior Frontend Developer</h4>
                     <p>TechCorp Inc.</p>
                   </div>
+
                 </div>
                 <div class="job-meta">
                   <span class="location"
