@@ -1,167 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact Us</title>
-  <style>
-    :root { --gap: 12px; --radius: 10px; --maxw: 720px; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#0b1020; color:#eef1f7; }
-    .wrap { max-width: var(--maxw); margin: 6vh auto; padding: 28px; background: #121a33; border: 1px solid #22305a; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
-    h1 { margin: 0 0 6px; font-weight: 700; letter-spacing: .2px; }
-    p.lead { margin-top: 0; color: #b8c3e3; }
-    form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
-    .full { grid-column: 1/-1; }
-    label { display:block; font-size:.95rem; margin-bottom:6px; color:#d7def3; }
-    input, textarea, select { width:100%; padding:12px 14px; background:#0c1330; color:#eef1f7; border:1px solid #2a3a74; border-radius: 8px; outline:none; }
-    input:focus, textarea:focus { border-color:#5c79ff; box-shadow: 0 0 0 3px rgba(92,121,255,.2); }
-    textarea { resize: vertical; min-height: 140px; }
-    .row { display:flex; gap: var(--gap); }
-    .help { font-size:.82rem; color:#9fb0df; margin-top:6px; }
-    .error { color:#ff8d8d; font-size:.85rem; margin-top:6px; display:none; }
-    .hidden { display:none !important; }
-    button { padding:12px 16px; border:none; border-radius: 8px; background:#5c79ff; color:white; font-weight:600; cursor:pointer; }
-    button[disabled] { opacity:.7; cursor:not-allowed; }
-    .notice { margin-top:18px; padding:12px 14px; border-radius:8px; background:#0f1736; border:1px solid #2a3a74; display:none; }
-    .notice.ok { border-color:#2d7d46; }
-    .notice.err { border-color:#9b3636; }
-    /* honeypot visually hidden but focusable for a11y tools */
-    .honeypot { position: absolute; left: -9999px; }
-    @media (max-width:720px){ form { grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
-  <main class="wrap" role="main">
-    <h1>Contact us</h1>
-    <p class="lead">Questions, feedback, or a friendly hello—drop a message below.</p>
-
-    <form id="contactForm" novalidate>
-      <!-- Honeypot -->
-      <div class="honeypot" aria-hidden="true">
-        <label>Leave this field empty
-          <input type="text" name="company" tabindex="-1" autocomplete="off" />
-        </label>
-      </div>
-
-      <div class="full">
-        <label for="name">Name *</label>
-        <input id="name" name="name" type="text" required maxlength="100" autocomplete="name" />
-        <div class="error" data-for="name"></div>
-      </div>
-
-      <div>
-        <label for="email">Email *</label>
-        <input id="email" name="email" type="email" required maxlength="120" autocomplete="email" inputmode="email" />
-        <div class="error" data-for="email"></div>
-      </div>
-
-      <div>
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" />
-        <div class="help">Include country code if outside your region, e.g. +1 415 555 0101</div>
-        <div class="error" data-for="phone"></div>
-      </div>
-
-      <div class="full">
-        <label for="subject">Subject *</label>
-        <input id="subject" name="subject" type="text" required maxlength="150" />
-        <div class="error" data-for="subject"></div>
-      </div>
-
-      <div class="full">
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" required minlength="10" maxlength="5000" placeholder="Tell us a bit about your request…"></textarea>
-        <div class="error" data-for="message"></div>
-      </div>
-
-      <div class="full row" style="align-items:center; justify-content:space-between;">
-        <div aria-live="polite" aria-atomic="true" class="notice" id="formNotice"></div>
-        <button id="submitBtn" type="submit">Send message</button>
-      </div>
-    </form>
-  </main>
-
-  <script>
-    // Basic helpers
-    const $ = (s, root=document) => root.querySelector(s);
-    const $$ = (s, root=document) => [...root.querySelectorAll(s)];
-    const setError = (name, msg='') => {
-      const el = `.error[data-for="${name}"]`;
-      const box = $(el);
-      if (!box) return;
-      if (msg) { box.textContent = msg; box.style.display = 'block'; }
-      else { box.textContent = ''; box.style.display = 'none'; }
-    };
-
-    const form = $('#contactForm');
-    const notice = $('#formNotice');
-    const btn = $('#submitBtn');
-
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRe = /^[+()\-.\s\d]{7,20}$/; // permissive, formats like +1 555-555-5555
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Anti-spam honeypot
-      const honeypot = form.querySelector('input[name="company"]');
-      if (honeypot && honeypot.value.trim() !== '') {
-        return; // silently drop bots
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us</title>
+    <style>
+      :root {
+        --gap: 12px;
+        --radius: 10px;
+        --maxw: 720px;
       }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: #0b1020;
+        color: #eef1f7;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 6vh auto;
+        padding: 28px;
+        background: #121a33;
+        border: 1px solid #22305a;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+      p.lead {
+        margin-top: 0;
+        color: #b8c3e3;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--gap);
+      }
+      .full {
+        grid-column: 1/-1;
+      }
+      label {
+        display: block;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+        color: #d7def3;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 14px;
+        background: #0c1330;
+        color: #eef1f7;
+        border: 1px solid #2a3a74;
+        border-radius: 8px;
+        outline: none;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: #5c79ff;
+        box-shadow: 0 0 0 3px rgba(92, 121, 255, 0.2);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 140px;
+      }
+      .row {
+        display: flex;
+        gap: var(--gap);
+      }
+      .help {
+        font-size: 0.82rem;
+        color: #9fb0df;
+        margin-top: 6px;
+      }
+      .error {
+        color: #ff8d8d;
+        font-size: 0.85rem;
+        margin-top: 6px;
+        display: none;
+      }
+      .hidden {
+        display: none !important;
+      }
+      button {
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        background: #5c79ff;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button[disabled] {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      .notice {
+        margin-top: 18px;
+        padding: 12px 14px;
+        border-radius: 8px;
+        background: #0f1736;
+        border: 1px solid #2a3a74;
+        display: none;
+      }
+      .notice.ok {
+        border-color: #2d7d46;
+      }
+      .notice.err {
+        border-color: #9b3636;
+      }
+      /* honeypot visually hidden but focusable for a11y tools */
+      .honeypot {
+        position: absolute;
+        left: -9999px;
+      }
+      @media (max-width: 720px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap" role="main">
+      <h1>Contact us</h1>
+      <p class="lead">
+        Questions, feedback, or a friendly hello—drop a message below.
+      </p>
 
-      // Collect values
-      const data = {
-        name: $('#name').value.trim(),
-        email: $('#email').value.trim(),
-        phone: $('#phone').value.trim(),
-        subject: $('#subject').value.trim(),
-        message: $('#message').value.trim(),
+      <form id="contactForm" novalidate>
+        <!-- Honeypot -->
+        <div class="honeypot" aria-hidden="true">
+          <label
+            >Leave this field empty
+            <input
+              type="text"
+              name="company"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <div class="full">
+          <label for="name">Name *</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            maxlength="100"
+            minlength="3"
+            autocomplete="name"
+          />
+          <div class="error" data-for="name"></div>
+        </div>
+
+        <div>
+          <label for="email">Email *</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            maxlength="120"
+            autocomplete="email"
+            inputmode="email"
+          />
+          <div class="error" data-for="email"></div>
+        </div>
+
+        <div>
+          <label for="phone">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            maxlength="10"
+            minlength="10"
+            autocomplete="tel"
+            inputmode="tel"
+          />
+          <!-- <div class="help">
+            Include country code if outside your region, e.g. +1 415 555 0101
+          </div> -->
+          <div class="error" data-for="phone"></div>
+        </div>
+
+        <div class="full">
+          <label for="subject">Subject *</label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            required
+            minlength="3"
+            maxlength="150"
+          />
+          <div class="error" data-for="subject"></div>
+        </div>
+
+        <div class="full">
+          <label for="message">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            minlength="10"
+            maxlength="5000"
+            placeholder="Tell us a bit about your request…"
+          ></textarea>
+          <div class="error" data-for="message"></div>
+        </div>
+
+        <div
+          class="full row"
+          style="align-items: center; justify-content: space-between"
+        >
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            class="notice"
+            id="formNotice"
+          ></div>
+          <button id="submitBtn" type="submit">Send message</button>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      // Basic helpers
+      const $ = (s, root = document) => root.querySelector(s);
+      const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+      const setError = (name, msg = "") => {
+        const el = `.error[data-for="${name}"]`;
+        const box = $(el);
+        if (!box) return;
+        if (msg) {
+          box.textContent = msg;
+          box.style.display = "block";
+        } else {
+          box.textContent = "";
+          box.style.display = "none";
+        }
       };
 
-      // Client-side validation
-      let ok = true;
-      setError('name'); setError('email'); setError('phone'); setError('subject'); setError('message');
-      if (!data.name) { setError('name', 'Please enter your name.'); ok = false; }
-      if (!emailRe.test(data.email)) { setError('email', 'Please enter a valid email.'); ok = false; }
-      if (data.phone && !phoneRe.test(data.phone)) { setError('phone', 'Please enter a valid phone number.'); ok = false; }
-      if (!data.subject) { setError('subject', 'Please enter a subject.'); ok = false; }
-      if (!data.message || data.message.length < 10) { setError('message', 'Message should be at least 10 characters.'); ok = false; }
+      const form = $("#contactForm");
+      const notice = $("#formNotice");
+      const btn = $("#submitBtn");
 
-      if (!ok) return;
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRe = /^[+()\-.\s\d]{7,20}$/; // permissive, formats like +1 555-555-5555
 
-      // Submit
-      btn.disabled = true;
-      notice.className = 'notice';
-      notice.style.display = 'block';
-      notice.textContent = 'Sending…';
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-
-        if (!res.ok) {
-          const err = await res.json().catch(() => ({}));
-          throw new Error(err.message || 'Send failed. Please try again.');
+        // Anti-spam honeypot
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot && honeypot.value.trim() !== "") {
+          return; // silently drop bots
         }
 
-        notice.className = 'notice ok';
-        notice.textContent = 'Thanks! Your message was sent successfully.';
-        form.reset();
-      } catch (err) {
-        notice.className = 'notice err';
-        notice.textContent = err.message || 'Something went wrong.';
-      } finally {
-        btn.disabled = false;
-      }
-    });
-  </script>
-</body>
-</html>
+        // Collect values
+        const data = {
+          name: $("#name").value.trim(),
+          email: $("#email").value.trim(),
+          phone: $("#phone").value.trim(),
+          subject: $("#subject").value.trim(),
+          message: $("#message").value.trim(),
+        };
 
+        // Client-side validation
+        let ok = true;
+        setError("name");
+        setError("email");
+        setError("phone");
+        setError("subject");
+        setError("message");
+        if (!data.name) {
+          setError("name", "Please enter your name.");
+          ok = false;
+        }
+        if (!emailRe.test(data.email)) {
+          setError("email", "Please enter a valid email.");
+          ok = false;
+        }
+        if (data.phone && !phoneRe.test(data.phone)) {
+          setError("phone", "Please enter a valid phone number.");
+          ok = false;
+        }
+        if (!data.subject) {
+          setError("subject", "Please enter a subject.");
+          ok = false;
+        }
+        if (!data.message || data.message.length < 10) {
+          setError("message", "Message should be at least 10 characters.");
+          ok = false;
+        }
+
+        if (!ok) return;
+
+        // Submit
+        btn.disabled = true;
+        notice.className = "notice";
+        notice.style.display = "block";
+        notice.textContent = "Sending…";
+
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.message || "Send failed. Please try again.");
+          }
+
+          notice.className = "notice ok";
+          notice.textContent = "Thanks! Your message was sent successfully.";
+          form.reset();
+        } catch (err) {
+          notice.className = "notice err";
+          notice.textContent = err.message || "Something went wrong.";
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
 
 <!-- <!DOCTYPE html>
 <html lang="en">
@@ -316,5 +492,3 @@
     </script>
   </body>
 </html> -->
-
-
