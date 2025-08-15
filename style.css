@@ -109,11 +109,13 @@ body {
 }
 
 body.dark {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background-color: #000000;
+  color: white;
+  /* background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: #f7fafc;
   --text: #f7fafc;
   --text-light: #cbd5e0;
-  --card: rgba(45, 55, 72, 0.95);
+  --card: rgba(45, 55, 72, 0.95); */
 }
 
 /* Fixed Navbar */
