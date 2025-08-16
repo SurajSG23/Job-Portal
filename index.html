@@ -92,16 +92,13 @@
     <!-- Features Section -->
     <section class="features" id="features">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header fade-in"> <!-- ADDED class="fade-in" -->
           <h2>Why Choose Job Junction?</h2>
-          <!-- <p class="para1">
-              Experience the future of job searching with our innovative
-              platform
-            </p> -->
         </div>
 
         <div class="features-grid">
-          <div class="feature-card">
+          <!-- ADDED class="fade-in" to all feature cards -->
+          <div class="feature-card fade-in">
             <div class="feature-icon">
               <i class="fas fa-search-plus"></i>
             </div>
@@ -112,7 +109,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <div class="feature-icon">
               <i class="fas fa-shield-alt"></i>
             </div>
@@ -123,7 +120,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <div class="feature-icon">
               <i class="fas fa-chart-line"></i>
             </div>
@@ -134,7 +131,7 @@
             </p>
           </div>
 
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <div class="feature-icon">
               <i class="fas fa-users"></i>
             </div>
@@ -151,48 +148,49 @@
     <!-- Job Categories -->
     <section class="categories" id="categories">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header fade-in"> <!-- ADDED class="fade-in" -->
           <h2>Popular Job Categories</h2>
           <p>Explore opportunities across different industries and roles</p>
         </div>
 
         <div class="categories-grid">
-          <div class="category-card">
+          <!-- ADDED class="fade-in" to all category cards -->
+          <div class="category-card fade-in">
             <div class="category-icon">
               <i class="fas fa-code"></i>
             </div>
             <h3>Technology</h3>
           </div>
 
-          <div class="category-card">
+          <div class="category-card fade-in">
             <div class="category-icon">
               <i class="fas fa-chart-bar"></i>
             </div>
             <h3>Marketing</h3>
           </div>
 
-          <div class="category-card">
+          <div class="category-card fade-in">
             <div class="category-icon">
               <i class="fas fa-paint-brush"></i>
             </div>
             <h3>Design</h3>
           </div>
 
-          <div class="category-card">
+          <div class="category-card fade-in">
             <div class="category-icon">
               <i class="fas fa-briefcase"></i>
             </div>
             <h3>Business</h3>
           </div>
 
-          <div class="category-card">
+          <div class="category-card fade-in">
             <div class="category-icon">
               <i class="fas fa-user-md"></i>
             </div>
             <h3>Healthcare</h3>
           </div>
 
-          <div class="category-card">
+          <div class="category-card fade-in">
             <div class="category-icon">
               <i class="fas fa-graduation-cap"></i>
             </div>
@@ -201,7 +199,6 @@
         </div>
       </div>
     </section>
-
     <footer class="site-footer">
       <div class="footer-wrapper">
         <div class="brand-section">
@@ -295,5 +292,27 @@
         }
       });
     </script>
+    <!-- === ADD THE NEW ANIMATION SCRIPT BLOCK RIGHT HERE === -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const fadeInElements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // Stop observing once visible
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+
+        fadeInElements.forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
+    <!-- ======================================================= -->
   </body>
 </html>
