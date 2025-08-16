@@ -1,4 +1,4 @@
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded");
 
   // =======================
@@ -120,13 +120,12 @@
     input = input.toLowerCase();
     if (input.includes("hello")) return "Hi there! How can I assist you?";
     if (input.includes("job")) return "You can browse job listings below.";
-    if (input.includes("apply")) return "Click on a job card to view details and apply.";
+    if (input.includes("apply"))
+      return "Click on a job card to view details and apply.";
     return "I'm here to help with job-related queries!";
   }
 
-  // =======================
-  // SIGN-IN / SIGN-UP TOGGLE
-  // =======================
+
   let sign_in_btn = document.querySelector(".sign-in");
   let sign_up_btn = document.querySelector(".sign-up");
   let sign_up_section = document.querySelector(".sign-section");
@@ -141,235 +140,292 @@
     sign_up_section.style.visibility = "visible";
   });
 
-
   function guestLogin() {
     window.location.href = "components/homepage.html";
   }
 });
 
-
-function Redirect(){
-    window.location.href = "components/homepage.html"
+function Redirect() {
+  window.location.href = "components/homepage.html";
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const messagesContainer = document.getElementById("chatbot-messages");
+  const inputField = document.getElementById("chatbot-input");
+  const sendButton = document.getElementById("chatbot-send");
 
-const jobAlertForm = document.getElementById('jobAlertForm');
-const alertKeywordInput = document.getElementById('alertKeyword');
-const simulateJobBtn = document.getElementById('simulateJobBtn');
-const modal = document.getElementById('jobAlertModal');
-const closeBtn = document.querySelector('.close-btn');
-const alertMessage = document.getElementById('alertMessage');
+  const jobData = [
+    { title: "Frontend Developer", location: "Remote" },
+    { title: "Backend Engineer", location: "New York" },
+    { title: "UI/UX Designer", location: "Remote" },
+    { title: "Data Analyst", location: "San Francisco" }
+  ];
 
+ 
+  let conversation = JSON.parse(sessionStorage.getItem("chatConversation")) || [];
 
-jobAlertForm.addEventListener('submit', function (e) {
+  conversation.forEach(msg => addMessage(msg.text, msg.sender));
+
+  function addMessage(text, sender) {
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("chatbot-message", sender);
+    msgDiv.textContent = text;
+    messagesContainer.appendChild(msgDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    conversation.push({ text, sender });
+    sessionStorage.setItem("chatConversation", JSON.stringify(conversation));
+  }
+
+  function botReply(userText) {
+    let lowerText = userText.toLowerCase();
+
+    if (lowerText.includes("job") || lowerText.includes("developer")) {
+      const matchedJobs = jobData.filter(job =>
+        lowerText.includes(job.title.toLowerCase().split(" ")[0])
+      );
+      if (matchedJobs.length > 0) {
+        addMessage(`Here are some jobs you might like: ${matchedJobs.map(j => `${j.title} (${j.location})`).join(", ")}`, "bot");
+      } else {
+        addMessage("I found some great roles: " + jobData.map(j => `${j.title} (${j.location})`).join(", "), "bot");
+      }
+    } else if (lowerText.includes("hello") || lowerText.includes("hi")) {
+      addMessage("Hi there! How can I help you find a job today?", "bot");
+    } else if (lowerText.includes("thanks")) {
+      addMessage("You're welcome! 😊", "bot");
+    } else {
+      addMessage("I'm not sure about that, but I can help you search for jobs. Try asking for 'developer jobs' or 'remote work'.", "bot");
+    }
+  }
+
+  function handleUserInput() {
+    const userText = inputField.value.trim();
+    if (!userText) return;
+
+    addMessage(userText, "user");
+    inputField.value = "";
+
+    setTimeout(() => botReply(userText), 500); // Simulate typing delay
+  }
+
+  sendButton.addEventListener("click", handleUserInput);
+  inputField.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") handleUserInput();
+  });
+
+  if (conversation.length === 0) {
+    addMessage("Hello! I'm your Job Junction Assistant. What kind of job are you looking for?", "bot");
+  }
+});
+const jobAlertForm = document.getElementById("jobAlertForm");
+const alertKeywordInput = document.getElementById("alertKeyword");
+const simulateJobBtn = document.getElementById("simulateJobBtn");
+const modal = document.getElementById("jobAlertModal");
+const closeBtn = document.querySelector(".close-btn");
+const alertMessage = document.getElementById("alertMessage");
+
+jobAlertForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const keyword = alertKeywordInput.value.trim();
   if (keyword) {
-    localStorage.setItem('jobAlertKeyword', keyword);
+    localStorage.setItem("jobAlertKeyword", keyword);
     alert(`Subscribed for alerts with keyword: ${keyword}`);
-    alertKeywordInput.value = '';
+    alertKeywordInput.value = "";
   }
 });
 
-simulateJobBtn.addEventListener('click', function () {
-  const savedKeyword = localStorage.getItem('jobAlertKeyword');
+simulateJobBtn.addEventListener("click", function () {
+  const savedKeyword = localStorage.getItem("jobAlertKeyword");
   if (savedKeyword) {
     alertMessage.textContent = `New job matching "${savedKeyword}" is available!`;
-    modal.style.display = 'block';
+    modal.style.display = "block";
   } else {
-    alert('No alert preferences found. Please subscribe first.');
+    alert("No alert preferences found. Please subscribe first.");
   }
 });
 
-
-closeBtn.addEventListener('click', function () {
-  modal.style.display = 'none';
+closeBtn.addEventListener("click", function () {
+  modal.style.display = "none";
 });
 
-window.addEventListener('click', function (e) {
+window.addEventListener("click", function (e) {
   if (e.target === modal) {
-    modal.style.display = 'none';
+    modal.style.display = "none";
   }
-
-
+});
 document.addEventListener("DOMContentLoaded", loadApplications);
 
 const form = document.getElementById("applicationForm");
 const historyDiv = document.getElementById("applicationHistory");
 
 form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const jobTitle = document.getElementById("jobTitle").value.trim();
-    const resume = document.getElementById("resume").files[0];
-    const status = document.getElementById("status").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const jobTitle = document.getElementById("jobTitle").value.trim();
+  const resume = document.getElementById("resume").files[0];
+  const status = document.getElementById("status").value;
 
-    
-    if (!name || !email || !jobTitle || !resume) {
-        alert("Please fill all fields and upload a resume.");
-        return;
-    }
+  if (!name || !email || !jobTitle || !resume) {
+    alert("Please fill all fields and upload a resume.");
+    return;
+  }
 
-    const reader = new FileReader();
-    reader.onload = function () {
-        const newApp = {
-            name,
-            email,
-            jobTitle,
-            resumeName: resume.name,
-            status,
-            resumeData: reader.result
-        };
-
-        let applications = JSON.parse(localStorage.getItem("applications")) || [];
-        applications.push(newApp);
-        localStorage.setItem("applications", JSON.stringify(applications));
-
-        form.reset();
-        loadApplications();
-        alert("Application submitted successfully!");
+  const reader = new FileReader();
+  reader.onload = function () {
+    const newApp = {
+      name,
+      email,
+      jobTitle,
+      resumeName: resume.name,
+      status,
+      resumeData: reader.result,
     };
-    reader.readAsDataURL(resume);
+
+    let applications = JSON.parse(localStorage.getItem("applications")) || [];
+    applications.push(newApp);
+    localStorage.setItem("applications", JSON.stringify(applications));
+
+    form.reset();
+    loadApplications();
+    alert("Application submitted successfully!");
+  };
+  reader.readAsDataURL(resume);
 });
 
 function loadApplications() {
-    historyDiv.innerHTML = "";
-    let applications = JSON.parse(localStorage.getItem("applications")) || [];
+  historyDiv.innerHTML = "";
+  let applications = JSON.parse(localStorage.getItem("applications")) || [];
 
-    if (applications.length === 0) {
-        historyDiv.innerHTML = "<p>No applications yet.</p>";
-        return;
-    }
+  if (applications.length === 0) {
+    historyDiv.innerHTML = "<p>No applications yet.</p>";
+    return;
+  }
 
-    applications.forEach(app => {
-        const card = document.createElement("div");
-        card.classList.add("application-card");
-        card.innerHTML = `
+  applications.forEach((app) => {
+    const card = document.createElement("div");
+    card.classList.add("application-card");
+    card.innerHTML = `
             <p><strong>Name:</strong> ${app.name}</p>
             <p><strong>Email:</strong> ${app.email}</p>
             <p><strong>Job Title:</strong> ${app.jobTitle}</p>
             <p><strong>Resume:</strong> ${app.resumeName}</p>
             <p class="status"><strong>Status:</strong> ${app.status}</p>
         `;
-        historyDiv.appendChild(card);
-    });
-
+    historyDiv.appendChild(card);
+  });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    if (currentUser) {
-        showProfile(currentUser.username);
-    }
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser) {
+    showProfile(currentUser.username);
+  }
 });
 
-
 function register() {
-    const username = document.getElementById("register-username").value.trim();
-    const password = document.getElementById("register-password").value.trim();
+  const username = document.getElementById("register-username").value.trim();
+  const password = document.getElementById("register-password").value.trim();
 
-    if (!username || !password) {
-        alert("Please fill all fields.");
-        return;
-    }
+  if (!username || !password) {
+    alert("Please fill all fields.");
+    return;
+  }
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+  let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (users.find(user => user.username === username)) {
-        alert("Username already taken.");
-        return;
-    }
+  if (users.find((user) => user.username === username)) {
+    alert("Username already taken.");
+    return;
+  }
 
-    users.push({ username, password });
-    localStorage.setItem("users", JSON.stringify(users));
+  users.push({ username, password });
+  localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Registration successful! You can now login.");
+  alert("Registration successful! You can now login.");
 }
 
 function login() {
-    const username = document.getElementById("login-username").value.trim();
-    const password = document.getElementById("login-password").value.trim();
+  const username = document.getElementById("login-username").value.trim();
+  const password = document.getElementById("login-password").value.trim();
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+  let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const foundUser = users.find(user => user.username === username && user.password === password);
+  const foundUser = users.find(
+    (user) => user.username === username && user.password === password
+  );
 
-    if (!foundUser) {
-        alert("Invalid credentials.");
-        return;
-    }
+  if (!foundUser) {
+    alert("Invalid credentials.");
+    return;
+  }
 
-    localStorage.setItem("currentUser", JSON.stringify(foundUser));
-    showProfile(username);
+  localStorage.setItem("currentUser", JSON.stringify(foundUser));
+  showProfile(username);
 }
 
 function showProfile(username) {
-    document.getElementById("login-section").style.display = "none";
-    document.getElementById("register-section").style.display = "none";
-    document.getElementById("profile-section").style.display = "block";
-    document.getElementById("profile-username").innerText = username;
+  document.getElementById("login-section").style.display = "none";
+  document.getElementById("register-section").style.display = "none";
+  document.getElementById("profile-section").style.display = "block";
+  document.getElementById("profile-username").innerText = username;
 }
 
 function updateProfile() {
-    const newUsername = document.getElementById("profile-new-username").value.trim();
-    if (!newUsername) {
-        alert("Please enter a new username.");
-        return;
+  const newUsername = document
+    .getElementById("profile-new-username")
+    .value.trim();
+  if (!newUsername) {
+    alert("Please enter a new username.");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  if (users.find((user) => user.username === newUsername)) {
+    alert("Username already exists.");
+    return;
+  }
+
+  users = users.map((user) => {
+    if (user.username === currentUser.username) {
+      return { ...user, username: newUsername };
     }
+    return user;
+  });
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  currentUser.username = newUsername;
 
-    if (users.find(user => user.username === newUsername)) {
-        alert("Username already exists.");
-        return;
-    }
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-    users = users.map(user => {
-        if (user.username === currentUser.username) {
-            return { ...user, username: newUsername };
-        }
-        return user;
-    });
-
-    currentUser.username = newUsername;
-
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
-    document.getElementById("profile-username").innerText = newUsername;
-    alert("Profile updated!");
+  document.getElementById("profile-username").innerText = newUsername;
+  alert("Profile updated!");
 }
 
 // Logout
 function logout() {
-    localStorage.removeItem("currentUser");
-    location.reload();
-
+  localStorage.removeItem("currentUser");
+  location.reload();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const saveButtons = document.querySelectorAll('.save-job-btn');
-  const savedJobsContainer = document.getElementById('saved-jobs-container');
-
-  // =======================
-  // SAVE JOBS
-  // =======================
+document.addEventListener("DOMContentLoaded", function () {
   const saveButtons = document.querySelectorAll(".save-job-btn");
   const savedJobsContainer = document.getElementById("saved-jobs-container");
+
   const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
 
-
-  savedJobs.forEach(job => {
+  savedJobs.forEach((job) => {
     const jobDiv = document.createElement("div");
     jobDiv.className = "job-card";
     jobDiv.innerHTML = job;
     savedJobsContainer.appendChild(jobDiv);
   });
 
-  saveButtons.forEach(btn => {
+  saveButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
       const jobCard = this.parentElement.outerHTML;
       savedJobs.push(jobCard);
@@ -378,24 +434,24 @@ document.addEventListener('DOMContentLoaded', function () {
       this.innerText = "✅ Saved";
     });
   });
-
 });
-main
+
 let sign_in_btn = document.getElementsByClassName("sign-in")[0];
 let sign_up_btn = document.getElementsByClassName("sign-up")[0];
 let sign_up_section = document.getElementsByClassName("sign-section")[0];
 let sign_in_section = document.getElementsByClassName("sign-section-2")[0];
 
 sign_in_btn.addEventListener("click", () => {
-    sign_up_section.style.visibility = "hidden";
-    sign_in_section.style.visibility = "visible";
+  sign_up_section.style.visibility = "hidden";
+  sign_in_section.style.visibility = "visible";
 });
 
 sign_up_btn.addEventListener("click", () => {
-    sign_in_section.style.visibility = "hidden";
-    sign_up_section.style.visibility = "visible";
+  sign_in_section.style.visibility = "hidden";
+  sign_up_section.style.visibility = "visible";
 });
 
 function guestLogin() {
-    window.location.href = "components/homepage.html";
+  window.location.href = "components/homepage.html";
 }
+

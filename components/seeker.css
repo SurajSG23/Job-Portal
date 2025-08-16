@@ -907,10 +907,12 @@ footer > h3 {
   gap: 1rem;
   justify-content: center;
   margin: 2rem 0;
+  margin-left: 33rem;
 }
 
 .fancy-input,
 .fancy-select {
+    
   flex: 1 1 250px;
   max-width: 300px;
   padding: 0.9rem 1.2rem;
