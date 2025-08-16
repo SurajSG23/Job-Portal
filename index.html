@@ -599,6 +599,164 @@
       </div>
     </footer>
 
+    <style>
+      /* =============================
+   GLOBAL ANIMATIONS
+============================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* =============================
+   HEADER & NAV
+============================= */
+.navbar {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions .btn-primary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-actions .btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =============================
+   FEATURES SECTION
+============================= */
+.feature-card {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Add staggered delay for engaging entrance */
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+.feature-card:nth-child(3) { animation-delay: 0.6s; }
+.feature-card:nth-child(4) { animation-delay: 0.8s; }
+
+.feature-icon {
+  font-size: 2rem;
+  color: #007bff;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff6600;
+}
+
+/* =============================
+   CATEGORIES
+============================= */
+.category-card {
+  opacity: 0;
+  animation: fadeInScale 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.category-card:nth-child(1) { animation-delay: 0.2s; }
+.category-card:nth-child(2) { animation-delay: 0.4s; }
+.category-card:nth-child(3) { animation-delay: 0.6s; }
+.category-card:nth-child(4) { animation-delay: 0.8s; }
+.category-card:nth-child(5) { animation-delay: 1s; }
+.category-card:nth-child(6) { animation-delay: 1.2s; }
+
+/* =============================
+   FOOTER
+============================= */
+.site-footer {
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.social-media a {
+  display: inline-block;
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: #007bff;
+}
+
+.links-section ul li a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.links-section ul li a:hover {
+  color: #ff6600;
+  transform: translateX(5px);
+}
+
+.footer-credit {
+  text-align: center;
+  padding: 1rem;
+  animation: pulse 3s infinite;
+}
+
+    </style>
+
     <script src="script.js"></script>
     <script>
       // Mobile Navigation Toggle
