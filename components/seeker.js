@@ -86,17 +86,44 @@ const jlist = [
 const jobsContainer = document.getElementsByClassName("jobs-container")[0];
 for (const job of jlist) {
     jobsContainer.innerHTML += `
-    <a href="${job.link}" class="job-links" target="_blank">
     <div class="jList">
-    <img src="${job.img}" alt="">
-    <h3>${job.position}</h3>
-    <p>${job.salary}</p>
-    <div class="type">
-    <p>${job.type}</p>
-    </div>
-    </div>
-    </a>`
+        <a href="${job.link}" class="job-links" target="_blank">
+            <img src="${job.img}" alt="" style="width: 200px; height: 200px;">
+            <h3>${job.position}</h3>
+            <p>${job.salary}</p>
+            <div class="type">
+                <p>${job.type}</p>
+            </div>
+        </a>
+        <button class="save-job-btn" data-job='${JSON.stringify(job)}' style="
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        ">Save Job</button>
+    </div>`;
 }
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("save-job-btn")) {
+        const jobData = JSON.parse(e.target.getAttribute("data-job"));
+        let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+
+       
+        if (!savedJobs.some(j => j.link === jobData.link)) {
+            savedJobs.push(jobData);
+            localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
+            alert("Job saved!");
+        } else {
+            alert("Job already saved!");
+        }
+    }
+});
+
 
 const filter = (value) => {
     let storedJobs = JSON.parse(localStorage.getItem('jobs'));
@@ -200,6 +227,7 @@ document.getElementsByClassName("Submit")[0].addEventListener("click", () => {
         document.getElementsByClassName("apply")[0].style.visibility = "hidden"
         document.getElementsByClassName("apply")[0].style.width = "50vw"
         document.getElementsByClassName("apply")[0].style.height = "60vh"
+
         alert("Submission successfull!")
         document.getElementById("name").value = ''
         document.getElementById("skills").value = ''
@@ -208,6 +236,13 @@ document.getElementsByClassName("Submit")[0].addEventListener("click", () => {
         document.getElementById("email").value = ''
         document.querySelector('input[name="job-type"]:checked').value = ''
     }
+})
+
+// Close modal when clicking the X button
+document.querySelector(".modal-close-btn").addEventListener("click", () => {
+    document.getElementsByClassName("apply")[0].style.visibility = "hidden"
+    document.getElementsByClassName("apply")[0].style.width = "50vw"
+    document.getElementsByClassName("apply")[0].style.height = "60vh"
 })
 
 
