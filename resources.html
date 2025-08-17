@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Resources | Job Junction</title>
+  <style>
+    /* General styles */
+    :root {
+  /* Light Theme Colors Only */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+
+  --secondary-50: #f0f9ff;
+  --secondary-100: #e0f2fe;
+  --secondary-200: #bae6fd;
+  --secondary-300: #7dd3fc;
+  --secondary-400: #38bdf8;
+  --secondary-500: #0ea5e9;
+  --secondary-600: #0284c7;
+  --secondary-700: #0369a1;
+  --secondary-800: #075985;
+  --secondary-900: #0c4a6e;
+
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Semantic Colors */
+  --background: var(--white);
+  --surface: var(--gray-50);
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --border: var(--gray-200);
+  --accent: var(--primary-600);
+  --accent-hover: var(--primary-700);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Spacing */
+  --container-padding: 2rem;
+  --section-padding: 5rem 0;
+}
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #333;
+    }
+    header {
+      background: #60a5fa;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeSlide 1s ease;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Container */
+    .resources-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    /* Resource card */
+    .resource-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .resource-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .resource-card h3 {
+      margin-top: 0;
+      color: #60a5fa;
+    }
+    .resource-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .resource-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: #60a5fa;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .resource-card a:hover {
+      background: #3b82f6;
+    }
+
+    /* Keyframes */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Career Resources</h1>
+    <p>Guides, tips, and templates to help you grow in your career journey 🚀</p>
+  </header>
+
+  <main class="resources-container">
+    <!-- Career Guides -->
+    <div class="resource-card">
+      <h3>Career Guides 📘</h3>
+      <p>Step-by-step resources for beginners and professionals to navigate job search, workplace culture, and career paths.</p>
+      <a href="#">Read Guides</a>
+    </div>
+
+    <!-- Resume Building -->
+    <div class="resource-card">
+      <h3>Resume & Cover Letters 📝</h3>
+      <p>Tips on crafting impactful resumes and cover letters. Download ready-to-use templates.</p>
+      <a href="#">Download Templates</a>
+    </div>
+
+    <!-- Interview Prep -->
+    <div class="resource-card">
+      <h3>Interview Prep 🎤</h3>
+      <p>Checklists, common questions, and strategies to ace both in-person and virtual interviews.</p>
+      <a href="#">View Checklist</a>
+    </div>
+
+    <!-- Personal Branding -->
+    <div class="resource-card">
+      <h3>Personal Branding 🌟</h3>
+      <p>Learn how to build your LinkedIn, portfolio, and online presence to stand out to employers.</p>
+      <a href="#">Explore Branding</a>
+    </div>
+
+    <!-- Workplace Communication -->
+    <div class="resource-card">
+      <h3>Workplace Communication 💼</h3>
+      <p>Improve your professional communication skills, teamwork, and conflict resolution.</p>
+      <a href="#">Read Articles</a>
+    </div>
+
+    <!-- Career Growth -->
+    <div class="resource-card">
+      <h3>Career Growth 🚀</h3>
+      <p>Advanced strategies for promotions, leadership, and continuous skill development.</p>
+      <a href="#">Explore Growth</a>
+    </div>
+  </main>
+
+  <script>
+    // Add staggered animation for cards
+    document.querySelectorAll('.resource-card').forEach((card, i) => {
+      card.style.animationDelay = `${i * 0.15}s`;
+    });
+  </script>
+</body>
+</html>
