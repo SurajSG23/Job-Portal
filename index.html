@@ -84,6 +84,7 @@
     <!-- Add other homepage sections here if needed -->
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2025 Job Junction. All rights reserved.</p>
@@ -117,8 +118,60 @@
         </form>
 
     </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Back to Top Button
+    const backToTop = document.createElement('style');
+    backToTop.innerHTML = `
+      #backToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 999;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 16px rgba(30,58,138,0.15);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      #backToTop.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      #backToTop:active {
+        transform: scale(0.95);
+      }
+    `;
+    document.head.appendChild(backToTop);
+
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
-
 </html>
