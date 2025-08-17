@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Stories - Job Junction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      color: white;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Filter */
+    .filter {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .filter button {
+      margin: 5px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 30px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter button:hover {
+      background: #1e40af;
+      transform: scale(1.05);
+    }
+
+    /* Stories Grid */
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .story-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .story-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+
+    .story-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .story-card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.3rem;
+      color: #2563eb;
+    }
+
+    .story-card span {
+      font-size: 0.9rem;
+      color: #f8fafc;
+    }
+
+    .story-card p {
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+
+    .read-more {
+      display: inline-block;
+      padding: 8px 14px;
+      background: #2563eb;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .read-more:hover {
+      background: #1e40af;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      animation: scaleUp 0.5s ease;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity:0; transform: translateY(-40px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity:0; transform: translateY(40px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    @keyframes scaleUp {
+      from {transform: scale(0.8); opacity:0;}
+      to {transform: scale(1); opacity:1;}
+    }
+
+    @media(max-width:600px){
+      header h1 {font-size: 1.8rem;}
+      .stories {padding: 20px;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌟 Success Stories</h1>
+  <p>Real journeys from Job Junction users who achieved their career dreams 🚀</p>
+</header>
+
+<div class="filter">
+  <button onclick="filterStories('all')">All</button>
+  <button onclick="filterStories('tech')">Tech</button>
+  <button onclick="filterStories('finance')">Finance</button>
+  <button onclick="filterStories('design')">Design</button>
+</div>
+
+<section class="stories">
+  <div class="story-card tech">
+    <img src="https://i.pravatar.cc/80?img=1" alt="user">
+    <h3>Aarav Sharma</h3>
+    <span>Software Engineer @ Microsoft</span>
+    <p>“Job Junction helped me land my dream role in tech with personalized job alerts!”</p>
+    <span class="read-more" onclick="openModal('Aarav\'s journey from fresher to Microsoft engineer was powered by resume tips, interview prep, and active mentorship through Job Junction. He leveraged the skill development section to upskill in cloud computing and cracked multiple interviews!')">Read More</span>
+  </div>
+
+  <div class="story-card finance">
+    <img src="https://i.pravatar.cc/80?img=2" alt="user">
+    <h3>Sanya Kapoor</h3>
+    <span>Financial Analyst @ Deloitte</span>
+    <p>“The career resources helped me ace my Deloitte interview with confidence.”</p>
+    <span class="read-more" onclick="openModal('Sanya made use of the Resume Templates and Career Guides to refine her CV. With Job Junction interview prep modules, she cleared Deloitte’s case study rounds and landed her analyst role.')">Read More</span>
+  </div>
+
+  <div class="story-card design">
+    <img src="https://i.pravatar.cc/80?img=3" alt="user">
+    <h3>Ravi Patel</h3>
+    <span>UI/UX Designer @ Adobe</span>
+    <p>“The success stories inspired me and the portal connected me with Adobe recruiters.”</p>
+    <span class="read-more" onclick="openModal('Ravi was motivated by other users’ success stories. He built his portfolio using Job Junction’s design career guide and got noticed by Adobe recruiters through the networking events page.')">Read More</span>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content" id="modal-content"></div>
+</div>
+
+<script>
+  function filterStories(category) {
+    let cards = document.querySelectorAll('.story-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.classList.contains(category)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function openModal(text) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modal-content').innerText = text;
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
