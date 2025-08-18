@@ -1,9 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "logo": "assets/logo.webp",
+      "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Junction | Find Your Dream Career</title>
+  <meta name="description" content="Job Junction - The ultimate job portal to discover amazing opportunities and accelerate your career journey. Modern, fast, and user-friendly." />
+  <meta name="keywords" content="job portal, job search, careers, employment, dream job, professional growth" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+  <script type="module" src="components/firebaseauth.js"></script>
+  <style>
+    /* Minimal critical nav dropdown CSS for FCP */
+    .nav-menu .dropdown-content,
+    .nav-menu .dropdown-content .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 180px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+      border-radius: 10px;
+      z-index: 100;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-menu li { position: relative; }
+    .nav-menu .dropdown:hover > .dropdown-content,
+    .nav-menu .dropdown:focus-within > .dropdown-content {
+      display: block;
+      animation: fadeIn 0.2s;
+    }
+    .nav-menu .dropdown-content .dropdown {
+      position: relative;
+    }
+    .nav-menu .dropdown-content .dropdown-content {
+      left: 100%;
+      top: 0;
+      margin-left: 2px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+    }
+    .nav-menu .dropdown-content a {
+      display: block;
+      padding: 12px 20px;
+      color: #1e3a8a;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-menu .dropdown-content a:hover {
+      background: #f0f4ff;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 900px) {
+      .nav-menu .dropdown-content,
+      .nav-menu .dropdown-content .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-left: 0;
+        border-radius: 0;
+      }
+      .nav-menu .dropdown-content {
+        display: none;
+      }
+      .nav-menu .dropdown.open > .dropdown-content {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li class="dropdown">
+              <a href="#">Remote Jobs <i class="fas fa-chevron-right"></i></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Full-Time Remote</a></li>
+                <li><a href="#">Part-Time Remote</a></li>
+                <li class="dropdown">
+                  <a href="#">By Region <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">Americas</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="#">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="faq.html" class="nav-link">Faqs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-background" aria-hidden="true">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-rocket"></i>
+            <span>Find Your Dream Job Today</span>
+          </div>
+          <h1 class="hero-title">
+            Discover Amazing 
+            <span class="gradient-text">Opportunities</span>
+            & Start Your Career Journey
+          </h1>
+          <p class="hero-description">
+            Join thousands of professionals who found their perfect match. 
+            Browse through premium job listings from top companies worldwide.
+          </p>
+          <div class="hero-actions">
+            <a href="components/homepage.html" class="get-started-btn" aria-label="Get Started">
+              <span>Get Started</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#features" class="learn-more-btn" aria-label="Learn More">
+              <span>Learn More</span>
+              <i class="fas fa-play"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="job-card-preview">
+              <div class="company-info">
+                <div class="company-logo"></div>
+                <div class="company-details">
+                  <h4>Senior Frontend Developer</h4>
+                  <p>TechCorp Inc.</p>
+<body>
+<header class="navbar">
+  <div class="nav-logo">
+    <!-- Use your preferred logo source, adjust path as needed -->
+    <img src="images/logo.png" alt="Job Junction Logo" class="logo-img" id="logo">
+    <span class="logo-text">Job Junction</span>
+  </div>
 
 <head>
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
+
+<head>
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+
+  <nav class="nav-links navbar-links">
+    <a href="./components/homepage.html">Home</a>
+    <a href="./components/about.html">About</a>
+    <a href="job-application.html">Apply</a>
+    <a href="./components/saved-jobs.html">Saved Jobs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <head>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -12,7 +219,6 @@
         "logo": "assets/logo.webp",
         "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
       }
-      
     </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,6 +234,147 @@
     rel="stylesheet" />
   <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
   <script type="module" src="components/firebaseauth.js"></script>
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Junction | Find Your Dream Career</title>
+    <meta
+      name="description"
+      content="Job Junction - The ultimate job portal to discover amazing opportunities and accelerate your career journey. Modern, fast, and user-friendly."
+    />
+    <meta
+      name="keywords"
+      content="job portal, job search, careers, employment, dream job, professional growth"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+    <script type="module" src="components/firebaseauth.js"></script>
+
+    <style>
+      .btn1 {
+        margin-right: 1rem;
+        margin-top: 1rem;
+        width: 5rem;
+        height: 3rem;
+      }
+
+      .btn2 {
+        width: 7rem;
+        margin-top: 1rem;
+        /* margin: 1rem; */
+        height: 3rem;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li class="dropdown">
+              <a href="#">Remote Jobs <i class="fas fa-chevron-right"></i></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Full-Time Remote</a></li>
+                <li><a href="#">Part-Time Remote</a></li>
+                <li class="dropdown">
+                  <a href="#">By Region <i class="fas fa-chevron-right"></i></a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">Americas</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-background">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-rocket"></i>
+            <span>Find Your Dream Job Today</span>
+          </div>
+          <h1 class="hero-title">
+            Discover Amazing 
+            <span class="gradient-text">Opportunities</span>
+            & Start Your Career Journey
+          </h1>
+          <p class="hero-description">
+            Join thousands of professionals who found their perfect match. 
+            Browse through premium job listings from top companies worldwide.
+          </p>
+          <div class="hero-actions">
+            <a href="components/homepage.html" class="get-started-btn">
+              <span>Get Started</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#features" class="learn-more-btn">
+              <span>Learn More</span>
+              <i class="fas fa-play"></i>
+            </a>
+          </div>
+
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-brand">
+          <img src="assets/logo.webp" alt="Job Junction" class="logo" />
 
   <!-- <style>
     /* Default (light mode) */
@@ -166,6 +513,206 @@ body.dark .btn-ghost {
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-search-plus"></i>
+
+
+    /* Dark mode */
+    body.dark {
+      background-color: #121212;
+      color: #ffffff;
+    } 
+  </style> -->
+  <style>
+    /* ---------- Dark Theme Overrides ---------- */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .navbar {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .nav-link {
+  color: #e0e0e0;
+}
+
+body.dark .dropdown-content {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark .dropdown-content a {
+  color: #e0e0e0;
+}
+
+body.dark .features, 
+body.dark .categories {
+  background: #181818;
+  color: #e0e0e0;
+}
+
+body.dark .feature-card, 
+body.dark .category-card {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+body.dark .feature-icon, 
+body.dark .category-icon {
+  color: #66aaff;
+}
+
+body.dark .site-footer {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark .site-footer a {
+  color: #ddd;
+}
+
+body.dark .btn-primary {
+  background: #0077ff;
+  color: #fff;
+}
+
+body.dark .btn-ghost {
+  border: 1px solid #ccc;
+  color: #fff;
+}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="components/seeker.html">Browse Jobs</a>
+            <a href="#">Remote Jobs</a>
+            <a href="#">Featured Jobs</a>
+            <a href="#">Internships</a>
+          </div>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Job Junction?</h2>
+        <!-- <p class="para1">
+              Experience the future of job searching with our innovative
+              platform
+            </p> -->
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-search-plus"></i>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="./login.html" class="btn1 btn-primary">Login</a>
+          <a href="./signup.html" class="btn2 btn-primary">Sign Up</a>
+        </div>
+      </nav>
+    </header>
+
+   <!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-contents">
+    <h1 class="typing">Welcome to Job Junction</h1>
+    <p>Your gateway to smarter job opportunities.</p>
+    <a href="#features" class="btn">Explore Features</a>
+  </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose Job Junction?</h2>
+          <!-- <p class="para1">
+              Experience the future of job searching with our innovative
+              platform
+            </p> -->
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <h3>Smart Job Matching</h3>
+            <p>
+              Our AI-powered algorithm matches you with the perfect
+              opportunities based on your skills and preferences.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Verified Companies</h3>
+            <p>
+              All companies are thoroughly verified to ensure authentic job
+              postings and safe application process.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Career Growth</h3>
+            <p>
+              Access exclusive resources, courses, and mentorship programs to
+              accelerate your career development.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Professional Network</h3>
+            <p>
+              Connect with industry professionals and expand your network with
+              our built-in community features.
+            </p>
           </div>
           <h3>Smart Job Matching</h3>
           <p>
@@ -188,6 +735,64 @@ body.dark .btn-ghost {
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-chart-line"></i>
+
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+
+      </div>
+    </section>
+
+    <!-- Job Categories -->
+    <section class="categories" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular Job Categories</h2>
+          <p>Explore opportunities across different industries and roles</p>
+        </div>
+
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Technology</h3>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Marketing</h3>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Design</h3>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Business</h3>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <h3>Healthcare</h3>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Education</h3>
           </div>
           <h3>Career Growth</h3>
           <p>
@@ -314,6 +919,145 @@ body.dark .btn-ghost {
         </ul>
       </div>
 
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Job Junction" />
+        </div>
+        <p>Connecting talent with opportunities worldwide. Your dream career is just a click away.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>For Job Seekers</h4>
+        <ul>
+          <li><a href="#">Browse Jobs</a></li>
+          <li><a href="#">Career Advice</a></li>
+          <li><a href="#">Salary Guide</a></li>
+          <li><a href="#">Resume Builder</a></li>
+          <li><a href="networking-events.html">Networking & Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>For Employers</h4>
+        <ul>
+          <li><a href="#">Post a Job</a></li>
+          <li><a href="#">Talent Search</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Enterprise</a></li>
+        </ul>
+
+  <!-- Job Categories -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular Job Categories</h2>
+        <p>Explore opportunities across different industries and roles</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Technology</h3>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Marketing</h3>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Design</h3>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Business</h3>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3>Healthcare</h3>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Education</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+
+      <div class="brand-section">
+        <div class="brand-logo">
+          <img src="assets/logo.webp" alt="Job Junction Logo" style="background-color: aliceblue;" />
+        </div>
+        <p class="tagline">
+          Connecting talent with opportunities worldwide. Your dream career is just a click away.
+        </p>
+        <div class="social-media">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="links-section">
+        <h4>For Job Seekers</h4>
+        <ul>
+          <li><a href="#">Browse Jobs</a></li>
+          <li><a href="#">Career Advice</a></li>
+          <li><a href="#">Salary Guide</a></li>
+          <li><a href="#">Resume Builder</a></li>
+        </ul>
+      </div>
+
+      <div class="links-section">
+        <h4>For Employers</h4>
+        <ul>
+          <li><a href="#">Post a Job</a></li>
+          <li><a href="#">Talent Search</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Enterprise</a></li>
+        </ul>
+      </div>
+
+      <div class="links-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="components/about.html">About Us</a></li>
+          <li><a href="ContactPage.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
     </div>
 
     <div class="footer-credit">
@@ -330,6 +1074,242 @@ body.dark .btn-ghost {
     if (localStorage.getItem('theme') === 'dark') {
       body.classList.add('dark');
     }
+
+    toggleBtn.addEventListener('click' , () => {
+      body.classList.toggle('dark');
+
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('theme' , 'dark');
+      } else {
+        localStorage.setItem('theme' , 'light');
+      }
+    });
+    
+    // // Mobile Navigation Toggle
+    // const mobileToggle = document.getElementById("mobileToggle");
+    // const navMenu = document.getElementById("navMenu");
+
+    // mobileToggle.addEventListener("click", () => {
+    //   navMenu.classList.toggle("active");
+    //   mobileToggle.classList.toggle("active");
+    // });
+
+
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-wrapper">
+        <div class="brand-section">
+          <div class="brand-logo">
+            <img src="assets/logo.webp" alt="Job Junction Logo" />
+          </div>
+          <p class="tagline">
+            Connecting talent with opportunities worldwide. Your dream career is
+            just a click away.
+          </p>
+          <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="links-section">
+          <h4>For Job Seekers</h4>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Career Advice</a></li>
+            <li><a href="#">Salary Guide</a></li>
+            <li><a href="#">Resume Builder</a></li>
+            <li><a href="resources.html">Career Resource</a></li>
+          </ul>
+        </div>
+
+        <div class="links-section">
+          <h4>For Employers</h4>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Talent Search</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Enterprise</a></li>
+          </ul>
+        </div>
+
+        <div class="links-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="masthead.html">Masthead</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-credit">
+        <p>&copy; 2025 Job Junction. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      /* =============================
+   GLOBAL ANIMATIONS
+============================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* =============================
+   HEADER & NAV
+============================= */
+.navbar {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions .btn-primary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-actions .btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =============================
+   FEATURES SECTION
+============================= */
+.feature-card {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Add staggered delay for engaging entrance */
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+.feature-card:nth-child(3) { animation-delay: 0.6s; }
+.feature-card:nth-child(4) { animation-delay: 0.8s; }
+
+.feature-icon {
+  font-size: 2rem;
+  color: #007bff;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff6600;
+}
+
+/* =============================
+   CATEGORIES
+============================= */
+.category-card {
+  opacity: 0;
+  animation: fadeInScale 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.category-card:nth-child(1) { animation-delay: 0.2s; }
+.category-card:nth-child(2) { animation-delay: 0.4s; }
+.category-card:nth-child(3) { animation-delay: 0.6s; }
+.category-card:nth-child(4) { animation-delay: 0.8s; }
+.category-card:nth-child(5) { animation-delay: 1s; }
+.category-card:nth-child(6) { animation-delay: 1.2s; }
+
+/* =============================
+   FOOTER
+============================= */
+.site-footer {
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.social-media a {
+  display: inline-block;
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: #007bff;
+}
+
+.links-section ul li a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.links-section ul li a:hover {
+  color: #ff6600;
+  transform: translateX(5px);
+}
+
+.footer-credit {
+  text-align: center;
+  padding: 1rem;
+  animation: pulse 3s infinite;
+}
+
+    </style>
 
     toggleBtn.addEventListener('click' , () => {
       body.classList.toggle('dark');
