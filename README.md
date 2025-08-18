@@ -111,7 +111,7 @@ Any static server works. With **VS Code**:
 Update your Firebase SDK configuration in the file:
 
 ```bash
-src/js/firebase.js
+components/firebase.js
 ```
 
 To enable Google Sign-In and other Firebase services, update your Firebase SDK configuration inside the project:
