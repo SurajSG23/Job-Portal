@@ -106,6 +106,29 @@ Any static server works. With **VS Code**:
 1. Install the **Live Server** extension  
 2. Right-click `index.html` → **“Open with Live Server”**
 
+## 🔑 Firebase Configuration
+
+Update your Firebase SDK configuration in the file:
+
+```bash
+src/js/firebase.js
+```
+
+To enable Google Sign-In and other Firebase services, update your Firebase SDK configuration inside the project:
+
+```bash
+// Firebase Config
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",  
+  authDomain: "YOUR_AUTH_DOMAIN",  
+  projectId: "YOUR_PROJECT_ID",  
+  storageBucket: "YOUR_STORAGE_BUCKET",  
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",  
+  appId: "YOUR_APP_ID",  
+  measurementId: "YOUR_MEASUREMENT_ID"  
+};
+```
+
 ### 3. Contribute
 
 - Pick an issue labelled **Level 1**, **Level 2**, or **Level 3**
