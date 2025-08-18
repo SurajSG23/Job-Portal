@@ -157,25 +157,7 @@ body.dark .btn-ghost {
   }
 
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
 
 
 .navbar {
@@ -198,9 +180,7 @@ body.dark .btn-ghost {
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
-  width: 100%;
-}
+
 
 .nav-actions .btn-primary {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -432,6 +412,11 @@ body.dark .btn-ghost {
           <div class="feature-icon">
             <i class="fas fa-chart-line"></i>
 
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+
       </div>
     </section>
 
@@ -506,13 +491,7 @@ body.dark .btn-ghost {
     </div>
   </section>
 
-<!-- Footer Section -->
-<footer class="site-footer">
-  <div class="footer-wrapper">
-    <!-- Brand Section -->
-    <div class="brand-section">
-      <div class="brand-logo">
-        <img src="assets/logo.webp" alt="Job Junction Logo" />
+
       </div>
       <p class="tagline">
         Connecting talent with opportunities worldwide. Your dream career is just a click away.
@@ -576,7 +555,6 @@ body.dark .btn-ghost {
     if (localStorage.getItem('theme') === 'dark') {
       body.classList.add('dark');
     }
-
     toggleBtn.addEventListener('click' , () => {
       body.classList.toggle('dark');
 
