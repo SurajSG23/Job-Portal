@@ -85,6 +85,174 @@
       background: #dbeafe;
       color: #333;
     }
+
+/*====header & navbar ====*/
+/* ===== Header & Navbar ===== */
+.header {
+  background: var(--background);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem var(--container-padding);
+}
+
+.nav-brand .logo {
+  height: 45px;
+  width: auto;
+}
+
+/* ===== Nav Menu ===== */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+}
+
+/* ===== Dropdown ===== */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 180px;
+  padding: 0.5rem 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background: var(--primary-50);
+  color: var(--accent);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== Nav Actions ===== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost {
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+.btn-ghost:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    gap: 1rem;
+    box-shadow: var(--shadow-lg);
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+/*===============*/
+
     .masthead-header {
   text-align: center;
   padding: 60px 20px;
@@ -211,6 +379,44 @@
   </style>
 </head>
 <body>
+
+   <!-- Header -->
+   <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="components/seeker.html">Browse Jobs</a>
+            <a href="#">Remote Jobs</a>
+            <a href="#">Featured Jobs</a>
+            <a href="internships.html">Internships</a>
+          </div>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+
 
     <section class="masthead-header">
         <h2>Masthead</h2>
