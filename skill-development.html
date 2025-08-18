@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Development - Job Junction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    /* Filter Buttons */
+    .filters {
+      text-align: center;
+      margin: 30px 20px;
+    }
+
+    .filters button {
+      background: white;
+      border: 2px solid #4facfe;
+      color: #4facfe;
+      padding: 10px 18px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .filters button:hover,
+    .filters button.active {
+      background: #4facfe;
+      color: white;
+    }
+
+    /* Course Grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .course-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .course-card h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+      color: #4facfe;
+    }
+
+    .course-card p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .course-info {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .course-info span {
+      background: #f0f8ff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #4facfe;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #00c6fb;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .filters button {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Skill Development Hub 🚀</h1>
+    <p>Explore free courses, certifications, and workshops curated for your career growth.</p>
+  </header>
+
+  <!-- Filters -->
+  <div class="filters">
+    <button class="active" onclick="filterCourses('all')">All</button>
+    <button onclick="filterCourses('web')">Web Development</button>
+    <button onclick="filterCourses('data')">Data Science</button>
+    <button onclick="filterCourses('communication')">Communication Skills 🗣️</button>
+  </div>
+
+  <!-- Courses Grid -->
+  <div class="course-grid" id="courseGrid">
+    <!-- Sample Course Cards -->
+    <div class="course-card web">
+      <h3>Frontend Web Development</h3>
+      <p>Learn HTML, CSS, and JavaScript to build responsive websites.</p>
+      <div class="course-info">
+        <span>Duration: 6 weeks</span>
+        <span>Beginner</span>
+        <span>Certification ✔️</span>
+      </div>
+      <a href="#" class="btn">Enroll Now</a>
+    </div>
+
+    <div class="course-card data">
+      <h3>Python for Data Science</h3>
+      <p>Master Python libraries like Pandas and NumPy for data analysis.</p>
+      <div class="course-info">
+        <span>Duration: 8 weeks</span>
+        <span>Intermediate</span>
+        <span>Certification ✔️</span>
+      </div>
+      <a href="#" class="btn">Enroll Now</a>
+    </div>
+
+    <div class="course-card communication">
+      <h3>Effective Communication Skills</h3>
+      <p>Boost your speaking, writing, and presentation skills.</p>
+      <div class="course-info">
+        <span>Duration: 4 weeks</span>
+        <span>Beginner</span>
+        <span>Certification ❌</span>
+      </div>
+      <a href="#" class="btn">Start Learning</a>
+    </div>
+
+    <div class="course-card web">
+      <h3>Full Stack Web Development</h3>
+      <p>Build modern applications using MERN stack.</p>
+      <div class="course-info">
+        <span>Duration: 10 weeks</span>
+        <span>Advanced</span>
+        <span>Certification ✔️</span>
+      </div>
+      <a href="#" class="btn">Enroll Now</a>
+    </div>
+  </div>
+
+  <script>
+    // Filter Courses
+    function filterCourses(category) {
+      let courses = document.querySelectorAll('.course-card');
+      let buttons = document.querySelectorAll('.filters button');
+
+      courses.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    // Scroll Animation
+    const cards = document.querySelectorAll('.course-card');
+    const revealOnScroll = () => {
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (cardTop < windowHeight - 50) {
+          card.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
