@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Junction | FAQ</title>
+  <style>
+    /* Base */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #60a5fa;
+      color: #fff;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+
+    /* Search */
+    .search-box {
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #60a5fa;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    /* FAQ container */
+    .faq-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .category {
+      margin-bottom: 30px;
+    }
+    .category h2 {
+      background: #60a5fa;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0 0 15px 0;
+    }
+
+    /* Questions */
+    .faq {
+      background: #fff;
+      margin: 10px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .faq:hover {
+      transform: translateY(-3px);
+    }
+    .faq-question {
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 15px;
+      background: #f4f4f4;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .faq.active .faq-answer {
+      max-height: 300px;
+      padding: 15px;
+    }
+    .icon {
+      transition: transform 0.3s ease;
+    }
+    .faq.active .icon {
+      transform: rotate(180deg);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .faq-question {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Category hover + animation */
+.category h2 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeSlide 0.8s ease forwards;
+}
+.category h2:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.6);
+}
+
+/* FAQ animation */
+.faq {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 0.6s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.faq:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Answer expand animation */
+.faq-answer {
+  opacity: 0;
+  transition: max-height 0.6s ease, padding 0.4s ease, opacity 0.4s ease;
+}
+.faq.active .faq-answer {
+  opacity: 1;
+  animation: glow 0.8s ease;
+}
+
+/* Keyframes */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow {
+  0% { box-shadow: inset 0 0 0 rgba(96,165,250,0); }
+  50% { box-shadow: inset 0 0 10px rgba(96,165,250,0.4); }
+  100% { box-shadow: inset 0 0 0 rgba(96,165,250,0); }
+}
+
+/* Search bar animations */
+.search-box input {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 rgba(96,165,250,0);
+}
+
+.search-box input:focus {
+  outline: none;
+  transform: scale(1.03);
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(96,165,250,0.6);
+  background: #f0f7ff;
+}
+
+.search-box input::placeholder {
+  color: #999;
+  transition: opacity 0.3s ease;
+}
+
+.search-box input:focus::placeholder {
+  opacity: 0.5;
+}
+.search-box:hover{
+    outline: none;
+    transform: scale(1.03);
+    border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(96,165,250,0.6);
+  background: #f0f7ff;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to common questions about Job Junction</p>
+  </header>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search FAQs...">
+  </div>
+
+  <div class="faq-container" id="faqContainer">
+
+    <!-- Account Setup -->
+    <div class="category">
+      <h2>Account Setup</h2>
+      <div class="faq">
+        <div class="faq-question">How do I create an account? <span class="icon">▼</span></div>
+        <div class="faq-answer">Click on the "Sign Up" button on the homepage, fill in your details, and verify your email to create an account.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">I forgot my password. What should I do? <span class="icon">▼</span></div>
+        <div class="faq-answer">Click on "Forgot Password?" at login, enter your email, and follow the instructions to reset it.</div>
+      </div>
+    </div>
+
+    <!-- Job Applications -->
+    <div class="category">
+      <h2>Job Applications</h2>
+      <div class="faq">
+        <div class="faq-question">How can I apply for jobs? <span class="icon">▼</span></div>
+        <div class="faq-answer">Visit the job listings page, select a job, and click the "Apply" button. Fill in the required details and upload your resume.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">Can I track my job applications? <span class="icon">▼</span></div>
+        <div class="faq-answer">Yes, go to your profile dashboard to see the status of your applications.</div>
+      </div>
+    </div>
+
+    <!-- Internships -->
+    <div class="category">
+      <h2>Internships</h2>
+      <div class="faq">
+        <div class="faq-question">Are internships paid? <span class="icon">▼</span></div>
+        <div class="faq-answer">Some internships are paid, while others may be unpaid or offer stipends. Details are mentioned in each listing.</div>
+      </div>
+    </div>
+
+    <!-- Employers -->
+    <div class="category">
+      <h2>Employers</h2>
+      <div class="faq">
+        <div class="faq-question">How do employers post jobs? <span class="icon">▼</span></div>
+        <div class="faq-answer">Employers can register, log in, and use the "Post a Job" option to list openings.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Toggle FAQs
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const faq = q.parentElement;
+        faq.classList.toggle('active');
+      });
+    });
+
+    // Search FAQs
+    const searchInput = document.getElementById("searchInput");
+    const faqs = document.querySelectorAll(".faq");
+
+    searchInput.addEventListener("keyup", () => {
+      const filter = searchInput.value.toLowerCase();
+      faqs.forEach(faq => {
+        const question = faq.querySelector(".faq-question").textContent.toLowerCase();
+        const answer = faq.querySelector(".faq-answer").textContent.toLowerCase();
+        if (question.includes(filter) || answer.includes(filter)) {
+          faq.style.display = "";
+        } else {
+          faq.style.display = "none";
+        }
+      });
+    });
+
+    // Animate FAQ cards on load with delay
+document.querySelectorAll('.faq').forEach((faq, i) => {
+  faq.style.animationDelay = `${i * 0.1}s`;
+});
+
+  </script>
+</body>
+</html>
