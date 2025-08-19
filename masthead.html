@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
   <title>About Project | Job Junction</title>
   <style>
 
@@ -208,6 +212,132 @@
         height: 80px;
       }
     }
+  
+ /* ================= Footer ================= */
+footer {
+  background: var(--accent);
+  color: var(--white);
+  padding: 3rem var(--container-padding) 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+#footer-statement p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--primary-100);
+  animation: fadeInDown 1s ease;
+}
+
+/* Footer Links Grid */
+footer > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-links h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--secondary-100);
+  position: relative;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 6px 0;
+}
+
+/* Clean Links */
+.footer-links a {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-300);
+  transform: translateX(4px);
+}
+
+/* Social Icons */
+.social-icons {
+  margin: 2rem 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: var(--white);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: var(--secondary-300);
+}
+
+/* Footer Bottom */
+footer h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  color: var(--primary-200);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  footer > div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links h3 {
+    margin-top: 1rem;
+  }
+}
+
+/* ================= Animations ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    
   </style>
 </head>
 <body>
@@ -252,6 +382,62 @@
     </section>
 
   </div>
+
+   <footer>
+    <div id="footer-statement">
+      <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
+    </div>
+
+    <div>
+      <div class="footer-links">
+        <h3>For Job Seekers</h3>
+        <ul>
+          <li><a href="#">Browse Job</a></li>
+          <li><a href="internships.html">Internships</a></li>
+          <li><a href="#">Advice</a></li>
+          <li><a href="#">Salary Guide</a></li>
+          <li><a href="#">Resume Builder</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>For Employers</h3>
+        <ul>
+          <li><a href="#">Post a Job</a></li>
+          <li><a href="#">Talent Search</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Enterprise</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="components/about.html">About Us</a></li>
+          <li><a href="ContactPage.html">Contact</a></li>
+          <li><a href="open-source.html">Open Source</a></li>
+          <li><a href="masthead.html">Masthead</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://github.com/SurajSG23" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.instagram.com/suraj_sg23/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
+  </footer>
+
 
 
 
