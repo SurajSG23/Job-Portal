@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Salary Insights - Job Junction</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+  }
+  header {
+    background: #667eea;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  /* Filter Bar */
+  .filter-bar {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .filter-bar select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  /* Cards */
+  .salary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  .card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  .card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  .card h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+  .card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  /* Charts Section */
+  .charts-section {
+    padding: 2rem;
+    background: white;
+    margin: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  canvas {
+    max-width: 100%;
+  }
+  @media (max-width: 600px) {
+    .filter-bar {
+      flex-direction: column;
+    }
+    .filter-bar select {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .salary-cards {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+    @media (max-width: 400px) {
+        .salary-cards {
+        grid-template-columns: 1fr;
+        }
+        .filter-bar {
+          flex-direction: column;
+        }
+        .filter-bar select {
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Salary Insights</h1>
+  <p>Compare salaries by job role, industry, and location</p>
+</header>
+
+<!-- Filters -->
+<div class="filter-bar">
+  <select id="jobFilter">
+    <option value="">Job Title</option>
+    <option value="Web Developer">Web Developer</option>
+    <option value="Designer">Designer</option>
+    <option value="Data Analyst">Data Analyst</option>
+  </select>
+  <select id="expFilter">
+    <option value="">Experience Level</option>
+    <option value="Entry">Entry</option>
+    <option value="Mid">Mid</option>
+    <option value="Senior">Senior</option>
+  </select>
+  <select id="regionFilter">
+    <option value="">Region</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+    <option value="Canada">Canada</option>
+  </select>
+</div>
+
+<!-- Average Salary Cards -->
+<div class="salary-cards" id="salaryCards">
+  <div class="card" data-job="Web Developer" data-exp="Entry" data-region="India">
+    <h3>Web Developer (Entry, India)</h3>
+    <p>₹4,50,000 / year</p>
+  </div>
+  <div class="card" data-job="Designer" data-exp="Mid" data-region="USA">
+    <h3>Designer (Mid, USA)</h3>
+    <p>$65,000 / year</p>
+  </div>
+  <div class="card" data-job="Data Analyst" data-exp="Senior" data-region="Canada">
+    <h3>Data Analyst (Senior, Canada)</h3>
+    <p>$90,000 / year</p>
+  </div>
+</div>
+
+<!-- Charts -->
+<div class="charts-section">
+  <h2>Salary Trends Over Time</h2>
+  <canvas id="trendChart"></canvas>
+</div>
+
+<div class="charts-section">
+  <h2>Top Paying Companies</h2>
+  <canvas id="companyChart"></canvas>
+</div>
+
+<script>
+  // Fade-in animation on scroll
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(card => observer.observe(card));
+
+  // Filter Functionality
+  const filters = document.querySelectorAll('.filter-bar select');
+  filters.forEach(filter => {
+    filter.addEventListener('change', () => {
+      const jobValue = document.getElementById('jobFilter').value;
+      const expValue = document.getElementById('expFilter').value;
+      const regionValue = document.getElementById('regionFilter').value;
+
+      cards.forEach(card => {
+        const matchJob = !jobValue || card.dataset.job === jobValue;
+        const matchExp = !expValue || card.dataset.exp === expValue;
+        const matchRegion = !regionValue || card.dataset.region === regionValue;
+
+        card.style.display = (matchJob && matchExp && matchRegion) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Chart.js - Salary Trends
+  const trendCtx = document.getElementById('trendChart').getContext('2d');
+  new Chart(trendCtx, {
+    type: 'line',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023'],
+      datasets: [{
+        label: 'Average Salary (USD)',
+        data: [50000, 52000, 55000, 60000, 65000],
+        borderColor: '#780000',
+        backgroundColor: 'rgba(120,0,0,0.2)',
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      animation: { duration: 1500 }
+    }
+  });
+
+  // Chart.js - Top Paying Companies
+  const companyCtx = document.getElementById('companyChart').getContext('2d');
+  new Chart(companyCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Google', 'Amazon', 'Microsoft', 'Apple', 'Netflix'],
+      datasets: [{
+        label: 'Avg Salary (USD)',
+        data: [120000, 115000, 110000, 105000, 130000],
+        backgroundColor: ['#ff6f61','#ffb400','#4caf50','#2196f3','#9c27b0']
+      }]
+    },
+    options: {
+      responsive: true,
+      animation: { duration: 1500 },
+      plugins: { legend: { display: false } }
+    }
+  });
+</script>
+
+</body>
+</html>

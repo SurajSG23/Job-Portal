@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="./components/firebase.js" defer type="module"></script>
   <title>Sign Up</title>
   <style>
     * {
@@ -10,29 +12,91 @@
       font-family: 'Segoe UI', sans-serif;
     }
     body {
-      background:  url('https://images.unsplash.com/photo-1572557798994-41431698dc8d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      background: #000000;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
     }
-    .container {
-      background: white;
-      padding: 2rem;
+    .split-container {
+      display: flex;
+      width: 900px;
+      max-width: 90%;
       border-radius: 12px;
-     width: 100%;
-      max-width: 400px;
-      box-shadow: 0 8px 150px rgba(0,0,0,0.15);
-      border: 1px solid #ccc;
-      font-weight: 500;
+      box-shadow: 0 8px 150px rgba(255, 255, 255, 0.247);
+      overflow: hidden;
+      background: white;
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 1rem;
+    .left-panel {
+      flex: 1;
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1779&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #ccc;
+    }
+    .left-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .left-panel > * {
+      z-index: 1;
+    }
+    .left-panel .quote-header {
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .left-panel h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .left-panel p {
+      font-size: 0.9rem;
+      max-width: 90%;
+      line-height: 1.5;
+    }
+    .right-panel {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .brand-logo {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .signup-form-header {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    .signup-form-header h2 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+    .signup-form-header p {
+      font-size: 0.9rem;
+      color: #666;
     }
     .form-group {
       margin-bottom: 1rem;
@@ -41,6 +105,7 @@
     label {
       display: block;
       margin-bottom: 5px;
+      font-size: 0.9rem;
     }
     input[type="email"],
     input[type="password"],
@@ -50,6 +115,12 @@
       padding-right: 40px;
       border: 1px solid #ccc;
       border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    input:focus {
+      border-color: #3d55b4;
+      box-shadow: 0 0 5px rgba(61, 85, 180, 0.4);
     }
     .toggle-password {
       position: absolute;
@@ -57,9 +128,10 @@
       top: 38px;
       cursor: pointer;
       color: #555;
+      font-size: 1rem;
     }
     .inline-feedback {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: red;
       margin-top: 5px;
     }
@@ -72,83 +144,87 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     .btn:disabled {
       background-color: #999;
+      cursor: not-allowed;
     }
     .spinner {
       display: none;
       width: 24px;
       height: 24px;
-      margin: 0 auto;
+      margin: 1rem auto 0;
       border: 3px solid #f3f3f3;
-      border-top: 3px solid #3d55b4;
+      border-top: 3px solid#3d55b4;
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin-top: 1rem;
     }
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
-    .login-page {
-      display: block;
+    .form-switch {
       text-align: center;
       margin-top: 1rem;
       font-size: 0.9rem;
-      color:#3d55b4;
+    }
+    .form-switch a {
+      color: #3d55b4;
       text-decoration: none;
-    }
-    .social-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 1rem;
-    }
-    .social-btn {
-      flex: 1;
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      text-align: center;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Sign Up</h2>
-    <form id="signup-form">
+  <div class="split-container">
+    <div class="left-panel">
+      <div>
+        <p class="quote-header">A WISE QUOTE</p>
+      </div>
+      <div>
+        <h1>Get Everything You Want</h1>
+        <p>You can get everything you want if you work hard, trust the process, and stick to the plan.</p>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="brand-logo">
+        <span>Job-Portal</span>
+      </div>
+      <div class="signup-form-header">
+        <h2>Create Account</h2>
+        <p>Get started by creating your account!</p>
+      </div>
+      <form id="signup-form">
         <div class="form-group">
-        <label>Name</label>
-        <input type="text" id="name" placeholder="Enter your name" required />
-        <div id="name" class="name"></div>
-      </div>
-
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="email" placeholder="Enter your email"required />
-        <div id="emailFeedback" class="inline-feedback"></div>
-      </div>
-
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" id="password" placeholder="Enter Password"required />
-        <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
-      </div>
-
-      <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" id="confirm-password" required />
-        <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
-        <div id="matchFeedback" class="inline-feedback"></div>
-      </div>
-
-      <button type="submit" class="btn">Sign Up</button>
-      <div class="spinner" id="spinner"></div>
-
-      <div class="login-page">
-        <p>Already have an account? <a href="login.html">Login</a></p>
-      </div>
+          <label>Name</label>
+          <input type="text" id="signup-name" placeholder="Enter your name" required />
+          <div id="signupNameFeedback" class="inline-feedback"></div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signup-email" placeholder="Enter your email" required />
+          <div id="signupEmailFeedback" class="inline-feedback"></div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signup-password" placeholder="Enter Password" required />
+          <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm Password" required />
+          <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+          <div id="matchFeedback" class="inline-feedback"></div>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="spinner" id="signup-spinner"></div>
+        <div class="form-switch">
+          <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script>
     function togglePassword(id) {
@@ -156,46 +232,43 @@
       input.type = input.type === "password" ? "text" : "password";
     }
 
-    const form = document.getElementById("signup-form");
-    const password = document.getElementById("password");
+    const signupForm = document.getElementById("signup-form");
+    const signupEmail = document.getElementById("signup-email");
+    const signupPassword = document.getElementById("signup-password");
     const confirmPassword = document.getElementById("confirm-password");
-    const email = document.getElementById("email");
+    const signupEmailFeedback = document.getElementById("signupEmailFeedback");
     const matchFeedback = document.getElementById("matchFeedback");
-    const emailFeedback = document.getElementById("emailFeedback");
-    const spinner = document.getElementById("spinner");
+    const signupSpinner = document.getElementById("signup-spinner");
 
     confirmPassword.addEventListener("input", () => {
-      matchFeedback.textContent = confirmPassword.value !== password.value
+      matchFeedback.textContent = confirmPassword.value !== signupPassword.value
         ? "Passwords do not match"
         : "";
     });
 
-    email.addEventListener("input", () => {
-      const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-      emailFeedback.textContent = regex.test(email.value)
+    signupEmail.addEventListener("input", () => {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      signupEmailFeedback.textContent = regex.test(signupEmail.value)
         ? ""
         : "Enter a valid email address";
     });
 
-    form.addEventListener("submit", function (e) {
+    signupForm.addEventListener("submit", function (e) {
       e.preventDefault();
-
-      if (password.value.length < 6) {
+      if (signupPassword.value.length < 6) {
         alert("Password must be at least 6 characters.");
         return;
       }
-
-      if (password.value !== confirmPassword.value) {
+      if (signupPassword.value !== confirmPassword.value) {
         alert("Passwords do not match.");
         return;
       }
-
-      spinner.style.display = "block";
-
+      signupSpinner.style.display = "block";
+      // Simulate form submission
       setTimeout(() => {
-        spinner.style.display = "none";
+        signupSpinner.style.display = "none";
         alert("Account created successfully!");
-        form.reset();
+        signupForm.reset();
       }, 1500);
     });
   </script>

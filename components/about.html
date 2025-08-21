@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,6 +102,50 @@
 
     </div>
 
+    <!-- Vision Section -->
+<section class="vision">
+  <div class="container">
+    <h2 class="animate">Our Vision</h2>
+    <p class="vision-intro animate">
+      At Job Junction, we are dedicated to creating a platform that connects job seekers and employers with transparency, accessibility, and innovation at its core.
+    </p>
+
+    <div class="vision-content">
+      <div class="vision-card animate" id="box">
+        <h3>🌐 Mission & Long-Term Goals</h3>
+        <p>
+          To bridge the gap between talent and opportunity by offering a reliable, user-friendly job portal that empowers individuals and organizations worldwide.
+        </p>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>💡 Our Core Values</h3>
+        <ul>
+          <li>Accessibility for all users</li>
+          <li>Inclusivity and diversity in opportunities</li>
+          <li>Continuous innovation and improvement</li>
+          <li>Transparency in operations</li>
+        </ul>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>📈 Future Roadmap</h3>
+        <p>
+          We aim to integrate AI-driven job matching, expand globally, and provide advanced tools for career growth, ensuring better results for both employers and job seekers.
+        </p>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>👨‍💻 Our Promise</h3>
+        <blockquote>
+          "Job Junction is committed to making job searching and hiring simpler, faster, and fairer — for everyone."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
    <!--testimonials-->
    <section class="testimonials" aria-labelledby="testimonials-heading">
   <div class="container">
@@ -197,6 +244,25 @@
 
 
     <footer>
+      <div class="footcontent" style="padding: 16px 0;">
+        <!-- Quick Links Section -->
+        <div class="footer-section quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/Job-Portal/homepage.html">Home</a></li>
+                <li><a href="/Job-Portal/components/about.html">About</a></li>
+                <li><a href="/Job-Portal/components/seeker.html">Jobs</a></li>
+                <li><a href="/Job-Portal/contactpage.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div class="footer-section contact">
+            <h3>Contact</h3>
+            <p>Email: contact@jobjunction.com</p>
+        </div>
+        
+        
         <hr />
         <div class="footContainer" style="padding: 16px 0;">
             <div>
@@ -265,6 +331,28 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+<!--vision -->
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".animate");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // run animation only once
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  });
+
+
+
 
 </script>
 
