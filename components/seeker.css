@@ -91,35 +91,57 @@ header {
   margin-left: 29.5rem;
 }
 
+header {
+
+  width: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6, #06b6d4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
 /* Navigation links & button container */
 .headlinks {
   display: flex;
   align-items: center;
   gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  height: 100%;
+
 }
 
 /* Links & Button Styles */
 .headlinks a,
 .apply-btn {
-  all: unset;
   font-size: 16px;
   padding: 8px 16px;
-  border: 2px solid #1e3a8a;
-  border-radius: 8px;
+  border: 2px solid transparent;
+  border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
   color: #1e3a8a;
-  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #ffffff, #f3f4f6); 
   transition: all 0.3s ease;
   text-align: center;
+  text-decoration: none;
 }
 
 .headlinks a:hover,
 .apply-btn:hover {
-  background: #1e3a8a;
-  color: white;
-  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+    background: linear-gradient(135deg, #8b5cf6, #d946ef, #ec4899); /* violet → magenta → pink */
+  color: #fff;
   transform: translateY(-2px);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35); 
 }
 
 .job-btn {
@@ -151,34 +173,7 @@ header {
     height: 100%;
 }
 
-.headlinks {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
 
-.headlinks a,.apply-btn {
-    width: 100%;
-    all: unset;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-align: center;
-    border: 2px solid #1e3a8a;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    color: #1e3a8a;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-.headlinks a:hover,.apply-btn:hover {
-    background: #1e3a8a;
-    transform: translateY(-2px);
-    color: white;
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-}
 
 #dropdown{
     padding: 6px;
