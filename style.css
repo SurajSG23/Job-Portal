@@ -319,3 +319,7 @@ main {
 .lazy-image.fade-in {
   opacity: 1;
 }
+.job-card {
+  content-visibility: auto;
+  contain: layout paint;  
+}
