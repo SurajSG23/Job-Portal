@@ -64,7 +64,10 @@
 <body>
   <nav class="navbar">
     <div class="nav-logo">
-      <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
+      <picture>
+  <source srcset="job-banner.webp" type="image/webp">
+  <img src="job-banner.jpg" alt="Job Banner" loading="lazy" width="600" height="300">
+</picture>
     </div>
     <ul class="nav-links">
       <li><a href="./components/homepage.html">Home</a></li>
@@ -91,7 +94,7 @@
 
   <script src="script.js"></script>
   <!-- For development: -->
-  <script src="script.js"></script>
+  <script src="script.js" defer ></script>
   <!-- For production, use minified: -->
   <!-- <script src="script.min.js"></script> -->
   <script>

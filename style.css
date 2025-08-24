@@ -312,3 +312,10 @@ main {
   font-size: 2rem;
   color: #030303;
 }
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.lazy-image.fade-in {
+  opacity: 1;
+}
