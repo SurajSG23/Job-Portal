@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <title>Networking & Events | Job Junction</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 1.1rem;
+    }
+
+    /* Filter Buttons */
+    .filters {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .filters button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .filters button:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    /* Event Grid */
+    .events {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    .event-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .event-card h3 {
+      margin: 0;
+      color: #2563eb;
+    }
+
+    .event-card p {
+      margin: 8px 0;
+      line-height: 1.4;
+    }
+
+    .event-card button {
+      background: #16a34a;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .event-card button:hover {
+      background: #15803d;
+      transform: scale(1.05);
+    }
+
+    /* Community Section */
+    .community {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .community h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #2563eb;
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .icons a {
+      font-size: 2rem;
+      transition: transform 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+
+    .icons a:hover {
+      color: #1d4ed8;
+      transform: scale(1.2) rotate(5deg);
+    }
+    .icons a:nth-child(1) { color: #25D366; } /* WhatsApp */
+    .icons a:nth-child(2) { color: #5865F2; } /* Discord */
+    .icons a:nth-child(3) { color: #0077B5; } /* LinkedIn */
+    .icons a:nth-child(4) { color: #333; }    /* GitHub */
+
+    .icons a:nth-child(1):hover{ color: #1d4ed8; } /* WhatsApp */
+    .icons a:nth-child(2):hover { color: #1d4ed8;} /* Discord */
+    .icons a:nth-child(3):hover{ color: #1d4ed8; } /* LinkedIn */
+    .icons a:nth-child(4):hover { color: #1d4ed8;}    /* GitHub */
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .filters button { padding: 8px 14px; }
+      .event-card { padding: 15px; }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>Networking & Events</h1>
+    <p>Discover upcoming opportunities, join events, and grow your network 🚀</p>
+  </header>
+
+  <!-- Filters -->
+  <div class="filters">
+    <button onclick="filterEvents('all')">All</button>
+    <button onclick="filterEvents('workshop')">Workshops</button>
+    <button onclick="filterEvents('webinar')">Webinars</button>
+    <button onclick="filterEvents('hackathon')">Hackathons</button>
+    <button onclick="filterEvents('careerfair')">Career Fairs</button>
+  </div>
+
+  <!-- Events -->
+  <div class="events" id="event-list">
+    <div class="event-card" data-type="workshop">
+      <h3>Resume Building Workshop</h3>
+      <p><strong>Date:</strong> Aug 25, 2025 | <strong>Time:</strong> 5 PM EST</p>
+      <p><strong>Venue:</strong> Virtual (Zoom)</p>
+      <p>Learn resume writing tips and get recruiter insights.</p>
+      <button>Register</button>
+    </div>
+    <div class="event-card" data-type="hackathon">
+      <h3>Job Junction Hackathon</h3>
+      <p><strong>Date:</strong> Sept 2-4, 2025 | <strong>Time:</strong> 9 AM</p>
+      <p><strong>Venue:</strong> Toronto, ON</p>
+      <p>Team up and build innovative job-tech solutions.</p>
+      <button>Register</button>
+    </div>
+    <div class="event-card" data-type="careerfair">
+      <h3>Virtual Career Fair</h3>
+      <p><strong>Date:</strong> Sept 10, 2025 | <strong>Time:</strong> 11 AM EST</p>
+      <p><strong>Venue:</strong> Online</p>
+      <p>Connect with top employers hiring across industries.</p>
+      <button>Register</button>
+    </div>
+  </div>
+
+  <!-- Community Channels -->
+  <section class="community">
+    <h2>Join Our Community</h2>
+    <div class="icons">
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <script>
+    function filterEvents(type) {
+      let events = document.querySelectorAll(".event-card");
+      events.forEach(event => {
+        if (type === 'all' || event.dataset.type === type) {
+          event.style.display = "block";
+        } else {
+          event.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
