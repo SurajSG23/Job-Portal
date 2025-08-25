@@ -343,6 +343,84 @@ body.dark .btn-ghost {
   color: #fff;
 }
 
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <picture>
+  <source srcset="job-banner.webp" type="image/webp">
+  <img src="job-banner.jpg" alt="Job Banner" loading="lazy" width="600" height="300">
+</picture>
+    </div>
+    <ul class="nav-links">
+      <li><a href="./components/homepage.html">Home</a></li>
+      <li><a href="./components/about.html">About</a></li>
+    </ul>
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+  </nav>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="components/seeker.html">Browse Jobs</a>
+            <a href="#">Remote Jobs</a>
+            <a href="#">Featured Jobs</a>
+            <a href="#">Internships</a>
+          </div>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Job Junction?</h2>
+        <!-- <p class="para1">
+              Experience the future of job searching with our innovative
+              platform
+            </p> -->
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-search-plus"></i>
+
+
+    /* Dark mode */
+    body.dark {
+      background-color: #121212;
+      color: #ffffff;
+    } 
+  </style> -->
+  <style>
+
     /* ---------- Dark Theme Overrides ---------- */
 body.dark {
   background-color: #121212;
@@ -623,6 +701,17 @@ body.dark .btn-ghost {
           <div class="shape shape-2"></div>
           <div class="shape shape-3"></div>
         </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+
+
       </div>
       <div class="hero-container">
         <div class="hero-content">
@@ -789,6 +878,78 @@ body.dark .btn-ghost {
   
     <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
   </footer>
+
+
+  <script src="script.js"></script>
+
+  <!-- For development: -->
+  <script src="script.js" defer ></script>
+  <!-- For production, use minified: -->
+  <!-- <script src="script.min.js"></script> -->
+
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+    }
+
+    <footer class="site-footer">
+      <div class="footer-wrapper">
+        <div class="brand-section">
+          <div class="brand-logo">
+            <img src="assets/logo.webp" alt="Job Junction Logo" />
+          </div>
+          <p class="tagline">
+            Connecting talent with opportunities worldwide. Your dream career is
+            just a click away.
+          </p>
+          <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="links-section">
+          <h4>For Job Seekers</h4>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Career Advice</a></li>
+            <li><a href="#">Salary Guide</a></li>
+            <li><a href="#">Resume Builder</a></li>
+            <li><a href="resources.html">Career Resource</a></li>
+          </ul>
+        </div>
+
+        <div class="links-section">
+          <h4>For Employers</h4>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Talent Search</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Enterprise</a></li>
+          </ul>
+        </div>
+
+        <div class="links-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="masthead.html">Masthead</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-credit">
+        <p>&copy; 2025 Job Junction. All rights reserved.</p>
+      </div>
+    </footer>
 
     toggleBtn.addEventListener('click' , () => {
       body.classList.toggle('dark');
