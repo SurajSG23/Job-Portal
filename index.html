@@ -64,7 +64,10 @@
 <body>
   <nav class="navbar">
     <div class="nav-logo">
-      <img src="assets/logo.webp" alt="Job Junction" loading="lazy" />
+      <picture>
+  <source srcset="job-banner.webp" type="image/webp">
+  <img src="job-banner.jpg" alt="Job Banner" loading="lazy" width="600" height="300">
+</picture>
     </div>
     <ul class="nav-links">
       <li><a href="./components/homepage.html">Home</a></li>
@@ -80,6 +83,29 @@
         Get Started
       </div>
     </section>
+
+    <div class="job-page">
+    <!-- Filter Panel -->
+    <aside id="filter-panel" class="filter-panel">
+      <h3>Filters</h3>
+      <div>
+        <label><input type="checkbox"> Remote Only</label>
+      </div>
+      <div>
+        <label><input type="checkbox"> Full Time</label>
+      </div>
+      <button id="pin-panel">Pin/Unpin</button>
+      <button id="resize-panel">↔ Resize</button>
+    </aside>
+
+    
+    <section id="job-list" class="job-list">
+      <div class="job-card" draggable="true">Job 1 - Frontend Dev</div>
+      <div class="job-card" draggable="true">Job 2 - Backend Dev</div>
+      <div class="job-card" draggable="true">Job 3 - Data Scientist</div>
+      <div class="job-card" draggable="true">Job 4 - UI/UX Designer</div>
+    </section>
+  </div>
     <!-- Add other homepage sections here if needed -->
   </main>
 
@@ -91,7 +117,7 @@
 
   <script src="script.js"></script>
   <!-- For development: -->
-  <script src="script.js"></script>
+  <script src="script.js" defer ></script>
   <!-- For production, use minified: -->
   <!-- <script src="script.min.js"></script> -->
   <script>
