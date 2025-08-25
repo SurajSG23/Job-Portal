@@ -437,6 +437,7 @@ body.dark {
   color: #030303;
 }
 
+
 .job-page {
   display: flex;
   gap: 20px;
@@ -482,6 +483,19 @@ body.dark {
   transform: scale(1.05);
 }
 =======
+=======
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.lazy-image.fade-in {
+  opacity: 1;
+}
+.job-card {
+  content-visibility: auto;
+  contain: layout paint;  
+}
+
 
 .modal {
   display: none;
