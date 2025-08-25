@@ -126,9 +126,27 @@
           grid-template-columns: 1fr;
         }
       }
+
+       .home-btn {
+      display: inline-block;
+      margin-left: 1rem;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #2a3a74; /* green */
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #45a049; /* darker green on hover */
+    }
     </style>
   </head>
   <body>
+    <div><a href="index.html" class="home-btn">Home</a></div>
     <main class="wrap" role="main">
       <h1>Contact us</h1>
       <p class="lead">
