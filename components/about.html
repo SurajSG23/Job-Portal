@@ -50,6 +50,11 @@
     <!-- For production, use minified: -->
     <!-- <link rel="stylesheet" href="about.min.css" /> -->
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- for icons -->
+
+
+
 </head>
 
 <body>
@@ -64,47 +69,314 @@
     </header>
     <hr />
     <div style="display: flex; justify-content: flex-start; max-width: 800px; margin: 0 auto 24px auto;">
-      <a href="homepage.html" class="about-btn">&#8592; Back to Home</a>
+      <a href="homepage.html" class="about-btn">&#8592; Back to Role</a>
+      <a href="../index.html" class="about-btn" style="margin-left: 0.5rem;">&#8592; Back to Home</a>
     </div>
     <div class="main-content" style="padding: 32px 16px; max-width: 800px; margin: 0 auto;">
-        <div class="para">
-            <p>
-                 Welcome to <b>Job Junction</b>, your one-stop platform connecting job seekers with employers across a wide
-                range of industries. Our mission is to simplify the job search process by providing an intuitive and
-                user-friendly portal where both job seekers and employers can easily find the opportunities and talent they
-                need.
-
-                At Job Junction, we understand the challenges faced by both job seekers and employers in today's competitive
-                market. That's why we've designed our platform to offer advanced filtering options, a streamlined
-                application process, and real-time job updates to help job seekers discover roles that align with their
-                skills and career goals. Employers, on the other hand, can efficiently post jobs, manage applications, and
-                find the perfect candidates to fill their vacancies.
-
-                Whether you're looking for full-time, part-time, or freelance opportunities, or if you're a company seeking
-                top talent, Job Junction is here to make the process smooth, transparent, and rewarding for everyone
-                involved.
-            </p>
-        </div>
+        
+        
+        <section class="about-enhanced">
+  <h2>Welcome to <strong>Job Junction</strong></h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <span class="icon">🔍</span>
+      <p><strong>Intuitive Job Search:</strong> Simplified and user-friendly platform connecting seekers with employers.</p>
     </div>
-    <footer>
-        <hr />
-        <div class="footContainer" style="padding: 16px 0;">
-            <div>
-                <h4>Copyright &copy; 2025 Job Junction | All Rights Reserved</h4>
-            </div>
-            <div class="footlinks" style="margin-top: 8px;">
-                <a href="https://www.instagram.com/suraj_sg23/" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/SurajSG23" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <div class="about-card">
+      <span class="icon">⚙️</span>
+      <p><strong>Advanced Filters:</strong> Easily find jobs based on skills, location, and preferences.</p>
+    </div>
+    <div class="about-card">
+      <span class="icon">💼</span>
+      <p><strong>For Employers:</strong> Post jobs, manage applications, and find top talent efficiently.</p>
+    </div>
+    <div class="about-card">
+      <span class="icon">📲</span>
+      <p><strong>Real-Time Updates:</strong> Stay up-to-date with the latest job listings and applicant responses.</p>
+    </div>
+    <div class="about-card">
+      <span class="icon">🌐</span>
+      <p><strong>Diverse Opportunities:</strong> Explore full-time, part-time, freelance, and remote roles.</p>
+    </div>
+  </div>
+</section>
+
+
+    </div>
+
+    <!-- Vision Section -->
+<section class="vision">
+  <div class="container">
+    <h2 class="animate">Our Vision</h2>
+    <p class="vision-intro animate">
+      At Job Junction, we are dedicated to creating a platform that connects job seekers and employers with transparency, accessibility, and innovation at its core.
+    </p>
+
+    <div class="vision-content">
+      <div class="vision-card animate" id="box">
+        <h3>🌐 Mission & Long-Term Goals</h3>
+        <p>
+          To bridge the gap between talent and opportunity by offering a reliable, user-friendly job portal that empowers individuals and organizations worldwide.
+        </p>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>💡 Our Core Values</h3>
+        <ul>
+          <li>Accessibility for all users</li>
+          <li>Inclusivity and diversity in opportunities</li>
+          <li>Continuous innovation and improvement</li>
+          <li>Transparency in operations</li>
+        </ul>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>📈 Future Roadmap</h3>
+        <p>
+          We aim to integrate AI-driven job matching, expand globally, and provide advanced tools for career growth, ensuring better results for both employers and job seekers.
+        </p>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>👨‍💻 Our Promise</h3>
+        <blockquote>
+          "Job Junction is committed to making job searching and hiring simpler, faster, and fairer — for everyone."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!--testimonials-->
+   <section class="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <h2 id="testimonials-heading" class="section-title">What Our Users Say</h2>
+    <p class="section-subtitle">Real stories from job seekers and employers who found success here.</p>
+
+    <div class="ts-controls" role="group" aria-label="Testimonial navigation">
+      <button class="ts-btn prev" aria-label="Previous testimonial">←</button>
+      <button class="ts-btn next" aria-label="Next testimonial">→</button>
+    </div>
+
+    <div class="ts-viewport" tabindex="0" aria-roledescription="carousel" aria-label="User testimonials">
+      <ul class="ts-track" aria-live="polite">
+        <!-- 1 -->
+        <li class="ts-slide" aria-label="Testimonial 1 of 7">
+          <figure class="ts-card">
+            <blockquote>“This platform helped me land my dream job in just two weeks!”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=1" alt="">
+              <div><strong>Amit S.</strong><span> — Job Seeker</span></div>
+            </figcaption>
+          </figure>
+        </li>
+        <!-- 2 -->
+        <li class="ts-slide" aria-label="Testimonial 2 of 7">
+          <figure class="ts-card">
+            <blockquote>“We’ve hired 5 amazing employees through this platform. Highly recommended.”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=2" alt="">
+              <div><strong>Sarah L.</strong><span> — HR Manager</span></div>
+            </figcaption>
+          </figure>
+        </li>
+        <!-- 3 -->
+        <li class="ts-slide" aria-label="Testimonial 3 of 7">
+          <figure class="ts-card">
+            <blockquote>“Super easy to use and the support team is fantastic!”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=3" alt="">
+              <div><strong>Raj K.</strong><span> — Job Seeker</span></div>
+            </figcaption>
+          </figure>
+        </li>
+        <!-- 4 -->
+        <li class="ts-slide" aria-label="Testimonial 4 of 7">
+          <figure class="ts-card">
+            <blockquote>“The quality of candidates we received exceeded our expectations.”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=4" alt="">
+              <div><strong>Emily R.</strong><span> — Recruiter</span></div>
+            </figcaption>
+          </figure>
+        </li>
+        <!-- 5 -->
+        <li class="ts-slide" aria-label="Testimonial 5 of 7">
+          <figure class="ts-card">
+            <blockquote>“I applied to 10 jobs and got 3 interviews within a week!”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=5" alt="">
+              <div><strong>Karan M.</strong><span> — Job Seeker</span></div>
+            </figcaption>
+          </figure>
+        </li>
+        <!-- 6 -->
+        <li class="ts-slide" aria-label="Testimonial 6 of 7">
+          <figure class="ts-card">
+            <blockquote>“The posting process is quick, and we always get great responses.”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=6" alt="">
+              <div><strong>Olivia P.</strong><span> — Employer</span></div>
+            </figcaption>
+          </figure>
+        </li>
+        <!-- 7 -->
+        <li class="ts-slide" aria-label="Testimonial 7 of 7">
+          <figure class="ts-card">
+            <blockquote>“A must-have platform for anyone serious about finding work.”</blockquote>
+            <figcaption>
+              <img src="https://i.pravatar.cc/56?img=7" alt="">
+              <div><strong>James W.</strong><span> — Job Seeker</span></div>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+
+    <div class="ts-dots" role="tablist" aria-label="Select testimonial"></div>
+  </div>
+</section>
+
+        
+<!-- Back to Top Button -->
+<button id="backToTopBtn" aria-label="Back to Top">
+  ↑
+</button>
+
+<footer class="footer">
+  <!-- Tagline -->
+  <p class="footer-tagline" style="font-size: 20px;">
+    Connecting Talent with Opportunity. Your Career Journey Starts Here!
+  </p>
+  <br><br>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <div class="footer-column">
+      <h4>For Job Seekers</h4>
+      <ul>
+        <li><a href="/jobs">Browse Jobs</a></li>
+        <li><a href="/internships">Internships</a></li>
+        <li><a href="/advice">Advice</a></li>
+        <li><a href="/salary-guide">Salary Guide</a></li>
+        <li><a href="/resume-builder">Resume Builder</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>For Employers</h4>
+      <ul>
+        <li><a href="/post-job">Post a Job</a></li>
+        <li><a href="/talent-search">Talent Search</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/enterprise">Enterprise</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/open-source">Open Source</a></li>
+        <li><a href="/masthead">Masthead</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="footer-social">
+    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">
+    © 2025 Job Junction. All rights reserved.
+  </p>
+</footer>
+
+
+
+
+    <!-- JS logic for prev/next scroll -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".ts-track");
+  const prevBtn = document.querySelector(".ts-btn.prev");
+  const nextBtn = document.querySelector(".ts-btn.next");
+
+  if (!track || !prevBtn || !nextBtn) {
+    console.error("Missing slider elements!");
+    return;
+  }
+
+  const getSlideWidth = () => {
+    const slide = track.querySelector(".ts-slide");
+    if (!slide) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap || 0);
+    return slide.offsetWidth + gap;
+  };
+
+  const scrollBySlides = (direction) => {
+    track.scrollBy({
+      left: getSlideWidth() * direction,
+      behavior: "smooth"
+    });
+  };
+
+  prevBtn.addEventListener("click", () => scrollBySlides(-1));
+  nextBtn.addEventListener("click", () => scrollBySlides(1));
+});
+
+// Back to Top Button Logic
+const backToTopBtn = document.getElementById("backToTopBtn");
+
+// Show/hide button on scroll
+window.onscroll = function () {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+};
+
+// Scroll to top smoothly
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+<!--vision -->
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".animate");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // run animation only once
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  });
+
+
+
+
+</script>
+
 </body>
 
 </html>
