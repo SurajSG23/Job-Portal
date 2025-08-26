@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Contact Us</title>
+    <link rel="stylesheet" href="phonevalidator.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
       :root {
         --gap: 12px;
@@ -143,6 +147,33 @@
     .home-btn:hover {
       background-color: #45a049; /* darker green on hover */
     }
+
+      /* Style the intl-tel-input dropdown for dark background */
+.iti__country-list {
+  background-color: #1e1e2f !important; /* dark background */
+  color: #ffffff !important; /* white text */
+  border: 1px solid #444 !important; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 9999; /* ensures it stays above other elements */
+}
+
+.iti__country {
+  color: #ffffff !important; /* text visible */
+}
+
+.iti__dial-code {
+  color: #bbbbbb !important; /* lighter gray for dial code */
+}
+
+.iti__highlight {
+  background-color: #3b82f6 !important; /* nice blue highlight */
+  color: #fff !important;
+}
+
+.iti__country:hover {
+  background-color: #2a2a3d !important; /* hover effect */
+}
+
     </style>
   </head>
   <body>
@@ -201,10 +232,11 @@
             id="phone"
             name="phone"
             type="tel"
-            maxlength="10"
+            maxlength="15"
             minlength="10"
             autocomplete="tel"
             inputmode="tel"
+            placeholder="Enter your phone number"
           />
           <!-- <div class="help">
             Include country code if outside your region, e.g. +1 415 555 0101
@@ -698,5 +730,27 @@
 });
 
     </script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+      <script src="./phone-validation.js"></script>
+
+      <!-- Initialize country code dropdown -->
+      <script>
+        const phoneInputField = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInputField, {
+          initialCountry: "in",
+          preferredCountries: ["in", "us", "gb"],
+          separateDialCode: true,
+          utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        });
+
+          phoneInputField.addEventListener("input", () => {
+          phoneInputField.value = phoneInputField.value.replace(/\D/g, "");
+        });
+      </script>
+
   </body>
 </html> -->
