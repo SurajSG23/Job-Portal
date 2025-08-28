@@ -694,6 +694,10 @@ body.dark .btn-ghost {
             <li><a href="#">Internships</a></li>
           </ul>
         </li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
         <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
@@ -792,6 +796,22 @@ body.dark .btn-ghost {
                 <div class="company-details">
                   <h4>Senior Frontend Developer</h4>
                   <p>TechCorp Inc.</p>
+                </div>
+              </div>
+              <div class="job-meta">
+                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                <span class="salary">$80K - $120K</span>
+              </div>
+              <div class="job-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Remote</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <header class="navbar">
   <div class="nav-logo">
@@ -799,7 +819,6 @@ body.dark .btn-ghost {
     <img src="images/logo.png" alt="Job Junction Logo" class="logo-img" id="logo">
     <span class="logo-text">Job Junction</span>
   </div>
-
 
   </main>
 <footer class="footer">
@@ -929,7 +948,14 @@ body.dark .btn-ghost {
   
     <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
   </footer>
-
+  <script>
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+    });
 
   <script src="script.js"></script>
 
