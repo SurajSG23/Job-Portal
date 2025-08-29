@@ -438,6 +438,65 @@ body.dark {
 }
 
 
+
+.dropdown-nav {
+  font-family: Arial, sans-serif;
+}
+.menu, .submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+.menu-item {
+  position: relative;
+}
+.menu a, .menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+}
+.menu a:hover, .menu-button:hover {
+  background: #f0f0f0;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.25s ease;
+  z-index: 1000;
+}
+.submenu li {
+  position: relative;
+}
+.submenu a, .submenu .menu-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+}
+
+/* Show submenu */
+.menu-button[aria-expanded="true"] + .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+=======
 .job-page {
   display: flex;
   gap: 20px;
@@ -481,6 +540,7 @@ body.dark {
 .job-card.dragging {
   opacity: 0.5;
   transform: scale(1.05);
+
 }
 =======
 =======
@@ -495,6 +555,7 @@ body.dark {
   content-visibility: auto;
   contain: layout paint;  
 }
+
 
 
 .modal {

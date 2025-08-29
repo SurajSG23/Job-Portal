@@ -89,8 +89,39 @@
       .nav-menu .dropdown.open > .dropdown-content {
         display: block;
       }
-    }
+   
+  <nav class="dropdown-nav" aria-label="Main Menu">
+  <ul class="menu" role="menubar">
+    <li class="menu-item" role="none">
+      <button class="menu-button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+        Jobs
+      </button>
+      <ul class="submenu" role="menu">
+        <li role="none">
+          <button class="menu-button" aria-haspopup="true" aria-expanded="false" role="menuitem">
+            By Category
+          </button>
+          <ul class="submenu" role="menu">
+            <li role="none"><a role="menuitem" href="#">IT Jobs</a></li>
+            <li role="none"><a role="menuitem" href="#">Finance</a></li>
+            <li role="none"><a role="menuitem" href="#">Marketing</a></li>
+          </ul>
+        </li>
+        <li role="none"><a role="menuitem" href="#">By Location</a></li>
+        <li role="none"><a role="menuitem" href="#">Remote Jobs</a></li>
+      </ul>
+    </li>
+    <li class="menu-item" role="none">
+      <a href="#" role="menuitem">Companies</a>
+    </li>
+    <li class="menu-item" role="none">
+      <a href="#" role="menuitem">Contact</a>
+    </li>
+  </ul>
+</nav>
 
+=======
+=======
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -140,6 +171,7 @@
     </ul>
     <div class="nav-toggle"><i class="fa fa-bars"></i></div>
   </nav>
+
 
     @keyframes fadeInUp {
   from {
@@ -715,6 +747,7 @@ body.dark .btn-ghost {
     </nav>
   </header>
   <!-- Hero Section -->
+
   <main>
     <section class="hero" id="home">
       <div class="hero-background" aria-hidden="true">
