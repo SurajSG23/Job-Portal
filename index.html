@@ -89,8 +89,7 @@
       .nav-menu .dropdown.open > .dropdown-content {
         display: block;
       }
-    }
-
+   
   <nav class="dropdown-nav" aria-label="Main Menu">
   <ul class="menu" role="menubar">
     <li class="menu-item" role="none">
@@ -122,6 +121,58 @@
 </nav>
 
 =======
+=======
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Junction | Modern Job Portal</title>
+    <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career. Built with HTML, CSS, JavaScript, and Firebase." />
+    <meta name="keywords" content="job portal, job search, careers, employment, HTML, CSS, JavaScript, Firebase" />
+    <meta name="author" content="Job Junction Team" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Job Junction | Modern Job Portal" />
+    <meta property="og:description" content="Explore job opportunities and start your career with Job Junction." />
+    <meta property="og:image" content="assets/logo.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Job Junction | Modern Job Portal" />
+    <meta name="twitter:description" content="Explore job opportunities and start your career with Job Junction." />
+    <meta name="twitter:image" content="assets/logo.webp" />
+    <!-- For development: -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- For production, use minified: -->
+    <!-- <link rel="stylesheet" href="style.min.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+    <script type="module" src="components/firebaseauth.js"></script>
+  </head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <picture>
+  <source srcset="job-banner.webp" type="image/webp">
+  <img src="job-banner.jpg" alt="Job Banner" loading="lazy" width="600" height="300">
+</picture>
+    </div>
+    <ul class="nav-links">
+      <li><a href="./components/homepage.html">Home</a></li>
+      <li><a href="./components/about.html">About</a></li>
+    </ul>
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+  </nav>
+
+
     @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -675,6 +726,10 @@ body.dark .btn-ghost {
             <li><a href="#">Internships</a></li>
           </ul>
         </li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
         <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
@@ -713,6 +768,33 @@ body.dark .btn-ghost {
 
 
       </div>
+
+    </section>
+
+    <div class="job-page">
+    <!-- Filter Panel -->
+    <aside id="filter-panel" class="filter-panel">
+      <h3>Filters</h3>
+      <div>
+        <label><input type="checkbox"> Remote Only</label>
+      </div>
+      <div>
+        <label><input type="checkbox"> Full Time</label>
+      </div>
+      <button id="pin-panel">Pin/Unpin</button>
+      <button id="resize-panel">↔ Resize</button>
+    </aside>
+
+    
+    <section id="job-list" class="job-list">
+      <div class="job-card" draggable="true">Job 1 - Frontend Dev</div>
+      <div class="job-card" draggable="true">Job 2 - Backend Dev</div>
+      <div class="job-card" draggable="true">Job 3 - Data Scientist</div>
+      <div class="job-card" draggable="true">Job 4 - UI/UX Designer</div>
+    </section>
+  </div>
+    <!-- Add other homepage sections here if needed -->
+
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badge">
@@ -747,6 +829,22 @@ body.dark .btn-ghost {
                 <div class="company-details">
                   <h4>Senior Frontend Developer</h4>
                   <p>TechCorp Inc.</p>
+                </div>
+              </div>
+              <div class="job-meta">
+                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                <span class="salary">$80K - $120K</span>
+              </div>
+              <div class="job-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Remote</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <header class="navbar">
   <div class="nav-logo">
@@ -754,7 +852,6 @@ body.dark .btn-ghost {
     <img src="images/logo.png" alt="Job Junction Logo" class="logo-img" id="logo">
     <span class="logo-text">Job Junction</span>
   </div>
-
 
   </main>
 <footer class="footer">
@@ -816,6 +913,12 @@ body.dark .btn-ghost {
   
 
   <script src="script.js"></script>
+
+  <!-- For development: -->
+  <script src="script.js" defer ></script>
+  <!-- For production, use minified: -->
+  <!-- <script src="script.min.js"></script> -->
+
   <script>
     const toggleBtn = document.getElementById('themeToggle');
     const body = document.body;
@@ -878,7 +981,14 @@ body.dark .btn-ghost {
   
     <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
   </footer>
-
+  <script>
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+    });
 
   <script src="script.js"></script>
 
