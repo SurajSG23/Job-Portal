@@ -906,11 +906,13 @@ body.dark .btn-ghost {
 
   <!-- Copyright -->
   <p class="footer-copy">
-    © 2025 Job Junction. All rights reserved.
+    <p> &copy; <span id="year"> </span> Job Junction. All rights reserved.</p>
   </p>
 </footer>
 
-  
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
   <script src="script.js"></script>
 
