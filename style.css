@@ -2413,7 +2413,7 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* Features Section */
+
 .features {
   padding: 6rem 0;
   background: var(--background-light);
@@ -2489,7 +2489,7 @@ button:hover {
   line-height: 1.6;
 }
 
-/* Categories Section */
+
 .categories {
   padding: 6rem 0;
   background: var(--white);
@@ -2548,7 +2548,7 @@ button:hover {
 .hero-section .btn {
   display: inline-block;
   padding: 12px 24px;
-  background: #0284c7; /* brand red */
+  background: #0284c7; 
   color: #fff;
   border-radius: 8px;
   font-weight: bold;
@@ -2561,7 +2561,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Simple animations */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -2582,6 +2581,60 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.menu,
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu > .menu-item {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.submenu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 180px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.submenu[hidden] {
+  display: block; 
+}
+
+.menu-item a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-item a:focus {
+  outline: 2px solid #007bff;
+  background: #f0f8ff;
+  border-radius: 4px;
+}
+
+.menu-item[aria-expanded="true"] > .submenu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 
