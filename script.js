@@ -661,6 +661,70 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+document.querySelectorAll('.menu-item > a[aria-haspopup="true"]').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    e.preventDefault();
+    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+    closeAllSubmenus();
+    if (!expanded) {
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.nextElementSibling.hidden = false;
+    }
+  });
+
+  trigger.addEventListener('keydown', e => {
+    const submenu = trigger.nextElementSibling;
+    if (!submenu) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        submenu.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+        submenu.querySelector('[role="menuitem"]').focus();
+        break;
+      case 'Escape':
+        e.preventDefault();
+        submenu.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+        break;
+    }
+  });
+});
+
+document.addEventListener('keydown', e => {
+  const active = document.activeElement;
+  if (active.getAttribute('role') === 'menuitem') {
+    const items = Array.from(active.closest('[role="menu"], [role="menubar"]').querySelectorAll('[role="menuitem"]'));
+    const index = items.indexOf(active);
+
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      items[(index + 1) % items.length].focus();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      items[(index - 1 + items.length) % items.length].focus();
+    }
+  }
+});
+
+function closeAllSubmenus() {
+  document.querySelectorAll('.menu-item > a[aria-haspopup="true"]').forEach(link => {
+    link.setAttribute('aria-expanded', 'false');
+  });
+  document.querySelectorAll('.submenu').forEach(sub => sub.hidden = true);
+}
+
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.menu')) {
+    closeAllSubmenus();
+  }
+});
+
+
 // Forgot password link styling should be placed in your CSS file, not here.
 // Remove this CSS block from the JS file.
 
