@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Events | Job Junction</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="events.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo" />
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="events.html" class="nav-link active">Events</a></li>
+        <li><a href="seeker.html" class="nav-link">Jobs</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="events-hero">
+      <h1>Professional Events</h1>
+      <p>Discover upcoming and past networking meetups, career fairs, workshops, webinars, and hackathons.</p>
+      <div class="events-filters">
+        <select id="eventTypeFilter">
+          <option value="">All Types</option>
+          <option value="Networking">Networking</option>
+          <option value="Career Fair">Career Fair</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Webinar">Webinar</option>
+          <option value="Hackathon">Hackathon</option>
+        </select>
+        <select id="eventLocationFilter">
+          <option value="">All Locations</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Remote">Remote</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+        <select id="eventStatusFilter">
+          <option value="upcoming">Upcoming</option>
+          <option value="past">Past</option>
+        </select>
+      </div>
+    </section>
+    <section id="eventsList" class="events-list">
+      <!-- Events will be rendered here -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="events.js"></script>
+</body>
+</html>
