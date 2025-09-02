@@ -275,10 +275,6 @@ a {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
 
 .hero-background {
@@ -343,15 +339,10 @@ a {
   align-items: center;
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
 .hero-content {
   max-width: 600px;
-  text-align: center;
-  margin: 0 auto;
 }
 
 .hero-badge {
@@ -366,8 +357,6 @@ a {
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-title {
@@ -390,10 +379,6 @@ a {
   color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.6;
-  text-align: center;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-actions {
@@ -401,13 +386,11 @@ a {
   gap: 1rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .hero-stats {
   display: flex;
   gap: 2rem;
-  justify-content: center;
 }
 
 .stat-item {
@@ -805,7 +788,6 @@ a {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
-    padding: 0 1rem;
   }
   
   .hero-title {
