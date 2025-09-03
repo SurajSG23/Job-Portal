@@ -727,4 +727,43 @@ document.addEventListener('click', e => {
 
 // Forgot password link styling should be placed in your CSS file, not here.
 // Remove this CSS block from the JS file.
+=======
+const menuLinks = document.querySelectorAll('[role="menuitem"]');
 
+menuLinks.forEach(link => {
+  link.addEventListener('keydown', e => {
+    const parentMenu = link.closest('[role="menubar"], [role="menu"]');
+    const menuItems = [...parentMenu.querySelectorAll('[role="menuitem"]')];
+    const currentIndex = menuItems.indexOf(link);
+
+    switch (e.key) {
+      case 'ArrowRight':
+        e.preventDefault();
+        menuItems[(currentIndex + 1) % menuItems.length].focus();
+        break;
+      case 'ArrowLeft':
+        e.preventDefault();
+        menuItems[(currentIndex - 1 + menuItems.length) % menuItems.length].focus();
+        break;
+      case 'ArrowDown':
+        if (link.getAttribute('aria-haspopup') === 'true') {
+          e.preventDefault();
+          const submenu = link.nextElementSibling;
+          submenu.hidden = false;
+          link.setAttribute('aria-expanded', 'true');
+          submenu.querySelector('[role="menuitem"]').focus();
+        }
+        break;
+      case 'Escape':
+        e.preventDefault();
+        const submenu = link.closest('[role="menu"]');
+        if (submenu) {
+          submenu.hidden = true;
+          const parentLink = submenu.previousElementSibling;
+          parentLink.setAttribute('aria-expanded', 'false');
+          parentLink.focus();
+        }
+        break;
+    }
+  });
+});
