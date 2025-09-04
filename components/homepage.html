@@ -52,26 +52,60 @@
     <!-- For production, use minified: -->
     <!-- <link rel="stylesheet" href="homePage.min.css" /> -->
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-image: url('https://template.canva.com/EAGKVeRrXhA/1/0/1600w-XBgvDbZ9xfU.jpg');">
-    <div class="logo"></div>
-    <div class="container">
-        <a href="../components/seeker.html">
-            <div class="container-2">
-                <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
-                <h3>I am a seeker</h3>
+<body>
+    <div class="page-wrapper">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img">
+                <h1 class="logo-text">Job Junction</h1>
             </div>
-        </a>
-        <a href="../components/employer.html">
-            <div class="emplyoer">
-                <div class="container-2">
-                    <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
-                    <h3>I am an employer</h3>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="main-content">
+            <div class="hero-section">
+                <h2 class="hero-title">Welcome to Job Junction</h2>
+                <p class="hero-subtitle">Your gateway to career opportunities and talent acquisition</p>
+            </div>
+
+            <div class="role-selection">
+                <h3 class="selection-title">Choose Your Role</h3>
+                <div class="role-cards">
+                    <a href="../components/seeker.html" class="role-card seeker-card">
+                        <div class="card-content">
+                            <div class="card-image">
+                                <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
+                            </div>
+                            <div class="card-text">
+                                <h4>I am a Job Seeker</h4>
+                                <p>Find your dream job and advance your career</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="../components/employer.html" class="role-card employer-card">
+                        <div class="card-content">
+                            <div class="card-image">
+                                <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
+                            </div>
+                            <div class="card-text">
+                                <h4>I am an Employer</h4>
+                                <p>Find talented professionals for your organization</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </a>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p>&copy; 2024 Job Junction. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 
