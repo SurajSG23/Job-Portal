@@ -586,8 +586,7 @@ header {
     color: #1e40af;
     transform: translateX(5px);
 }
-/* footer css  */
-/* ===== Footer Styles ===== */
+
 footer {
     background: rgba(33, 181, 204, 0.2);
     backdrop-filter: blur(10px);
