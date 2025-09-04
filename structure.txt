@@ -1,0 +1,91 @@
+.
+├── 404.html
+├── application.html
+├── assets
+│   ├── about-us-background.webp
+│   ├── amazon-logo.webp
+│   ├── apple-logo.webp
+│   ├── ChatGPT-logo.webp
+│   ├── employer.webp
+│   ├── favicon.webp
+│   ├── github-logo.webp
+│   ├── google-logo.webp
+│   ├── homepage.webp
+│   ├── insta-logo.webp
+│   ├── linkedin-logo.webp
+│   ├── login-bg.webp
+│   ├── logo.webp
+│   ├── meta-logo.webp
+│   ├── netflix-logo.webp
+│   ├── samsung-logo.webp
+│   ├── screenshots
+│   │   ├── employer-dashboard.webp
+│   │   ├── landing-page.webp
+│   │   ├── seeker-dashboard.webp
+│   │   └── user-role.webp
+│   ├── seeker.webp
+│   └── udemy-logo.webp
+├── CODE_OF_CONDUCT.md
+├── companies.css
+├── companies.html
+├── components
+│   ├── about.css
+│   ├── about.html
+│   ├── employer.css
+│   ├── employer.html
+│   ├── employer.js
+│   ├── events.css
+│   ├── events.html
+│   ├── events.js
+│   ├── firebase.js
+│   ├── footer.css
+│   ├── homePage.css
+│   ├── homepage.html
+│   ├── saved-jobs.html
+│   ├── saved-jobs.js
+│   ├── seeker.css
+│   ├── seeker.html
+│   ├── seeker.js
+│   ├── skill.css
+│   ├── skill.js
+│   ├── style.css
+│   └── temp
+├── ContactPage.html
+├── CONTRIBUTING.md
+├── faq.html
+├── finpro_company.png
+├── forgotPass.html
+├── forgot-password.css
+├── forgot-password.html
+├── forgot-password.js
+├── green_earth_company.png
+├── gssoc-logo.png
+├── healthplus_comapany.png
+├── index.html
+├── internships.html
+├── job-application.css
+├── job-application.html
+├── job-application.js
+├── LICENSE
+├── login.html
+├── masthead.html
+├── networking-events.html
+├── OIP.jpg
+├── OIPP.jpg
+├── open-source.html
+├── package-lock.json
+├── README.md
+├── _redirects
+├── resources.html
+├── salary-insights.html
+├── script.js
+├── script.min.js
+├── signup.html
+├── skill-development.html
+├── structure.txt
+├── style.css
+├── style.min.css
+├── success-stories.html
+└── tech_solutions_company.jpg
+
+4 directories, 85 files

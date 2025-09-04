@@ -30,3 +30,28 @@ resetbutton.addEventListener("click",function (e){
   alert("Password has been reset successfully!");
   window.location.href="login.html";
 });
+
+document.getElementById('forgotForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('forgotEmail').value.trim();
+  const messageDiv = document.getElementById('forgot-message');
+  messageDiv.textContent = '';
+  if (!email) {
+    messageDiv.textContent = 'Please enter your email address.';
+    messageDiv.style.color = 'crimson';
+    return;
+  }
+  messageDiv.textContent = 'Sending reset link...';
+  messageDiv.style.color = '#2563eb';
+
+  try {
+    // Simulate async request (replace with real API/Firebase call)
+    await new Promise(res => setTimeout(res, 1200));
+    // Example: await firebase.auth().sendPasswordResetEmail(email);
+    messageDiv.textContent = 'If this email is registered, a reset link has been sent!';
+    messageDiv.style.color = 'green';
+  } catch (err) {
+    messageDiv.textContent = 'Failed to send reset link. Please try again.';
+    messageDiv.style.color = 'crimson';
+  }
+});

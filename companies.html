@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Companies - Job Junction</title>
+  <link rel="stylesheet" href="companies.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+<body>
+
+  <!-- Header -->
+<header class="header">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="assets/logo.webp" alt="Job Junction" class="logo" style="background-color: white;"/>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link ">Home</a></li>
+      
+      <li class="dropdown">
+        <a href="#" class="nav-link"> Jobs <i class="fas fa-chevron-down"></i> </a>
+        <div class="dropdown-content">
+          <a href="components/seeker.html">Browse Jobs</a>
+          <a href="#">Remote Jobs</a>
+          <a href="#">Featured Jobs</a>
+          <a href="internships.html">Internships</a>
+        </div>
+      </li>
+      
+      <li><a href="companies.html" class="nav-link active">Companies</a></li>
+      <li><a href="components/about.html" class="nav-link">About</a></li>
+      <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="./login.html" class="btn btn-ghost">Login</a>
+      <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+    </div>
+  </nav>
+</header>
+
+
+  <!-- Companies Section -->
+  <section class="companies">
+    <div class="container">
+      <h2 class="animate">Our Partner Companies</h2>
+      <p class="companies-intro animate">
+        Explore the top employers hiring through Job Junction. Find opportunities by company and start your career journey.
+      </p>
+
+      <div class="company-grid">
+        <!-- Company Card 1 -->
+        <div class="company-card animate" id="comp-box">
+          <img src="tech_solutions_company.jpg" alt="Company Logo">
+          <h3>Tech Solutions Inc.</h3>
+          <p class="industry">Information Technology</p>
+          <p class="location">Toronto, Canada</p>
+          <p class="positions">5 Open Positions</p>
+          <a href="#" class="btn-view">View Jobs</a>
+        </div>
+
+        <!-- Company Card 2 -->
+        <div class="company-card animate" id="comp-box">
+          <img src="green_earth_company.png" alt="Company Logo">
+          <h3>Green Earth Ltd.</h3>
+          <p class="industry">Environmental Services</p>
+          <p class="location">Vancouver, Canada</p>
+          <p class="positions">3 Open Positions</p>
+          <a href="#" class="btn-view">View Jobs</a>
+        </div>
+
+        <!-- Company Card 3 -->
+        <div class="company-card animate" id="comp-box">
+          <img src="healthplus_comapany.png" alt="Company Logo">
+          <h3>HealthPlus Corp.</h3>
+          <p class="industry">Healthcare</p>
+          <p class="location">Montreal, Canada</p>
+          <p class="positions">7 Open Positions</p>
+          <a href="#" class="btn-view">View Jobs</a>
+        </div>
+
+        <!-- Company Card 4 -->
+        <div class="company-card animate" id="comp-box">
+          <img src="finpro_company.png" alt="Company Logo">
+          <h3>FinPro Group</h3>
+          <p class="industry">Finance & Banking</p>
+          <p class="location">Calgary, Canada</p>
+          <p class="positions">4 Open Positions</p>
+          <a href="#" class="btn-view">View Jobs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div id="footer-statement">
+      <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
+    </div>
+  
+    <div>
+      <div class="footer-links">
+        <h3>For Job Seekers</h3>
+        <ul>
+          <li><a href="#">Browse Job</a></li>
+          <li><a href="internships.html">Internships</a></li>
+          <li><a href="#">Advice</a></li>
+          <li><a href="#">Salary Guide</a></li>
+          <li><a href="#">Resume Builder</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-links">
+        <h3>For Employers</h3>
+        <ul>
+          <li><a href="#">Post a Job</a></li>
+          <li><a href="#">Talent Search</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Enterprise</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="components/about.html">About Us</a></li>
+          <li><a href="ContactPage.html">Contact</a></li>
+          <li><a href="open-source.html">Open Source</a></li>
+          <li><a href="masthead.html">Masthead</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="social-icons">
+      <a href="https://github.com/SurajSG23" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.instagram.com/suraj_sg23/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    <!-- </div>
+  
+    <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
+  </footer> -->
+  
+
+  <!-- Scroll Animation Script -->
+  <script>
+
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    // Load saved theme on page load
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+
+      // Save preference
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".animate");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("show");
+              }, index * 150); // staggered appearance
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      elements.forEach((el) => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>

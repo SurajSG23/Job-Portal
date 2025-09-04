@@ -457,6 +457,89 @@ h1{
 }
 
 
+/* ===== Additional Responsive Styles for Testimonials ===== */
+/* ===== Mobile Styles for Testimonials (max 640px) ===== */
+@media (max-width: 640px) {
+  .ts-slide {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .ts-track {
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  .ts-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  .ts-card blockquote {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .ts-card figcaption {
+    gap: 0.6rem;
+  }
+  .ts-card figcaption img {
+    width: 48px;
+    height: 48px;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Very small devices (max 400px) - show 1 card per row */
+@media (max-width: 400px) {
+  .ts-slide {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .ts-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  .ts-card blockquote {
+    font-size: 0.95rem;
+  }
+  .ts-card figcaption img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Medium tablets (640px - 900px) - slightly bigger cards */
+@media (min-width: 640px) and (max-width: 900px) {
+  .ts-slide {
+    flex-basis: 46%;
+    max-width: 46%;
+  }
+  .ts-card blockquote {
+    font-size: 1rem;
+  }
+}
+
+/* Large screens (min 1280px) - 4 cards per row if space allows */
+@media (min-width: 1280px) {
+  .ts-slide {
+    flex-basis: 24%;
+    max-width: 24%;
+  }
+}
+
+/* Ultra-wide screens (min 1600px) - increase gap and padding */
+@media (min-width: 1600px) {
+  .ts-track {
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  .ts-card {
+    padding: 1.5rem;
+  }
+}
+
 
 /*back to top button */
 /* Back to Top Button Styles */
@@ -505,5 +588,209 @@ h1{
     right: 15px;
     padding: 12px 16px;
     font-size: 18px;
+  }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #004aad; /* blue background */
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.footcontent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* for responsiveness */
+    padding: 0 16px;
+}
+
+.footer-section {
+    flex: 1 1 300px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column; /* makes copyright go to new line */
+    align-items: center;
+    text-align: center;
+}
+
+.footlinks a {
+    color: white;
+    margin: 0 8px;
+    font-size: 1.2em;
+}
+
+.footlinks a:hover {
+    color: #ffdd57; /* hover color */
+}
+footer hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+/* Responsive for small devices */
+@media (max-width: 768px) {
+    .footcontent {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.footer-section {
+        margin-bottom: 20px;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    
+    .footContainer {
+        padding: 0 16px;
+    }
+    .footlinks {
+        margin-top: 10px;
+    }
+    .footlinks a {
+        margin: 0 5px;
+    }
+.footer-section h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+.footer-section ul li a {
+        font-size: 1.1em;
+    }
+.footer-section ul li a:hover {
+        text-decoration: underline;
+    }
+.footer-section ul {
+        padding-left: 0;
+    }
+
+    /* Vision Section */
+.vision {
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.vision .container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.vision h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #2746b0
+}
+
+.vision-intro {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #555;
+}
+
+.vision-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.vision-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.vision-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.vision-card p, 
+.vision-card ul {
+  color: #555;
+  line-height: 1.6;
+}
+
+.vision-card ul {
+  padding-left: 20px;
+}
+
+.vision-card li {
+  list-style: disc;
+  margin-bottom: 6px;
+}
+
+.vision-card blockquote {
+  font-style: italic;
+  color: #666;
+  border-left: 4px solid #2746b0;
+  padding-left: 10px;
+  margin: 10px 0 0;
+}
+
+#box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Base State */
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Animation Active State */
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .vision h2 {
+    font-size: 2rem;
+  }
+  .vision-intro {
+    font-size: 1rem;
   }
 }
