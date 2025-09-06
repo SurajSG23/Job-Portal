@@ -4,6 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded");
 
   // =======================
+  // THEME TOGGLE (WORKS ACROSS SITE)
+  // =======================
+  function setTheme(dark) {
+    document.body.classList.toggle("dark", dark);
+    const themeIcon = document.getElementById("theme-icon");
+    if (themeIcon) {
+      themeIcon.classList.toggle("fa-moon", !dark);
+      themeIcon.classList.toggle("fa-sun", dark);
+    }
+  }
+
+  // Read theme from localStorage and apply
+  const darkMode = localStorage.getItem("theme") === "dark";
+  setTheme(darkMode);
+
+  // Listen for theme toggle button click
+  const themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.onclick = () => {
+      const isDark = !document.body.classList.contains("dark");
+      setTheme(isDark);
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+  }
+
+  // =======================
   // NAVBAR TOGGLE
   // =======================
   const navToggle = document.querySelector(".nav-toggle");
@@ -12,36 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
-  }
-
-  // =======================
-  // THEME TOGGLE
-  // =======================
-  const themeToggle = document.getElementById("themeToggle") || document.getElementById("theme-toggle");
-  const themeIcon = document.getElementById("themeIcon") || document.getElementById("theme-icon");
-  function setTheme(dark) {
-    if (dark) {
-      document.body.classList.add("dark");
-      if (themeIcon) {
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
-      }
-    } else {
-      document.body.classList.remove("dark");
-      if (themeIcon) {
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
-      }
-    }
-  }
-  const darkMode = localStorage.getItem("theme") === "dark";
-  setTheme(darkMode);
-  if (themeToggle) {
-    themeToggle.onclick = () => {
-      const isDark = !document.body.classList.contains("dark");
-      setTheme(isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    };
   }
 
   // =======================
