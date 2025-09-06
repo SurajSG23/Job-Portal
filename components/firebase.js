@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getAuth, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 
-// ✅ Firebase Config
+//  Firebase Config
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY", // Replace with your actual API key
   authDomain: "YOUR_AUTH_DOMAIN", // Replace with your actual auth domain
@@ -13,7 +13,7 @@ const firebaseConfig = {
   measurementId: "YOUR_MEASUREMENT_ID" // Replace with your actual measurement ID if needed
 };
 
-// ✅ Initialize Firebase
+//  Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 

@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +14,7 @@
         "https://github.com/SurajSG23/Job-Portal"
       ]
     }
+    
     </script>
     <script type="application/ld+json">
     {
@@ -53,6 +51,11 @@
     <!-- For production, use minified: -->
     <!-- <link rel="stylesheet" href="about.min.css" /> -->
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- for icons -->
+
+
+
 </head>
 
 <body>
@@ -101,6 +104,50 @@
 
 
     </div>
+
+    <!-- Vision Section -->
+<section class="vision">
+  <div class="container">
+    <h2 class="animate">Our Vision</h2>
+    <p class="vision-intro animate">
+      At Job Junction, we are dedicated to creating a platform that connects job seekers and employers with transparency, accessibility, and innovation at its core.
+    </p>
+
+    <div class="vision-content">
+      <div class="vision-card animate" id="box">
+        <h3>🌐 Mission & Long-Term Goals</h3>
+        <p>
+          To bridge the gap between talent and opportunity by offering a reliable, user-friendly job portal that empowers individuals and organizations worldwide.
+        </p>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>💡 Our Core Values</h3>
+        <ul>
+          <li>Accessibility for all users</li>
+          <li>Inclusivity and diversity in opportunities</li>
+          <li>Continuous innovation and improvement</li>
+          <li>Transparency in operations</li>
+        </ul>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>📈 Future Roadmap</h3>
+        <p>
+          We aim to integrate AI-driven job matching, expand globally, and provide advanced tools for career growth, ensuring better results for both employers and job seekers.
+        </p>
+      </div>
+
+      <div class="vision-card animate" id="box">
+        <h3>👨‍💻 Our Promise</h3>
+        <blockquote>
+          "Job Junction is committed to making job searching and hiring simpler, faster, and fairer — for everyone."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
 
    <!--testimonials-->
    <section class="testimonials" aria-labelledby="testimonials-heading">
@@ -198,26 +245,64 @@
   ↑
 </button>
 
+<footer class="footer" style="margin-bottom: 0px;">
+  <!-- Tagline -->
+  <p class="footer-tagline" style="font-size: 20px;">
+    Connecting Talent with Opportunity. Your Career Journey Starts Here!
+  </p>
+  <br><br>
 
-    <footer>
-        <hr />
-        <div class="footContainer" style="padding: 16px 0;">
-            <div>
-                <h4>Copyright &copy; 2025 Job Junction | All Rights Reserved</h4>
-            </div>
-            <div class="footlinks" style="margin-top: 8px;">
-                <a href="https://www.instagram.com/suraj_sg23/" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/SurajSG23" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <div class="footer-column">
+      <h4>For Job Seekers</h4>
+      <ul>
+        <li><a href="/jobs">Browse Jobs</a></li>
+        <li><a href="/internships">Internships</a></li>
+        <li><a href="/advice">Advice</a></li>
+        <li><a href="/salary-guide">Salary Guide</a></li>
+        <li><a href="/resume-builder">Resume Builder</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>For Employers</h4>
+      <ul>
+        <li><a href="/post-job">Post a Job</a></li>
+        <li><a href="/talent-search">Talent Search</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/enterprise">Enterprise</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/open-source">Open Source</a></li>
+        <li><a href="/masthead">Masthead</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="footer-social">
+    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">
+    © 2025 Job Junction. All rights reserved.
+  </p>
+</footer>
+
+
+
 
     <!-- JS logic for prev/next scroll -->
 <script>
@@ -268,6 +353,28 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+<!--vision -->
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".animate");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // run animation only once
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  });
+
+
+
 
 </script>
 
