@@ -13,7 +13,6 @@
     background-size: contain;
     left: 20vw;
 }
-
 body {
     max-width: 100vw;
     height: 100vh;
@@ -39,7 +38,6 @@ body {
     box-shadow: 5px 5px 10px rgb(115, 115, 255);
     padding-top: 20px;
 }
-
 .sign-section-2 {
     display: flex;
     flex-direction: column;

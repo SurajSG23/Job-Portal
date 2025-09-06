@@ -6,8 +6,7 @@ function Redirect(){
 document.addEventListener('DOMContentLoaded', function () {
   const saveButtons = document.querySelectorAll('.save-job-btn');
   const savedJobsContainer = document.getElementById('saved-jobs-container');
-
-  // Load saved jobs from localStorage on page load
+  
   const savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
   savedJobs.forEach(job => {
     const jobDiv = document.createElement('div');
