@@ -163,6 +163,111 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="./components/homepage.html">Home</a></li>
+                <li><a href="./components/about.html">About</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+            <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <h1>Don't just search.<br>Start your career!</h1>
+            <button onclick="Redirect()" class="get-started-btn">Get Started</button>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="signUpSection" class="sign-section">
+            <form>
+                <div class="box-sign">
+                    <h2>Register</h2>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="fName" placeholder="Suraj" required />
+                        <label for="fName">First name</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="lName" placeholder="S G" required />
+                        <label for="lName">Last name</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="rEmail" placeholder="Example@gmail.com" required />
+                        <label for="rEmail">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="rPassword" placeholder="Password" required />
+                        <label for="rPassword">Password</label>
+                    </div>
+                    <button type="submit" class="sign-up-btn">Sign Up</button>
+                </div>
+            </form>
+            <div class="signy">
+                <p>----------OR----------</p>
+                <div class="links">
+                    <h5>Already have an account?</h5>
+                    <button type="button" name="sign-in" class="sign-in">Sign-in</button>
+                </div>
+                <button type="button" class="guestLogin" onclick="guestLogin()">Guest Login</button>
+            </div>
+        </section>
+
+        <!-- Job Card Example -->
+        <section>
+            <div class="job-card">
+                <h3>Job Title</h3>
+                <p>Company Name</p>
+                <p>Description</p>
+                <button class="save-job-btn">🔖 Save</button>
+            </div>
+        </section>
+
+        <!-- Saved Jobs Section -->
+        <section id="saved-jobs">
+            <h2>Saved Jobs</h2>
+            <div id="saved-jobs-container"></div>
+        </section>
+    </main>
+
+    <!-- Login Section -->
+    <section id="signInSection" class="sign-section-2">
+        <form>
+            <div class="box-sign">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Example@gmail.com" required />
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required />
+                    <label for="password">Password</label>
+                </div>
+                <button type="submit" class="sign-in-btn">Login</button>
+                <div class="signy">
+                    <p>----------OR----------</p>
+                    <div class="links2">
+                        <h5>Register new account?</h5>
+                        <button type="button" name="sign-up" class="sign-up">Sign-up</button>
+                    </div>
+                    <button type="button" class="guestLogin" onclick="guestLogin()">Guest Login</button>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -708,7 +813,6 @@ body.dark .btn-ghost {
 </head>
 
 <body>
-
                 <li class="dropdown">
                     <a href="#" class="nav-link">
                         Jobs <i class="fas fa-chevron-down"></i>
@@ -857,6 +961,84 @@ body.dark .btn-ghost {
             <div class="feature-icon">
               <i class="fas fa-user-check"></i>
             </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Job Junction. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Enhanced Theme Toggle System - Works across all pages
+        class ThemeManager {
+          constructor() {
+            this.init();
+          }
+          init() {
+            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
+            this.applyTheme(savedTheme, false);
+            this.setupThemeToggle();
+            this.setupMobileNav();
+          }
+          applyTheme(theme, animate = true) {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            if (animate) {
+              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+            if (theme === 'dark') {
+              body.classList.add('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-sun';
+                themeIcon.style.transform = 'rotate(180deg)';
+              }
+            } else {
+              body.classList.remove('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-moon';
+                themeIcon.style.transform = 'rotate(0deg)';
+              }
+            }
+            localStorage.setItem('jobPortalTheme', theme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+          }
+          setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) return;
+            themeToggle.addEventListener('click', () => {
+              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              this.applyTheme(newTheme);
+            });
+          }
+          setupMobileNav() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+              navToggle.addEventListener('click', () => {
+                const isActive = navLinks.classList.contains('active');
+                navLinks.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
+                }
+              });
+            }
+          }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+          new ThemeManager();
+        });
+        window.addEventListener('themeChanged', (e) => {
+          console.log(`Theme changed to: ${e.detail.theme}`);
+        });
+      </script>
+</body>
             <h3>Easy Application</h3>
             <p>Simplified application process to save your time and effort.</p>
           </div>
