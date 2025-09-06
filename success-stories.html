@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Stories</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1f3c88, #2c5aa0);
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .stories-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .story-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+    }
+
+    .story-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #2c5aa0;
+    }
+
+    .story-card h3 {
+      margin: 10px 0 5px;
+      color: #1f3c88;
+    }
+
+    .story-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #2c5aa0;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .read-more:hover {
+      background: #1f3c88;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Success Stories</h1>
+    <p>Real people, real opportunities. Discover how our portal helped users land their dream jobs.</p>
+  </header>
+
+  <section class="stories-container">
+    <div class="story-card">
+      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Profile">
+      <h3>Priya Sharma</h3>
+      <p><strong>Software Engineer</strong> at Microsoft</p>
+      <p>Priya used our portal to apply for tech jobs and secured her dream role within 3 months.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="story-card">
+      <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Profile">
+      <h3>Rahul Verma</h3>
+      <p><strong>Marketing Manager</strong> at Google</p>
+      <p>Rahul found several openings through our portal and landed his ideal role in digital marketing.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="story-card">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile">
+      <h3>Ananya Patel</h3>
+      <p><strong>Data Analyst</strong> at Amazon</p>
+      <p>With the help of career resources and job alerts, Ananya secured her first role at Amazon.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </section>
+
+  <script>
+    // Simple scroll animation
+    const cards = document.querySelectorAll('.story-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = "fadeInUp 1s ease forwards";
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
