@@ -4,6 +4,16 @@ function Redirect(){
 }
 document.addEventListener("DOMContentLoaded", () => {
 
+document.addEventListener('DOMContentLoaded', function () {
+  const saveButtons = document.querySelectorAll('.save-job-btn');
+  const savedJobsContainer = document.getElementById('saved-jobs-container');
+  
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
+  savedJobs.forEach(job => {
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'job-card';
+    jobDiv.innerHTML = job;
+    savedJobsContainer.appendChild(jobDiv);
 
   const menuButtons = document.querySelectorAll(".menu-button");
 

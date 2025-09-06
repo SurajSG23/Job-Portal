@@ -138,6 +138,22 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Junction | Find Your Dream Career</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
+    <meta name="keywords" content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
+    <meta name="author" content="Job Junction Team" />
+    <meta property="og:title" content="Job Junction | Find Your Dream Career" />
+    <meta property="og:description" content="Discover top jobs, career resources, and professional events at Job Junction." />
+    <meta property="og:image" content="assets/logo.webp" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://yourdomain.com/" />
+
+    <!-- Preload critical resources for performance -->
+    <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <title>Job Junction | Modern Job Portal</title>
     <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career. Built with HTML, CSS, JavaScript, and Firebase." />
     <meta name="keywords" content="job portal, job search, careers, employment, HTML, CSS, JavaScript, Firebase" />
@@ -163,15 +179,40 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://yourdomain.com/",
+      "description": "Job Junction is your gateway to top jobs, career resources, and professional events.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Job Junction",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "assets/logo.webp"
+        }
+      }
+    }
+    </script>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <header>
-        <nav class="navbar">
-            <div class="logo"></div>
+        <nav class="navbar" aria-label="Main Navigation">
+            <div class="logo" role="img" aria-label="Job Junction Logo"></div>
             <ul class="nav-links">
                 <li><a href="./components/homepage.html">Home</a></li>
                 <li><a href="./components/about.html">About</a></li>
@@ -179,7 +220,7 @@
             <button id="theme-toggle" aria-label="Toggle theme">
                 <i id="theme-icon" class="fas fa-moon"></i>
             </button>
-            <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+            <div class="nav-toggle" aria-label="Open navigation"><i class="fa fa-bars"></i></div>
         </nav>
     </header>
 
@@ -192,7 +233,7 @@
 
         <!-- Registration Section -->
         <section id="signUpSection" class="sign-section">
-            <form>
+            <form autocomplete="off">
                 <div class="box-sign">
                     <h2>Register</h2>
                     <div class="input-group">
@@ -247,7 +288,7 @@
 
     <!-- Login Section -->
     <section id="signInSection" class="sign-section-2">
-        <form>
+        <form autocomplete="off">
             <div class="box-sign">
                 <h2>Login</h2>
                 <div class="input-group">
@@ -971,9 +1012,9 @@ body.dark .btn-ghost {
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script>
+    <!-- Scripts: Defer for performance -->
+    <script src="script.js" defer></script>
+    <script defer>
         // Enhanced Theme Toggle System - Works across all pages
         class ThemeManager {
           constructor() {
@@ -1037,7 +1078,7 @@ body.dark .btn-ghost {
         window.addEventListener('themeChanged', (e) => {
           console.log(`Theme changed to: ${e.detail.theme}`);
         });
-      </script>
+    </script>
 </body>
             <h3>Easy Application</h3>
             <p>Simplified application process to save your time and effort.</p>
