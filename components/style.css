@@ -1,4 +1,4 @@
-/* General page styles */
+/* General page styles
 body {
     font-family: Arial, sans-serif;
     background: #f8f9fa;
@@ -111,4 +111,4 @@ h1 {
 #backToTopBtn.show {
     display: block;
 }
-
+ 
