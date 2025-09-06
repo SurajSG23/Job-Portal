@@ -1355,4 +1355,81 @@ body.dark .btn-ghost {
 
 
 </body>
-</html>
+</html><!-- ...existing code above... -->
+
+<!-- Replace all navigation blocks with this unified, accessible navigation bar -->
+<header>
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-brand">
+      <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="./components/homepage.html" class="nav-link">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+          Jobs <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-content" aria-label="submenu">
+          <li><a href="components/seeker.html">Browse Jobs</a></li>
+          <li><a href="#">Remote Jobs</a></li>
+          <li><a href="#">Featured Jobs</a></li>
+          <li><a href="internships.html">Internships</a></li>
+        </ul>
+      </li>
+      <li><a href="companies.html" class="nav-link">Companies</a></li>
+      <li><a href="components/about.html" class="nav-link">About</a></li>
+      <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      <li><a href="components/events.html" class="nav-link">Events</a></li>
+      <li><a href="faq.html" class="nav-link">FAQs</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+      <a href="./login.html" class="btn btn-ghost">Login</a>
+      <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+  </nav>
+</header>
+
+<!-- ...rest of your code below... -->
+
+<script>
+  // Mobile Navigation Toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+    });
+  }
+
+  // Multilevel Dropdown Toggle for Mobile
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const submenu = this.nextElementSibling;
+      if (submenu && submenu.classList.contains('dropdown-content')) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          // Close other open dropdowns at this level
+          const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+          parentLi.forEach(li => {
+            if (li !== this.parentElement) li.classList.remove('open');
+          });
+          // Toggle current
+          this.parentElement.classList.toggle('open');
+        }
+      }
+    });
+  });
+  // Close dropdowns when clicking outside (mobile)
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+      if (!drop.contains(e.target)) drop.classList.remove('open');
+    });
+  });
+</script>
