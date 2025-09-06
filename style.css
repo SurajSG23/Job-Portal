@@ -413,6 +413,20 @@ main {
   }
   .hero-container {
     flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    min-width: 35vw;
+    height: 80vh;
+    border: 3px solid rgba(22, 50, 160, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    right: 10vw;
+    top: 10vh;
+    box-shadow: 5px 5px 10px rgb(115, 115, 255);
+    padding-top: 20px;
+}
+.sign-section-2 {
+    display: flex;
     align-items: center;
     gap: 24px;
   }
