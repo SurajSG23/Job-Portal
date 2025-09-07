@@ -3,6 +3,19 @@ function Redirect() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener('DOMContentLoaded', function () {
+  const saveButtons = document.querySelectorAll('.save-job-btn');
+  const savedJobsContainer = document.getElementById('saved-jobs-container');
+  
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
+  savedJobs.forEach(job => {
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'job-card';
+    jobDiv.innerHTML = job;
+    savedJobsContainer.appendChild(jobDiv);
+
+document.addEventListener("DOMContentLoaded", () => {
   // =======================
   // NAVIGATION DROPDOWN (ARIA)
   // =======================
@@ -147,23 +160,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // =======================
   const themeToggle = document.getElementById("themeToggle") || document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("themeIcon") || document.getElementById("theme-icon");
+  // THEME TOGGLE (WORKS ACROSS SITE)
+  // ======================
   function setTheme(dark) {
-    if (dark) {
-      document.body.classList.add("dark");
-      if (themeIcon) {
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
-      }
-    } else {
-      document.body.classList.remove("dark");
-      if (themeIcon) {
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
-      }
+    document.body.classList.toggle("dark", dark);
+    const themeIcon = document.getElementById("theme-icon");
+    if (themeIcon) {
+      themeIcon.classList.toggle("fa-moon", !dark);
+      themeIcon.classList.toggle("fa-sun", dark);
     }
   }
+
+  // Read theme from localStorage and apply
   const darkMode = localStorage.getItem("theme") === "dark";
   setTheme(darkMode);
+
+  // Listen for theme toggle button click
+  const themeToggle = document.getElementById("themeToggle");
   if (themeToggle) {
     themeToggle.onclick = () => {
       const isDark = !document.body.classList.contains("dark");
@@ -172,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // =======================
+  // ============
   // MOBILE NAVIGATION TOGGLE
   // =======================
   const mobileToggle = document.getElementById('mobileToggle');
@@ -220,6 +233,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ======================
+  // NAVBAR TOGGLE
+  // =======================
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
 
   // =======================
   // BACK TO TOP BUTTON
