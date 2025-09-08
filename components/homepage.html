@@ -15,7 +15,6 @@
       ]
     }
     </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -29,7 +28,6 @@
       }
     }
     </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Junction | Home Page</title>
@@ -47,11 +45,154 @@
     <meta name="twitter:title" content="Job Junction | Home Page" />
     <meta name="twitter:description" content="Choose your role as a job seeker or employer and get started!" />
     <meta name="twitter:image" content="../assets/logo.webp" />
-    <!-- For development: -->
     <link rel="stylesheet" href="homePage.css">
-    <!-- For production, use minified: -->
-    <!-- <link rel="stylesheet" href="homePage.min.css" /> -->
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .homepage-header {
+            width: 100%;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        .homepage-header .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(30,58,138,0.10);
+            margin-bottom: 1rem;
+        }
+        .homepage-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .homepage-header p {
+            color: #e0e7ff;
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+        .role-cards {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .role-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(30,58,138,0.10);
+            padding: 2.5rem 2rem 2rem 2rem;
+            width: 260px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .role-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 16px 40px rgba(102,126,234,0.18);
+            border: 1.5px solid #764ba2;
+        }
+        .role-card img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1.2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 12px rgba(102,126,234,0.10);
+            background: #f9fafb;
+        }
+        .role-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #3d55b4;
+            margin-bottom: 0.5rem;
+        }
+        .role-card p {
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 1.2rem;
+        }
+        .role-card .get-started-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.10);
+        }
+        .role-card .get-started-btn:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        .homepage-footer {
+            text-align: center;
+            color: #e0e7ff;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            padding-bottom: 1rem;
+        }
+        @media (max-width: 700px) {
+            .role-cards {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .role-card {
+                width: 90vw;
+                max-width: 340px;
+            }
+            .homepage-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="homepage-header">
+        <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img" loading="lazy">
+        <h1>Welcome to Job Junction</h1>
+        <p>Choose your role and start your journey.<br>
+        <span style="font-size:0.98rem;">Find jobs, connect with employers, and grow your career.</span></p>
+    </header>
+    <main>
+        <div class="role-cards">
+            <a href="../components/seeker.html" style="text-decoration:none;">
+                <div class="role-card" tabindex="0" aria-label="I am a job seeker">
+                    <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
+                    <h3>I am a seeker</h3>
+                    <p>Browse jobs, apply easily, and track your applications.</p>
+                    <button class="get-started-btn">Get Started</button>
+                </div>
+            </a>
+            <a href="../components/employer.html" style="text-decoration:none;">
+                <div class="role-card" tabindex="0" aria-label="I am an employer">
+                    <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
+                    <h3>I am an employer</h3>
+                    <p>Post jobs, manage applicants, and find top talent.</p>
+                    <button class="get-started-btn">Get Started</button>
+                </div>
+            </a>
+        </div>
+    </main>
+    <footer class="homepage-footer">
+        &copy; 2025 Job Junction. All rights reserved.
+    </footer>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
