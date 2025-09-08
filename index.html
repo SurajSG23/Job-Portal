@@ -1,59 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "logo": "assets/logo.webp",
-      "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
-    }
-
-  </script>
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="companies.css" />
-  <link rel="stylesheet" href="footer.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Junction | Modern Job Portal</title>
+  <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
-
-  <link rel="stylesheet" href="companies.css" />
-  <link rel="stylesheet" href="footer.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- for icons -->
-
-  
+  <link rel="shortcut icon" href="assets/logo.webp" type="image/x-icon" />
   <style>
-    /* UI/UX Enhancements */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    .nav-link {
+      color: #3d55b4;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #764ba2;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 180px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+      border-radius: 10px;
+      z-index: 100;
+      padding: 0;
+      list-style: none;
+    }
+    .dropdown:hover > .dropdown-content,
+    .dropdown.open > .dropdown-content {
+      display: block;
+      animation: fadeIn 0.2s;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 20px;
+      color: #1e3a8a;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background: #f0f4ff;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btn-primary, .btn-ghost {
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #764ba2, #667eea);
+    }
+    .btn-ghost {
+      background: #fff;
+      color: #764ba2;
+      border: 1px solid #764ba2;
+    }
+    .btn-ghost:hover {
+      background: #764ba2;
+      color: #fff;
+    }
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #764ba2;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .theme-toggle:hover {
+      color: #667eea;
+    }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #764ba2;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    @media (max-width: 900px) {
+      .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+        border-radius: 0 0 16px 16px;
+        display: none;
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+    }
     .hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
-      padding: 6rem 0 4rem 0;
+      padding: 5rem 2rem 3rem 2rem;
       text-align: center;
-      position: relative;
       border-radius: 0 0 2rem 2rem;
       box-shadow: 0 8px 32px rgba(102,126,234,0.10);
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      font-weight: 600;
-      padding: 0.5rem 1.2rem;
-      border-radius: 2rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 8px rgba(102,126,234,0.10);
+      margin-bottom: 2rem;
     }
     .hero-title {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
       line-height: 1.1;
@@ -66,9 +174,9 @@
       background-clip: text;
     }
     .hero-description {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: #e0e7ff;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       line-height: 1.6;
       max-width: 600px;
       margin-left: auto;
@@ -80,98 +188,6 @@
       justify-content: center;
       margin-bottom: 2rem;
     }
-    .get-started-btn, .learn-more-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: all 0.3s;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 8px rgba(102,126,234,0.10);
-      border: none;
-      cursor: pointer;
-    }
-    .get-started-btn {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-    }
-    .get-started-btn:hover {
-      background: linear-gradient(135deg, #764ba2, #667eea);
-      transform: translateY(-3px);
-    }
-    .learn-more-btn {
-      color: #764ba2;
-      background: #fff;
-      border: 2px solid #764ba2;
-    }
-    .learn-more-btn:hover {
-      background: #764ba2;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .hero-visual {
-      margin-top: 3rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-card {
-      background: #fff;
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 32px rgba(102,126,234,0.10);
-      padding: 2rem;
-      min-width: 320px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .job-card-preview .company-info {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .company-logo {
-      width: 48px;
-      height: 48px;
-      background: #e0e7ff;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .company-details h4 {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #3d55b4;
-    }
-    .company-details p {
-      margin: 0;
-      color: #64748b;
-      font-size: 0.95rem;
-    }
-    .job-meta {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.98rem;
-      color: #64748b;
-      margin-bottom: 1rem;
-    }
-    .job-tags {
-      display: flex;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-    }
-    .tag {
-      background: #e0e7ff;
-      color: #3d55b4;
-      border-radius: 0.7rem;
-      padding: 0.3rem 0.9rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-    /* Features Section */
     .features {
       background: #f9fafb;
       padding: 4rem 0;
@@ -211,110 +227,72 @@
       font-size: 2rem;
       color: #fff;
     }
-    /* Categories Section */
-    .categories {
-      background: #fff;
-      padding: 4rem 0;
-      border-radius: 2rem;
-      margin: 2rem auto;
-      max-width: 1200px;
-      box-shadow: 0 4px 24px rgba(102,126,234,0.08);
-    }
-    .categories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .category-card {
-      background: #f9fafb;
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 12px rgba(102,126,234,0.08);
-      padding: 1.5rem 1rem;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .category-card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(102,126,234,0.14);
-      border: 1.5px solid #667eea;
-    }
-    .category-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem auto;
-      font-size: 1.5rem;
-      color: #fff;
-    }
-    /* Footer */
     .footer {
       background: #23272f;
       color: #e5e7eb;
       padding: 3rem 0 1rem;
       border-radius: 2rem 2rem 0 0;
       margin-top: 3rem;
+      text-align: center;
     }
     .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
       margin-bottom: 2rem;
     }
-    .footer-brand img {
-      width: 60px;
-      height: 60px;
-      border-radius: 0.6rem;
-      background-color: #fff;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
-      margin-bottom: 1rem;
+    .footer-content p {
+      margin: 0;
+      font-size: 1rem;
     }
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+    body.dark {
+      background-color: #121212;
+      color: #e0e0e0;
     }
-    .social-links a {
-      width: 40px; height: 40px;
-      background: #181c24;
-      border-radius: 0.7rem;
-      display: flex; align-items: center; justify-content: center;
-      color: #a0aec0;
-      text-decoration: none;
-      transition: all 0.3s;
-      border: 1px solid #2d3748;
+    body.dark .navbar {
+      background: #1e1e1e;
+      color: #e0e0e0;
     }
-    .social-links a:hover {
-      background: #667eea;
-      color: white;
-      transform: translateY(-2px);
-      border-color: #764ba2;
-      box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+    body.dark .nav-link {
+      color: #e0e0e0;
     }
-    .footer-bottom {
-      text-align: center;
-      padding: 2rem 2rem 1rem;
-      border-top: 1px solid #181c24;
-      color: #a0aec0;
-      font-size: 0.95rem;
+    body.dark .dropdown-content {
+      background: #2a2a2a;
+      border-color: #444;
     }
-    @media (max-width: 900px) {
-      .footer-content { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-      .features, .categories { padding: 2rem 0; }
-      .hero-title { font-size: 2rem; }
-      .hero { padding: 4rem 0 2rem 0; }
+    body.dark .dropdown-content a {
+      color: #e0e0e0;
     }
-    @media (max-width: 600px) {
-      .features-grid, .categories-grid { grid-template-columns: 1fr; }
-      .footer-content { padding: 0 1rem; }
-      .hero { padding: 2rem 0 1rem 0; }
+    body.dark .features {
+      background: #181818;
+      color: #e0e0e0;
+    }
+    body.dark .feature-card {
+      background: #1e1e1e;
+      color: #e0e0e0;
+      border-color: #333;
+    }
+    body.dark .feature-icon {
+      color: #66aaff;
+    }
+    body.dark .footer {
+      background: #1a1a1a;
+      color: #e0e0e0;
+    }
+    body.dark .footer a {
+      color: #ddd;
+    }
+    body.dark .btn-primary {
+      background: #0077ff;
+      color: #fff;
+    }
+    body.dark .btn-ghost {
+      border: 1px solid #ccc;
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
     }
   </style>
       .nav-menu .dropdown-content,
@@ -1594,9 +1572,12 @@
         }
       }
     }
-    </script>
+</script>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar" aria-label="Main Navigation">
@@ -1962,359 +1943,60 @@ body.dark .btn-ghost {
   <header class="header">
     <nav class="navbar">
       <div class="nav-brand">
-        <img src="assets/logo.webp" alt="Job Junction" class="logo" />
-
+        <img src="assets/logo.webp" alt="Job Junction Logo" />
       </div>
-
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="./components/homepage.html" class="nav-link active">Home</a></li>
         <li class="dropdown">
-          <a href="#" class="nav-link">
+          <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
-          <div class="dropdown-content">
-            <a href="components/seeker.html">Browse Jobs</a>
-            <a href="#">Remote Jobs</a>
-            <a href="#">Featured Jobs</a>
-            <a href="#">Internships</a>
-          </div>
-        </li>
-        <li><a href="companies.html" class="nav-link">Companies</a></li>
-        <li><a href="components\about.html" class="nav-link">About</a></li>
-        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
-        </button>
-        <a href="./login.html" class="btn btn-ghost">Login</a>
-        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why Choose Job Junction?</h2>
-        <!-- <p class="para1">
-              Experience the future of job searching with our innovative
-              platform
-            </p> -->
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-search-plus"></i>
-
-
-    /* Dark mode */
-    body.dark {
-      background-color: #121212;
-      color: #ffffff;
-    } 
-  </style> -->
-  <style>
-
-    /* ---------- Dark Theme Overrides ---------- */
-body.dark {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-body.dark .navbar {
-  background: #1e1e1e;
-  color: #e0e0e0;
-}
-
-body.dark .nav-link {
-  color: #e0e0e0;
-}
-
-body.dark .dropdown-content {
-  background: #2a2a2a;
-  border-color: #444;
-}
-
-body.dark .dropdown-content a {
-  color: #e0e0e0;
-}
-
-body.dark .features, 
-body.dark .categories {
-  background: #181818;
-  color: #e0e0e0;
-}
-
-body.dark .feature-card, 
-body.dark .category-card {
-  background: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #333;
-}
-
-body.dark .feature-icon, 
-body.dark .category-icon {
-  color: #66aaff;
-}
-
-body.dark .site-footer {
-  background: #1a1a1a;
-  color: #e0e0e0;
-}
-
-body.dark .site-footer a {
-  color: #ddd;
-}
-
-body.dark .btn-primary {
-  background: #0077ff;
-  color: #fff;
-}
-
-body.dark .btn-ghost {
-  border: 1px solid #ccc;
-  color: #fff;
-}
-  </style>
-
-      <style>
-      /* =============================
-   GLOBAL ANIMATIONS
-============================= */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* =============================
-   HEADER & NAV
-============================= */
-.navbar {
-  animation: fadeInUp 1s ease forwards;
-}
-
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #007bff;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-actions .btn-primary {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-actions .btn-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* =============================
-   FEATURES SECTION
-============================= */
-.feature-card {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Add staggered delay for engaging entrance */
-.feature-card:nth-child(1) { animation-delay: 0.2s; }
-.feature-card:nth-child(2) { animation-delay: 0.4s; }
-.feature-card:nth-child(3) { animation-delay: 0.6s; }
-.feature-card:nth-child(4) { animation-delay: 0.8s; }
-
-.feature-icon {
-  font-size: 2rem;
-  color: #007bff;
-  transition: transform 0.4s ease, color 0.3s ease;
-}
-
-.feature-card:hover .feature-icon {
-  transform: rotate(15deg) scale(1.2);
-  color: #ff6600;
-}
-
-/* =============================
-   CATEGORIES
-============================= */
-.category-card {
-  opacity: 0;
-  animation: fadeInScale 0.8s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.category-card:nth-child(1) { animation-delay: 0.2s; }
-.category-card:nth-child(2) { animation-delay: 0.4s; }
-.category-card:nth-child(3) { animation-delay: 0.6s; }
-.category-card:nth-child(4) { animation-delay: 0.8s; }
-.category-card:nth-child(5) { animation-delay: 1s; }
-.category-card:nth-child(6) { animation-delay: 1.2s; }
-
-/* =============================
-   FOOTER
-============================= */
-.site-footer {
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.social-media a {
-  display: inline-block;
-  margin-right: 0.8rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-media a:hover {
-  transform: scale(1.2) rotate(10deg);
-  color: #007bff;
-}
-
-.links-section ul li a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.links-section ul li a:hover {
-  color: #ff6600;
-  transform: translateX(5px);
-}
-
-.footer-credit {
-  text-align: center;
-  padding: 1rem;
-  animation: pulse 3s infinite;
-}
-
-  </style>
-
-</head>
-
-<body>
-             <li class="dropdown">
-                    <a href="#" class="nav-link">
-                        Jobs <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-content">
-                        <li><a href="components/seeker.html">Browse Jobs</a></li>
-                        <li><a href="#">Remote Jobs</a></li>
-                        <li><a href="#">Featured Jobs</a></li>
-                        <li><a href="internships.html">Internships</a></li>
-                    </ul>
-                </li>
-
-              </ul>
-            </li>
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="#">Remote Jobs</a></li>
             <li><a href="#">Featured Jobs</a></li>
-            <li><a href="#">Internships</a></li>
+            <li><a href="internships.html">Internships</a></li>
           </ul>
         </li>
-        <li><a href="#companies" class="nav-link">Companies</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="components/events.html" class="nav-link">Events</a></li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
         <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
-        <li><a href="faq.html" class="nav-link">Faqs</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">FAQs</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fas fa-moon" id="theme-icon"></i>
         </button>
-        <a href="./login.html" class="btn btn-ghost">Login</a>
-        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+        <a href="./login.html" class="btn-ghost">Login</a>
+        <a href="./signup.html" class="btn-primary">Sign Up</a>
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
         <i class="fa fa-bars"></i>
       </button>
     </nav>
-
-    <nav aria-label="Main navigation" class="navbar">
-  <ul role="menubar" class="menu">
-    <li role="none" class="menu-item has-submenu">
-      <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Jobs</a>
-      <ul role="menu" class="submenu" hidden>
-        <li role="none"><a role="menuitem" href="#">Job List</a></li>
-        <li role="none" class="menu-item has-submenu">
-          <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Categories</a>
-          <ul role="menu" class="submenu" hidden>
-            <li role="none"><a role="menuitem" href="#">IT</a></li>
-            <li role="none"><a role="menuitem" href="#">Finance</a></li>
-            <li role="none"><a role="menuitem" href="#">Design</a></li>
-          </ul>
-        </li>
-        <li role="none"><a role="menuitem" href="#">Job Details</a></li>
-      </ul>
-    </li>
-    <li role="none"><a role="menuitem" href="#">About</a></li>
-    <li role="none"><a role="menuitem" href="#">Contact</a></li>
-  </ul>
-</nav>
-
   </header>
-
+  <!-- Hero Section -->
   <main>
-    <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="hero-background" aria-hidden="true">
-        <div class="hero-shapes">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
-        </div>
+      <h1 class="hero-title">
+        Discover Amazing <span class="gradient-text">Opportunities</span> & Start Your Career Journey
+      </h1>
+      <p class="hero-description">
+        Join thousands of professionals who found their perfect match.<br>
+        Browse through premium job listings from top companies worldwide.
+      </p>
+      <div class="hero-actions">
+        <a href="components/homepage.html" class="btn-primary get-started-btn" aria-label="Get Started">
+          <span>Get Started</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#features" class="btn-ghost learn-more-btn" aria-label="Learn More">
+          <span>Learn More</span>
+          <i class="fas fa-play"></i>
+        </a>
       </div>
+    </section>
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badge">
@@ -2379,7 +2061,6 @@ body.dark .btn-ghost {
         Need more help? Visit our <a href="#contact" style="color:#764ba2; text-decoration:underline;">Contact</a> page or check out our <a href="#features" style="color:#764ba2; text-decoration:underline;">Features</a> below!
       </p>
     </section>
-
     <!-- Features Section -->
     <section class="features" id="features">
       <div class="container">
@@ -2496,30 +2177,13 @@ body.dark .btn-ghost {
         </div>
       </div>
     </section>
-
-    <!-- Job Listing/Filter Section -->
-    <div class="job-page">
-      <aside id="filter-panel" class="filter-panel">
-        <h3>Filters</h3>
-        <div>
-          <label><input type="checkbox"> Remote Only</label>
-        </div>
-        <div>
-          <label><input type="checkbox"> Full Time</label>
-        </div>
-        <button id="pin-panel">Pin/Unpin</button>
-        <button id="resize-panel">↔ Resize</button>
-      </aside>
-      <section id="job-list" class="job-list">
-        <div class="job-card" draggable="true">Job 1 - Frontend Dev</div>
-        <div class="job-card" draggable="true">Job 2 - Backend Dev</div>
-        <div class="job-card" draggable="true">Job 3 - Data Scientist</div>
-        <div class="job-card" draggable="true">Job 4 - UI/UX Designer</div>
-      </section>
-    </div>
   </main>
-
   <!-- Footer -->
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+
   <footer class="site-footer">
     <div class="footer-main">
       <p class="footer-tagline">
@@ -2660,47 +2324,60 @@ body.dark .btn-ghost {
       <a href="./login.html" class="btn btn-ghost">Login</a>
       <a href="./signup.html" class="btn btn-primary">Sign Up</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
-      <i class="fa fa-bars"></i>
-    </button>
-  </nav>
-</header>
-
-<!-- ...rest of your code below... -->
-
-<script>
-  // Mobile Navigation Toggle
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navMenu = document.getElementById('navMenu');
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileToggle.classList.toggle('active');
-    });
-  }
-
-  // Multilevel Dropdown Toggle for Mobile
-  document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const submenu = this.nextElementSibling;
-      if (submenu && submenu.classList.contains('dropdown-content')) {
-        if (window.innerWidth <= 900) {
-          e.preventDefault();
-          // Close other open dropdowns at this level
-          const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
-          parentLi.forEach(li => {
-            if (li !== this.parentElement) li.classList.remove('open');
-          });
-          // Toggle current
-          this.parentElement.classList.toggle('open');
+  </footer>
+  <!-- Scripts -->
+  <script>
+    // Theme toggle persistent across site
+    document.addEventListener("DOMContentLoaded", () => {
+      function setTheme(dark) {
+        document.body.classList.toggle("dark", dark);
+        const themeIcon = document.getElementById("theme-icon");
+        if (themeIcon) {
+          themeIcon.classList.toggle("fa-moon", !dark);
+          themeIcon.classList.toggle("fa-sun", dark);
         }
       }
+      const darkMode = localStorage.getItem("theme") === "dark";
+      setTheme(darkMode);
+      const themeToggle = document.getElementById("themeToggle");
+      if (themeToggle) {
+        themeToggle.onclick = () => {
+          const isDark = !document.body.classList.contains("dark");
+          setTheme(isDark);
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      }
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          mobileToggle.classList.toggle('active');
+        });
+      }
+      // Multilevel Dropdown Toggle for Mobile
+      document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const submenu = this.nextElementSibling;
+          if (submenu && submenu.classList.contains('dropdown-content')) {
+            if (window.innerWidth <= 900) {
+              e.preventDefault();
+              const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+              parentLi.forEach(li => {
+                if (li !== this.parentElement) li.classList.remove('open');
+              });
+              this.parentElement.classList.toggle('open');
+            }
+          }
+        });
+      });
+      document.addEventListener('click', function(e) {
+        document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+          if (!drop.contains(e.target)) drop.classList.remove('open');
+        });
+      });
     });
-  });
-  // Close dropdowns when clicking outside (mobile)
-  document.addEventListener('click', function(e) {
-    document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
-      if (!drop.contains(e.target)) drop.classList.remove('open');
-    });
-  });
-</script>
+  </script>
+</body>
+</html>
