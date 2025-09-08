@@ -434,6 +434,7 @@ footer {
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -477,6 +478,8 @@ footer {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+}
+  
 /* CARD FOOTER */
 .card-footer {
     display: flex;
@@ -729,6 +732,7 @@ footer {
   padding-right: 2.5rem;
 }
 
+
 /* Optional: Add hover effect */
 .fancy-input:hover,
 .fancy-select:hover {
@@ -782,4 +786,335 @@ footer {
 }
 #backToTopBtn:hover {
   background-color: #1e40af;
+}
+/* --- Navigation Bar Fix --- */
+.headContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+  border-radius: 0 0 1.2rem 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+.headlinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.headlinks a, .headlinks button {
+  color: #3d55b4;
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.headlinks a:hover, .headlinks button:hover {
+  background: #f0f4ff;
+  color: #764ba2;
+}
+.apply-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.apply-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* --- Provide Details Modal Fix --- */
+.apply {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(102,126,234,0.10);
+  padding: 2rem 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  position: relative;
+  z-index: 200;
+}
+.apply.active {
+  display: flex;
+}
+.apply h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3d55b4;
+  margin-bottom: 1rem;
+}
+.apply .modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #764ba2;
+  cursor: pointer;
+}
+.apply div {
+  margin-bottom: 0.7rem;
+}
+.input, #skillInput {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+.skill-input-container {
+  margin-bottom: 1rem;
+}
+#tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.tag {
+  background: #667eea;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+}
+.suggestions-list {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+  margin-top: 0.3rem;
+  padding: 0.3rem 0;
+  list-style: none;
+  max-height: 120px;
+  overflow-y: auto;
+}
+.suggestions-list li {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+.suggestions-list li:hover {
+  background: #e0e7ff;
+}
+.job-type-apply {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+.job-type-apply input[type="radio"] {
+  margin-right: 0.3rem;
+}
+.job-type-apply h4 {
+  margin: 0 0.7rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3d55b4;
+  display: inline;
+}
+.Submit, .Cancel {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  margin-right: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.Cancel {
+  background: #e5e7eb;
+  color: #3d55b4;
+}
+.Submit:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+.Cancel:hover {
+  background: #d1d5db;
+  color: #764ba2;
+}
+
+/* --- Jobs Section --- */
+.body2 {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(102,126,234,0.08);
+}
+.heading h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3d55b4;
+  margin-bottom: 0.5rem;
+}
+.heading p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.search-filter-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-bar, .filter-dropdown {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  background: #fff;
+}
+.jobs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+/* --- Back to Top Button --- */
+#backToTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #667eea;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 16px rgba(102,126,234,0.15);
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+#backToTopBtn.show {
+  display: block;
+}
+
+/* --- Footer --- */
+footer {
+  background: #23272f;
+  color: #e5e7eb;
+  padding: 2rem 0 1rem;
+  border-radius: 2rem 2rem 0 0;
+  margin-top: 2rem;
+  text-align: center;
+}
+#footer-statement {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #e0e7eb;
+}
+.footer-links {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 2rem 1rem 2rem;
+  text-align: left;
+}
+.footer-links h3 {
+  color: #f093fb;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 0.4rem;
+}
+.footer-links ul li a {
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links ul li a:hover {
+  color: #f093fb;
+}
+.social-icons {
+  margin: 1rem 0;
+}
+.social-icons a {
+  color: #e5e7eb;
+  margin: 0 0.7rem;
+  font-size: 1.5rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.social-icons a:hover {
+  color: #f093fb;
+  transform: scale(1.2);
+}
+footer h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .headContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .headlinks {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .body2 {
+    padding: 0.5rem;
+    margin: 1rem auto;
+  }
+  .jobs-container {
+    grid-template-columns: 1fr;
+  }
+  .apply {
+    max-width: 95vw;
+    padding: 1rem;
+  }
+  .footer-links {
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .logo { width: 36px; height: 36px; }
+  .headContainer { padding: 0.5rem; }
+  .body2 { padding: 0.3rem; }
+  .apply { padding: 0.7rem; }
+  .footer-links { margin: 0.5rem auto; }
+}
+
+/* --- Show Modal on .active --- */
+.apply.active {
+  display: flex !important;
 }

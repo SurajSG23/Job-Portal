@@ -1,6 +1,4 @@
-/* --- CLEANED & FIXED STYLE.CSS --- */
 
-/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -32,10 +30,10 @@
   --navbar-height: 80px;
 }
 
-/* General body and html */
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+}
 body {
   font-family: 'Poppins', 'Inter', sans-serif;
   color: var(--text-primary);
@@ -45,10 +43,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   transition: background 0.4s;
-}
-body.dark {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  color: #f7fafc;
 }
 
 /* Header & Navbar */
@@ -60,6 +54,24 @@ body.dark {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s;
+}
+
+.header.scrolled { box-shadow: var(--shadow); }
+
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+}
+  top: 0;
+  left: 0;
+  right: 0;
+background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   display: flex;
@@ -131,6 +143,7 @@ body.dark {
   border-radius: 8px;
   transition: background 0.2s;
   }
+}
 /* Removed empty .dropdown-content ruleset */
 .dropdown-content a:hover {
   background: #f0f4ff;
@@ -707,6 +720,7 @@ main {
   cursor: pointer;
   border: none;
   font-size: 0.9rem;
+}
 }
 
 .btn-primary {
