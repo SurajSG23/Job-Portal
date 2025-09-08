@@ -7,7 +7,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
 
 :root {
   --primary: #667eea;
@@ -30,13 +29,11 @@
   --text-primary: #1e293b;
   --text-secondary: #64748b;
   --border: #e5e7eb;
-}
 
 /* General body and html */
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-}
 body {
   font-family: 'Inter', 'Poppins', sans-serif;
   color: var(--text-primary);
@@ -46,7 +43,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   transition: background 0.4s;
-}
 body.dark {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: #f7fafc;
@@ -136,9 +132,7 @@ body.dark {
 .dropdown {
   position: relative;
 }
-.dropdown-content {
-
-}
+/* Removed empty .dropdown-content ruleset */
 
 .theme-toggle {
   background: none;
@@ -699,7 +693,7 @@ main {
 @media print {
   .logo, .footer-brand img {
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    print-color-adjust: exact;
   }
   transition: all 0.3s ease;
   cursor: pointer;
