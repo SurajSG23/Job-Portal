@@ -3,6 +3,22 @@ function Redirect() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener('DOMContentLoaded', function () {
+  const saveButtons = document.querySelectorAll('.save-job-btn');
+  const savedJobsContainer = document.getElementById('saved-jobs-container');
+  
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
+  savedJobs.forEach(job => {
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'job-card';
+    jobDiv.innerHTML = job;
+    savedJobsContainer.appendChild(jobDiv);
+document.addEventListener("DOMContentLoaded", () => {
+  // =======================
+  // MENU BUTTONS (ARIA)
+
+document.addEventListener("DOMContentLoaded", () => {
   // =======================
   // MENU BUTTONS (ARIA)
   // =======================
@@ -92,6 +108,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     }
+    }
+    function loadJobOrder() {
+      const savedOrder = JSON.parse(localStorage.getItem("jobOrder"));
+      if (savedOrder) {
+        savedOrder.forEach(text => {
+          const card = [...document.querySelectorAll(".job-card")].find(c => c.textContent === text);
+          if (card) jobList.appendChild(card);
+        });
+      }
+    }
     loadJobOrder();
   }
 
@@ -147,6 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // =======================
   const themeToggle = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("theme-icon");
+  const themeToggle = document.getElementById("themeToggle") || document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("themeIcon") || document.getElementById("theme-icon");
+  // THEME TOGGLE (WORKS ACROSS SITE)
+  // ======================
   function setTheme(dark) {
     document.body.classList.toggle("dark", dark);
     if (themeIcon) {
@@ -163,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
   }
-
   // Persistent Dark Theme Across All Pages
   document.addEventListener("DOMContentLoaded", () => {
     // Check saved theme in localStorage
@@ -196,9 +225,58 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  // ============
+  // MOBILE NAVIGATION TOGGLE
+  // =======================
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+    });
+  }
 
   // =======================
+  // MULTILEVEL DROPDOWN FOR MOBILE
+  // =======================
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const submenu = this.nextElementSibling;
+      if (submenu && submenu.classList.contains('dropdown-content')) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+          parentLi.forEach(li => {
+            if (li !== this.parentElement) li.classList.remove('open');
+          });
+          this.parentElement.classList.toggle('open');
+        }
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+      if (!drop.contains(e.target)) drop.classList.remove('open');
+    });
+  });
+
+  // =======================
+  // SMOOTH SCROLLING FOR ANCHOR LINKS
+  // =======================
   // MOBILE NAVIGATION TOGGLE
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ======================
+  // NAVBAR TOGGLE
   // =======================
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
@@ -376,6 +454,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById('jobAlertModal');
   const alertMessage = document.getElementById('alertMessage');
   const closeModalBtn = document.querySelector('.close-btn');
+  const closeModalBtn = document.querySelector('.close-btn');
+  const alertMessage = document.getElementById('alertMessage');
   if (jobAlertForm && alertKeywordInput) {
     jobAlertForm.addEventListener('submit', function (e) {
       e.preventDefault();
