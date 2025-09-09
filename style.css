@@ -1,11 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 
 :root {
   --primary: #667eea;
@@ -29,10 +26,11 @@
   --text-secondary: #64748b;
   --border: #e5e7eb;
 
-/* General body and html */
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', 'Poppins', sans-serif;
   color: var(--text-primary);
@@ -42,25 +40,11 @@ body {
   padding: 0;
   overflow-x: hidden;
   transition: background 0.4s;
+}
+
 body.dark {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: #f7fafc;
-}
-
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  transition: all 0.3s;
-}
-.header.scrolled { box-shadow: var(--shadow); }
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-
 }
 
 .navbar {
@@ -714,12 +698,11 @@ main {
 .footer-social a {
   display: inline-block;
   margin: 0 12px;
-  font-size: 2rem;
-  color: #fff;
-  background: #2980e3;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-500));
+  color: white;
+  box-shadow: var(--shadow-lg);
+}
   line-height: 44px;
   text-align: center;
   transition: background 0.2s, color 0.2s;
@@ -1031,22 +1014,21 @@ body.dark .navbar {
   background: rgba(20, 20, 20, 0.85);
   border-bottom: 1px solid #222;
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-body.dark .hero {
-  background: #1f2937;
-  color: #fff;
-  box-shadow: var(--shadow-lg);
-}
-
-.menu,
-.submenu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-item {
+body.dark .header,
+body.dark .navbar {
+  background: rgba(20, 20, 20, 0.85);
+  border-bottom: 1px solid #222;
   position: relative;
 }
 
