@@ -440,11 +440,15 @@
       }
 
       /* Style the intl-tel-input dropdown for dark background */
+      .iti {
+        width: 100%;
+      }
+      
       .iti__country-list {
         background-color: var(--secondary-bg) !important;
         color: var(--text-color) !important;
         border: 1px solid var(--border-color) !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: var(--shadow);
         z-index: 9999;
       }
 
@@ -637,6 +641,7 @@
       <p>© 2025 Job Junction. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script>
       // Basic helpers
       const $ = (s, root = document) => root.querySelector(s);
@@ -659,6 +664,35 @@
       const btn = $("#submitBtn");
       const themeToggle = $("#themeToggle");
       const themeIcon = themeToggle.querySelector("i");
+
+      // Initialize intl-tel-input
+      const phoneInput = document.querySelector("#phone");
+      const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        geoIpLookup: function(callback) {
+          // Use a free API for IP geolocation
+          fetch("https://ipapi.co/json")
+            .then(function(res) { return res.json(); })
+            .then(function(data) { callback(data.country_code); })
+            .catch(function() { callback("us"); });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        separateDialCode: true,
+        preferredCountries: ['us', 'gb', 'ca', 'au', 'in'],
+        hiddenInput: "full_phone",
+        customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+          return "e.g. " + selectedCountryPlaceholder;
+        }
+      });
+
+      // Update phone input when country changes
+      phoneInput.addEventListener("countrychange", function() {
+        // Adjust the placeholder based on the selected country
+        const placeholder = iti.getSelectedCountryData().placeholder;
+        if (placeholder) {
+          phoneInput.placeholder = placeholder.replace(/[0-9]/g, 'X');
+        }
+      });
 
       // Check for saved theme preference or respect OS preference
       const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -697,11 +731,19 @@
           return; // silently drop bots
         }
 
+        // Validate phone number if provided
+        if (phoneInput.value.trim()) {
+          if (!iti.isValidNumber()) {
+            setError("phone", "Please enter a valid phone number.");
+            return;
+          }
+        }
+
         // Collect values
         const data = {
           name: $("#name").value.trim(),
           email: $("#email").value.trim(),
-          phone: $("#phone").value.trim(),
+          phone: iti.isValidNumber() ? iti.getNumber() : "",
           subject: $("#subject").value.trim(),
           message: $("#message").value.trim(),
         };
@@ -719,10 +761,6 @@
         }
         if (!emailRe.test(data.email)) {
           setError("email", "Please enter a valid email.");
-          ok = false;
-        }
-        if (data.phone && !phoneRe.test(data.phone)) {
-          setError("phone", "Please enter a valid phone number.");
           ok = false;
         }
         if (!data.subject) {
@@ -747,6 +785,7 @@
           notice.className = "notice ok";
           notice.textContent = "Thanks! Your message was sent successfully.";
           form.reset();
+          iti.setNumber("");
           btn.disabled = false;
           
           // Clear success message after 5 seconds
