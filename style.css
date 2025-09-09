@@ -34,7 +34,6 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
-
 body {
   font-family: 'Poppins', 'Inter', sans-serif;
   color: var(--text-primary);
@@ -43,6 +42,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  transition: background 0.4s;
 }
 
 /* Header & Navbar */
@@ -142,6 +142,7 @@ background: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   border-radius: 8px;
   transition: background 0.2s;
+  }
 }
 /* Removed empty .dropdown-content ruleset */
 .dropdown-content a:hover {
@@ -726,6 +727,7 @@ main {
   background: linear-gradient(135deg, var(--primary-600), var(--secondary-500));
   color: white;
   box-shadow: var(--shadow-lg);
+}
 }
 
 .footer-social {
