@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     jobDiv.className = 'job-card';
     jobDiv.innerHTML = job;
     savedJobsContainer.appendChild(jobDiv);
+document.addEventListener("DOMContentLoaded", () => {
+  // =======================
+  // MENU BUTTONS (ARIA)
 
 document.addEventListener("DOMContentLoaded", () => {
   // =======================
