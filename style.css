@@ -1,4 +1,5 @@
 
+
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +35,6 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
-
 body {
   font-family: 'Poppins', 'Inter', sans-serif;
   color: var(--text-primary);
@@ -43,6 +43,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  transition: background 0.4s;
 }
 
 /* Header & Navbar */
@@ -142,6 +143,7 @@ background: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   border-radius: 8px;
   transition: background 0.2s;
+  }
 }
 /* Removed empty .dropdown-content ruleset */
 .dropdown-content a:hover {
@@ -727,6 +729,7 @@ main {
   color: white;
   box-shadow: var(--shadow-lg);
 }
+}
 
 .footer-social {
   margin-bottom: 18px;
@@ -1063,6 +1066,29 @@ body.dark .btn-primary {
   background: #0077ff;
   color: #fff;
 }
+
+/* Remove unwanted bullet points and clean job section UI */
+.jobs-container ul,
+.jobs-container li {
+  list-style: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.jobs-container li {
+  margin-bottom: 0.7rem;
+  padding: 0.5rem 0.8rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.07);
+  font-size: 1rem;
+  color: #222;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.jobs-container li:hover {
+  background: #f0f4ff;
+  box-shadow: 0 4px 16px rgba(102,126,234,0.12);
 body.dark .btn-ghost {
   border: 1px solid #ccc;
   color: #fff;
