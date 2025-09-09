@@ -310,6 +310,9 @@
     const loginEmail = document.getElementById("login-email");
     const loginEmailFeedback = document.getElementById("loginEmailFeedback");
     const loginSpinner = document.getElementById("login-spinner");
+    const passwordInput = document.getElementById('login-password'); // Get password input
+    const passwordError = document.getElementById('passwordError'); // Get password error
+    const rememberMeCheckbox = document.getElementById('remember'); // Get checkbox
 
     loginEmail.addEventListener("input", () => {
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -319,26 +322,43 @@
     });
 
     loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // Stop the form from submitting normally
 
-      //password validation
-      const password = document.getElementById('login-password');
-    const passwordError = document.getElementById('passwordError');
-
-      if (password.value.length < 5) {
+      // --- Password validation ---
+      if (passwordInput.value.length < 5) {
         passwordError.style.display = "block";
-        return;
+        return; // Stop the function if password is invalid
       } else {
         passwordError.style.display = "none";
       }
       
-      // Spinner
+      // --- Show spinner ---
       loginSpinner.style.display = "block";
-      // Simulate form submission
+      
+      // --- Simulate a successful API call/login ---
       setTimeout(() => {
+        // --- THIS IS THE NEW LOGIC ---
+        
+        // 1. Check if "Remember Me" is ticked
+        const rememberMe = rememberMeCheckbox.checked;
+
+        // 2. Save the login state.
+        // We just save a simple 'true' value. In a real app, this would be a secure token (like a JWT).
+        if (rememberMe) {
+            // localStorage persists even after the browser is closed
+            localStorage.setItem('isLoggedIn', 'true');
+        } else {
+            // sessionStorage is cleared when the browser tab is closed
+            sessionStorage.setItem('isLoggedIn', 'true');
+        }
+
+        // 3. Hide spinner (optional since we are leaving the page)
         loginSpinner.style.display = "none";
-        alert("Login successful!");
-        loginForm.reset();
+
+        // 4. Redirect to the index page
+        window.location.href = "index.html"; // <-- THIS REDIRECTS THE USER
+
+        // We remove the alert() and form.reset() since we are navigating away
       }, 1500);
     });
   </script>
