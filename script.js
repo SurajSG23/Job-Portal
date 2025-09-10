@@ -193,7 +193,38 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
   }
+  // Persistent Dark Theme Across All Pages
+  document.addEventListener("DOMContentLoaded", () => {
+    // Check saved theme in localStorage
+    const savedTheme = localStorage.getItem("jobPortalTheme") || "light";
+    applyTheme(savedTheme);
 
+    // Theme toggle button logic
+    const themeToggle = document.getElementById("theme-toggle") || document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("theme-icon") || document.getElementById("themeIcon");
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const isDark = document.body.classList.contains("dark");
+        const newTheme = isDark ? "light" : "dark";
+        applyTheme(newTheme);
+        localStorage.setItem("jobPortalTheme", newTheme);
+      });
+    }
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        document.body.classList.add("dark");
+        if (themeIcon) {
+          themeIcon.className = "fas fa-sun";
+        }
+      } else {
+        document.body.classList.remove("dark");
+        if (themeIcon) {
+          themeIcon.className = "fas fa-moon";
+        }
+      }
+    }
+  });
   // ============
   // MOBILE NAVIGATION TOGGLE
   // =======================
