@@ -514,5 +514,4 @@ document.addEventListener("DOMContentLoaded", () => {
     location.reload();
   };
 });
-
 console.log("Script loaded");
