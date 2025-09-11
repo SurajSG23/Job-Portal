@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Featured Jobs</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f7fa;
+      color: #333;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      color: #2b3a67;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 1rem;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 15px auto 30px;
+      text-align: center;
+      background-color: #2b3a67;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1a253f;
+    }
+
+    .job-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .job-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .featured {
+      border: 2px solid #f39c12;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #f39c12;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+    .company-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .job-title {
+      font-size: 1.2rem;
+      color: #2b3a67;
+      margin: 5px 0;
+    }
+
+    .company-name {
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .job-desc {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .salary {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #27ae60;
+      margin-bottom: 15px;
+    }
+
+    .apply-btn {
+      background: #2b3a67;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .apply-btn:hover {
+      background: #1a253f;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>🌟 Featured Jobs</h1>
+    <p>Discover top opportunities from leading companies</p>
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  </header>
+
+  <section class="job-cards-container">
+    <!-- Sample 9 job cards -->
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">Frontend Developer</h2>
+      <p class="company-name">TechNova</p>
+      <p class="job-desc">Build beautiful and performant interfaces using React.</p>
+      <p class="salary">💰 $85,000 - $105,000</p>
+      <button class="apply-btn" onclick="applyNow('Frontend Developer')">Apply Now</button>
+    </div>
+
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">UI/UX Designer</h2>
+      <p class="company-name">DesignPro</p>
+      <p class="job-desc">Design modern UI systems for our global app.</p>
+      <p class="salary">💰 $70,000 - $90,000</p>
+      <button class="apply-btn" onclick="applyNow('UI/UX Designer')">Apply Now</button>
+    </div>
+
+    <div class="job-card">
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">Backend Engineer</h2>
+      <p class="company-name">CloudCore</p>
+      <p class="job-desc">Develop scalable APIs and infrastructure on AWS.</p>
+      <p class="salary">💰 $95,000 - $115,000</p>
+      <button class="apply-btn" onclick="applyNow('Backend Engineer')">Apply Now</button>
+    </div>
+
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">Full Stack Developer</h2>
+      <p class="company-name">StackForge</p>
+      <p class="job-desc">Join our team to work on exciting web projects.</p>
+      <p class="salary">💰 $100,000 - $130,000</p>
+      <button class="apply-btn" onclick="applyNow('Full Stack Developer')">Apply Now</button>
+    </div>
+
+    <div class="job-card">
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">Product Manager</h2>
+      <p class="company-name">InnoSoft</p>
+      <p class="job-desc">Lead the product development from idea to launch.</p>
+      <p class="salary">💰 $110,000 - $140,000</p>
+      <button class="apply-btn" onclick="applyNow('Product Manager')">Apply Now</button>
+    </div>
+
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">DevOps Engineer</h2>
+      <p class="company-name">AutoDeploy</p>
+      <p class="job-desc">Automate CI/CD pipelines and maintain deployments.</p>
+      <p class="salary">💰 $90,000 - $120,000</p>
+      <button class="apply-btn" onclick="applyNow('DevOps Engineer')">Apply Now</button>
+    </div>
+
+    <div class="job-card">
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">Mobile App Developer</h2>
+      <p class="company-name">Appify</p>
+      <p class="job-desc">Create stunning Android & iOS apps using Flutter.</p>
+      <p class="salary">💰 $80,000 - $100,000</p>
+      <button class="apply-btn" onclick="applyNow('Mobile App Developer')">Apply Now</button>
+    </div>
+
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">QA Engineer</h2>
+      <p class="company-name">Testify</p>
+      <p class="job-desc">Automate testing pipelines and improve quality.</p>
+      <p class="salary">💰 $70,000 - $95,000</p>
+      <button class="apply-btn" onclick="applyNow('QA Engineer')">Apply Now</button>
+    </div>
+
+    <div class="job-card">
+      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <h2 class="job-title">Data Analyst</h2>
+      <p class="company-name">InsightLab</p>
+      <p class="job-desc">Analyze datasets to drive business decisions.</p>
+      <p class="salary">💰 $75,000 - $100,000</p>
+      <button class="apply-btn" onclick="applyNow('Data Analyst')">Apply Now</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 JobPortal Inc. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function applyNow(jobTitle) {
+      alert("Thank you for your interest in the '" + jobTitle + "' position! Redirecting to application form...");
+      // window.location.href = 'apply.html?job=' + encodeURIComponent(jobTitle);
+    }
+  </script>
+</body>
+</html>
