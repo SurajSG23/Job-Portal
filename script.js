@@ -508,3 +508,72 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 console.log("Script loaded");
+
+// =======================
+// LOADING INDICATOR FOR DYNAMIC CONTENT
+// =======================
+
+// Create loading spinner element
+function createLoadingSpinner() {
+  let spinner = document.getElementById("loading-spinner");
+  if (!spinner) {
+    spinner = document.createElement("div");
+    spinner.id = "loading-spinner";
+    spinner.setAttribute("role", "status");
+    spinner.setAttribute("aria-live", "polite");
+    spinner.style.position = "fixed";
+    spinner.style.top = "50%";
+    spinner.style.left = "50%";
+    spinner.style.transform = "translate(-50%, -50%)";
+    spinner.style.zIndex = "9999";
+    spinner.style.background = "rgba(255,255,255,0.8)";
+    spinner.style.borderRadius = "1rem";
+    spinner.style.padding = "2rem";
+    spinner.style.boxShadow = "0 4px 24px rgba(102,126,234,0.15)";
+    spinner.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div style="width:48px;height:48px;border:6px solid #667eea;border-top:6px solid #764ba2;border-radius:50%;animation:spin 1s linear infinite;"></div>
+        <span style="margin-top:1rem;color:#3d55b4;font-weight:600;font-size:1.1rem;">Loading...</span>
+      </div>
+      <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg);}
+          100% { transform: rotate(360deg);}
+        }
+      </style>
+    `;
+    document.body.appendChild(spinner);
+  }
+  spinner.style.display = "block";
+}
+
+function removeLoadingSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) spinner.style.display = "none";
+}
+
+// Example usage for dynamic fetch (replace with your actual fetch logic)
+function fetchDynamicContent(url, callback) {
+  createLoadingSpinner();
+  // Simulate async fetch (replace with real fetch)
+  setTimeout(() => {
+    // ...fetch logic here...
+    removeLoadingSpinner();
+    if (typeof callback === "function") callback();
+  }, 1500);
+}
+
+// Example: Show spinner when loading job listings
+const jobList = document.getElementById("job-list");
+if (jobList) {
+  // Simulate dynamic fetch on page load
+  createLoadingSpinner();
+  setTimeout(() => {
+    // After fetching jobs, remove spinner
+    removeLoadingSpinner();
+    // ...existing job rendering logic...
+  }, 1200);
+}
+
+// You can wrap any async operation with createLoadingSpinner() and removeLoadingSpinner()
+// For accessibility, the spinner uses role="status" and aria-live="polite"
