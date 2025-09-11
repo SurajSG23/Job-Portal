@@ -620,4 +620,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 });
 
+// Send email notification function (using mailto for demonstration)
+function sendEmailNotification(to, subject, body) {
+  const mailtoLink = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+}
+
+// Example usage: Call this function where you want to trigger the email notification
+// sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
+
 console.log("Script loaded");

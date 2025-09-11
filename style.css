@@ -1112,7 +1112,6 @@ body.dark .btn-primary {
   color: #fff;
 }
 
-/* Remove unwanted bullet points and clean job section UI */
 .jobs-container ul,
 .jobs-container li {
   list-style: none !important;
