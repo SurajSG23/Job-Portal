@@ -41,7 +41,7 @@ All community leaders are obligated to respect the privacy and security of the r
 
 ## Enforcement Guidelines
 
-Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
+Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct
 
 1. Correction
 2. Warning

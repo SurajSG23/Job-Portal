@@ -6,8 +6,25 @@ function Redirect() {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded and DOM is ready.");
 
+=======
+document.addEventListener('DOMContentLoaded', function () {
+  const saveButtons = document.querySelectorAll('.save-job-btn');
+  const savedJobsContainer = document.getElementById('saved-jobs-container');
+  
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
+  savedJobs.forEach(job => {
+    const jobDiv = document.createElement('div');
+    jobDiv.className = 'job-card';
+    jobDiv.innerHTML = job;
+    savedJobsContainer.appendChild(jobDiv);
+document.addEventListener("DOMContentLoaded", () => {
   // =======================
-  // NAVIGATION DROPDOWN (ARIA)
+  // MENU BUTTONS (ARIA)
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // =======================
+  // MENU BUTTONS (ARIA)
   // =======================
   const menuButtons = document.querySelectorAll(".menu-button");
   function closeAllMenus() {
@@ -101,6 +118,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     }
+    }
+    function loadJobOrder() {
+      const savedOrder = JSON.parse(localStorage.getItem("jobOrder"));
+      if (savedOrder) {
+        savedOrder.forEach(text => {
+          const card = [...document.querySelectorAll(".job-card")].find(c => c.textContent === text);
+          if (card) jobList.appendChild(card);
+        });
+      }
+    }
     loadJobOrder();
   }
 
@@ -161,23 +188,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // THEME TOGGLE (WORKS ACROSS SITE)
   // (Removed duplicate variable-only block)
   // =======================
+
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const themeToggle = document.getElementById("themeToggle") || document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("themeIcon") || document.getElementById("theme-icon");
+  // THEME TOGGLE (WORKS ACROSS SITE)
+  // ======================
+
   function setTheme(dark) {
     document.body.classList.toggle("dark", dark);
-    const themeIcon = document.getElementById("theme-icon");
     if (themeIcon) {
       themeIcon.classList.toggle("fa-moon", !dark);
       themeIcon.classList.toggle("fa-sun", dark);
     }
   }
-
-  // Read theme from localStorage and apply
   const darkMode = localStorage.getItem("theme") === "dark";
   setTheme(darkMode);
+
 
   // Listen for theme toggle button click
   const themeToggle =
     document.getElementById("themeToggle") ||
     document.getElementById("theme-toggle");
+
   if (themeToggle) {
     themeToggle.onclick = () => {
       const isDark = !document.body.classList.contains("dark");
@@ -185,7 +219,38 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
   }
+  // Persistent Dark Theme Across All Pages
+  document.addEventListener("DOMContentLoaded", () => {
+    // Check saved theme in localStorage
+    const savedTheme = localStorage.getItem("jobPortalTheme") || "light";
+    applyTheme(savedTheme);
 
+    // Theme toggle button logic
+    const themeToggle = document.getElementById("theme-toggle") || document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("theme-icon") || document.getElementById("themeIcon");
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const isDark = document.body.classList.contains("dark");
+        const newTheme = isDark ? "light" : "dark";
+        applyTheme(newTheme);
+        localStorage.setItem("jobPortalTheme", newTheme);
+      });
+    }
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        document.body.classList.add("dark");
+        if (themeIcon) {
+          themeIcon.className = "fas fa-sun";
+        }
+      } else {
+        document.body.classList.remove("dark");
+        if (themeIcon) {
+          themeIcon.className = "fas fa-moon";
+        }
+      }
+    }
+  });
   // ============
   // MOBILE NAVIGATION TOGGLE
   // =======================
@@ -226,9 +291,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // =======================
   // SMOOTH SCROLLING FOR ANCHOR LINKS
   // =======================
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const target = document.querySelector(this.getAttribute("href"));
+
+  // MOBILE NAVIGATION TOGGLE
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -239,13 +311,51 @@ document.addEventListener("DOMContentLoaded", () => {
   // ======================
   // NAVBAR TOGGLE
   // =======================
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
     });
   }
+
+  // =======================
+  // MULTILEVEL DROPDOWN FOR MOBILE
+  // =======================
+  document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const submenu = this.nextElementSibling;
+      if (submenu && submenu.classList.contains('dropdown-content')) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+          parentLi.forEach(li => {
+            if (li !== this.parentElement) li.classList.remove('open');
+          });
+          this.parentElement.classList.toggle('open');
+        }
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+      if (!drop.contains(e.target)) drop.classList.remove('open');
+    });
+  });
+
+  // =======================
+  // SMOOTH SCROLLING FOR ANCHOR LINKS
+  // =======================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
   // =======================
   // BACK TO TOP BUTTON
@@ -379,12 +489,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // =======================
   // JOB ALERT MODAL
   // =======================
+
   const jobAlertForm = document.getElementById("jobAlertForm");
   const alertKeywordInput = document.getElementById("alertKeyword");
   const simulateJobBtn = document.getElementById("simulateJobBtn");
   const modal = document.getElementById("jobAlertModal");
   const closeModalBtn = document.querySelector(".close-btn");
   const alertMessage = document.getElementById("alertMessage");
+
+=======
+  const jobAlertForm = document.getElementById('jobAlertForm');
+  const alertKeywordInput = document.getElementById('alertKeyword');
+  const simulateJobBtn = document.getElementById('simulateJobBtn');
+  const modal = document.getElementById('jobAlertModal');
+  const alertMessage = document.getElementById('alertMessage');
+  const closeModalBtn = document.querySelector('.close-btn');
+  const closeModalBtn = document.querySelector('.close-btn');
+  const alertMessage = document.getElementById('alertMessage');
 
   if (jobAlertForm && alertKeywordInput) {
     jobAlertForm.addEventListener("submit", function (e) {
@@ -572,6 +693,7 @@ document.addEventListener("DOMContentLoaded", () => {
     location.reload();
   };
 
+
   // Example of how to attach listeners if your buttons don't use onclick=""
   const loginBtn = document.getElementById("login-button"); // Assuming you have buttons with these IDs
   const registerBtn = document.getElementById("register-button");
@@ -582,3 +704,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if(updateProfileBtn) updateProfileBtn.addEventListener('click', updateProfile);
 
 }); // <-- This is the single, correct closing bracket for the main DOMContentLoaded listener.
+=======
+// Send email notification function (using mailto for demonstration)
+function sendEmailNotification(to, subject, body) {
+  const mailtoLink = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+}
+
+// Example usage: Call this function where you want to trigger the email notification
+// sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
+
+console.log("Script loaded");
+
