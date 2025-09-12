@@ -1,5 +1,4 @@
-// Reminder: Periodically audit and remove unused JavaScript code for optimal performance.
-// Use browser DevTools Coverage tab or static analysis tools to find dead code.
+
 function updateDropdown(label) {
   document.getElementById('jobDropdown').textContent = label;
 }
