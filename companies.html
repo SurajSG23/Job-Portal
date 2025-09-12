@@ -17,7 +17,7 @@
 <header class="header">
   <nav class="navbar">
     <div class="nav-brand">
-      <img src="assets/logo.webp" alt="Job Junction" class="logo" />
+      <img src="assets/logo.webp" alt="Job Junction" class="logo" style="background-color: white;"/>
     </div>
 
     <ul class="nav-menu" id="navMenu">
@@ -47,7 +47,6 @@
     </div>
   </nav>
 </header>
-
 
   <!-- Companies Section -->
   <section class="companies">
@@ -100,7 +99,6 @@
       </div>
     </div>
   </section>
-
   <footer>
     <div id="footer-statement">
       <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
@@ -151,14 +149,37 @@
       <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank" aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
-    </div>
+    <!-- </div>
   
     <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
-  </footer>
+  </footer> -->
   
 
   <!-- Scroll Animation Script -->
   <script>
+
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    // Load saved theme on page load
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+
+      // Save preference
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+      }
+    });
+
+
     document.addEventListener("DOMContentLoaded", () => {
       const elements = document.querySelectorAll(".animate");
 

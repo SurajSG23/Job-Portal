@@ -197,6 +197,12 @@
   width: 100%;
 }
 
+.toggle-btn {
+      margin: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -466,4 +472,19 @@ footer h3 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ================= Dark Theme Overrides ================= */
+body.dark {
+  --background: var(--gray-900);
+  --surface: var(--gray-800);
+  --text-primary: var(--gray-50);
+  --text-secondary: var(--gray-300);
+  --border: var(--gray-700);
+
+  --accent: var(--primary-400);
+  --accent-hover: var(--primary-300);
+
+  --white: #000000; /* flip white/black meaning */
+  --black: #ffffff;
 }
