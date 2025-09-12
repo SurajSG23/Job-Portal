@@ -1,76 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Junction | Modern Job Portal</title>
-  <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career." />
+  <title>Job Junction | Find Your Dream Career</title>
+
+  <meta name="description"
+    content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
+  <meta name="keywords"
+    content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
+  <meta name="author" content="Job Junction Team" />
+
+  <meta property="og:title" content="Job Junction | Find Your Dream Career" />
+  <meta property="og:description" content="Discover top jobs, career resources, and professional events at Job Junction." />
+  <meta property="og:image" content="assets/logo.webp" />
+  <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://surajsg23.github.io/Job-Portal/" />
+
+  <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="companies.css" />
+  <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="shortcut icon" href="assets/logo.webp" type="image/x-icon" />
+
+  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "logo": "assets/logo.webp",
+      "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "description": "Job Junction is your gateway to top jobs, career resources, and professional events.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Job Junction",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "assets/logo.webp"
+        }
+      }
+    }
+  </script>
+
+  <script type="module" src="components/firebaseauth.js"></script>
+
   <style>
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #222;
-      min-height: 100vh;
-    }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 12px rgba(102,126,234,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-brand img {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-    .nav-link {
-      color: #3d55b4;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      position: relative;
-      padding: 0.5rem 0;
-      transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: #764ba2;
-    }
-    .dropdown-content {
+    /* This minimal dropdown CSS is included here to prevent layout shift 
+      and ensure dropdowns work even before the main CSS files load.
+      Your main styles (like dark mode, fonts, etc.) should be in your external CSS files.
+    */
+    .nav-menu .dropdown-content {
       display: none;
       position: absolute;
       left: 0;
       top: 100%;
       min-width: 180px;
       background: #fff;
-      box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+      box-shadow: 0 8px 24px rgba(30, 58, 138, 0.08);
       border-radius: 10px;
       z-index: 100;
       padding: 0;
       list-style: none;
     }
-    .dropdown:hover > .dropdown-content,
-    .dropdown.open > .dropdown-content {
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu .dropdown:hover>.dropdown-content,
+    .nav-menu .dropdown:focus-within>.dropdown-content {
       display: block;
       animation: fadeIn 0.2s;
     }
-    .dropdown-content a {
+
+    .nav-menu .dropdown-content .dropdown-content {
+      left: 100%;
+      top: 0;
+    }
+
+    .nav-menu .dropdown-content a {
       display: block;
       padding: 12px 20px;
       color: #1e3a8a;
@@ -78,237 +106,26 @@
       border-radius: 8px;
       transition: background 0.2s;
     }
-    .dropdown-content a:hover {
+
+    .nav-menu .dropdown-content a:hover {
       background: #f0f4ff;
     }
-    .nav-actions {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .btn-primary, .btn-ghost {
-      padding: 0.5rem 1.2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.2s, color 0.2s;
-      text-decoration: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #764ba2, #667eea);
-    }
-    .btn-ghost {
-      background: #fff;
-      color: #764ba2;
-      border: 1px solid #764ba2;
-    }
-    .btn-ghost:hover {
-      background: #764ba2;
-      color: #fff;
-    }
-    .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #764ba2;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .theme-toggle:hover {
-      color: #667eea;
-    }
-    .mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #764ba2;
-      cursor: pointer;
-      margin-left: 1rem;
-    }
-    @media (max-width: 900px) {
-      .nav-menu {
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        box-shadow: 0 8px 24px rgba(30,58,138,0.08);
-        border-radius: 0 0 16px 16px;
-        display: none;
-      }
-      .nav-menu.active {
-        display: flex;
-      }
-      .mobile-toggle {
-        display: block;
-      }
-    }
-    .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      padding: 5rem 2rem 3rem 2rem;
-      text-align: center;
-      border-radius: 0 0 2rem 2rem;
-      box-shadow: 0 8px 32px rgba(102,126,234,0.10);
-      margin-bottom: 2rem;
-    }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.1;
-      letter-spacing: 1px;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #f093fb, #667eea);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-description {
-      font-size: 1.15rem;
-      color: #e0e7ff;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .features {
-      background: #f9fafb;
-      padding: 4rem 0;
-      border-radius: 2rem;
-      margin: 2rem auto;
-      max-width: 1200px;
-      box-shadow: 0 4px 24px rgba(102,126,234,0.08);
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .feature-card {
-      background: #fff;
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 12px rgba(102,126,234,0.08);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(102,126,234,0.14);
-      border: 1.5px solid #764ba2;
-    }
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem auto;
-      font-size: 2rem;
-      color: #fff;
-    }
-    .footer {
-      background: #23272f;
-      color: #e5e7eb;
-      padding: 3rem 0 1rem;
-      border-radius: 2rem 2rem 0 0;
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      margin-bottom: 2rem;
-    }
-    .footer-content p {
-      margin: 0;
-      font-size: 1rem;
-    }
-    body.dark {
-      background-color: #121212;
-      color: #e0e0e0;
-    }
-    body.dark .navbar {
-      background: #1e1e1e;
-      color: #e0e0e0;
-    }
-    body.dark .nav-link {
-      color: #e0e0e0;
-    }
-    body.dark .dropdown-content {
-      background: #2a2a2a;
-      border-color: #444;
-    }
-    body.dark .dropdown-content a {
-      color: #e0e0e0;
-    }
-    body.dark .features {
-      background: #181818;
-      color: #e0e0e0;
-    }
-    body.dark .feature-card {
-      background: #1e1e1e;
-      color: #e0e0e0;
-      border-color: #333;
-    }
-    body.dark .feature-icon {
-      color: #66aaff;
-    }
-    body.dark .footer {
-      background: #1a1a1a;
-      color: #e0e0e0;
-    }
-    body.dark .footer a {
-      color: #ddd;
-    }
-    body.dark .btn-primary {
-      background: #0077ff;
-      color: #fff;
-    }
-    body.dark .btn-ghost {
-      border: 1px solid #ccc;
-      color: #fff;
-    }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-  </style>
-      .nav-menu .dropdown-content,
-      .nav-menu .dropdown-content .dropdown-content {
-        position: static;
-        box-shadow: none;
-        margin-left: 0;
-        border-radius: 0;
+      from {
+        opacity: 0;
+        transform: translateY(10px);
       }
-      .nav-menu .dropdown-content {
-        display: none;
-      }
-      .nav-menu .dropdown.open > .dropdown-content {
-        display: block;
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
+
+
+    @media (max-width: 900px) {
+
   </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1446,505 +1263,26 @@
       </script>
     </body>
     </html>
+
       .nav-menu .dropdown-content,
       .nav-menu .dropdown-content .dropdown-content {
         position: static;
         box-shadow: none;
-        margin-left: 0;
         border-radius: 0;
       }
-      .nav-menu .dropdown-content {
-        display: none;
-      }
-      .nav-menu .dropdown.open > .dropdown-content {
+
+      .nav-menu .dropdown.open>.dropdown-content {
         display: block;
       }
-   
-  <nav class="dropdown-nav" aria-label="Main Menu">
-  <ul class="menu" role="menubar">
-    <li class="menu-item" role="none">
-      <button class="menu-button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-        Jobs
-      </button>
-      <ul class="submenu" role="menu">
-        <li role="none">
-          <button class="menu-button" aria-haspopup="true" aria-expanded="false" role="menuitem">
-            By Category
-          </button>
-          <ul class="submenu" role="menu">
-            <li role="none"><a role="menuitem" href="#">IT Jobs</a></li>
-            <li role="none"><a role="menuitem" href="#">Finance</a></li>
-            <li role="none"><a role="menuitem" href="#">Marketing</a></li>
-          </ul>
-        </li>
-        <li role="none"><a role="menuitem" href="#">By Location</a></li>
-        <li role="none"><a role="menuitem" href="#">Remote Jobs</a></li>
-      </ul>
-    </li>
-    <li class="menu-item" role="none">
-      <a href="#" role="menuitem">Companies</a>
-    </li>
-    <li class="menu-item" role="none">
-      <a href="#" role="menuitem">Contact</a>
-    </li>
-  </ul>
-</nav>
-
-<nav aria-label="Main navigation">
-  <ul role="menubar">
-    <li role="none">
-      <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Jobs</a>
-      <ul role="menu" hidden>
-        <li role="none"><a href="#" role="menuitem">Job List</a></li>
-        <li role="none"><a href="#" role="menuitem">Job Details</a></li>
-      </ul>
-    </li>
-    <li role="none"><a href="#" role="menuitem">About</a></li>
-    <li role="none"><a href="#" role="menuitem">Contact</a></li>
-  </ul>
-</nav>
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Junction | Find Your Dream Career</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
-    <meta name="keywords" content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
-    <meta name="author" content="Job Junction Team" />
-    <meta property="og:title" content="Job Junction | Find Your Dream Career" />
-    <meta property="og:description" content="Discover top jobs, career resources, and professional events at Job Junction." />
-    <meta property="og:image" content="assets/logo.webp" />
-    <meta property="og:url" content="https://yourdomain.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://yourdomain.com/" />
-
-    <!-- Preload critical resources for performance -->
-    <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
-    <link rel="preload" href="style.css" as="style" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <title>Job Junction | Modern Job Portal</title>
-    <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career. Built with HTML, CSS, JavaScript, and Firebase." />
-    <meta name="keywords" content="job portal, job search, careers, employment, HTML, CSS, JavaScript, Firebase" />
-    <meta name="author" content="Job Junction Team" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Job Junction | Modern Job Portal" />
-    <meta property="og:description" content="Explore job opportunities and start your career with Job Junction." />
-    <meta property="og:image" content="assets/logo.webp" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Job Junction | Modern Job Portal" />
-    <meta name="twitter:description" content="Explore job opportunities and start your career with Job Junction." />
-    <meta name="twitter:image" content="assets/logo.webp" />
-    <!-- For development: -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- For production, use minified: -->
-    <!-- <link rel="stylesheet" href="style.min.css" /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Job Junction",
-      "url": "https://yourdomain.com/",
-      "description": "Job Junction is your gateway to top jobs, career resources, and professional events.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Job Junction",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "assets/logo.webp"
-        }
-      }
     }
-</script>
+  </style>
 </head>
+
 <body>
-  <!-- Navigation Bar -->
   <header>
     <nav class="navbar" aria-label="Main Navigation">
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar" aria-label="Main Navigation">
-            <div class="logo" role="img" aria-label="Job Junction Logo"></div>
-            <ul class="nav-links">
-                <li><a href="./components/homepage.html">Home</a></li>
-                <li><a href="./components/about.html">About</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle theme">
-                <i id="theme-icon" class="fas fa-moon"></i>
-            </button>
-            <div class="nav-toggle" aria-label="Open navigation"><i class="fa fa-bars"></i></div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <main>
-        <section class="hero">
-            <h1>Don't just search.<br>Start your career!</h1>
-            <button onclick="Redirect()" class="get-started-btn">Get Started</button>
-        </section>
-
-        <!-- Registration Section -->
-        <section id="signUpSection" class="sign-section">
-            <form autocomplete="off">
-                <div class="box-sign">
-                    <h2>Register</h2>
-                    <div class="input-group">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" id="fName" placeholder="Suraj" required />
-                        <label for="fName">First name</label>
-                    </div>
-                    <div class="input-group">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" id="lName" placeholder="S G" required />
-                        <label for="lName">Last name</label>
-                    </div>
-                    <div class="input-group">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" id="rEmail" placeholder="Example@gmail.com" required />
-                        <label for="rEmail">Email</label>
-                    </div>
-                    <div class="input-group">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="rPassword" placeholder="Password" required />
-                        <label for="rPassword">Password</label>
-                    </div>
-                    <button type="submit" class="sign-up-btn">Sign Up</button>
-                </div>
-            </form>
-            <div class="signy">
-                <p>----------OR----------</p>
-                <div class="links">
-                    <h5>Already have an account?</h5>
-                    <button type="button" name="sign-in" class="sign-in">Sign-in</button>
-                </div>
-                <button type="button" class="guestLogin" onclick="guestLogin()">Guest Login</button>
-            </div>
-        </section>
-
-        <!-- Job Card Example -->
-        <section>
-            <div class="job-card">
-                <h3>Job Title</h3>
-                <p>Company Name</p>
-                <p>Description</p>
-                <button class="save-job-btn">🔖 Save</button>
-            </div>
-        </section>
-
-        <!-- Saved Jobs Section -->
-        <section id="saved-jobs">
-            <h2>Saved Jobs</h2>
-            <div id="saved-jobs-container"></div>
-        </section>
-    </main>
-
-    <!-- Login Section -->
-    <section id="signInSection" class="sign-section-2">
-        <form autocomplete="off">
-            <div class="box-sign">
-                <h2>Login</h2>
-                <div class="input-group">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Example@gmail.com" required />
-                    <label for="email">Email</label>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="password" placeholder="Password" required />
-                    <label for="password">Password</label>
-                </div>
-                <button type="submit" class="sign-in-btn">Login</button>
-                <div class="signy">
-                    <p>----------OR----------</p>
-                    <div class="links2">
-                        <h5>Register new account?</h5>
-                        <button type="button" name="sign-up" class="sign-up">Sign-up</button>
-                    </div>
-                    <button type="button" class="guestLogin" onclick="guestLogin()">Guest Login</button>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
-    <script type="module" src="components/firebaseauth.js"></script>
-  </head>
-<body>
-  <nav class="navbar">
-    <div class="nav-logo">
-      <picture>
-  <source srcset="job-banner.webp" type="image/webp">
-  <img src="job-banner.jpg" alt="Job Banner" loading="lazy" width="600" height="300">
-</picture>
-    </div>
-    <ul class="nav-links">
-      <li><a href="./components/homepage.html">Home</a></li>
-      <li><a href="./components/about.html">About</a></li>
-    </ul>
-    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-  </nav>
-
-
-    @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* =============================
-   HEADER & NAV
-============================= */
-.navbar {
-  animation: fadeInUp 1s ease forwards;
-}
-
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #007bff;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-actions .btn-primary {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-actions .btn-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* =============================
-   FEATURES SECTION
-============================= */
-.feature-card {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Add staggered delay for engaging entrance */
-.feature-card:nth-child(1) { animation-delay: 0.2s; }
-.feature-card:nth-child(2) { animation-delay: 0.4s; }
-.feature-card:nth-child(3) { animation-delay: 0.6s; }
-.feature-card:nth-child(4) { animation-delay: 0.8s; }
-
-.feature-icon {
-  font-size: 2rem;
-  color: #007bff;
-  transition: transform 0.4s ease, color 0.3s ease;
-}
-
-.feature-card:hover .feature-icon {
-  transform: rotate(15deg) scale(1.2);
-  color: #ff6600;
-}
-
-/* =============================
-   CATEGORIES
-============================= */
-.category-card {
-  opacity: 0;
-  animation: fadeInScale 0.8s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.category-card:nth-child(1) { animation-delay: 0.2s; }
-.category-card:nth-child(2) { animation-delay: 0.4s; }
-.category-card:nth-child(3) { animation-delay: 0.6s; }
-.category-card:nth-child(4) { animation-delay: 0.8s; }
-.category-card:nth-child(5) { animation-delay: 1s; }
-.category-card:nth-child(6) { animation-delay: 1.2s; }
-
-/* =============================
-   FOOTER
-============================= */
-.site-footer {
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.social-media a {
-  display: inline-block;
-  margin-right: 0.8rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-media a:hover {
-  transform: scale(1.2) rotate(10deg);
-  color: #007bff;
-}
-
-.links-section ul li a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.links-section ul li a:hover {
-  color: #ff6600;
-  transform: translateX(5px);
-}
-
-.footer-credit {
-  text-align: center;
-  padding: 1rem;
-  animation: pulse 3s infinite;
-}
-
-.btn1 {
-        margin-right: 1rem;
-        margin-top: 1rem;
-        width: 5rem;
-        height: 3rem;
-      }
-
-      .btn2 {
-        width: 7rem;
-        margin-top: 1rem;
-        /* margin: 1rem; */
-        height: 3rem;
-      }
-
-      body.dark .navbar {
-  background: #1e1e1e;
-  color: #e0e0e0;
-}
-
-body.dark .nav-link {
-  color: #e0e0e0;
-}
-
-body.dark .dropdown-content {
-  background: #2a2a2a;
-  border-color: #444;
-}
-
-body.dark .dropdown-content a {
-  color: #e0e0e0;
-}
-
-body.dark .features, 
-body.dark .categories {
-  background: #181818;
-  color: #e0e0e0;
-}
-
-body.dark .feature-card, 
-body.dark .category-card {
-  background: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #333;
-}
-
-body.dark .feature-icon, 
-body.dark .category-icon {
-  color: #66aaff;
-}
-
-body.dark .site-footer {
-  background: #1a1a1a;
-  color: #e0e0e0;
-}
-
-body.dark .site-footer a {
-  color: #ddd;
-}
-
-body.dark .btn-primary {
-  background: #0077ff;
-  color: #fff;
-}
-
-body.dark .btn-ghost {
-  border: 1px solid #ccc;
-  color: #fff;
-}
-
-
-<body>
-
-  <nav class="navbar">
-    <div class="nav-logo">
-      <picture>
-  <source srcset="job-banner.webp" type="image/webp">
-  <img src="job-banner.jpg" alt="Job Banner" loading="lazy" width="600" height="300">
-</picture>
-    </div>
-    <ul class="nav-links">
-      <li><a href="./components/homepage.html">Home</a></li>
-      <li><a href="./components/about.html">About</a></li>
-    </ul>
-    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-  </nav>
-
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
       <div class="nav-brand">
-        <img src="assets/logo.webp" alt="Job Junction Logo" />
+        <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
       </div>
       <ul class="nav-menu" id="navMenu">
         <li><a href="./components/homepage.html" class="nav-link active">Home</a></li>
@@ -1963,41 +1301,25 @@ body.dark .btn-ghost {
         <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
         <li><a href="components/events.html" class="nav-link">Events</a></li>
-        <li><a href="faq.html" class="nav-link">FAQs</a></li>
+        <li><a href="faq.html" class="nav-link">Faqs</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fas fa-moon" id="theme-icon"></i>
         </button>
-        <a href="./login.html" class="btn-ghost">Login</a>
-        <a href="./signup.html" class="btn-primary">Sign Up</a>
+        <div id="auth-container">
+          <a href="./login.html" class="btn btn-ghost">Login</a>
+          <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
         <i class="fa fa-bars"></i>
       </button>
     </nav>
   </header>
-  <!-- Hero Section -->
+
   <main>
     <section class="hero" id="home">
-      <h1 class="hero-title">
-        Discover Amazing <span class="gradient-text">Opportunities</span> & Start Your Career Journey
-      </h1>
-      <p class="hero-description">
-        Join thousands of professionals who found their perfect match.<br>
-        Browse through premium job listings from top companies worldwide.
-      </p>
-      <div class="hero-actions">
-        <a href="components/homepage.html" class="btn-primary get-started-btn" aria-label="Get Started">
-          <span>Get Started</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="#features" class="btn-ghost learn-more-btn" aria-label="Learn More">
-          <span>Learn More</span>
-          <i class="fas fa-play"></i>
-        </a>
-      </div>
-    </section>
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badge">
@@ -2046,23 +1368,28 @@ body.dark .btn-ghost {
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-
-    <!-- Video Instructions Section -->
-    <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
+    <section class="video-instructions"
+      style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
       <h2 style="font-size:2rem; font-weight:700; color:#3d55b4; margin-bottom:1rem;">How to Use Job Junction</h2>
       <p style="color:#64748b; font-size:1.15rem; margin-bottom:2rem;">
         Watch this quick video guide to learn how to search for jobs, apply, and manage your career on Job Junction.
       </p>
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:1rem; box-shadow:0 2px 12px rgba(102,126,234,0.10); margin-bottom:1rem;">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Job Junction Instructions" frameborder="0" allowfullscreen
+      <div
+        style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:1rem; box-shadow:0 2px 12px rgba(102,126,234,0.10); margin-bottom:1rem;">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Job Junction Instructions" frameborder="0"
+          allowfullscreen
           style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:1rem;"></iframe>
       </div>
       <p style="color:#3d55b4; font-size:1rem;">
-        Need more help? Visit our <a href="#contact" style="color:#764ba2; text-decoration:underline;">Contact</a> page or check out our <a href="#features" style="color:#764ba2; text-decoration:underline;">Features</a> below!
+        Need more help? Visit our <a href="ContactPage.html" style="color:#764ba2; text-decoration:underline;">Contact</a>
+        page or check out our <a href="#features" style="color:#764ba2; text-decoration:underline;">Features</a>
+        below!
       </p>
     </section>
-    <!-- Features Section -->
+
     <section class="features" id="features">
       <div class="container">
         <div class="section-header">
@@ -2087,84 +1414,6 @@ body.dark .btn-ghost {
             <div class="feature-icon">
               <i class="fas fa-user-check"></i>
             </div>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Job Junction. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts: Defer for performance -->
-    <script src="script.js" defer></script>
-    <script defer>
-        // Enhanced Theme Toggle System - Works across all pages
-        class ThemeManager {
-          constructor() {
-            this.init();
-          }
-          init() {
-            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
-            this.applyTheme(savedTheme, false);
-            this.setupThemeToggle();
-            this.setupMobileNav();
-          }
-          applyTheme(theme, animate = true) {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            if (animate) {
-              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            }
-            if (theme === 'dark') {
-              body.classList.add('dark');
-              if (themeIcon) {
-                themeIcon.className = 'fas fa-sun';
-                themeIcon.style.transform = 'rotate(180deg)';
-              }
-            } else {
-              body.classList.remove('dark');
-              if (themeIcon) {
-                themeIcon.className = 'fas fa-moon';
-                themeIcon.style.transform = 'rotate(0deg)';
-              }
-            }
-            localStorage.setItem('jobPortalTheme', theme);
-            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
-          }
-          setupThemeToggle() {
-            const themeToggle = document.getElementById('theme-toggle');
-            if (!themeToggle) return;
-            themeToggle.addEventListener('click', () => {
-              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
-              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-              this.applyTheme(newTheme);
-            });
-          }
-          setupMobileNav() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (navToggle && navLinks) {
-              navToggle.addEventListener('click', () => {
-                const isActive = navLinks.classList.contains('active');
-                navLinks.classList.toggle('active');
-                const icon = navToggle.querySelector('i');
-                if (icon) {
-                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
-                }
-              });
-            }
-          }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-          new ThemeManager();
-        });
-        window.addEventListener('themeChanged', (e) => {
-          console.log(`Theme changed to: ${e.detail.theme}`);
-        });
-    </script>
-</body>
             <h3>Easy Application</h3>
             <p>Simplified application process to save your time and effort.</p>
           </div>
@@ -2178,12 +1427,27 @@ body.dark .btn-ghost {
         </div>
       </div>
     </section>
-  </main>
-  <!-- Footer -->
 
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    <div class="job-page">
+      <aside id="filter-panel" class="filter-panel">
+        <h3>Filters</h3>
+        <div>
+          <label><input type="checkbox"> Remote Only</label>
+        </div>
+        <div>
+          <label><input type="checkbox"> Full Time</label>
+        </div>
+        <button id="pin-panel">Pin/Unpin</button>
+        <button id="resize-panel">↔ Resize</button>
+      </aside>
+      <section id="job-list" class="job-list">
+        <div class="job-card" draggable="true">Job 1 - Frontend Dev</div>
+        <div class="job-card" draggable="true">Job 2 - Backend Dev</div>
+        <div class="job-card" draggable="true">Job 3 - Data Scientist</div>
+        <div class="job-card" draggable="true">Job 4 - UI/UX Designer</div>
+      </section>
+    </div>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-main">
@@ -2220,116 +1484,71 @@ body.dark .btn-ghost {
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
           </ul>
-
-        }
-
-<!-- ...existing code... -->
-
-<!-- Add this just before the closing </body> tag -->
-<div id="liveChatWidget" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;">
-  <button id="chatToggleBtn" aria-label="Open live chat" style="background:#667eea;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 16px rgba(30,58,138,0.15);font-size:2rem;cursor:pointer;">
-    <i class="fas fa-comments"></i>
-  </button>
-  <div id="chatBox" style="display:none;flex-direction:column;width:320px;max-width:90vw;height:400px;background:#fff;border-radius:1rem;box-shadow:0 8px 32px rgba(102,126,234,0.18);position:absolute;bottom:70px;right:0;">
-    <div style="background:#667eea;color:#fff;padding:1rem;border-radius:1rem 1rem 0 0;display:flex;justify-content:space-between;align-items:center;">
-      <span><i class="fas fa-robot"></i> Live Chat</span>
-      <button id="chatCloseBtn" aria-label="Close chat" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">&times;</button>
-    </div>
-    <div id="chatMessages" style="flex:1;overflow-y:auto;padding:1rem;font-size:1rem;background:#f9fafb;"></div>
-    <form id="chatForm" style="display:flex;padding:0.5rem 1rem;border-top:1px solid #eee;">
-      <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off" style="flex:1;padding:0.5rem;border-radius:0.5rem;border:1px solid #ddd;font-size:1rem;" />
-      <button type="submit" style="background:#667eea;color:#fff;border:none;border-radius:0.5rem;padding:0 1rem;margin-left:0.5rem;font-size:1.2rem;cursor:pointer;">
-        <i class="fas fa-paper-plane"></i>
-      </button>
-    </form>
-  </div>
-</div>
-
-<script>
-  // Live Chat Widget Logic
-  const chatToggleBtn = document.getElementById('chatToggleBtn');
-  const chatBox = document.getElementById('chatBox');
-  const chatCloseBtn = document.getElementById('chatCloseBtn');
-  const chatMessages = document.getElementById('chatMessages');
-  const chatForm = document.getElementById('chatForm');
-  const chatInput = document.getElementById('chatInput');
-
-  function appendMessage(sender, text) {
-    const msgDiv = document.createElement('div');
-    msgDiv.style.marginBottom = '0.7rem';
-    msgDiv.innerHTML = `<strong style="color:${sender==='You'?'#667eea':'#764ba2'}">${sender}:</strong> <span>${text}</span>`;
-    chatMessages.appendChild(msgDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  chatToggleBtn.onclick = () => {
-    chatBox.style.display = 'flex';
-    chatInput.focus();
-    if (!chatMessages.hasChildNodes()) {
-      appendMessage('Bot', '👋 Hi! How can I help you today?');
-    }
-  };
-  chatCloseBtn.onclick = () => {
-    chatBox.style.display = 'none';
-  };
-  chatForm.onsubmit = (e) => {
-    e.preventDefault();
-    const userMsg = chatInput.value.trim();
-    if (!userMsg) return;
-    appendMessage('You', userMsg);
-    chatInput.value = '';
-    setTimeout(() => {
-      // Simple bot reply logic
-      let reply = "I'm here to help! Please ask your job or portal related question.";
-      if (/hello|hi|hey/i.test(userMsg)) reply = "Hello! 👋 How can I assist you?";
-      if (/job|apply/i.test(userMsg)) reply = "You can browse jobs and apply directly from the listings!";
-      if (/contact|support/i.test(userMsg)) reply = "You can reach support via our Contact page.";
-      appendMessage('Bot', reply);
-    }, 700);
-  };
-</script>
-
-<!-- ...existing code... -->
-</body>
-</html><!-- ...existing code above... -->
-
-<!-- Replace all navigation blocks with this unified, accessible navigation bar -->
-<header>
-  <nav class="navbar" aria-label="Main Navigation">
-    <div class="nav-brand">
-      <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
-    </div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="./components/homepage.html" class="nav-link">Home</a></li>
-      <li class="dropdown">
-        <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-          Jobs <i class="fas fa-chevron-down"></i>
-        </a>
-        <ul class="dropdown-content" aria-label="submenu">
-          <li><a href="components/seeker.html">Browse Jobs</a></li>
-          <li><a href="#">Remote Jobs</a></li>
-          <li><a href="#">Featured Jobs</a></li>
-          <li><a href="internships.html">Internships</a></li>
-        </ul>
-      </li>
-      <li><a href="companies.html" class="nav-link">Companies</a></li>
-      <li><a href="components/about.html" class="nav-link">About</a></li>
-      <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
-      <li><a href="components/events.html" class="nav-link">Events</a></li>
-      <li><a href="faq.html" class="nav-link">FAQs</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-moon" id="theme-icon"></i>
-      </button>
-      <a href="./login.html" class="btn btn-ghost">Login</a>
-      <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
     </div>
   </footer>
-  <!-- Scripts -->
-  <script>
-    // Theme toggle persistent across site
-    document.addEventListener("DOMContentLoaded", () => {
+
+  <div id="liveChatWidget" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;">
+    <button id="chatToggleBtn" aria-label="Open live chat"
+      style="background:#667eea;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 16px rgba(30,58,138,0.15);font-size:2rem;cursor:pointer;">
+      <i class="fas fa-comments"></i>
+    </button>
+    <div id="chatBox"
+      style="display:none;flex-direction:column;width:320px;max-width:90vw;height:400px;background:#fff;border-radius:1rem;box-shadow:0 8px 32px rgba(102,126,234,0.18);position:absolute;bottom:70px;right:0;">
+      <div
+        style="background:#667eea;color:#fff;padding:1rem;border-radius:1rem 1rem 0 0;display:flex;justify-content:space-between;align-items:center;">
+        <span><i class="fas fa-robot"></i> Live Chat</span>
+        <button id="chatCloseBtn" aria-label="Close chat"
+          style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">&times;</button>
+      </div>
+      <div id="chatMessages" style="flex:1;overflow-y:auto;padding:1rem;font-size:1rem;background:#f9fafb;"></div>
+      <form id="chatForm" style="display:flex;padding:0.5rem 1rem;border-top:1px solid #eee;">
+        <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off"
+          style="flex:1;padding:0.5rem;border-radius:0.5rem;border:1px solid #ddd;font-size:1rem;" />
+        <button type="submit"
+          style="background:#667eea;color:#fff;border:none;border-radius:0.5rem;padding:0 1rem;margin-left:0.5rem;font-size:1.2rem;cursor:pointer;">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <script defer>
+    // Inline script for critical, above-the-fold functionality (Auth, Theme, Mobile Nav)
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- NEW AUTHENTICATION CHECK LOGIC ---
+      const authContainer = document.getElementById('auth-container');
+      // Check both local and session storage for the login flag
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true' || sessionStorage.getItem('isLoggedIn') === 'true';
+
+      if (isLoggedIn) {
+        // User IS logged in: Show a Logout button
+        authContainer.innerHTML = `
+          <button id="logout-btn" class="btn btn-ghost">Logout</button>
+        `;
+        
+        // Add a click event listener to the new logout button
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          // Clear the login flag from both storage types
+          localStorage.removeItem('isLoggedIn');
+          sessionStorage.removeItem('isLoggedIn');
+          // Reload the page to reflect the logged-out state
+          window.location.reload(); 
+        });
+
+      } 
+      // If user is NOT logged in (else), we do nothing.
+      // The default HTML (Login/Sign Up) in #auth-container is already correct.
+      // --- END OF AUTH LOGIC ---
+
+
+      // Enhanced Theme Toggle System - Works across all pages
       function setTheme(dark) {
         document.body.classList.toggle("dark", dark);
         const themeIcon = document.getElementById("theme-icon");
@@ -2338,8 +1557,10 @@ body.dark .btn-ghost {
           themeIcon.classList.toggle("fa-sun", dark);
         }
       }
+
       const darkMode = localStorage.getItem("theme") === "dark";
       setTheme(darkMode);
+
       const themeToggle = document.getElementById("themeToggle");
       if (themeToggle) {
         themeToggle.onclick = () => {
@@ -2348,6 +1569,7 @@ body.dark .btn-ghost {
           localStorage.setItem("theme", isDark ? "dark" : "light");
         };
       }
+
       // Mobile Navigation Toggle
       const mobileToggle = document.getElementById('mobileToggle');
       const navMenu = document.getElementById('navMenu');
@@ -2357,9 +1579,10 @@ body.dark .btn-ghost {
           mobileToggle.classList.toggle('active');
         });
       }
+
       // Multilevel Dropdown Toggle for Mobile
       document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
           const submenu = this.nextElementSibling;
           if (submenu && submenu.classList.contains('dropdown-content')) {
             if (window.innerWidth <= 900) {
@@ -2373,12 +1596,69 @@ body.dark .btn-ghost {
           }
         });
       });
-      document.addEventListener('click', function(e) {
+
+      // Close mobile dropdowns when clicking elsewhere
+      document.addEventListener('click', function (e) {
         document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
           if (!drop.contains(e.target)) drop.classList.remove('open');
         });
       });
     });
   </script>
+
+  <script>
+    // Live Chat Widget Logic (This script remains unchanged)
+    const chatToggleBtn = document.getElementById('chatToggleBtn');
+    const chatBox = document.getElementById('chatBox');
+    const chatCloseBtn = document.getElementById('chatCloseBtn');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+
+    function appendMessage(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.style.marginBottom = '0.7rem';
+      msgDiv.innerHTML = `<strong style="color:${sender === 'You' ? '#667eea' : '#764ba2'}">${sender}:</strong> <span>${text}</span>`;
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    if (chatToggleBtn) {
+        chatToggleBtn.onclick = () => {
+        chatBox.style.display = 'flex';
+        chatInput.focus();
+        if (!chatMessages.hasChildNodes()) {
+          appendMessage('Bot', '👋 Hi! How can I help you today?');
+        }
+      };
+    }
+
+    if (chatCloseBtn) {
+        chatCloseBtn.onclick = () => {
+        chatBox.style.display = 'none';
+      };
+    }
+    
+    if (chatForm) {
+        chatForm.onsubmit = (e) => {
+        e.preventDefault();
+        const userMsg = chatInput.value.trim();
+        if (!userMsg) return;
+        appendMessage('You', userMsg);
+        chatInput.value = '';
+        setTimeout(() => {
+          // Simple bot reply logic
+          let reply = "I'm here to help! Please ask your job or portal related question.";
+          if (/hello|hi|hey/i.test(userMsg)) reply = "Hello! 👋 How can I assist you?";
+          if (/job|apply/i.test(userMsg)) reply = "You can browse jobs and apply directly from the listings!";
+          if (/contact|support/i.test(userMsg)) reply = "You can reach support via our Contact page.";
+          appendMessage('Bot', reply);
+        }, 700);
+      };
+    }
+    
+  </script>
+  
 </body>
+
 </html>
