@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     showEmptyStateIfNeeded();
 });
 
-// Initialize application
 function initializeApp() {
     // Set user info
     document.getElementById('employerName').textContent = currentUser.name;
