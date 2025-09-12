@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Junction | Privacy Policy</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode header,
+        body.dark-mode footer {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        body.dark-mode a {
+            color: #ffd700;
+        }
+
+        /* Dark Mode Toggle Button */
+        #darkModeToggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        #darkModeToggle:hover {
+            background: #333;
+        }
+
+        /* Main content styling */
+        .main-content {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 2rem 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Dark Mode for main content */
+body.dark-mode .main-content h2 {
+    color: #fff; /* White for main heading */
+}
+
+body.dark-mode .main-content h3 {
+    color: #e0e0e0; /* Light gray for subheadings */
+}
+
+body.dark-mode .main-content h3::before {
+    color: #6a9bf7; /* Keep blue accent for bullets */
+}
+
+body.dark-mode .main-content p {
+    color: #f4efef; /* Light gray for paragraphs */
+}
+
+/* Optional: make links stand out */
+body.dark-mode .main-content a {
+    color: #ffd700; /* Bright gold links */
+}
+body.dark-mode .main-content a:hover {
+    color: #ffea85; /* Slightly lighter gold on hover */
+}
+body.dark-mode .main-content ul li{
+    color:#f4efef;
+}
+
+
+        .main-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #222;
+            text-align: center;
+        }
+        .main-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #444;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .main-content h3::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #6a9bf7;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .main-content p {
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        /* Animated list items */
+        .main-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            list-style: none;
+            padding-left: 0;
+        }
+        .main-content ul li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+            color: #555;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.6s forwards;
+        }
+        .main-content ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #6a9bf7;
+            font-size: 1rem;
+        }
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .main-content ul li:nth-child(1) { animation-delay: 0.2s; }
+        .main-content ul li:nth-child(2) { animation-delay: 0.4s; }
+        .main-content ul li:nth-child(3) { animation-delay: 0.6s; }
+        .main-content ul li:nth-child(4) { animation-delay: 0.8s; }
+        .main-content ul li:nth-child(5) { animation-delay: 1s; }
+
+        /* Links */
+        .main-content a {
+            color: #0077cc;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .main-content a:hover {
+            color: #ffd700;
+        }
+
+        /* Buttons hover effect */
+        .about-btn:hover {
+            background-color: #ffd700;
+            color: #000;
+            transition: 0.3s;
+        }
+        .nav-brand img {
+        width: 500px;
+        height: 280px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        object-fit: contain;
+        background: white;
+        padding: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-brand">
+            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
+            <button id="darkModeToggle">🌙</button>
+        </div>
+    </header>
+
+    <hr />
+
+    <div style="display: flex; justify-content: flex-start; max-width: 800px; margin: 0 auto 24px auto;" class="btn-container">
+        <a href="../index.html" class="about-btn">&#8592; Back to Home</a>
+    </div>
+
+    <div class="main-content">
+        <h2>Privacy Policy</h2>
+        <p>At <strong>Job Junction</strong>, your privacy is a top priority. This Privacy Policy outlines the types of information we collect, how we use it, and how we protect it.</p>
+
+        <h3>Information We Collect</h3>
+        <ul>
+            <li><strong>Personal Information:</strong> Name, email, phone number, resume, and profile details you provide.</li>
+            <li><strong>Usage Information:</strong> Pages visited, searches performed, job applications submitted, and interactions.</li>
+            <li><strong>Device & Log Information:</strong> IP address, browser type, device type, and activity logs.</li>
+            <li><strong>Cookies and Tracking:</strong> Used to enhance user experience and analyze trends.</li>
+        </ul>
+
+        <h3>How We Use Information</h3>
+        <ul>
+            <li>To personalize and enhance your experience.</li>
+            <li>To send updates, newsletters, and job alerts (with consent).</li>
+            <li>To analyze usage patterns for improvement.</li>
+            <li>To ensure security and compliance with laws.</li>
+        </ul>
+
+        <h3>Data Protection</h3>
+        <p>We implement strict security measures to protect your personal data from unauthorized access or misuse.</p>
+
+        <h3>Third-Party Services</h3>
+        <p>We may use analytics, hosting, or other services, each with their own privacy policies.</p>
+
+        <h3>Your Rights</h3>
+        <p>You can request access, correction, or deletion of your data by contacting us at <a href="mailto:support@jobjunction.com">support@jobjunction.com</a>.</p>
+
+        <h3>Updates to this Policy</h3>
+        <p>We may update this policy periodically. Any changes will be posted on this page.</p>
+    </div>
+
+    <button id="backToTopBtn" aria-label="Back to Top">↑</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-tagline" style="font-size: 20px;">Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
+        <br><br>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>For Job Seekers</h4>
+                <ul>
+                    <li><a href="/jobs">Browse Jobs</a></li>
+                    <li><a href="/internships">Internships</a></li>
+                    <li><a href="/advice">Advice</a></li>
+                    <li><a href="/salary-guide">Salary Guide</a></li>
+                    <li><a href="/resume-builder">Resume Builder</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>For Employers</h4>
+                <ul>
+                    <li><a href="/post-job">Post a Job</a></li>
+                    <li><a href="/talent-search">Talent Search</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="footer-copy">© 2025 Job Junction. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const toggleBtn = document.getElementById('darkModeToggle');
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById("backToTopBtn");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
