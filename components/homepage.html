@@ -197,6 +197,10 @@
 </head>
 
 <body>
+
+    <button id="getStartedBtn" class="get-started-btn" aria-label="Get Started">
+  Get Started
+</button>
     <div class="page-wrapper">
         <!-- Header Section -->
         <header class="header">
@@ -248,5 +252,10 @@
             <p>&copy; 2024 Job Junction. All rights reserved.</p>
         </footer>
     </div>
+<script>
+    document.getElementById("getStartedBtn").addEventListener("click", () => {
+        window.location.href = "/signup.html";
+    });
+</script>
 </body>
 </html>

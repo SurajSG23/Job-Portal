@@ -1065,6 +1065,7 @@ body.dark .navbar {
   }
 }
 
+
 body.dark .header,
 body.dark .navbar {
   background: rgba(20, 20, 20, 0.85);
@@ -1137,3 +1138,4 @@ body.dark .btn-ghost {
   border: 1px solid #ccc;
   color: #fff;
 }
+
