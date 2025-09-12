@@ -711,8 +711,94 @@ function sendEmailNotification(to, subject, body) {
   window.location.href = mailtoLink;
 }
 
+
+const panel = document.getElementById("filterPanel");
+const toggleBtn = document.getElementById("togglePanel");
+const closeBtn = document.getElementById("closePanel");
+const resizer = document.querySelector(".resizer");
+
+let isDragging = false;
+let isResizing = false;
+let offsetX, offsetY;
+
+(function restoreState() {
+  const savedState = JSON.parse(localStorage.getItem("panelState"));
+  if (savedState) {
+    panel.style.top = savedState.top;
+    panel.style.left = savedState.left;
+    panel.style.width = savedState.width;
+    panel.style.height = savedState.height;
+    panel.style.display = savedState.visible ? "flex" : "none";
+  }
+})();
+
+
+function saveState() {
+  const state = {
+    top: panel.style.top,
+    left: panel.style.left,
+    width: panel.style.width,
+    height: panel.style.height,
+    visible: panel.style.display !== "none"
+  };
+  localStorage.setItem("panelState", JSON.stringify(state));
+}
+
+
+panel.querySelector(".panel-header").addEventListener("mousedown", (e) => {
+  if (e.target === closeBtn) return; // skip if clicking close
+  isDragging = true;
+  offsetX = e.clientX - panel.offsetLeft;
+  offsetY = e.clientY - panel.offsetTop;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    panel.style.left = e.clientX - offsetX + "px";
+    panel.style.top = e.clientY - offsetY + "px";
+  }
+  if (isResizing) {
+    panel.style.width = e.clientX - panel.offsetLeft + "px";
+    panel.style.height = e.clientY - panel.offsetTop + "px";
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  if (isDragging || isResizing) saveState();
+  isDragging = false;
+  isResizing = false;
+});
+
+
+resizer.addEventListener("mousedown", (e) => {
+  isResizing = true;
+  e.stopPropagation();
+});
+
+toggleBtn.addEventListener("click", () => {
+  panel.style.display = panel.style.display === "none" ? "flex" : "none";
+  saveState();
+});
+
+
+closeBtn.addEventListener("click", () => {
+  panel.style.display = "none";
+  saveState();
+});
+
+// Forgot password link styling should be placed in your CSS file, not here.
+// Remove this CSS block from the JS file.
+=======
+const menuLinks = document.querySelectorAll('[role="menuitem"]');
+
+
+menuLinks.forEach(link => {
+  link.addEventListener('keydown', e => {
+    const parentMenu = link.closest('[role="menubar"], [role="menu"]');
+    const menuItems = [...parentMenu.querySelectorAll('[role="menuitem"]')];
+    const currentIndex = menuItems.indexOf(link);
+=======
 // Example usage: Call this function where you want to trigger the email notification
 // sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
 
 console.log("Script loaded");
-
