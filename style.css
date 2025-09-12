@@ -2583,6 +2583,19 @@ button:hover {
     transform: translateY(0);
   }
 }
+.get-started-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
+.get-started-btn:focus {
+  outline: 3px solid #ffbf47; /* clear visible focus indicator */
+  outline-offset: 2px;
+}
 
 
