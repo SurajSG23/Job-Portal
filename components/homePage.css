@@ -311,3 +311,21 @@ body {
 .role-card:hover::before {
     left: 100%;
 }
+
+
+.get-started-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.get-started-btn:focus {
+  outline: 3px solid #ffbf47; 
+}
+.get-started-btn:hover {
+  background-color: #0056b3;
+}
