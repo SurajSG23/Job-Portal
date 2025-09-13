@@ -467,8 +467,7 @@ footer h3 {
     transform: translateY(0);
   }
 }
-<<<<<<< Updated upstream
-=======
+
 
 /* ================= Dark Theme Overrides ================= */
 body.dark {
@@ -579,4 +578,4 @@ body.dark .social-icons a:hover {
 body.dark #footer-statement p {
   color: #90caf9;
 }
->>>>>>> Stashed changes
+

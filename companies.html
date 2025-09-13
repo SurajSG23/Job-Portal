@@ -159,23 +159,44 @@
 
   <!-- Scroll Animation Script -->
   <script>
+    // Dark theme toggle logic
     document.addEventListener("DOMContentLoaded", () => {
       const elements = document.querySelectorAll(".animate");
-
+      const body = document.body;
+      const toggleBtn = document.getElementById("themeToggle");
+      // Load saved theme on page load
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+          body.classList.toggle("dark");
+          if (body.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+          } else {
+            localStorage.setItem("theme", "light");
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+          }
+        });
+      }
+      // Animation logic
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
               setTimeout(() => {
                 entry.target.classList.add("show");
-              }, index * 150); // staggered appearance
+              }, index * 150);
               observer.unobserve(entry.target);
             }
           });
         },
         { threshold: 0.2 }
       );
-
       elements.forEach((el) => observer.observe(el));
     });
   </script>
