@@ -342,9 +342,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return "I'm here to help with job-related queries!";
   }
 
-  // =======================
-  // JOB ALERT MODAL
-  // =======================
   const jobAlertForm = document.getElementById('jobAlertForm');
   const alertKeywordInput = document.getElementById('alertKeyword');
   const simulateJobBtn = document.getElementById('simulateJobBtn');
@@ -384,9 +381,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =======================
-  // APPLICATION FORM & HISTORY
-  // =======================
   const form = document.getElementById("applicationForm");
   const historyDiv = document.getElementById("applicationHistory");
   function loadApplications() {
@@ -410,6 +404,8 @@ document.addEventListener("DOMContentLoaded", () => {
       historyDiv.appendChild(card);
     });
   }
+
+
   if (form && historyDiv) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -444,9 +440,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadApplications();
   }
 
-  // =======================
-  // USER PROFILE LOGIC
-  // =======================
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
     showProfile(currentUser.username);
@@ -467,6 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("users", JSON.stringify(users));
     alert("Registration successful! You can now login.");
   }
+
   function login() {
     const username = document.getElementById("login-username").value.trim();
     const password = document.getElementById("login-password").value.trim();
@@ -479,6 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("currentUser", JSON.stringify(foundUser));
     showProfile(username);
   }
+
   function showProfile(username) {
     document.getElementById("login-section").style.display = "none";
     document.getElementById("register-section").style.display = "none";
@@ -497,6 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Username already exists.");
       return;
     }
+
     users = users.map(user => {
       if (user.username === currentUser.username) {
         return { ...user, username: newUsername };
@@ -514,8 +510,6 @@ document.addEventListener("DOMContentLoaded", () => {
     location.reload();
   };
 
-  // HERO SECTION CTA BUTTONS LOGIC (for homepage)
-  // Add event listeners for hero CTA buttons if present
   const browseJobsBtn = document.querySelector('.get-started-btn, .btn-primary.get-started-btn');
   const postJobBtn = document.querySelector('.post-job-btn, .btn-ghost.post-job-btn');
   if (browseJobsBtn) {
