@@ -354,6 +354,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
+
   if (simulateJobBtn && modal && alertMessage) {
     simulateJobBtn.addEventListener('click', function () {
       const savedKeyword = localStorage.getItem('jobAlertKeyword');
@@ -365,6 +369,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
   if (closeModalBtn && modal) {
     closeModalBtn.addEventListener('click', function () {
       modal.style.display = 'none';
@@ -376,9 +383,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =======================
-  // APPLICATION FORM & HISTORY
-  // =======================
   const form = document.getElementById("applicationForm");
   const historyDiv = document.getElementById("applicationHistory");
   function loadApplications() {
@@ -402,6 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
       historyDiv.appendChild(card);
     });
   }
+
   if (form && historyDiv) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -414,6 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please fill all fields and upload a resume.");
         return;
       }
+
       const reader = new FileReader();
       reader.onload = function () {
         const newApp = {
@@ -436,9 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadApplications();
   }
 
-  // =======================
-  // USER PROFILE LOGIC
-  // =======================
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
     showProfile(currentUser.username);
@@ -540,6 +544,7 @@ function createLoadingSpinner() {
           0% { transform: rotate(0deg);}
           100% { transform: rotate(360deg);}
         }
+
       </style>
     `;
     document.body.appendChild(spinner);
@@ -552,10 +557,10 @@ function removeLoadingSpinner() {
   if (spinner) spinner.style.display = "none";
 }
 
-// Example usage for dynamic fetch (replace with your actual fetch logic)
 function fetchDynamicContent(url, callback) {
   createLoadingSpinner();
-  // Simulate async fetch (replace with real fetch)
+  
+
   setTimeout(() => {
     // ...fetch logic here...
     removeLoadingSpinner();

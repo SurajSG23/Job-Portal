@@ -426,10 +426,28 @@
 
     <!-- Hero Section -->
     <main>
-        <section class="hero">
-            <h1>Don't just search.<br>Start your career!</h1>
-            <button onclick="Redirect()" class="get-started-btn">Get Started</button>
-        </section>
+        <section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Find Your Dream Job<br>
+      <span class="gradient-text">With Job Junction</span>
+    </h1>
+    <p class="hero-desc">
+      Discover thousands of opportunities, connect with top employers, and take the next step in your career journey. Job Junction is your gateway to success!
+    </p>
+    <div class="hero-cta">
+      <a href="components/seeker.html" class="cta-btn cta-primary">
+        <i class="fas fa-search"></i> Browse Jobs
+      </a>
+      <a href="#" class="cta-btn cta-secondary">
+        <i class="fas fa-briefcase"></i> Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/hero-illustration.webp" alt="Career Opportunities" loading="lazy" />
+  </div>
+</section>
 
         <!-- Registration Section -->
         <section id="signUpSection" class="sign-section">
@@ -806,376 +824,29 @@ body.dark .btn-ghost {
     </nav>
   </header>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why Choose Job Junction?</h2>
-        <!-- <p class="para1">
-              Experience the future of job searching with our innovative
-              platform
-            </p> -->
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-search-plus"></i>
-
-
-    /* Dark mode */
-    body.dark {
-      background-color: #121212;
-      color: #ffffff;
-    } 
-  </style> -->
-  <style>
-
-    /* ---------- Dark Theme Overrides ---------- */
-body.dark {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-body.dark .navbar {
-  background: #1e1e1e;
-  color: #e0e0e0;
-}
-
-body.dark .nav-link {
-  color: #e0e0e0;
-}
-
-body.dark .dropdown-content {
-  background: #2a2a2a;
-  border-color: #444;
-}
-
-body.dark .dropdown-content a {
-  color: #e0e0e0;
-}
-
-body.dark .features, 
-body.dark .categories {
-  background: #181818;
-  color: #e0e0e0;
-}
-
-body.dark .feature-card, 
-body.dark .category-card {
-  background: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #333;
-}
-
-body.dark .feature-icon, 
-body.dark .category-icon {
-  color: #66aaff;
-}
-
-body.dark .site-footer {
-  background: #1a1a1a;
-  color: #e0e0e0;
-}
-
-body.dark .site-footer a {
-  color: #ddd;
-}
-
-body.dark .btn-primary {
-  background: #0077ff;
-  color: #fff;
-}
-
-body.dark .btn-ghost {
-  border: 1px solid #ccc;
-  color: #fff;
-}
-  </style>
-
-      <style>
-      /* =============================
-   GLOBAL ANIMATIONS
-============================= */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* =============================
-   HEADER & NAV
-============================= */
-.navbar {
-  animation: fadeInUp 1s ease forwards;
-}
-
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #007bff;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-actions .btn-primary {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-actions .btn-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* =============================
-   FEATURES SECTION
-============================= */
-.feature-card {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Add staggered delay for engaging entrance */
-.feature-card:nth-child(1) { animation-delay: 0.2s; }
-.feature-card:nth-child(2) { animation-delay: 0.4s; }
-.feature-card:nth-child(3) { animation-delay: 0.6s; }
-.feature-card:nth-child(4) { animation-delay: 0.8s; }
-
-.feature-icon {
-  font-size: 2rem;
-  color: #007bff;
-  transition: transform 0.4s ease, color 0.3s ease;
-}
-
-.feature-card:hover .feature-icon {
-  transform: rotate(15deg) scale(1.2);
-  color: #ff6600;
-}
-
-/* =============================
-   CATEGORIES
-============================= */
-.category-card {
-  opacity: 0;
-  animation: fadeInScale 0.8s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.category-card:nth-child(1) { animation-delay: 0.2s; }
-.category-card:nth-child(2) { animation-delay: 0.4s; }
-.category-card:nth-child(3) { animation-delay: 0.6s; }
-.category-card:nth-child(4) { animation-delay: 0.8s; }
-.category-card:nth-child(5) { animation-delay: 1s; }
-.category-card:nth-child(6) { animation-delay: 1.2s; }
-
-/* =============================
-   FOOTER
-============================= */
-.site-footer {
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.social-media a {
-  display: inline-block;
-  margin-right: 0.8rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-media a:hover {
-  transform: scale(1.2) rotate(10deg);
-  color: #007bff;
-}
-
-.links-section ul li a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.links-section ul li a:hover {
-  color: #ff6600;
-  transform: translateX(5px);
-}
-
-.footer-credit {
-  text-align: center;
-  padding: 1rem;
-  animation: pulse 3s infinite;
-}
-
-  </style>
-
-</head>
-
-<body>
-                <li class="dropdown">
-                    <a href="#" class="nav-link">
-                        Jobs <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-content">
-                        <li><a href="components/seeker.html">Browse Jobs</a></li>
-                        <li><a href="#">Remote Jobs</a></li>
-                        <li><a href="#">Featured Jobs</a></li>
-                        <li><a href="internships.html">Internships</a></li>
-                    </ul>
-                </li>
-
-              </ul>
-            </li>
-            <li><a href="#">Featured Jobs</a></li>
-            <li><a href="#">Internships</a></li>
-          </ul>
-        </li>
-        <li><a href="#companies" class="nav-link">Companies</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="components/events.html" class="nav-link">Events</a></li>
-        <li><a href="companies.html" class="nav-link">Companies</a></li>
-        <li><a href="components/about.html" class="nav-link">About</a></li>
-        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
-        <li><a href="faq.html" class="nav-link">Faqs</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <i class="fas fa-moon" id="theme-icon"></i>
-        </button>
-        <a href="./login.html" class="btn btn-ghost">Login</a>
-        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
-      </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
-        <i class="fa fa-bars"></i>
-      </button>
-    </nav>
-
-    <nav aria-label="Main navigation" class="navbar">
-  <ul role="menubar" class="menu">
-    <li role="none" class="menu-item has-submenu">
-      <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Jobs</a>
-      <ul role="menu" class="submenu" hidden>
-        <li role="none"><a role="menuitem" href="#">Job List</a></li>
-        <li role="none" class="menu-item has-submenu">
-          <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">Categories</a>
-          <ul role="menu" class="submenu" hidden>
-            <li role="none"><a role="menuitem" href="#">IT</a></li>
-            <li role="none"><a role="menuitem" href="#">Finance</a></li>
-            <li role="none"><a role="menuitem" href="#">Design</a></li>
-          </ul>
-        </li>
-        <li role="none"><a role="menuitem" href="#">Job Details</a></li>
-      </ul>
-    </li>
-    <li role="none"><a role="menuitem" href="#">About</a></li>
-    <li role="none"><a role="menuitem" href="#">Contact</a></li>
-  </ul>
-</nav>
-
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-background" aria-hidden="true">
-        <div class="hero-shapes">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
-        </div>
-      </div>
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-rocket"></i>
-            <span>Find Your Dream Job Today</span>
-          </div>
-          <h1 class="hero-title">
-            Discover Amazing
-            <span class="gradient-text">Opportunities</span>
-            & Start Your Career Journey
-          </h1>
-          <p class="hero-description">
-            Join thousands of professionals who found their perfect match.
-            Browse through premium job listings from top companies worldwide.
-          </p>
-          <div class="hero-actions">
-            <a href="components/homepage.html" class="get-started-btn" aria-label="Get Started">
-              <span>Get Started</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-            <a href="#features" class="learn-more-btn" aria-label="Learn More">
-              <span>Learn More</span>
-              <i class="fas fa-play"></i>
-            </a>
-          </div>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-card">
-            <div class="job-card-preview">
-              <div class="company-info">
-                <div class="company-logo"></div>
-                <div class="company-details">
-                  <h4>Senior Frontend Developer</h4>
-                  <p>TechCorp Inc.</p>
-                </div>
-              </div>
-              <div class="job-meta">
-                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                <span class="salary">$80K - $120K</span>
-              </div>
-              <div class="job-tags">
-                <span class="tag">React</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Remote</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Find Your Dream Job<br>
+      <span class="gradient-text">With Job Junction</span>
+    </h1>
+    <p class="hero-desc">
+      Discover thousands of opportunities, connect with top employers, and take the next step in your career journey. Job Junction is your gateway to success!
+    </p>
+    <div class="hero-cta">
+      <a href="components/seeker.html" class="cta-btn cta-primary">
+        <i class="fas fa-search"></i> Browse Jobs
+      </a>
+      <a href="#" class="cta-btn cta-secondary">
+        <i class="fas fa-briefcase"></i> Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/hero-illustration.webp" alt="Career Opportunities" loading="lazy" />
+  </div>
+</section>
 
     <!-- Video Instructions Section -->
     <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
@@ -1217,84 +888,6 @@ body.dark .btn-ghost {
             <div class="feature-icon">
               <i class="fas fa-user-check"></i>
             </div>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Job Junction. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script>
-        // Enhanced Theme Toggle System - Works across all pages
-        class ThemeManager {
-          constructor() {
-            this.init();
-          }
-          init() {
-            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
-            this.applyTheme(savedTheme, false);
-            this.setupThemeToggle();
-            this.setupMobileNav();
-          }
-          applyTheme(theme, animate = true) {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            if (animate) {
-              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            }
-            if (theme === 'dark') {
-              body.classList.add('dark');
-              if (themeIcon) {
-                themeIcon.className = 'fas fa-sun';
-                themeIcon.style.transform = 'rotate(180deg)';
-              }
-            } else {
-              body.classList.remove('dark');
-              if (themeIcon) {
-                themeIcon.className = 'fas fa-moon';
-                themeIcon.style.transform = 'rotate(0deg)';
-              }
-            }
-            localStorage.setItem('jobPortalTheme', theme);
-            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
-          }
-          setupThemeToggle() {
-            const themeToggle = document.getElementById('theme-toggle');
-            if (!themeToggle) return;
-            themeToggle.addEventListener('click', () => {
-              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
-              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-              this.applyTheme(newTheme);
-            });
-          }
-          setupMobileNav() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (navToggle && navLinks) {
-              navToggle.addEventListener('click', () => {
-                const isActive = navLinks.classList.contains('active');
-                navLinks.classList.toggle('active');
-                const icon = navToggle.querySelector('i');
-                if (icon) {
-                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
-                }
-              });
-            }
-          }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-          new ThemeManager();
-        });
-        window.addEventListener('themeChanged', (e) => {
-          console.log(`Theme changed to: ${e.detail.theme}`);
-        });
-      </script>
-</body>
             <h3>Easy Application</h3>
             <p>Simplified application process to save your time and effort.</p>
           </div>
@@ -1367,9 +960,80 @@ body.dark .btn-ghost {
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
           </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    </div>
+  </footer>
 
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Enhanced Theme Toggle System - Works across all pages
+        class ThemeManager {
+          constructor() {
+            this.init();
+          }
+          init() {
+            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
+            this.applyTheme(savedTheme, false);
+            this.setupThemeToggle();
+            this.setupMobileNav();
+          }
+          applyTheme(theme, animate = true) {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            if (animate) {
+              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+            if (theme === 'dark') {
+              body.classList.add('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-sun';
+                themeIcon.style.transform = 'rotate(180deg)';
+              }
+            } else {
+              body.classList.remove('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-moon';
+                themeIcon.style.transform = 'rotate(0deg)';
+              }
+            }
+            localStorage.setItem('jobPortalTheme', theme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+          }
+          setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) return;
+            themeToggle.addEventListener('click', () => {
+              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              this.applyTheme(newTheme);
+            });
+          }
+          setupMobileNav() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+              navToggle.addEventListener('click', () => {
+                const isActive = navLinks.classList.contains('active');
+                navLinks.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
+                }
+              });
+            }
+          }
         }
-
-
+        document.addEventListener('DOMContentLoaded', () => {
+          new ThemeManager();
+        });
+        window.addEventListener('themeChanged', (e) => {
+          console.log(`Theme changed to: ${e.detail.theme}`);
+        });
+      </script>
 </body>
 </html>
