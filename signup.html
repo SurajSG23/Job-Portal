@@ -11,6 +11,7 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
+    
     body {
       background: #000000;
       display: flex;
@@ -268,7 +269,11 @@
       setTimeout(() => {
         signupSpinner.style.display = "none";
         alert("Account created successfully!");
-        signupForm.reset();
+        
+      
+        window.location.href = "login.html"; 
+
+        
       }, 1500);
     });
   </script>

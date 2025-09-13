@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Junction – Masthead</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #2980b9;
+      --light: #ecf0f1;
+      --dark: #34495e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      animation: fadeInDown 1s;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      animation: fadeInUp 1.2s;
+    }
+
+    .cta-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      animation: fadeInUp 1.5s;
+    }
+
+    .cta-buttons a {
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta-buttons a:hover {
+      background: #3498db;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .profile-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-card img {
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    .profile-card h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .contributions {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contribution-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .contribution-item:last-child {
+      border-bottom: none;
+    }
+
+    .contribution-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .profile-card, .contribution-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="animate__animated animate__fadeIn">
+    <h1>Welcome to Job Junction</h1>
+    <p>Your one-stop portal for job seekers and recruiters</p>
+    <div class="cta-buttons">
+      <a href="#jobs">Browse Jobs</a>
+      <a href="#post-job">Post a Job</a>
+    </div>
+  </header>
+
+  <!-- User Profile Card -->
+  <section class="section">
+    <div class="profile-card animate__animated animate__fadeInLeft">
+      <img src="https://avatars.githubusercontent.com/SurajSG23" alt="User Profile" id="userAvatar">
+      <div>
+        <h3 id="userName">Username: SurajSG23</h3>
+        <p>Role: Project Admin</p>
+      </div>
+    </div>
+
+    <!-- Contributions Section -->
+    <div class="contributions animate__animated animate__fadeInRight">
+      <h2>Contributors with Merged PRs</h2>
+      <div id="contributionsList">Loading contributions...</div>
+    </div>
+  </section>
+
+  <script>
+    const repoOwner = "SurajSG23";
+    const repoName = "Job-Portal";
+
+    async function fetchMergedPRs() {
+      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/pulls?state=closed&per_page=100`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+
+        const data = await res.json();
+        const mergedPRs = data.filter(pr => pr.merged_at);
+
+        // Count PRs per user
+        const contributorMap = {};
+        mergedPRs.forEach(pr => {
+          const login = pr.user.login;
+          if (!contributorMap[login]) {
+            contributorMap[login] = {
+              count: 1,
+              avatar: pr.user.avatar_url,
+              profile: pr.user.html_url
+            };
+          } else {
+            contributorMap[login].count += 1;
+          }
+        });
+
+        // Convert to array and sort by count descending
+        const contributors = Object.entries(contributorMap)
+          .sort((a, b) => b[1].count - a[1].count); // 🔥 Sort here
+
+        const container = document.getElementById("contributionsList");
+        container.innerHTML = "";
+
+        if (contributors.length === 0) {
+          container.innerHTML = "<p>No merged pull requests found.</p>";
+          return;
+        }
+
+        contributors.forEach(([username, info]) => {
+          const item = document.createElement("div");
+          item.classList.add("contribution-item");
+
+          item.innerHTML = `
+            <img src="${info.avatar}" alt="${username}" />
+            <div>
+              <a href="${info.profile}" target="_blank"><strong>@${username}</strong></a><br/>
+              ${info.count} merged PR${info.count > 1 ? "s" : ""}
+            </div>
+          `;
+
+          container.appendChild(item);
+        });
+
+      } catch (error) {
+        console.error("Error fetching PRs:", error);
+        document.getElementById("contributionsList").innerHTML = "<p>Error loading contributions.</p>";
+      }
+    }
+
+    fetchMergedPRs();
+  </script>
+
+</body>
+</html>
