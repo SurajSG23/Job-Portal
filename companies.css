@@ -197,6 +197,12 @@
   width: 100%;
 }
 
+.toggle-btn {
+      margin: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -469,6 +475,7 @@ footer h3 {
 }
 
 
+
 /* ================= Dark Theme Overrides ================= */
 body.dark {
   --background: #181a20;
@@ -578,4 +585,5 @@ body.dark .social-icons a:hover {
 body.dark #footer-statement p {
   color: #90caf9;
 }
+
 
