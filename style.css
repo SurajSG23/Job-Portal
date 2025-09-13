@@ -321,8 +321,8 @@ background: rgba(255, 255, 255, 0.95);
 
 /* --- FOOTER --- */
 .footer {
-  background: #23272f;
-  color: #e5e7eb;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
   padding: 2rem 0 1rem;
   margin-top: 1.5rem !important;               /* Less top margin */
   text-align: center;
@@ -529,6 +529,18 @@ main {
 }
 .forgot-link:hover {
   color: var(--accent, #f093fb);
+}
+footer a,
+.site-footer a,
+.footer a {
+  color: #ffe7b2;
+  transition: color 0.2s;
+}
+
+footer a:hover,
+.site-footer a:hover,
+.footer a:hover {
+  color: #ffd166;
 }
 
 /* --- RESPONSIVE --- */
