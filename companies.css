@@ -467,3 +467,116 @@ footer h3 {
     transform: translateY(0);
   }
 }
+<<<<<<< Updated upstream
+=======
+
+/* ================= Dark Theme Overrides ================= */
+body.dark {
+  --background: #181a20;
+  --surface: #23272f;
+  --text-primary: #f3f4f6;
+  --text-secondary: #b0b3b8;
+  --border: #23272f;
+  --accent: #448aff;
+  --accent-hover: #2979ff;
+  --white: #181a20;
+  --black: #ffffff;
+}
+
+body.dark {
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+body.dark .header,
+body.dark .navbar {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+body.dark .nav-link {
+  color: var(--text-primary);
+}
+body.dark .nav-link:hover,
+body.dark .nav-link.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+body.dark .dropdown-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+body.dark .dropdown-content a {
+  color: var(--text-primary);
+}
+body.dark .dropdown-content a:hover {
+  background: var(--accent);
+  color: var(--black);
+}
+
+body.dark .btn-ghost {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  background: transparent;
+}
+body.dark .btn-ghost:hover {
+  background: var(--accent);
+  color: var(--black);
+}
+body.dark .btn-primary {
+  background: var(--accent);
+  color: var(--black);
+}
+body.dark .btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+body.dark .companies {
+  background: var(--surface);
+}
+body.dark .company-card {
+  background: #23272f;
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+body.dark .company-card h3 {
+  color: var(--accent);
+}
+body.dark .company-card p {
+  color: var(--text-secondary);
+}
+body.dark .company-card .btn-view {
+  background: var(--accent);
+  color: var(--black);
+}
+body.dark .company-card .btn-view:hover {
+  background: var(--accent-hover);
+  color: var(--black);
+}
+
+body.dark footer {
+  background: linear-gradient(90deg, #1a237e 0%, #3949ab 100%) !important;
+  color: #fff;
+  box-shadow: 0 -2px 16px rgba(26,35,126,0.4);
+  border-top: 2px solid #3949ab;
+}
+body.dark .footer-links h3 {
+  color: #90caf9;
+}
+body.dark .footer-links a {
+  color: #fff;
+}
+body.dark .footer-links a:hover {
+  color: #90caf9;
+}
+body.dark .social-icons a {
+  color: #fff;
+}
+body.dark .social-icons a:hover {
+  color: #90caf9;
+}
+body.dark #footer-statement p {
+  color: #90caf9;
+}
+>>>>>>> Stashed changes
