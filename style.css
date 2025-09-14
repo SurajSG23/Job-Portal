@@ -1133,6 +1133,35 @@ body {
 
 }
 
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out; 
+  outline: none;
+}
+
+
+button:hover {
+  background-color: #0056b3; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #004080; 
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+button:focus {
+  outline: 3px solid #ffbf47; 
+  outline-offset: 2px;
 
 body.dark .header,
 body.dark .navbar {
@@ -1190,6 +1219,7 @@ body.dark .btn-primary {
   list-style: none !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
+
 }
 
 .jobs-container li {
