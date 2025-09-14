@@ -276,7 +276,7 @@
           <input type="checkbox" id="remember" />
           <label for="remember">Remember Me</label>
         </div>
-        <a href="forgotPass.html" class="forgot-password">Forgot Password?</a>
+        <a href="forgotPass.html" class="forgot-password" id="forgotPasswordLink">Forgot Password?</a>
         <button type="submit" class="btn">Sign In</button>
         <div class="spinner" id="login-spinner"></div>
         <div class="divider">
@@ -360,6 +360,12 @@
 
         // We remove the alert() and form.reset() since we are navigating away
       }, 1500);
+    });
+
+    // Fix for "Forgot Password?" link not responding
+    document.getElementById("forgotPasswordLink").addEventListener("click", function(e) {
+      e.preventDefault();
+      window.location.href = "forgotPass.html";
     });
   </script>
 </body>
