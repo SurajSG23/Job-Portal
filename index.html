@@ -59,8 +59,38 @@
           "url": "assets/logo.webp"
         }
       }
+
+    </script>
+    <meta charset="UTF-8" />
+    <script src="./components/firebase.js" defer type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Junction | Find Your Dream Career</title>
+    <meta
+      name="description"
+      content="Job Junction - The ultimate job portal to discover amazing opportunities and accelerate your career journey. Modern, fast, and user-friendly."
+    />
+    <meta
+      name="keywords"
+      content="job portal, job search, careers, employment, dream job, professional growth"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+    <script type="module" src="components/firebaseauth.js"></script>
+  </head>
+=======
     }
   </script>
+
 
   <script type="module" src="components/firebaseauth.js"></script>
 
@@ -1701,4 +1731,19 @@
  
 </body>
 
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
 </html>
+
+=======
+</html>
+
