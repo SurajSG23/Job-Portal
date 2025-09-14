@@ -25,22 +25,26 @@
   <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://surajsg23.github.io/Job-Portal/" />
+  <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
+  <link rel="preload" href="style.css" as="style" />
 
   <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
   <link rel="preload" href="style.css" as="style" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="companies.css" />
   <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+  <!-- Structured Data for SEO -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
-
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -49,6 +53,11 @@
       "url": "https://surajsg23.github.io/Job-Portal/",
       "logo": "assets/logo.webp",
       "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
     }
   </script>
   <script type="application/ld+json">
@@ -66,8 +75,38 @@
           "url": "assets/logo.webp"
         }
       }
+
+    </script>
+    <meta charset="UTF-8" />
+    <script src="./components/firebase.js" defer type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Junction | Find Your Dream Career</title>
+    <meta
+      name="description"
+      content="Job Junction - The ultimate job portal to discover amazing opportunities and accelerate your career journey. Modern, fast, and user-friendly."
+    />
+    <meta
+      name="keywords"
+      content="job portal, job search, careers, employment, dream job, professional growth"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+    <script type="module" src="components/firebaseauth.js"></script>
+  </head>
+=======
     }
   </script>
+
 
   <script type="module" src="components/firebaseauth.js"></script>
 
@@ -130,8 +169,6 @@
       }
     }
 
-
-    @media (max-width: 900px) {
 
   </style>
   <meta charset="UTF-8" />
@@ -1306,6 +1343,12 @@
           <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="#">Remote Jobs</a></li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
           
           <div class="dropdown-content">
             <a href="components/seeker.html">Browse Jobs</a>
@@ -1315,19 +1358,31 @@
           </div>
         </li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
-        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">Faqs</a></li>
       </ul>
-
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
         </button>
         <a href="./login.html" class="btn btn-ghost">Login</a>
         <a href="./signup.html" class="btn btn-primary">Sign Up</a>
       </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <i class="fa fa-bars"></i>
+      </button>
     </nav>
   </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-background" aria-hidden="true">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
 
   <!-- Hero Section -->
           <ul class="dropdown-content" aria-label="submenu">
@@ -1447,6 +1502,22 @@
           </div>
   <main>
     <section class="hero" id="home">
+      <h1 class="hero-title">
+        Discover Amazing <span class="gradient-text">Opportunities</span> & Start Your Career Journey
+      </h1>
+      <p class="hero-description">
+        Join thousands of professionals who found their perfect match.<br>
+        Browse through premium job listings from top companies worldwide.
+      </p>
+      <div class="hero-actions">
+        <a href="components/seeker.html" class="btn-primary get-started-btn" aria-label="Browse Jobs">
+          <span>Browse Jobs</span>
+          <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="components/employer-post.html" class="btn-ghost post-job-btn" aria-label="Post a Job">
+          <span>Post a Job</span>
+          <i class="fas fa-upload"></i>
+        </a>
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badge">
@@ -1589,7 +1660,7 @@
       </section>
     </div>
   </main>
-
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-main">
       <p class="footer-tagline">
@@ -1618,15 +1689,15 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="components/about.html">About Us</a></li>
-            <li><a href="ContactPage.html">Contact</a></li>
-            <li><a href="#">Open Source</a></li>
-            <li><a href="masthead.html">Masthead</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-use.html">Terms of Use</a></li>
-          </ul>
-        </div>
+  <li><a href="components/about.html">About Us</a></li>
+  <li><a href="ContactPage.html">Contact</a></li>
+  <li><a href="#">Open Source</a></li>
+  <li><a href="masthead.html">Masthead</a></li>
+  <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  <li><a href="terms-of-use.html">Terms of Use</a></li>
+</ul>
 
+        </div>
       </div>
       <div class="footer-credit">
         &copy; 2025 Job Junction. All rights reserved.
@@ -1668,7 +1739,6 @@
       </form>
     </div>
   </div>
-
 
   <script defer>
     // Inline script for critical, above-the-fold functionality (Auth, Theme, Mobile Nav)
@@ -1814,4 +1884,19 @@
  
 </body>
 
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
 </html>
+
+=======
+</html>
+

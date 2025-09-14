@@ -684,7 +684,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("currentUser");
     location.reload();
   };
-
+  // HERO SECTION CTA BUTTONS LOGIC (for homepage)
+  // Add event listeners for hero CTA buttons if present
   const browseJobsBtn = document.querySelector('.get-started-btn, .btn-primary.get-started-btn');
   const postJobBtn = document.querySelector('.post-job-btn, .btn-ghost.post-job-btn');
   if (browseJobsBtn) {

@@ -273,6 +273,7 @@ background: rgba(255, 255, 255, 0.95);
   justify-content: center;
 }
 
+/* --- HERO SECTION CTA BUTTONS --- */
 
 .get-started-btn, .post-job-btn {
   display: inline-flex;
@@ -311,7 +312,7 @@ background: rgba(255, 255, 255, 0.95);
   transform: translateY(-2px) scale(1.04);
   box-shadow: var(--shadow-lg);
 }
-
+/* Responsive for CTA buttons */
 @media (max-width: 600px) {
   .hero-actions {
     flex-direction: column;
@@ -324,7 +325,9 @@ background: rgba(255, 255, 255, 0.95);
     padding: 0.8rem 1rem;
   }
 }
+/* --- END HERO CTA BUTTONS --- */
 
+/* --- FEATURES & CATEGORIES --- */
 .features, .categories {
   padding: 2rem 0 !important;       
   margin: 1rem auto !important;          
@@ -1086,6 +1089,7 @@ footer a:hover,
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px);}
   to { opacity: 1; transform: translateY(0);}
+
 }
 
 body.dark {
@@ -1180,6 +1184,35 @@ body {
 
 }
 
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out; 
+  outline: none;
+}
+
+
+button:hover {
+  background-color: #0056b3; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #004080; 
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+button:focus {
+  outline: 3px solid #ffbf47; 
+  outline-offset: 2px;
 
 body.dark .header,
 body.dark .navbar {
@@ -1230,8 +1263,6 @@ body.dark .btn-primary {
   background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
 
 }
-
-=======
   background: #0077ff;
   color: #fff;
 }
@@ -1241,6 +1272,7 @@ body.dark .btn-primary {
   list-style: none !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
+
 }
 
 .jobs-container li {
