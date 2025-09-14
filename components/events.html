@@ -20,7 +20,11 @@
         <li><a href="seeker.html" class="nav-link">Jobs</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="../ContactPage.html" class="nav-link">Contact Us</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:1rem;">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
     </nav>
   </header>
   <main>
@@ -60,5 +64,28 @@
     </div>
   </footer>
   <script src="events.js"></script>
+  <script>
+    // Persistent Dark Mode Toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("theme-icon");
+      function setTheme(dark) {
+        document.body.classList.toggle("dark", dark);
+        if (themeIcon) {
+          themeIcon.classList.toggle("fa-moon", !dark);
+          themeIcon.classList.toggle("fa-sun", dark);
+        }
+      }
+      const darkMode = localStorage.getItem("jobPortalTheme") === "dark";
+      setTheme(darkMode);
+      if (themeToggle) {
+        themeToggle.onclick = () => {
+          const isDark = !document.body.classList.contains("dark");
+          setTheme(isDark);
+          localStorage.setItem("jobPortalTheme", isDark ? "dark" : "light");
+        };
+      }
+    });
+  </script>
 </body>
 </html>
