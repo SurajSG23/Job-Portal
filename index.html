@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Junction | Find Your Dream Career</title>
+  <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
+  <meta name="keywords" content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
+  <meta name="author" content="Job Junction Team" />
 
   <meta name="description"
     content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
@@ -18,22 +21,26 @@
   <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://surajsg23.github.io/Job-Portal/" />
+  <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
+  <link rel="preload" href="style.css" as="style" />
 
   <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
   <link rel="preload" href="style.css" as="style" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="companies.css" />
   <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+  <!-- Structured Data for SEO -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
-
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,6 +49,11 @@
       "url": "https://surajsg23.github.io/Job-Portal/",
       "logo": "assets/logo.webp",
       "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
     }
   </script>
   <script type="application/ld+json">
@@ -1321,6 +1333,12 @@
           <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="#">Remote Jobs</a></li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
           
           <div class="dropdown-content">
             <a href="components/seeker.html">Browse Jobs</a>
@@ -1330,19 +1348,31 @@
           </div>
         </li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
-        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">Faqs</a></li>
       </ul>
-
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
         </button>
         <a href="./login.html" class="btn btn-ghost">Login</a>
         <a href="./signup.html" class="btn btn-primary">Sign Up</a>
       </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <i class="fa fa-bars"></i>
+      </button>
     </nav>
   </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-background" aria-hidden="true">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
 
   <!-- Hero Section -->
           <ul class="dropdown-content" aria-label="submenu">
@@ -1505,7 +1535,7 @@
       </section>
     </div>
   </main>
-
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-main">
       <p class="footer-tagline">
@@ -1543,7 +1573,6 @@
 </ul>
 
         </div>
-
       </div>
       <div class="footer-credit">
         &copy; 2025 Job Junction. All rights reserved.
@@ -1581,7 +1610,6 @@
       </form>
     </div>
   </div>
-
 
   <script defer>
     // Inline script for critical, above-the-fold functionality (Auth, Theme, Mobile Nav)
