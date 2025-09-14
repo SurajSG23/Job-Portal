@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Junction | Modern Job Portal</title>
-  <meta name="description" content="Job Junction is a modern, responsive job portal to explore opportunities and start your career." />
-  <meta name="keywords" content="job portal, job search, careers, employment, dream job, professional growth" />
-  <meta name="author" content="Job Junction Team" />
-  <meta property="og:title" content="Job Junction | Modern Job Portal" />
-  <meta property="og:description" content="Explore job opportunities and start your career with Job Junction." />
-  <meta property="og:image" content="assets/logo.webp" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Job Junction | Modern Job Portal" />
-  <meta name="twitter:description" content="Explore job opportunities and start your career with Job Junction." />
-  <meta name="twitter:image" content="assets/logo.webp" />
-  <link rel="canonical" href="https://surajsg23.github.io/Job-Portal/" />
+
   <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
   <link rel="preload" href="style.css" as="style" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="companies.css" />
   <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,29 +23,11 @@
       "url": "https://surajsg23.github.io/Job-Portal/",
       "logo": "assets/logo.webp",
       "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "description": "Job Junction is your gateway to top jobs, career resources, and professional events.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Job Junction",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "assets/logo.webp"
-        }
-      }
-    }
-  </script>
-  <script type="module" src="components/firebaseauth.js"></script>
+
 </head>
+
 <body>
-  <!-- Header/Navbar -->
+
   <header>
     <nav class="navbar" aria-label="Main Navigation">
       <div class="nav-brand">
@@ -70,6 +39,30 @@
           <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
+          
+          <div class="dropdown-content">
+            <a href="components/seeker.html">Browse Jobs</a>
+            <a href="#">Remote Jobs</a>
+            <a href="#">Featured Jobs</a>
+            <a href="#">Internships</a>
+          </div>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
           <ul class="dropdown-content" aria-label="submenu">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li><a href="#">Remote Jobs</a></li>
@@ -87,8 +80,7 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fas fa-moon" id="theme-icon"></i>
         </button>
-        <a href="./login.html" class="btn btn-ghost">Login</a>
-        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
         <i class="fa fa-bars"></i>
@@ -96,7 +88,7 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
+
   <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -148,10 +140,7 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Features Section -->
     <section class="features" id="features">
       <div class="container">
         <div class="section-header">
@@ -190,7 +179,6 @@
       </div>
     </section>
 
-    <!-- Job Listing/Filter Section -->
     <div class="job-page">
       <aside id="filter-panel" class="filter-panel">
         <h3>Filters</h3>
@@ -245,10 +233,11 @@
             <li><a href="ContactPage.html">Contact</a></li>
             <li><a href="#">Open Source</a></li>
             <li><a href="masthead.html">Masthead</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
           </ul>
         </div>
+
       </div>
       <div class="footer-credit">
         &copy; 2025 Job Junction. All rights reserved.
@@ -259,7 +248,7 @@
   <!-- Scripts: Defer for performance -->
   <script src="script.js" defer></script>
   <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
+
       function setTheme(dark) {
         document.body.classList.toggle("dark", dark);
         const themeIcon = document.getElementById("theme-icon");
@@ -268,6 +257,9 @@
           themeIcon.classList.toggle("fa-sun", dark);
         }
       }
+      const darkMode = localStorage.getItem("theme") === "dark";
+      setTheme(darkMode);
+
       const darkMode = localStorage.getItem("theme") === "dark";
       setTheme(darkMode);
       const themeToggle = document.getElementById("themeToggle");
@@ -290,6 +282,10 @@
       // Multilevel Dropdown Toggle for Mobile
       document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
         link.addEventListener('click', function(e) {
+
+      // Multilevel Dropdown Toggle for Mobile
+      document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+        link.addEventListener('click', function (e) {
           const submenu = this.nextElementSibling;
           if (submenu && submenu.classList.contains('dropdown-content')) {
             if (window.innerWidth <= 900) {
@@ -304,11 +300,69 @@
         });
       });
       document.addEventListener('click', function(e) {
+
+      // Close mobile dropdowns when clicking elsewhere
+      document.addEventListener('click', function (e) {
         document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
           if (!drop.contains(e.target)) drop.classList.remove('open');
         });
       });
     });
   </script>
+
+  <script>
+    // Live Chat Widget Logic (This script remains unchanged)
+    const chatToggleBtn = document.getElementById('chatToggleBtn');
+    const chatBox = document.getElementById('chatBox');
+    const chatCloseBtn = document.getElementById('chatCloseBtn');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+
+    function appendMessage(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.style.marginBottom = '0.7rem';
+      msgDiv.innerHTML = `<strong style="color:${sender === 'You' ? '#667eea' : '#764ba2'}">${sender}:</strong> <span>${text}</span>`;
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    if (chatToggleBtn) {
+        chatToggleBtn.onclick = () => {
+        chatBox.style.display = 'flex';
+        chatInput.focus();
+        if (!chatMessages.hasChildNodes()) {
+          appendMessage('Bot', '👋 Hi! How can I help you today?');
+        }
+      };
+    }
+
+    if (chatCloseBtn) {
+        chatCloseBtn.onclick = () => {
+        chatBox.style.display = 'none';
+      };
+    }
+    
+    if (chatForm) {
+        chatForm.onsubmit = (e) => {
+        e.preventDefault();
+        const userMsg = chatInput.value.trim();
+        if (!userMsg) return;
+        appendMessage('You', userMsg);
+        chatInput.value = '';
+        setTimeout(() => {
+          // Simple bot reply logic
+          let reply = "I'm here to help! Please ask your job or portal related question.";
+          if (/hello|hi|hey/i.test(userMsg)) reply = "Hello! 👋 How can I assist you?";
+          if (/job|apply/i.test(userMsg)) reply = "You can browse jobs and apply directly from the listings!";
+          if (/contact|support/i.test(userMsg)) reply = "You can reach support via our Contact page.";
+          appendMessage('Bot', reply);
+        }, 700);
+      };
+    }
+    
+  </script>
+ 
 </body>
+
 </html>
