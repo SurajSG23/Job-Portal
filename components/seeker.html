@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -14,6 +15,7 @@
         "https://github.com/SurajSG23/Job-Portal"
       ]
     }
+    
     </script>
     <script type="application/ld+json">
     {
@@ -53,43 +55,30 @@
     <!-- <link rel="stylesheet" href="../components/seeker.min.css" /> -->
     <!-- <link rel="stylesheet" href="../components/skills.min.css" /> -->
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="companies.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
 
 <body>
     <header>
-<div class="headContainer">
-    <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
+        <div class="headContainer">
+            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
 
-    <nav class="headlinks">
-        <a href="../index.html">Main Home</a>
-      <a href="../components/about.html" target="_self">About</a>
-      <a href="../components/homepage.html">Home</a>
-      <button class="apply-btn">Apply</button>
-    </nav>
-  </div>
+            <nav class="headlinks">
+                <a href="../index.html">Home</a>
+                <a href="../components/about.html" target="_self">About</a>
+                <a href="../components/homepage.html">Role</a>
+                <button class="apply-btn">Apply</button>
+                <a href="../components/saved-jobs.html">Saved Jobs</a>
+            </nav>
         </div>
-        <div class="apply">
-            <div>
-                <h2>Provide the below details:</h2>
-                <div class="selector">
-                    <select name="jobs-type" id="dropdown" onchange="filter(value)">
-                        <option value="all">All</option>
-                        <option value="Full Time">Full Time</option>
-                        <option value="Part Time">Part Time</option>
-                        <option value="Freelancer">Freelancing</option>
-                        <option value="recent">Recently Added</option>
-                    </select>
-<button class="apply-btn">Apply</button>
-      </div>
-    </div>
-</div>
-<div class="apply">
-    <div>
-        <h2>Provide the below details:</h2>
 
-            </div>
+        <div class="apply">
+            <button class="modal-close-btn" type="button">×</button>
+
+            <h2>Provide the below details:</h2>
+
             <div>Name: <input type="text" name="name" id="name" class="input"></div>
             <div>Years of experience: <input type="number" id="yoe" class="input"></div>
             <div>Contact number: <input type="number" name="number" id="phNo" class="input"></div>
@@ -123,72 +112,81 @@
             <p>Most viewed and all-time-top-selling servies</p>
         </div>
         <div class="search-filter-container">
-  <input
-    type="text"
-    id="searchInput"
-    class="search-bar fancy-input"
-    placeholder=" Search by position..."
-  />
-  
-  <select id="salaryFilter" class="filter-dropdown fancy-select">
-    <option value=""> All Salaries</option>
-    <option value="500">$500+/m</option>
-    <option value="900">$900+/m</option>
-    <option value="1200">$1200+/m</option>
-  </select>
-</div>
 
+            <input type="text" id="searchInput" class="search-bar fancy-input" placeholder=" Search by position..." />
 
-        <div class="jobs-container">
+            <select id="salaryFilter" class="filter-dropdown fancy-select">
+                <option value=""> All Salaries</option>
+                <option value="500">$500+/m</option>
+                <option value="900">$900+/m</option>
+                <option value="1200">$1200+/m</option>
+            </select>
+          </div>
+    <div class="jobs-container">
 
-        </div>
+    </div>
     </div>
 
 
-     <!-- Back to Top Button -->
+    <!-- Back to Top Button -->
     <button id="backToTopBtn" title="Go to top">↑</button>
 
-    <footer class="footer">
-        <div class="footContainer">
-            
-                <div class="footer-content">
-                    <p>&copy; 2025 Job Junction. All rights reserved.</p>
-                </div>
+<footer>
+    <div id="footer-statement">
+      <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
+    </div>
+  
+    <div>
+      <div class="footer-links">
+        <h3>For Job Seekers</h3>
+        <ul>
+          <li><a href="#">Browse Job</a></li>
+          <li><a href="internships.html">Internships</a></li>
+          <li><a href="#">Advice</a></li>
+          <li><a href="#">Salary Guide</a></li>
+          <li><a href="#">Resume Builder</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-links">
+        <h3>For Employers</h3>
+        <ul>
+          <li><a href="#">Post a Job</a></li>
+          <li><a href="#">Talent Search</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Enterprise</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="components/about.html">About Us</a></li>
+          <li><a href="ContactPage.html">Contact</a></li>
+          <li><a href="open-source.html">Open Source</a></li>
+          <li><a href="masthead.html">Masthead</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="social-icons">
+      <a href="https://github.com/SurajSG23" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.instagram.com/suraj_sg23/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  
+    <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
+  </footer>
+  
 
-                <div class="footlinks">
-                    <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target='_blank'>
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/SurajSG23" target='_blank'>
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-            
-        </div>
-        </footer>
-
-        <!-- <footer>
-            <div class="footContainer">
-            <div>
-                <h4>Copyright &copy; 2024 Job Junction | All Rights Reserved</h4>
-            </div>
-            
-            <div class="footlinks">
-                <a href="https://www.instagram.com/suraj_sg23/" target='_blank'>
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target='_blank'>
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/SurajSG23" target='_blank'>
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </div>
-        </div>
-    </footer> -->
     <script src="../components/seeker.js"></script>
     <script src="../components/skill.js" defer></script>
 

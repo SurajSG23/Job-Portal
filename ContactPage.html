@@ -1,153 +1,799 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-      .outer_div {
-        background-color: rgb(221, 237, 250);
-        /* text-align: center; */
-        margin: auto;
-        /* margin-left: 2rem; */
-        margin-top: 10rem;
-        width: 40rem;
-        height: 28rem;
-        border-radius: 1rem;
+      :root {
+        --gap: 12px;
+        --radius: 10px;
+        --maxw: 720px;
+        --primary-bg: #f9fafb;
+        --secondary-bg: #ffffff;
+        --text-color: #222;
+        --border-color: #e5e7eb;
+        --accent-color: #667eea;
+        --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       }
-
-      .inner_div {
-        margin-left: 2rem;
-        margin-top: 0rem;
+      
+      .dark-mode {
+        --primary-bg: #121212;
+        --secondary-bg: #1e1e1e;
+        --text-color: #e0e0e0;
+        --border-color: #333;
+        --accent-color: #0077ff;
+        --accent-gradient: linear-gradient(135deg, #0077ff 0%, #66aaff 100%);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       }
-
-      .input-field {
-        height: 1.7rem;
-        width: 13rem;
-        border-radius: 0.3rem;
-        border: 0.1rem solid grey;
-        padding: 0.2rem;
+      
+      * {
+        box-sizing: border-box;
       }
-
-      #header1 {
-        padding-top: 2rem;
-        margin-left: 2rem;
+      
+      body {
+        margin: 0;
+        font-family: 'Poppins', Arial, sans-serif;
+        background: var(--primary-bg);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+        min-height: 100vh;
       }
-
-      #header2 {
-        color: grey;
-        margin: 2rem;
-        margin-bottom: 1rem;
+      
+      /* Improved navbar for dark mode */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--secondary-bg);
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: all 0.3s ease;
       }
-
-      #s-btn {
-        background-color: rgb(13, 13, 160);
-        width: 5.5rem;
-        height: 2.5rem;
-        border-radius: 0.5rem;
+      
+      .dark-mode .navbar {
+        background: #2a2a2a;
+        box-shadow: 0 2px 12px rgba(0, 119, 255, 0.2);
+        border-bottom: 1px solid #444;
+      }
+      
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .nav-brand img {
+        width: 100px;
+        height: 100px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        object-fit: contain;
+        background: white;
+        padding: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      
+      .dark-mode .nav-brand img {
+        background: linear-gradient(135deg, #eaeef4 0%, #ecf1f6 100%);
+        box-shadow: 0 4px 12px rgba(102, 170, 255, 0.3);
+        border: 1px solid #66aaff;
+      }
+      
+      .home-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: var(--accent-gradient);
         color: white;
-        margin-top: 0.8rem;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .home-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      
+      .dark-mode .home-btn {
+        background: linear-gradient(135deg, #66aaff 0%, #0077ff 100%);
+        box-shadow: 0 4px 8px rgba(102, 170, 255, 0.2);
+      }
+      
+      .dark-mode .home-btn:hover {
+        box-shadow: 0 6px 12px rgba(102, 170, 255, 0.3);
+      }
+      
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      
+      .nav-link {
+        color: #3d55b4;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        position: relative;
+        padding: 0.5rem 0;
+        transition: color 0.2s;
+      }
+      
+      .nav-link:hover, .nav-link.active {
+        color: #764ba2;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        min-width: 180px;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+        border-radius: 10px;
+        z-index: 100;
+        padding: 0;
+        list-style: none;
+      }
+      
+      .dropdown:hover > .dropdown-content,
+      .dropdown.open > .dropdown-content {
+        display: block;
+        animation: fadeIn 0.2s;
+      }
+      
+      .dropdown-content a {
+        display: block;
+        padding: 12px 20px;
+        color: #1e3a8a;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+      
+      .dropdown-content a:hover {
+        background: #f0f4ff;
+      }
+      
+      .nav-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      
+      .btn-primary, .btn-ghost {
+        padding: 0.5rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        border: none;
         cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.2s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      
+      .btn-primary {
+        background: var(--accent-gradient);
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(102, 126, 234, 0.2);
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+      }
+      
+      .btn-ghost {
+        background: transparent;
+        color: #764ba2;
+        border: 1px solid #764ba2;
+      }
+      
+      .btn-ghost:hover {
+        background: #764ba2;
+        color: #fff;
+      }
+      
+      .theme-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #764ba2;
+        cursor: pointer;
+        transition: color 0.2s, transform 0.2s;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+      
+      .theme-toggle:hover {
+        color: #667eea;
+        transform: rotate(15deg);
       }
 
-      #s-btn:hover {
-        background-color: rgb(62, 62, 239);
-        border-radius: 0.5rem;
+      .dark-mode .theme-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #667eea;
+        cursor: pointer;
+        transition: color 0.2s, transform 0.2s;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+      
+      .dark-mode .theme-toggle:hover {
+        color: #764ba2;
+        transform: rotate(15deg);
+      }
+      
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #764ba2;
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+      
+      @media (max-width: 900px) {
+        .nav-menu {
+          flex-direction: column;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: #fff;
+          box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+          border-radius: 0 0 16px 16px;
+          display: none;
+        }
+        .nav-menu.active {
+          display: flex;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+        
+        .nav-actions {
+          gap: 0.5rem;
+        }
+        
+        .btn-primary, .btn-ghost {
+          padding: 0.4rem 1rem;
+          font-size: 0.9rem;
+        }
+      }
+      
+      .wrap {
+        max-width: var(--maxw);
+        margin: 6vh auto;
+        padding: 28px;
+        background: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      
+      h1 {
+        margin: 0 0 6px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        color: var(--text-color);
+      }
+      
+      p.lead {
+        margin-top: 0;
+        color: #6b7280;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--gap);
+      }
+      
+      .full {
+        grid-column: 1/-1;
+      }
+      
+      label {
+        display: block;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+      
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 14px;
+        background: var(--primary-bg);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+      
+      input:focus,
+      textarea:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(92, 121, 255, 0.2);
+      }
+      
+      textarea {
+        resize: vertical;
+        min-height: 140px;
+      }
+      
+      .row {
+        display: flex;
+        gap: var(--gap);
+      }
+      
+      .help {
+        font-size: 0.82rem;
+        color: #9fb0df;
+        margin-top: 6px;
+      }
+      
+      .error {
+        color: #ff6b6b;
+        font-size: 0.85rem;
+        margin-top: 6px;
+        display: none;
+      }
+      
+      .hidden {
+        display: none !important;
+      }
+      
+      button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        background: var(--accent-gradient);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1rem;
+        box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+      }
+      
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+      }
+      
+      button[disabled] {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+      
+      .notice {
+        margin-top: 18px;
+        padding: 12px 14px;
+        border-radius: 8px;
+        background: var(--primary-bg);
+        border: 1px solid var(--border-color);
+        display: none;
+        font-weight: 500;
+      }
+      
+      .notice.ok {
+        border-color: #4ecdc4;
+        background-color: rgba(78, 205, 196, 0.1);
+        color: #1a936f;
+      }
+      
+      .notice.err {
+        border-color: #ff6b6b;
+        background-color: rgba(255, 107, 107, 0.1);
+        color: #d32f2f;
+      }
+      
+      /* honeypot visually hidden but focusable for a11y tools */
+      .honeypot {
+        position: absolute;
+        left: -9999px;
+      }
+      
+      @media (max-width: 720px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+        
+        .wrap {
+          margin: 3vh auto;
+          padding: 20px;
+        }
+        
+        h1 {
+          font-size: 1.8rem;
+        }
       }
 
-      .label {
-        font-size: 1.2rem;
+      /* Style the intl-tel-input dropdown for dark background */
+      .iti {
+        width: 100%;
+      }
+      
+      .iti__country-list {
+        background-color: var(--secondary-bg) !important;
+        color: var(--text-color) !important;
+        border: 1px solid var(--border-color) !important;
+        box-shadow: var(--shadow);
+        z-index: 9999;
       }
 
+      .iti__country {
+        color: var(--text-color) !important;
+      }
+
+      .iti__dial-code {
+        color: #bbbbbb !important;
+      }
+
+      .iti__highlight {
+        background-color: var(--accent-color) !important;
+        color: #fff !important;
+      }
+
+      .iti__country:hover {
+        background-color: var(--primary-bg) !important;
+      }
+      
+      .dark-mode .nav-link {
+        color: #e0e0e0;
+      }
+      
+      .dark-mode .dropdown-content {
+        background: #2a2a2a;
+        border: 1px solid #444;
+      }
+      
+      .dark-mode .dropdown-content a {
+        color: #e0e0e0;
+      }
+      
+      .dark-mode .dropdown-content a:hover {
+        background: #333;
+      }
+      
+      .dark-mode .btn-ghost {
+        border: 1px solid #ccc;
+        color: #fff;
+        background: #2a2a2a;
+      }
+      
+      .dark-mode .btn-ghost:hover {
+        background: #333;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      
+      footer {
+        text-align: center;
+        padding: 2rem;
+        margin-top: 2rem;
+        color: #6b7280;
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border-color);
+      }
     </style>
   </head>
-  <body
-    style="
-      background-image: url('https://template.canva.com/EAGWyGhrv-A/1/0/1600w-HQtb5Nt0SbA.jpg');
-    "
-  >
-    <div class="outer_div">
-      <h2 id="header1">Contact Us</h2>
-      <h3 id="header2">Contact Us</h3>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction Logo">
+        <P>        </P>
+        <a href="index.html" class="home-btn">Home</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-ghost">Login</a>
+        <a href="signup.html" class="btn-primary">Sign Up</a>
+        <button class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+    
+    <main class="wrap" role="main">
+      <h1>Contact us</h1>
+      <p class="lead">
+        Questions, feedback, or a friendly hello—drop a message below.
+      </p>
+
       <form id="contactForm" novalidate>
-        <div class="inner_div">
-          <label for="name" class="label">Name :</label><br />
+        <!-- Honeypot -->
+        <div class="honeypot" aria-hidden="true">
+          <label
+            >Leave this field empty
+            <input
+              type="text"
+              name="company"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <div class="full">
+          <label for="name">Name *</label>
           <input
-            type="text"
             id="name"
             name="name"
-            minlength="3"
-            class="input-field"
+            type="text"
             required
-            placeholder="Name"
-          /><br /><br />
+            maxlength="100"
+            minlength="3"
+            autocomplete="name"
+            placeholder="Your full name"
+          />
+          <div class="error" data-for="name"></div>
+        </div>
 
-          <label for="email" class="label">Email : </label><br />
+        <div>
+          <label for="email">Email *</label>
           <input
-            type="email"
             id="email"
             name="email"
+            type="email"
             required
-            placeholder="Email : a@gmial.com"
-            class="input-field"
-          /><br /><br />
+            maxlength="120"
+            autocomplete="email"
+            inputmode="email"
+            placeholder="your.email@example.com"
+          />
+          <div class="error" data-for="email"></div>
+        </div>
 
-          <label for="number" class="label">Phone Number :</label><br />
+        <div>
+          <label for="phone">Phone</label>
           <input
+            id="phone"
+            name="phone"
             type="tel"
-            id="number"
-            name="number"
+            maxlength="15"
             minlength="10"
-            maxlength="10"
-            placeholder="Phone"
-            required
-            class="input-field"
-          /><br /><br />
+            autocomplete="tel"
+            inputmode="tel"
+            placeholder="Enter your phone number"
+          />
+          <div class="error" data-for="phone"></div>
+        </div>
 
-          <button type="submit" id="s-btn" >Submit</button>
+        <div class="full">
+          <label for="subject">Subject *</label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            required
+            minlength="3"
+            maxlength="150"
+            placeholder="What is this regarding?"
+          />
+          <div class="error" data-for="subject"></div>
+        </div>
+
+        <div class="full">
+          <label for="message">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            minlength="10"
+            maxlength="5000"
+            placeholder="Tell us a bit about your request…"
+          ></textarea>
+          <div class="error" data-for="message"></div>
+        </div>
+
+        <div
+          class="full row"
+          style="align-items: center; justify-content: space-between; flex-wrap: wrap;"
+        >
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            class="notice"
+            id="formNotice"
+          ></div>
+          <button id="submitBtn" type="submit">Send message</button>
         </div>
       </form>
-    </div>
+    </main>
 
+    <footer>
+      <p>© 2025 Job Junction. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script>
-        document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
+      // Basic helpers
+      const $ = (s, root = document) => root.querySelector(s);
+      const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+      const setError = (name, msg = "") => {
+        const el = `.error[data-for="${name}"]`;
+        const box = $(el);
+        if (!box) return;
+        if (msg) {
+          box.textContent = msg;
+          box.style.display = "block";
+        } else {
+          box.textContent = "";
+          box.style.display = "none";
+        }
+      };
 
-  // Get input values
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("number").value;
+      const form = $("#contactForm");
+      const notice = $("#formNotice");
+      const btn = $("#submitBtn");
+      const themeToggle = $("#themeToggle");
+      const themeIcon = themeToggle.querySelector("i");
 
-  // Error messages container
-  let errors = [];
+      // Initialize intl-tel-input
+      const phoneInput = document.querySelector("#phone");
+      const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        geoIpLookup: function(callback) {
+          // Use a free API for IP geolocation
+          fetch("https://ipapi.co/json")
+            .then(function(res) { return res.json(); })
+            .then(function(data) { callback(data.country_code); })
+            .catch(function() { callback("us"); });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        separateDialCode: true,
+        preferredCountries: ['us', 'gb', 'ca', 'au', 'in'],
+        hiddenInput: "full_phone",
+        customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+          return "e.g. " + selectedCountryPlaceholder;
+        }
+      });
 
-  // Custom validation
-  if (name.length < 3) {
-    errors.push("Name must be at least 3 characters long.");
-  }
+      // Update phone input when country changes
+      phoneInput.addEventListener("countrychange", function() {
+        // Adjust the placeholder based on the selected country
+        const placeholder = iti.getSelectedCountryData().placeholder;
+        if (placeholder) {
+          phoneInput.placeholder = placeholder.replace(/[0-9]/g, 'X');
+        }
+      });
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    errors.push("Please enter a valid email address.");
-  }
+      // Check for saved theme preference or respect OS preference
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      const currentTheme = localStorage.getItem("theme");
+      
+      if (currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches)) {
+        document.body.classList.add("dark-mode");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
 
-  if (phone.length !== 10) {
-    errors.push("Phone number should be of 10 digits.");
-  }
+      // Theme toggle functionality
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        } else {
+          localStorage.setItem("theme", "light");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        }
+      });
 
-  // If errors exist, alert them
-  if (errors.length > 0) {
-    alert(errors.join("\n"));
-    console.log(errors);
-  } else {
-    // If all validations pass
-    alert("Form submitted successfully!");
-    console.log({name , email , phone});
-    // Optionally, you can submit the form here:
-    // this.submit();
-  }
-});
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRe = /^[+()\-.\s\d]{7,20}$/; // permissive, formats like +1 555-555-5555
 
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Anti-spam honeypot
+        const honeypot = form.querySelector('input[name="company"]');
+        if (honeypot && honeypot.value.trim() !== "") {
+          return; // silently drop bots
+        }
+
+        // Validate phone number if provided
+        if (phoneInput.value.trim()) {
+          if (!iti.isValidNumber()) {
+            setError("phone", "Please enter a valid phone number.");
+            return;
+          }
+        }
+
+        // Collect values
+        const data = {
+          name: $("#name").value.trim(),
+          email: $("#email").value.trim(),
+          phone: iti.isValidNumber() ? iti.getNumber() : "",
+          subject: $("#subject").value.trim(),
+          message: $("#message").value.trim(),
+        };
+
+        // Client-side validation
+        let ok = true;
+        setError("name");
+        setError("email");
+        setError("phone");
+        setError("subject");
+        setError("message");
+        if (!data.name) {
+          setError("name", "Please enter your name.");
+          ok = false;
+        }
+        if (!emailRe.test(data.email)) {
+          setError("email", "Please enter a valid email.");
+          ok = false;
+        }
+        if (!data.subject) {
+          setError("subject", "Please enter a subject.");
+          ok = false;
+        }
+        if (!data.message || data.message.length < 10) {
+          setError("message", "Message should be at least 10 characters.");
+          ok = false;
+        }
+
+        if (!ok) return;
+
+        // Submit
+        btn.disabled = true;
+        notice.className = "notice";
+        notice.style.display = "block";
+        notice.textContent = "Sending…";
+
+        // Simulate API call with timeout
+        setTimeout(() => {
+          notice.className = "notice ok";
+          notice.textContent = "Thanks! Your message was sent successfully.";
+          form.reset();
+          iti.setNumber("");
+          btn.disabled = false;
+          
+          // Clear success message after 5 seconds
+          setTimeout(() => {
+            notice.style.display = "none";
+          }, 5000);
+        }, 1500);
+      });
     </script>
   </body>
 </html>

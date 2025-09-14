@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Junction | FAQ</title>
+  <link rel="stylesheet" href="faq.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Frequently Asked Questions</h1>
+     <i class="fa-solid fa-circle-question" id="question-icon"></i>
+    <p>Find answers to common questions about Job Junction</p>
+  <div><a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Home</a></div>
+
+  </header>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search FAQs...">
+  </div>
+
+  <div class="faq-container" id="faqContainer">
+
+    <!-- Account Setup -->
+    <div class="category">
+      <h2>Account Setup</h2>
+      <div class="faq">
+        <div class="faq-question">How do I create an account? <span class="icon">▼</span></div>
+        <div class="faq-answer">Click on the "Sign Up" button on the homepage, fill in your details, and verify your email to create an account.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">I forgot my password. What should I do? <span class="icon">▼</span></div>
+        <div class="faq-answer">Click on "Forgot Password?" at login, enter your email, and follow the instructions to reset it.</div>
+      </div>
+    </div>
+
+    <!-- Job Applications -->
+    <div class="category">
+      <h2>Job Applications</h2>
+      <div class="faq">
+        <div class="faq-question">How can I apply for jobs? <span class="icon">▼</span></div>
+        <div class="faq-answer">Visit the job listings page, select a job, and click the "Apply" button. Fill in the required details and upload your resume.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">Can I track my job applications? <span class="icon">▼</span></div>
+        <div class="faq-answer">Yes, go to your profile dashboard to see the status of your applications.</div>
+      </div>
+    </div>
+
+    <!-- Internships -->
+    <div class="category">
+      <h2>Internships</h2>
+      <div class="faq">
+         <div class="faq-question">Who can apply for this internship ? <span class="icon">▼</span></div>
+        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you’re passionate about building, coding, or creating with technology, this internship is for you.</div>
+      </div>
+      <div class="faq">
+        <div class="faq-question">Are internships paid? <span class="icon">▼</span></div>
+        <div class="faq-answer">Some internships are paid, while others may be unpaid or offer stipends. Details are mentioned in each listing.</div>
+      </div>
+    </div>
+
+    <!-- Employers -->
+    <div class="category">
+      <h2>Employers</h2>
+      <div class="faq">
+        <div class="faq-question">How do employers post jobs? <span class="icon">▼</span></div>
+        <div class="faq-answer">Employers can register, log in, and use the "Post a Job" option to list openings.</div>
+      </div>
+     <div class="faq">
+        <div class="faq-question">What kind of onboarding or training should we provide ?<span class="icon">▼</span></div>
+        <div class="faq-answer">It depends on your job role, but you'll be working on real-world tech projects that sharpen your skills and expose you to industry practices.</div>
+      </div>
+  </div>
+  </div>
+
+  <footer class="footer" style="margin-bottom: 0px;">
+  <!-- Tagline -->
+  <p class="footer-tagline" style="font-size: 20px;">
+    Connecting Talent with Opportunity. Your Career Journey Starts Here!
+  </p>
+  <br><br>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <div class="footer-column">
+      <h4>For Job Seekers</h4>
+      <ul>
+        <li><a href="/jobs">Browse Jobs</a></li>
+        <li><a href="/internships">Internships</a></li>
+        <li><a href="/advice">Advice</a></li>
+        <li><a href="/salary-guide">Salary Guide</a></li>
+        <li><a href="/resume-builder">Resume Builder</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>For Employers</h4>
+      <ul>
+        <li><a href="/post-job">Post a Job</a></li>
+        <li><a href="/talent-search">Talent Search</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/enterprise">Enterprise</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/open-source">Open Source</a></li>
+        <li><a href="/masthead">Masthead</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="footer-social">
+    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">
+    © 2025 Job Junction. All rights reserved.
+  </p>
+</footer>
+
+  <script>
+    // Toggle FAQs
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const faq = q.parentElement;
+        faq.classList.toggle('active');
+      });
+    });
+
+    // Search FAQs
+    const searchInput = document.getElementById("searchInput");
+    const faqs = document.querySelectorAll(".faq");
+
+    searchInput.addEventListener("keyup", () => {
+      const filter = searchInput.value.toLowerCase();
+      faqs.forEach(faq => {
+        const question = faq.querySelector(".faq-question").textContent.toLowerCase();
+        const answer = faq.querySelector(".faq-answer").textContent.toLowerCase();
+        if (question.includes(filter) || answer.includes(filter)) {
+          faq.style.display = "";
+        } else {
+          faq.style.display = "none";
+        }
+      });
+    });
+
+    // Animate FAQ cards on load with delay
+document.querySelectorAll('.faq').forEach((faq, i) => {
+  faq.style.animationDelay = `${i * 0.1}s`;
+});
+
+  </script>
+</body>
+</html>
