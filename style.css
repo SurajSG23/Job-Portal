@@ -321,8 +321,8 @@ background: rgba(255, 255, 255, 0.95);
 
 /* --- FOOTER --- */
 .footer {
-  background: #23272f;
-  color: #e5e7eb;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
   padding: 2rem 0 1rem;
   margin-top: 1.5rem !important;               /* Less top margin */
   text-align: center;
@@ -529,6 +529,18 @@ main {
 }
 .forgot-link:hover {
   color: var(--accent, #f093fb);
+}
+footer a,
+.site-footer a,
+.footer a {
+  color: #ffe7b2;
+  transition: color 0.2s;
+}
+
+footer a:hover,
+.site-footer a:hover,
+.footer a:hover {
+  color: #ffd166;
 }
 
 /* --- RESPONSIVE --- */
@@ -1054,6 +1066,60 @@ body.dark .navbar {
   background: rgba(20, 20, 20, 0.85);
   border-bottom: 1px solid #222;
 
+body.dark .hero {
+  background: #1f2937;
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+#togglePanel {
+  margin-bottom: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.panel {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 250px;
+  height: 300px;
+  background: #f1f1f1;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.panel-header {
+  background: #444;
+  color: white;
+  padding: 10px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-content {
+  flex: 1;
+  padding: 10px;
+  overflow: auto;
+}
+
+.resizer {
+  width: 15px;
+  height: 15px;
+  background: #ccc;
+  cursor: se-resize;
+  align-self: flex-end;
+=======
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -1063,7 +1129,9 @@ body.dark .navbar {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
+
 
 body.dark .header,
 body.dark .navbar {
@@ -1108,6 +1176,10 @@ body.dark .footer a {
 }
 body.dark .btn-primary {
   background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+
+}
+
+=======
   background: #0077ff;
   color: #fff;
 }
@@ -1137,3 +1209,4 @@ body.dark .btn-ghost {
   border: 1px solid #ccc;
   color: #fff;
 }
+

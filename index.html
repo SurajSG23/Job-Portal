@@ -441,8 +441,8 @@
                   <li><a href="ContactPage.html">Contact</a></li>
                   <li><a href="#">Open Source</a></li>
                   <li><a href="masthead.html">Masthead</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                  <li><a href="terms-of-use.html">Terms of Use</a></li>
                 </ul>
               </div>
               
@@ -815,10 +815,11 @@
                 <li><a href="ContactPage.html">Contact</a></li>
                 <li><a href="#">Open Source</a></li>
                 <li><a href="masthead.html">Masthead</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-use.html">Terms of Use</a></li>
               </ul>
             </div>
+            
           </div>
           <div class="footer-credit">
             &copy; 2025 Job Junction. All rights reserved.
@@ -833,7 +834,7 @@
           function setTheme(dark) {
             document.body.classList.toggle("dark", dark);
             const themeIcon = document.getElementById("theme-icon");
-            if (themeIcon) {
+            if themeIcon) {
               themeIcon.classList.toggle("fa-moon", !dark);
               themeIcon.classList.toggle("fa-sun", dark);
             }
@@ -881,7 +882,8 @@
         });
       </script>
     </body>
-    </html>    <!DOCTYPE html>
+    </html>
+    <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -1194,10 +1196,11 @@
                 <li><a href="ContactPage.html">Contact</a></li>
                 <li><a href="#">Open Source</a></li>
                 <li><a href="masthead.html">Masthead</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-use.html">Terms of Use</a></li>
               </ul>
             </div>
+            
           </div>
           <div class="footer-credit">
             &copy; 2025 Job Junction. All rights reserved.
@@ -1288,6 +1291,30 @@
           <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
+          
+          <div class="dropdown-content">
+            <a href="components/seeker.html">Browse Jobs</a>
+            <a href="#">Remote Jobs</a>
+            <a href="#">Featured Jobs</a>
+            <a href="#">Internships</a>
+          </div>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
           <ul class="dropdown-content" aria-label="submenu">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li><a href="#">Remote Jobs</a></li>
@@ -1368,6 +1395,7 @@
         </div>
       </div>
     </section>
+    <!-- Features Section -->
 
     <section class="video-instructions"
       style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
@@ -1425,7 +1453,8 @@
         </div>
       </div>
     </section>
-
+    <!-- Job Listing/Filter Section -->
+    
     <div class="job-page">
       <aside id="filter-panel" class="filter-panel">
         <h3>Filters</h3>
@@ -1475,20 +1504,28 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="components/about.html">About Us</a></li>
-            <li><a href="ContactPage.html">Contact</a></li>
-            <li><a href="#">Open Source</a></li>
-            <li><a href="masthead.html">Masthead</a></li>
-            <li><a href="privacypolicy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-          </ul>
+  <li><a href="components/about.html">About Us</a></li>
+  <li><a href="ContactPage.html">Contact</a></li>
+  <li><a href="#">Open Source</a></li>
+  <li><a href="masthead.html">Masthead</a></li>
+  <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  <li><a href="terms-of-use.html">Terms of Use</a></li>
+</ul>
+
         </div>
+
       </div>
       <div class="footer-credit">
         &copy; 2025 Job Junction. All rights reserved.
       </div>
     </div>
   </footer>
+
+  <!-- Scripts: Defer for performance -->
+  <script src="script.js" defer></script>
+  <script defer>
+    // Enhanced Theme Toggle System - Works across all pages
+    document.addEventListener('DOMContentLoaded', () => {
 
   <div id="liveChatWidget" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;">
     <button id="chatToggleBtn" aria-label="Open live chat"
@@ -1555,10 +1592,11 @@
           themeIcon.classList.toggle("fa-sun", dark);
         }
       }
-
       const darkMode = localStorage.getItem("theme") === "dark";
       setTheme(darkMode);
 
+      const darkMode = localStorage.getItem("theme") === "dark";
+      setTheme(darkMode);
       const themeToggle = document.getElementById("themeToggle");
       if (themeToggle) {
         themeToggle.onclick = () => {
@@ -1567,7 +1605,6 @@
           localStorage.setItem("theme", isDark ? "dark" : "light");
         };
       }
-
       // Mobile Navigation Toggle
       const mobileToggle = document.getElementById('mobileToggle');
       const navMenu = document.getElementById('navMenu');
@@ -1577,6 +1614,9 @@
           mobileToggle.classList.toggle('active');
         });
       }
+      // Multilevel Dropdown Toggle for Mobile
+      document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+        link.addEventListener('click', function(e) {
 
       // Multilevel Dropdown Toggle for Mobile
       document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
@@ -1594,6 +1634,7 @@
           }
         });
       });
+      document.addEventListener('click', function(e) {
 
       // Close mobile dropdowns when clicking elsewhere
       document.addEventListener('click', function (e) {
@@ -1656,7 +1697,7 @@
     }
     
   </script>
-  
+ 
 </body>
 
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal Landing</title>
+  <style>
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+   
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      background-color: #007bff;
+      color: white;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .nav-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+    .get-started-btn {
+      background-color: #ffbf47;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 5%;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      margin: 15px 0;
+    }
+    .cta-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 50px 5%;
+      gap: 20px;
+    }
+    .feature-card {
+      background: #f1f1f1;
+      padding: 20px;
+      flex: 1 1 250px;
+      border-radius: 8px;
+      min-width: 200px;
+      text-align: center;
+    }
+
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.5rem; }
+      .hero p { font-size: 0.9rem; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .nav-links a { margin: 5px 0; }
+      .get-started-btn { width: 100%; margin-top: 10px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.2rem; }
+      .cta-btn { width: 100%; padding: 12px 0; }
+      .features { flex-direction: column; padding: 30px 5%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Job Portal</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Jobs</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <button class="get-started-btn">Get Started</button>
+  </header>
+
+  <section class="hero">
+    <h1>Your Dream Job Awaits</h1>
+    <p>Find the best opportunities tailored for you.</p>
+    <button class="cta-btn">Explore Jobs</button>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <h3>Fast Application</h3>
+      <p>Apply to jobs with a single click.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Verified Employers</h3>
+      <p>Trustworthy companies to work with.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Notifications</h3>
+      <p>Get alerts for the jobs that matter.</p>
+    </div>
+  </section>
+</body>
+</html>
