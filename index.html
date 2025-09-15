@@ -329,6 +329,49 @@
             <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
               <i class="fa fa-bars"></i>
             </button>
+            <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Find Your Dream Job<br>
+      <span class="gradient-text">With Job Junction</span>
+    </h1>
+    <p class="hero-desc">
+      Discover thousands of opportunities, connect with top employers, and take the next step in your career journey. Job Junction is your gateway to success!
+    </p>
+    <div class="hero-cta">
+      <a href="components/seeker.html" class="cta-btn cta-primary">
+        <i class="fas fa-search"></i> Browse Jobs
+      </a>
+      <a href="#" class="cta-btn cta-secondary">
+        <i class="fas fa-briefcase"></i> Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/hero-illustration.webp" alt="Career Opportunities" loading="lazy" />
+  </div>
+</section>
+
+        <!-- Registration Section -->
+        <section id="signUpSection" class="sign-section">
+            <form>
+                <div class="box-sign">
+                    <h2>Register</h2>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="fName" placeholder="Suraj" required />
+                        <label for="fName">First name</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="lName" placeholder="S G" required />
+                        <label for="lName">Last name</label>
           </nav>
         </header>
         <main>
@@ -1407,6 +1450,31 @@
           <div class="shape shape-3"></div>
 
   <!-- Hero Section -->
+  <section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Find Your Dream Job<br>
+      <span class="gradient-text">With Job Junction</span>
+    </h1>
+    <p class="hero-desc">
+      Discover thousands of opportunities, connect with top employers, and take the next step in your career journey. Job Junction is your gateway to success!
+    </p>
+    <div class="hero-cta">
+      <a href="components/seeker.html" class="cta-btn cta-primary">
+        <i class="fas fa-search"></i> Browse Jobs
+      </a>
+      <a href="#" class="cta-btn cta-secondary">
+        <i class="fas fa-briefcase"></i> Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/hero-illustration.webp" alt="Career Opportunities" loading="lazy" />
+  </div>
+</section>
+
+    <!-- Video Instructions Section -->
+    <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
           <ul class="dropdown-content" aria-label="submenu">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li><a href="#">Remote Jobs</a></li>
@@ -1612,6 +1680,88 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
+            <li><a href="components/about.html">About Us</a></li>
+            <li><a href="ContactPage.html">Contact</a></li>
+            <li><a href="#">Open Source</a></li>
+            <li><a href="masthead.html">Masthead</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    </div>
+  </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Enhanced Theme Toggle System - Works across all pages
+        class ThemeManager {
+          constructor() {
+            this.init();
+          }
+          init() {
+            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
+            this.applyTheme(savedTheme, false);
+            this.setupThemeToggle();
+            this.setupMobileNav();
+          }
+          applyTheme(theme, animate = true) {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            if (animate) {
+              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+            if (theme === 'dark') {
+              body.classList.add('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-sun';
+                themeIcon.style.transform = 'rotate(180deg)';
+              }
+            } else {
+              body.classList.remove('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-moon';
+                themeIcon.style.transform = 'rotate(0deg)';
+              }
+            }
+            localStorage.setItem('jobPortalTheme', theme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+          }
+          setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) return;
+            themeToggle.addEventListener('click', () => {
+              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              this.applyTheme(newTheme);
+            });
+          }
+          setupMobileNav() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+              navToggle.addEventListener('click', () => {
+                const isActive = navLinks.classList.contains('active');
+                navLinks.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
+                }
+              });
+            }
+          }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+          new ThemeManager();
+        });
+        window.addEventListener('themeChanged', (e) => {
+          console.log(`Theme changed to: ${e.detail.theme}`);
+        });
+      </script>
   <li><a href="components/about.html">About Us</a></li>
   <li><a href="ContactPage.html">Contact</a></li>
   <li><a href="#">Open Source</a></li>
@@ -1803,7 +1953,7 @@
     }
     
   </script>
- 
+
 </body>
 
       // Header scroll effect
@@ -1817,8 +1967,5 @@
       });
     </script>
   </body>
-</html>
-
-=======
 </html>
 
