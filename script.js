@@ -496,8 +496,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("jobAlertModal");
   const closeModalBtn = document.querySelector(".close-btn");
   const alertMessage = document.getElementById("alertMessage");
-
-=======
   const jobAlertForm = document.getElementById('jobAlertForm');
   const alertKeywordInput = document.getElementById('alertKeyword');
   const simulateJobBtn = document.getElementById('simulateJobBtn');
@@ -518,6 +516,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
+
   if (simulateJobBtn && modal && alertMessage) {
     simulateJobBtn.addEventListener("click", function () {
       const savedKeyword = localStorage.getItem("jobAlertKeyword");
@@ -529,6 +531,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
   if (closeModalBtn && modal) {
     closeModalBtn.addEventListener("click", function () {
       modal.style.display = "none";
@@ -540,9 +545,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =======================
-  // APPLICATION FORM & HISTORY
-  // =======================
   const form = document.getElementById("applicationForm");
   const historyDiv = document.getElementById("applicationHistory");
 
@@ -580,6 +582,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please fill all fields and upload a resume.");
         return;
       }
+
       const reader = new FileReader();
       reader.onload = function () {
         const newApp = {
@@ -603,9 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadApplications();
   }
 
-  // =======================
-  // USER PROFILE LOGIC
-  // =======================
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
     showProfile(currentUser.username);
@@ -693,6 +694,97 @@ document.addEventListener("DOMContentLoaded", () => {
     location.reload();
   };
 
+  // HERO SECTION CTA BUTTONS LOGIC (for homepage)
+  // Add event listeners for hero CTA buttons if present
+  const browseJobsBtn = document.querySelector('.get-started-btn, .btn-primary.get-started-btn');
+  const postJobBtn = document.querySelector('.post-job-btn, .btn-ghost.post-job-btn');
+  if (browseJobsBtn) {
+    browseJobsBtn.addEventListener('click', function (e) {
+      // Direct navigation to job seeker page
+      window.location.href = "components/seeker.html";
+    });
+  }
+  if (postJobBtn) {
+    postJobBtn.addEventListener('click', function (e) {
+      // Direct navigation to job posting page
+      window.location.href = "components/employer-post.html";
+    });
+  }
+});
+
+console.log("Script loaded");
+console.log("Script loaded");
+
+// =======================
+// LOADING INDICATOR FOR DYNAMIC CONTENT
+// =======================
+
+// Create loading spinner element
+function createLoadingSpinner() {
+  let spinner = document.getElementById("loading-spinner");
+  if (!spinner) {
+    spinner = document.createElement("div");
+    spinner.id = "loading-spinner";
+    spinner.setAttribute("role", "status");
+    spinner.setAttribute("aria-live", "polite");
+    spinner.style.position = "fixed";
+    spinner.style.top = "50%";
+    spinner.style.left = "50%";
+    spinner.style.transform = "translate(-50%, -50%)";
+    spinner.style.zIndex = "9999";
+    spinner.style.background = "rgba(255,255,255,0.8)";
+    spinner.style.borderRadius = "1rem";
+    spinner.style.padding = "2rem";
+    spinner.style.boxShadow = "0 4px 24px rgba(102,126,234,0.15)";
+    spinner.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div style="width:48px;height:48px;border:6px solid #667eea;border-top:6px solid #764ba2;border-radius:50%;animation:spin 1s linear infinite;"></div>
+        <span style="margin-top:1rem;color:#3d55b4;font-weight:600;font-size:1.1rem;">Loading...</span>
+      </div>
+      <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg);}
+          100% { transform: rotate(360deg);}
+        }
+
+      </style>
+    `;
+    document.body.appendChild(spinner);
+  }
+  spinner.style.display = "block";
+}
+
+function removeLoadingSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) spinner.style.display = "none";
+}
+
+function fetchDynamicContent(url, callback) {
+  createLoadingSpinner();
+  
+
+  setTimeout(() => {
+    // ...fetch logic here...
+    removeLoadingSpinner();
+    if (typeof callback === "function") callback();
+  }, 1500);
+}
+
+// Example: Show spinner when loading job listings
+const jobList = document.getElementById("job-list");
+if (jobList) {
+  // Simulate dynamic fetch on page load
+  createLoadingSpinner();
+  setTimeout(() => {
+    // After fetching jobs, remove spinner
+    removeLoadingSpinner();
+    // ...existing job rendering logic...
+  }, 1200);
+}
+
+// You can wrap any async operation with createLoadingSpinner() and removeLoadingSpinner()
+// For accessibility, the spinner uses role="status" and aria-live="polite"
+
 
   // Example of how to attach listeners if your buttons don't use onclick=""
   const loginBtn = document.getElementById("login-button"); // Assuming you have buttons with these IDs
@@ -703,16 +795,99 @@ document.addEventListener("DOMContentLoaded", () => {
   if(registerBtn) registerBtn.addEventListener('click', register);
   if(updateProfileBtn) updateProfileBtn.addEventListener('click', updateProfile);
 
-}); // <-- This is the single, correct closing bracket for the main DOMContentLoaded listener.
-=======
+}); // <-- This is the single, correct closing bracket for the main DOMContentLoaded listener
 // Send email notification function (using mailto for demonstration)
 function sendEmailNotification(to, subject, body) {
   const mailtoLink = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = mailtoLink;
 }
 
+
+const panel = document.getElementById("filterPanel");
+const toggleBtn = document.getElementById("togglePanel");
+const closeBtn = document.getElementById("closePanel");
+const resizer = document.querySelector(".resizer");
+
+let isDragging = false;
+let isResizing = false;
+let offsetX, offsetY;
+
+(function restoreState() {
+  const savedState = JSON.parse(localStorage.getItem("panelState"));
+  if (savedState) {
+    panel.style.top = savedState.top;
+    panel.style.left = savedState.left;
+    panel.style.width = savedState.width;
+    panel.style.height = savedState.height;
+    panel.style.display = savedState.visible ? "flex" : "none";
+  }
+})();
+
+
+function saveState() {
+  const state = {
+    top: panel.style.top,
+    left: panel.style.left,
+    width: panel.style.width,
+    height: panel.style.height,
+    visible: panel.style.display !== "none"
+  };
+  localStorage.setItem("panelState", JSON.stringify(state));
+}
+
+
+panel.querySelector(".panel-header").addEventListener("mousedown", (e) => {
+  if (e.target === closeBtn) return; // skip if clicking close
+  isDragging = true;
+  offsetX = e.clientX - panel.offsetLeft;
+  offsetY = e.clientY - panel.offsetTop;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    panel.style.left = e.clientX - offsetX + "px";
+    panel.style.top = e.clientY - offsetY + "px";
+  }
+  if (isResizing) {
+    panel.style.width = e.clientX - panel.offsetLeft + "px";
+    panel.style.height = e.clientY - panel.offsetTop + "px";
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  if (isDragging || isResizing) saveState();
+  isDragging = false;
+  isResizing = false;
+});
+
+
+resizer.addEventListener("mousedown", (e) => {
+  isResizing = true;
+  e.stopPropagation();
+});
+
+toggleBtn.addEventListener("click", () => {
+  panel.style.display = panel.style.display === "none" ? "flex" : "none";
+  saveState();
+});
+
+
+closeBtn.addEventListener("click", () => {
+  panel.style.display = "none";
+  saveState();
+});
+
+// Forgot password link styling should be placed in your CSS file, not here.
+// Remove this CSS block from the JS file.
+const menuLinks = document.querySelectorAll('[role="menuitem"]');
+
+
+menuLinks.forEach(link => {
+  link.addEventListener('keydown', e => {
+    const parentMenu = link.closest('[role="menubar"], [role="menu"]');
+    const menuItems = [...parentMenu.querySelectorAll('[role="menuitem"]')];
+    const currentIndex = menuItems.indexOf(link);
 // Example usage: Call this function where you want to trigger the email notification
 // sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
 
 console.log("Script loaded");
-
