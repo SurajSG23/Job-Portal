@@ -515,21 +515,24 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // HERO SECTION CTA BUTTONS LOGIC (for homepage)
-  // Add event listeners for hero CTA buttons if present
-  const browseJobsBtn = document.querySelector('.get-started-btn, .btn-primary.get-started-btn');
-  const postJobBtn = document.querySelector('.post-job-btn, .btn-ghost.post-job-btn');
-  if (browseJobsBtn) {
-    browseJobsBtn.addEventListener('click', function (e) {
-      // Direct navigation to job seeker page
-      window.location.href = "components/seeker.html";
-    });
-  }
-  if (postJobBtn) {
-    postJobBtn.addEventListener('click', function (e) {
-      // Direct navigation to job posting page
-      window.location.href = "components/employer-post.html";
-    });
-  }
+  // Ensure both CTA buttons work consistently across all pages
+  document.addEventListener("DOMContentLoaded", () => {
+    // Consistent CTA button logic for hero section
+    const browseJobsBtn = document.querySelector('.get-started-btn');
+    const postJobBtn = document.querySelector('.post-job-btn');
+    if (browseJobsBtn) {
+      browseJobsBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = "components/seeker.html";
+      });
+    }
+    if (postJobBtn) {
+      postJobBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = "components/employer-post.html";
+      });
+    }
+  });
 });
 
 console.log("Script loaded");

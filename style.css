@@ -267,18 +267,19 @@ body.dark {
   text-decoration: none;
   box-shadow: var(--shadow);
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border: none;
 }
 
 .get-started-btn {
   background: linear-gradient(135deg, var(--primary-600), var(--secondary-500));
   color: #fff;
-  border: none;
 }
-.get-started-btn:hover {
+.get-started-btn:hover, .get-started-btn:focus {
   background: linear-gradient(135deg, var(--secondary-500), var(--primary-600));
   color: #ffe7b2;
   transform: translateY(-2px) scale(1.04);
   box-shadow: var(--shadow-lg);
+  outline: none;
 }
 
 .post-job-btn {
@@ -286,12 +287,13 @@ body.dark {
   color: var(--primary-600);
   border: 2px solid var(--primary-600);
 }
-.post-job-btn:hover {
+.post-job-btn:hover, .post-job-btn:focus {
   background: var(--primary-600);
   color: #fff;
   border-color: var(--secondary-500);
   transform: translateY(-2px) scale(1.04);
   box-shadow: var(--shadow-lg);
+  outline: none;
 }
 
 /* Responsive for CTA buttons */
