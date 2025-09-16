@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
   <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
   <link rel="preload" href="style.css" as="style" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="companies.css" />
   <link rel="stylesheet" href="footer.css" />
@@ -23,6 +23,7 @@
       "url": "https://surajsg23.github.io/Job-Portal/",
       "logo": "assets/logo.webp",
       "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
+
 
 </head>
 
@@ -39,6 +40,12 @@
           <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="#">Remote Jobs</a></li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
           
           <div class="dropdown-content">
             <a href="components/seeker.html">Browse Jobs</a>
@@ -48,21 +55,58 @@
           </div>
         </li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
-        <li><a href="components\about.html" class="nav-link">About</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">Faqs</a></li>
       </ul>
-
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
         </button>
         <a href="./login.html" class="btn btn-ghost">Login</a>
         <a href="./signup.html" class="btn btn-primary">Sign Up</a>
       </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <i class="fa fa-bars"></i>
+      </button>
     </nav>
   </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-background" aria-hidden="true">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
 
   <!-- Hero Section -->
+  <section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Find Your Dream Job<br>
+      <span class="gradient-text">With Job Junction</span>
+    </h1>
+    <p class="hero-desc">
+      Discover thousands of opportunities, connect with top employers, and take the next step in your career journey. Job Junction is your gateway to success!
+    </p>
+    <div class="hero-cta">
+      <a href="components/seeker.html" class="cta-btn cta-primary">
+        <i class="fas fa-search"></i> Browse Jobs
+      </a>
+      <a href="#" class="cta-btn cta-secondary">
+        <i class="fas fa-briefcase"></i> Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/hero-illustration.webp" alt="Career Opportunities" loading="lazy" />
+  </div>
+</section>
+
+    <!-- Video Instructions Section -->
+    <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
           <ul class="dropdown-content" aria-label="submenu">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li><a href="#">Remote Jobs</a></li>
@@ -92,6 +136,22 @@
   <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
+      <h1 class="hero-title">
+        Discover Amazing <span class="gradient-text">Opportunities</span> & Start Your Career Journey
+      </h1>
+      <p class="hero-description">
+        Join thousands of professionals who found their perfect match.<br>
+        Browse through premium job listings from top companies worldwide.
+      </p>
+      <div class="hero-actions">
+        <a href="components/seeker.html" class="btn-primary get-started-btn" aria-label="Browse Jobs">
+          <span>Browse Jobs</span>
+          <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="components/employer-post.html" class="btn-ghost post-job-btn" aria-label="Post a Job">
+          <span>Post a Job</span>
+          <i class="fas fa-upload"></i>
+        </a>
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badge">
@@ -237,7 +297,89 @@
             <li><a href="terms-of-use.html">Terms of Use</a></li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    </div>
+  </footer>
 
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Enhanced Theme Toggle System - Works across all pages
+        class ThemeManager {
+          constructor() {
+            this.init();
+          }
+          init() {
+            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
+            this.applyTheme(savedTheme, false);
+            this.setupThemeToggle();
+            this.setupMobileNav();
+          }
+          applyTheme(theme, animate = true) {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            if (animate) {
+              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+            if (theme === 'dark') {
+              body.classList.add('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-sun';
+                themeIcon.style.transform = 'rotate(180deg)';
+              }
+            } else {
+              body.classList.remove('dark');
+              if (themeIcon) {
+                themeIcon.className = 'fas fa-moon';
+                themeIcon.style.transform = 'rotate(0deg)';
+              }
+            }
+            localStorage.setItem('jobPortalTheme', theme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+          }
+          setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) return;
+            themeToggle.addEventListener('click', () => {
+              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              this.applyTheme(newTheme);
+            });
+          }
+          setupMobileNav() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+              navToggle.addEventListener('click', () => {
+                const isActive = navLinks.classList.contains('active');
+                navLinks.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
+                }
+              });
+            }
+          }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+          new ThemeManager();
+        });
+        window.addEventListener('themeChanged', (e) => {
+          console.log(`Theme changed to: ${e.detail.theme}`);
+        });
+      </script>
+  <li><a href="components/about.html">About Us</a></li>
+  <li><a href="ContactPage.html">Contact</a></li>
+  <li><a href="#">Open Source</a></li>
+  <li><a href="masthead.html">Masthead</a></li>
+  <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  <li><a href="terms-of-use.html">Terms of Use</a></li>
+</ul>
+
+        </div>
       </div>
       <div class="footer-credit">
         &copy; 2025 Job Junction. All rights reserved.
@@ -362,7 +504,19 @@
     }
     
   </script>
- 
+
 </body>
 
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
 </html>
+

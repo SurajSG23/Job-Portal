@@ -516,6 +516,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
+
   if (simulateJobBtn && modal && alertMessage) {
     simulateJobBtn.addEventListener("click", function () {
       const savedKeyword = localStorage.getItem("jobAlertKeyword");
@@ -527,6 +531,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
   if (closeModalBtn && modal) {
     closeModalBtn.addEventListener("click", function () {
       modal.style.display = "none";
@@ -538,9 +545,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =======================
-  // APPLICATION FORM & HISTORY
-  // =======================
   const form = document.getElementById("applicationForm");
   const historyDiv = document.getElementById("applicationHistory");
 
@@ -578,6 +582,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please fill all fields and upload a resume.");
         return;
       }
+
       const reader = new FileReader();
       reader.onload = function () {
         const newApp = {
@@ -601,9 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadApplications();
   }
 
-  // =======================
-  // USER PROFILE LOGIC
-  // =======================
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
     showProfile(currentUser.username);
@@ -690,7 +693,26 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("currentUser");
     location.reload();
   };
+
+  // HERO SECTION CTA BUTTONS LOGIC (for homepage)
+  // Add event listeners for hero CTA buttons if present
+  const browseJobsBtn = document.querySelector('.get-started-btn, .btn-primary.get-started-btn');
+  const postJobBtn = document.querySelector('.post-job-btn, .btn-ghost.post-job-btn');
+  if (browseJobsBtn) {
+    browseJobsBtn.addEventListener('click', function (e) {
+      // Direct navigation to job seeker page
+      window.location.href = "components/seeker.html";
+    });
+  }
+  if (postJobBtn) {
+    postJobBtn.addEventListener('click', function (e) {
+      // Direct navigation to job posting page
+      window.location.href = "components/employer-post.html";
+    });
+  }
 });
+
+console.log("Script loaded");
 console.log("Script loaded");
 
 // =======================
@@ -724,6 +746,7 @@ function createLoadingSpinner() {
           0% { transform: rotate(0deg);}
           100% { transform: rotate(360deg);}
         }
+
       </style>
     `;
     document.body.appendChild(spinner);
@@ -736,10 +759,10 @@ function removeLoadingSpinner() {
   if (spinner) spinner.style.display = "none";
 }
 
-// Example usage for dynamic fetch (replace with your actual fetch logic)
 function fetchDynamicContent(url, callback) {
   createLoadingSpinner();
-  // Simulate async fetch (replace with real fetch)
+  
+
   setTimeout(() => {
     // ...fetch logic here...
     removeLoadingSpinner();
@@ -856,7 +879,6 @@ closeBtn.addEventListener("click", () => {
 
 // Forgot password link styling should be placed in your CSS file, not here.
 // Remove this CSS block from the JS file.
-=======
 const menuLinks = document.querySelectorAll('[role="menuitem"]');
 
 
@@ -865,7 +887,6 @@ menuLinks.forEach(link => {
     const parentMenu = link.closest('[role="menubar"], [role="menu"]');
     const menuItems = [...parentMenu.querySelectorAll('[role="menuitem"]')];
     const currentIndex = menuItems.indexOf(link);
-=======
 // Example usage: Call this function where you want to trigger the email notification
 // sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
 
