@@ -96,3 +96,89 @@
   .event-card { padding: 1rem; }
   .events-filters { flex-direction: column; gap: 0.5rem; }
 }
+
+body.dark {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark .navbar {
+    background: #1f1f1f;
+}
+
+body.dark .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark .nav-link.active {
+    color: #90caf9;
+}
+
+body.dark .events-hero {
+    background: linear-gradient(135deg, #333, #555);
+    color: #e0e0e0;
+}
+
+body.dark .events-filters select {
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark .event-card {
+    background: #1f1f1f;
+    color: #e0e0e0;
+}
+
+body.dark .event-register-btn {
+    background: linear-gradient(135deg, #90caf9, #42a5f5);
+    color: #121212;
+}
+
+body.dark #backToTopBtn {
+    background: #90caf9;
+    color: #121212;
+}
+body.dark .event-description {
+    color: #d1d5db; /* Softer, more readable light grey */
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #fff;
+}
+
+.nav-brand .logo {
+    max-height: 50px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #333;
+}
+body.dark .theme-toggle {
+    color: #f3f3f1; /* White icon color in dark mode */
+    background:rgb(78, 79, 79);
+}
+
+.nav-brand .logo {
+    height: 100px !important; /* Force exact height */
+    width: auto;
+    object-fit: contain;
+    display: block; /* Prevent inline spacing issues */
+}
+
