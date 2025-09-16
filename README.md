@@ -169,6 +169,7 @@ This project is open source and available under the MIT License.
 ⭐ If you like this project, don’t forget to star the repo and contribute!
 
 
-
+## Fixes
+-Resolved an issue where the navbar was repeating when scrolling the page.Adjusted the layout to ensure the smooth user experience.
 
 
