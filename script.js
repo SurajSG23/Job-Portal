@@ -485,7 +485,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return "Click on a job card to view details and apply.";
     return "I'm here to help with job-related queries!";
   }
-
   // =======================
   // JOB ALERT MODAL
   // =======================
@@ -569,7 +568,6 @@ document.addEventListener("DOMContentLoaded", () => {
       historyDiv.appendChild(card);
     });
   }
-
   if (form && historyDiv) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -605,8 +603,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     loadApplications();
   }
-
-
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
     showProfile(currentUser.username);
@@ -675,6 +671,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Username already exists.");
       return;
     }
+
+    users = users.map(user => {
     users = users.map((user) => {
       if (user.username === currentUser.username) {
         return { ...user, username: newUsername };
@@ -693,7 +691,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("currentUser");
     location.reload();
   };
-
   // HERO SECTION CTA BUTTONS LOGIC (for homepage)
   // Add event listeners for hero CTA buttons if present
   const browseJobsBtn = document.querySelector('.get-started-btn, .btn-primary.get-started-btn');
