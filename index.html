@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Junction | Find Your Dream Career</title>
+  <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
+  <meta name="keywords" content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
+  <meta name="author" content="Job Junction Team" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.webp" type="image/webp" />
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
@@ -105,9 +112,15 @@
 <body>
   <!-- Navigation Bar -->
   <header>
-    <nav class="navbar" aria-label="Main Navigation">
+    <nav class="navbar">
       <div class="nav-brand">
         <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
+        <span class="brand-title">Job Junction</span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="components/seeker.html" class="nav-link">Jobs</a></li>
+        <li><a href="internships.html" class="nav-link">Internships</a></li>
       </div>
       <ul class="nav-menu" id="navMenu">
         <li><a href="./components/homepage.html" class="nav-link">Home</a></li>
@@ -145,6 +158,170 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-background" aria-hidden="true">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Find Your Dream Job<br>
+      <span class="gradient-text">With Job Junction</span>
+    </h1>
+    <p class="hero-desc">
+      Discover thousands of opportunities, connect with top employers, and take the next step in your career journey. Job Junction is your gateway to success!
+    </p>
+    <div class="hero-cta">
+      <a href="components/seeker.html" class="cta-btn cta-primary">
+        <i class="fas fa-search"></i> Browse Jobs
+      </a>
+      <a href="#" class="cta-btn cta-secondary">
+        <i class="fas fa-briefcase"></i> Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/hero-illustration.webp" alt="Career Opportunities" loading="lazy" />
+  </div>
+</section>
+
+    <!-- Video Instructions Section -->
+    <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="#">Remote Jobs</a></li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">Faqs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        <div id="auth-container">
+          <a href="./login.html" class="btn btn-ghost">Login</a>
+          <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Find Your Dream Career</h1>
+      <p class="hero-description">
+        Discover top jobs, internships, and career resources. Join thousands of professionals who found their perfect match at Job Junction.
+      </p>
+      <div class="hero-actions">
+        <a href="components/seeker.html" class="btn btn-primary">Browse Jobs</a>
+        <a href="components/employer.html" class="btn btn-ghost">Post a Job</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero-illustration.webp" alt="Career Opportunities" />
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-search-plus feature-icon"></i>
+        <h3>Wide Range of Jobs</h3>
+        <p>Explore thousands of opportunities across industries and locations.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-chart-line feature-icon"></i>
+        <h3>Career Growth</h3>
+        <p>Find roles that match your skills and ambitions for long-term success.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-user-check feature-icon"></i>
+        <h3>Easy Application</h3>
+        <p>Apply quickly with our streamlined process and smart resume builder.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-globe feature-icon"></i>
+        <h3>Global Reach</h3>
+        <p>Access international listings and remote work options.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Job Listings Preview -->
+  <section class="job-preview">
+    <h2>Featured Jobs</h2>
+    <div class="jobs-container">
+      <div class="job-card">
+        <h4>Frontend Developer</h4>
+        <p>TechCorp Inc. <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span></p>
+        <span class="salary">$80K - $120K</span>
+        <a href="components/seeker.html" class="btn btn-primary">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <h4>Data Scientist</h4>
+        <p>DataGen <span class="location"><i class="fas fa-map-marker-alt"></i> Bangalore</span></p>
+        <span class="salary">₹12L - ₹18L</span>
+        <a href="components/seeker.html" class="btn btn-primary">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <h4>UI/UX Designer</h4>
+        <p>Creative Minds <span class="location"><i class="fas fa-map-marker-alt"></i> Mumbai</span></p>
+        <span class="salary">₹8L - ₹14L</span>
+        <a href="components/seeker.html" class="btn btn-primary">Apply Now</a>
+      </div>
+    </div>
+    <div class="job-preview-actions">
+      <a href="components/seeker.html" class="btn btn-ghost">View All Jobs</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer site-footer">
+    <div class="footer-content">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Job Junction Logo" />
+          <p class="footer-tagline">
+            Connecting Talent with Opportunity.<br>Your Career Journey Starts Here!
+          </p>
+          <div class="social-icons">
+            <a href="https://github.com/SurajSG23/Job-Portal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <h1 class="hero-title">
+        Discover Amazing <span class="gradient-text">Opportunities</span> & Start Your Career Journey
+      </h1>
+      <p class="hero-description">
+        Join thousands of professionals who found their perfect match.<br>
+        Browse through premium job listings from top companies worldwide.
+      </p>
+      <div class="hero-actions">
+        <a href="components/seeker.html" class="btn-primary get-started-btn" aria-label="Browse Jobs">
+          <span>Browse Jobs</span>
+          <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="components/employer-post.html" class="btn-ghost post-job-btn" aria-label="Post a Job">
+          <span>Post a Job</span>
+          <i class="fas fa-upload"></i>
+        </a>
     
         </div>
       </div>
@@ -170,9 +347,6 @@
             <a href="#features" class="learn-more-btn" aria-label="Learn More">
               <span class="main-btn">Learn More <i class="fas fa-play"></i></span>
             </a>
-        
-      
-            
              
           </div>
         </div>
@@ -185,6 +359,45 @@
         <div class="section-header">
           <h2>Why Choose Job Junction?</h2>
         </div>
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4>Job Seekers</h4>
+            <ul>
+              <li><a href="components/seeker.html">Browse Jobs</a></li>
+              <li><a href="internships.html">Internships</a></li>
+              <li><a href="#">Advice</a></li>
+              <li><a href="#">Salary Guide</a></li>
+              <li><a href="#">Resume Builder</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Employers</h4>
+            <ul>
+              <li><a href="#">Post a Job</a></li>
+              <li><a href="#">Talent Search</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Enterprise</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="components/about.html">About Us</a></li>
+              <li><a href="ContactPage.html">Contact</a></li>
+              <li><a href="#">Open Source</a></li>
+              <li><a href="masthead.html">Masthead</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-use.html">Terms of Use</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="components/events.html">Events</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-search-plus"></i></div>
@@ -208,6 +421,7 @@
           </div>
         </div>
       </div>
+      <hr />
     </section>
 
     <!-- Job Listing/Filter Section -->
@@ -271,6 +485,70 @@
         &copy; 2025 Job Junction. All rights reserved.
     </div>
   </footer>
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <script>
+    // Theme Toggle System - Persistent
+    document.addEventListener('DOMContentLoaded', () => {
+  <!-- Scripts: Defer for performance -->
+  <script src="script.js" defer></script>
+  <script defer>
+    // Enhanced Theme Toggle System - Works across all pages
+    document.addEventListener('DOMContentLoaded', () => {
+
+  <div id="liveChatWidget" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;">
+    <button id="chatToggleBtn" aria-label="Open live chat"
+      style="background:#667eea;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 16px rgba(30,58,138,0.15);font-size:2rem;cursor:pointer;">
+      <i class="fas fa-comments"></i>
+    </button>
+    <div id="chatBox"
+      style="display:none;flex-direction:column;width:320px;max-width:90vw;height:400px;background:#fff;border-radius:1rem;box-shadow:0 8px 32px rgba(102,126,234,0.18);position:absolute;bottom:70px;right:0;">
+      <div
+        style="background:#667eea;color:#fff;padding:1rem;border-radius:1rem 1rem 0 0;display:flex;justify-content:space-between;align-items:center;">
+        <span><i class="fas fa-robot"></i> Live Chat</span>
+        <button id="chatCloseBtn" aria-label="Close chat"
+          style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">&times;</button>
+      </div>
+      <div id="chatMessages" style="flex:1;overflow-y:auto;padding:1rem;font-size:1rem;background:#f9fafb;"></div>
+      <form id="chatForm" style="display:flex;padding:0.5rem 1rem;border-top:1px solid #eee;">
+        <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off"
+          style="flex:1;padding:0.5rem;border-radius:0.5rem;border:1px solid #ddd;font-size:1rem;" />
+        <button type="submit"
+          style="background:#667eea;color:#fff;border:none;border-radius:0.5rem;padding:0 1rem;margin-left:0.5rem;font-size:1.2rem;cursor:pointer;">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script defer>
+    // Inline script for critical, above-the-fold functionality (Auth, Theme, Mobile Nav)
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- NEW AUTHENTICATION CHECK LOGIC ---
+      const authContainer = document.getElementById('auth-container');
+      // Check both local and session storage for the login flag
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true' || sessionStorage.getItem('isLoggedIn') === 'true';
+
+      if (isLoggedIn) {
+        // User IS logged in: Show a Logout button
+        authContainer.innerHTML = `
+          <button id="logout-btn" class="btn btn-ghost">Logout</button>
+        `;
+        
+        // Add a click event listener to the new logout button
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          // Clear the login flag from both storage types
+          localStorage.removeItem('isLoggedIn');
+          sessionStorage.removeItem('isLoggedIn');
+          // Reload the page to reflect the logged-out state
+          window.location.reload(); 
+        });
+
+      } 
+      // If user is NOT logged in (else), we do nothing.
+      // The default HTML (Login/Sign Up) in #auth-container is already correct.
+      // --- END OF AUTH
 
   <!-- Scripts -->
   <script src="script.js" defer></script>
