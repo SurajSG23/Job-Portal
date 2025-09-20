@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,16 +12,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/favicon.webp" type="image/webp" />
 
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
+  <meta name="keywords" content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
+  <meta name="author" content="Job Junction Team" />
 
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Job Junction | Find Your Dream Career" />
+  <meta property="og:description" content="Discover top jobs, career resources, and professional events at Job Junction." />
+  <meta property="og:image" content="assets/logo.webp" />
+  <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://surajsg23.github.io/Job-Portal/" />
+
+  <!-- Preload Critical Assets -->
   <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
   <link rel="preload" href="style.css" as="style" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="companies.css" />
-  <link rel="stylesheet" href="footer.css" />
+  <!-- <link rel="stylesheet" href="footer.css" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,12 +49,68 @@
       "url": "https://surajsg23.github.io/Job-Portal/",
       "logo": "assets/logo.webp",
       "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Job Junction",
+      "url": "https://surajsg23.github.io/Job-Portal/",
+      "description": "Job Junction is your gateway to top jobs, career resources, and professional events.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Job Junction",
+        "logo": { "@type": "ImageObject", "url": "assets/logo.webp" }
+      }
+    }
+  </script>
 
+  <!-- Firebase / Custom JS -->
+  <script type="module" src="components/firebaseauth.js"></script>
 
+  <!-- Minimal Critical Dropdown CSS -->
+  <style>
+    .nav-menu .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 180px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(30, 58, 138, 0.08);
+      border-radius: 10px;
+      z-index: 100;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-menu li { position: relative; }
+    .nav-menu .dropdown:hover > .dropdown-content,
+    .nav-menu .dropdown:focus-within > .dropdown-content {
+      display: block;
+      animation: fadeIn 0.2s;
+    }
+    .nav-menu .dropdown-content a {
+      display: block;
+      padding: 12px 20px;
+      color: #1e3a8a;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-menu .dropdown-content a:hover { background: #f0f4ff; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .nav-menu .dropdown-content { position: static; box-shadow: none; }
+      .nav-menu .dropdown.open > .dropdown-content { display: block; }
+    }
+  </style>
 </head>
-
 <body>
-
+  <!-- Navigation Bar -->
   <header>
     <nav class="navbar">
       <div class="nav-brand">
@@ -57,16 +131,9 @@
           <ul class="dropdown-content" aria-label="submenu">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li><a href="#">Remote Jobs</a></li>
-            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="featured-job.html">Featured Jobs</a></li>
             <li><a href="internships.html">Internships</a></li>
           </ul>
-          
-          <div class="dropdown-content">
-            <a href="components/seeker.html">Browse Jobs</a>
-            <a href="#">Remote Jobs</a>
-            <a href="#">Featured Jobs</a>
-            <a href="#">Internships</a>
-          </div>
         </li>
         <li><a href="companies.html" class="nav-link">Companies</a></li>
         <li><a href="components/about.html" class="nav-link">About</a></li>
@@ -86,6 +153,7 @@
       </button>
     </nav>
   </header>
+
   <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -254,6 +322,9 @@
           <span>Post a Job</span>
           <i class="fas fa-upload"></i>
         </a>
+    
+        </div>
+      </div>
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badge">
@@ -270,39 +341,19 @@
             Browse through premium job listings from top companies worldwide.
           </p>
           <div class="hero-actions">
-            <a href="components/homepage.html" class="get-started-btn btn btn-primary" aria-label="Get Started">
-              <span>Get Started</span>
-              <i class="fas fa-arrow-right"></i>
+            <a href="components/homepage.html" class="get-started-btn" aria-label="Get Started">
+              <span class="main-btn">Get Started  <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a href="#features" class="learn-more-btn btn btn-ghost" aria-label="Learn More">
-              <span>Learn More</span>
-              <i class="fas fa-play"></i>
+            <a href="#features" class="learn-more-btn" aria-label="Learn More">
+              <span class="main-btn">Learn More <i class="fas fa-play"></i></span>
             </a>
+             
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-card">
-            <div class="job-card-preview">
-              <div class="company-info">
-                <div class="company-logo"></div>
-                <div class="company-details">
-                  <h4>Senior Frontend Developer</h4>
-                  <p>TechCorp Inc.</p>
-                </div>
-              </div>
-              <div class="job-meta">
-                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                <span class="salary">$80K - $120K</span>
-              </div>
-              <div class="job-tags">
-                <span class="tag">React</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Remote</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </section>
 
+    <!-- Features Section -->
     <section class="features" id="features">
       <div class="container">
         <div class="section-header">
@@ -347,29 +398,46 @@
               <li><a href="#">Blog</a></li>
               <li><a href="#">Help Center</a></li>
             </ul>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-search-plus"></i></div>
+            <h3>Wide Range of Jobs</h3>
+            <p>Explore thousands of job opportunities across various industries.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Career Growth</h3>
+            <p>Find roles that align with your career aspirations and growth.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+            <h3>Easy Application</h3>
+            <p>Simplified application process to save your time and effort.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-globe"></i></div>
+            <h3>Global Opportunities</h3>
+            <p>Access to international job listings and remote work options.</p>
           </div>
         </div>
       </div>
       <hr />
     </section>
 
+    <!-- Job Listing/Filter Section -->
     <div class="job-page">
       <aside id="filter-panel" class="filter-panel">
-        <h3>Filters</h3>
-        <div>
-          <label><input type="checkbox"> Remote Only</label>
-        </div>
-        <div>
-          <label><input type="checkbox"> Full Time</label>
-        </div>
+        <h2>Filters</h2>
+        <div><label><input type="checkbox"> Remote Only</label></div>
+        <div><label><input type="checkbox"> Full Time</label></div>
         <button id="pin-panel">Pin/Unpin</button>
         <button id="resize-panel">↔ Resize</button>
       </aside>
       <section id="job-list" class="job-list">
-        <div class="job-card" draggable="true">Job 1 - Frontend Dev</div>
-        <div class="job-card" draggable="true">Job 2 - Backend Dev</div>
-        <div class="job-card" draggable="true">Job 3 - Data Scientist</div>
-        <div class="job-card" draggable="true">Job 4 - UI/UX Designer</div>
+        <div class="job-card" id="search-job" draggable="true">Job 1 - Frontend Dev</div>
+        <div class="job-card" id="search-job" draggable="true">Job 2 - Backend Dev</div>
+        <div class="job-card"  id="search-job" draggable="true">Job 3 - Data Scientist</div>
+        <div class="job-card" id="search-job" draggable="true">Job 4 - UI/UX Designer</div>
       </section>
     </div>
   </main>
@@ -407,97 +475,14 @@
             <li><a href="ContactPage.html">Contact</a></li>
             <li><a href="#">Open Source</a></li>
             <li><a href="masthead.html">Masthead</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-use.html">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Job Junction. All rights reserved.</p>
-    </div>
-  </footer>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script>
-        // Enhanced Theme Toggle System - Works across all pages
-        class ThemeManager {
-          constructor() {
-            this.init();
-          }
-          init() {
-            const savedTheme = localStorage.getItem('jobPortalTheme') || 'light';
-            this.applyTheme(savedTheme, false);
-            this.setupThemeToggle();
-            this.setupMobileNav();
-          }
-          applyTheme(theme, animate = true) {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            if (animate) {
-              body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            }
-            if (theme === 'dark') {
-              body.classList.add('dark');
-              if (themeIcon) {
-                themeIcon.className = 'fas fa-sun';
-                themeIcon.style.transform = 'rotate(180deg)';
-              }
-            } else {
-              body.classList.remove('dark');
-              if (themeIcon) {
-                themeIcon.className = 'fas fa-moon';
-                themeIcon.style.transform = 'rotate(0deg)';
-              }
-            }
-            localStorage.setItem('jobPortalTheme', theme);
-            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
-          }
-          setupThemeToggle() {
-            const themeToggle = document.getElementById('theme-toggle');
-            if (!themeToggle) return;
-            themeToggle.addEventListener('click', () => {
-              const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
-              const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-              this.applyTheme(newTheme);
-            });
-          }
-          setupMobileNav() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (navToggle && navLinks) {
-              navToggle.addEventListener('click', () => {
-                const isActive = navLinks.classList.contains('active');
-                navLinks.classList.toggle('active');
-                const icon = navToggle.querySelector('i');
-                if (icon) {
-                  icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(90deg)';
-                }
-              });
-            }
-          }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-          new ThemeManager();
-        });
-        window.addEventListener('themeChanged', (e) => {
-          console.log(`Theme changed to: ${e.detail.theme}`);
-        });
-      </script>
-  <li><a href="components/about.html">About Us</a></li>
-  <li><a href="ContactPage.html">Contact</a></li>
-  <li><a href="#">Open Source</a></li>
-  <li><a href="masthead.html">Masthead</a></li>
-  <li><a href="privacy-policy.html">Privacy Policy</a></li>
-  <li><a href="terms-of-use.html">Terms of Use</a></li>
-</ul>
-
-        </div>
       </div>
-      <div class="footer-credit">
+      <div class="footer-license">
         &copy; 2025 Job Junction. All rights reserved.
-      </div>
     </div>
   </footer>
   <!-- Scripts -->
@@ -564,6 +549,12 @@
       // If user is NOT logged in (else), we do nothing.
       // The default HTML (Login/Sign Up) in #auth-container is already correct.
       // --- END OF AUTH
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme Toggle
       function setTheme(dark) {
         document.body.classList.toggle("dark", dark);
         const themeIcon = document.getElementById("theme-icon");
@@ -574,9 +565,6 @@
       }
       const darkMode = localStorage.getItem("theme") === "dark";
       setTheme(darkMode);
-
-      const darkMode = localStorage.getItem("theme") === "dark";
-      setTheme(darkMode);
       const themeToggle = document.getElementById("themeToggle");
       if (themeToggle) {
         themeToggle.onclick = () => {
@@ -585,7 +573,8 @@
           localStorage.setItem("theme", isDark ? "dark" : "light");
         };
       }
-      // Mobile Navigation Toggle
+
+      // Mobile Nav Toggle
       const mobileToggle = document.getElementById('mobileToggle');
       const navMenu = document.getElementById('navMenu');
       if (mobileToggle && navMenu) {
@@ -594,13 +583,10 @@
           mobileToggle.classList.toggle('active');
         });
       }
-      // Multilevel Dropdown Toggle for Mobile
+
+      // Multilevel Dropdown (Mobile)
       document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
         link.addEventListener('click', function(e) {
-
-      // Multilevel Dropdown Toggle for Mobile
-      document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
-        link.addEventListener('click', function (e) {
           const submenu = this.nextElementSibling;
           if (submenu && submenu.classList.contains('dropdown-content')) {
             if (window.innerWidth <= 900) {
@@ -609,87 +595,18 @@
               parentLi.forEach(li => {
                 if (li !== this.parentElement) li.classList.remove('open');
               });
-              this.parentElement.classListtoggle('open');
+              this.parentElement.classList.toggle('open');
             }
           }
         });
       });
-      document.addEventListener('click', function(e) {
 
-      // Close mobile dropdowns when clicking elsewhere
-      document.addEventListener('click', function (e) {
+      document.addEventListener('click', function(e) {
         document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
           if (!drop.contains(e.target)) drop.classList.remove('open');
         });
       });
     });
   </script>
-
-  <script>
-    // Live Chat Widget Logic (This script remains unchanged)
-    const chatToggleBtn = document.getElementById('chatToggleBtn');
-    const chatBox = document.getElementById('chatBox');
-    const chatCloseBtn = document.getElementById('chatCloseBtn');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatForm = document.getElementById('chatForm');
-    const chatInput = document.getElementById('chatInput');
-
-    function appendMessage(sender, text) {
-      const msgDiv = document.createElement('div');
-      msgDiv.style.marginBottom = '0.7rem';
-      msgDiv.innerHTML = `<strong style="color:${sender === 'You' ? '#667eea' : '#764ba2'}">${sender}:</strong> <span>${text}</span>`;
-      chatMessages.appendChild(msgDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    if (chatToggleBtn) {
-        chatToggleBtn.onclick = () => {
-        chatBox.style.display = 'flex';
-        chatInput.focus();
-        if (!chatMessages.hasChildNodes()) {
-          appendMessage('Bot', '👋 Hi! How can I help you today?');
-        }
-      };
-    }
-
-    if (chatCloseBtn) {
-        chatCloseBtn.onclick = () => {
-        chatBox.style.display = 'none';
-      };
-    }
-    
-    if (chatForm) {
-        chatForm.onsubmit = (e) => {
-        e.preventDefault();
-        const userMsg = chatInput.value.trim();
-        if (!userMsg) return;
-        appendMessage('You', userMsg);
-        chatInput.value = '';
-        setTimeout(() => {
-          // Simple bot reply logic
-          let reply = "I'm here to help! Please ask your job or portal related question.";
-          if (/hello|hi|hey/i.test(userMsg)) reply = "Hello! 👋 How can I assist you?";
-          if (/job|apply/i.test(userMsg)) reply = "You can browse jobs and apply directly from the listings!";
-          if (/contact|support/i.test(userMsg)) reply = "You can reach support via our Contact page.";
-          appendMessage('Bot', reply);
-        }, 700);
-      };
-    }
-    
-  </script>
-
 </body>
-
-      // Header scroll effect
-      window.addEventListener('scroll', () => {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
-    </script>
-  </body>
 </html>
-
