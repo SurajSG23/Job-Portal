@@ -214,6 +214,31 @@
     .powered-by img { max-width: 100px; }
     .contact form { max-width: 100%; }
   }
+  @media (max-width: 480px) {
+  /* Footer adjustments for small screens */
+  .footer-container {
+    grid-template-columns: 1fr;  /* single column layout */
+    text-align: center;           /* center text */
+    gap: 1.5rem;                 /* adjust spacing */
+  }
+
+  .footer-col {
+    justify-content: center;      /* center icons & links */
+  }
+
+  .footer-col .social-icons {
+    flex-direction: row;          /* show social icons in a row */
+    justify-content: center;      /* center them */
+    flex-wrap: wrap;              /* wrap if too many icons */
+    gap: 0.5rem;
+  }
+
+  .footer-col p, 
+  .footer-col a {
+    justify-content: center;      /* center phone/email links */
+  }
+}
+
 </style>
 </head>
 <body>
