@@ -242,6 +242,7 @@ body.dark {
     display: block;
   }
 }
+}
 .hero {
   position: relative;
   padding: 2.5rem 1rem 1.5rem 1rem !important; 
@@ -252,6 +253,7 @@ body.dark {
 
 .footer-columns {
 
+.footer-columns {
 /* --- HERO SECTION --- */
 .hero {
   position: relative;
@@ -284,9 +286,9 @@ body.dark {
 .footer-col ul li {
   margin-bottom: 0.4rem;
 }
-
 /* --- HERO SECTION CTA BUTTONS --- */
 
+/* --- HERO SECTION CTA BUTTONS --- */
 .get-started-btn, .post-job-btn {
   display: inline-flex;
   align-items: center;
@@ -298,6 +300,19 @@ body.dark {
   text-decoration: none;
   box-shadow: var(--shadow);
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border: none;
+}
+
+.get-started-btn {
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-500));
+  color: #fff;
+}
+.get-started-btn:hover, .get-started-btn:focus {
+  background: linear-gradient(135deg, var(--secondary-500), var(--primary-600));
+  color: #ffe7b2;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: var(--shadow-lg);
+  outline: none;
 }
 footer a,
 .site-footer a,
@@ -337,6 +352,13 @@ footer a,
   margin-right: 32px;
   margin-bottom: 24px;
 }
+.post-job-btn:hover, .post-job-btn:focus {
+  background: var(--primary-600);
+  color: #fff;
+  border-color: var(--secondary-500);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: var(--shadow-lg);
+  outline: none;
 
 .filter-panel h3 {
   font-size: 1.4rem;
