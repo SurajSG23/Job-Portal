@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Junction | Terms of Service</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode header,
+        body.dark-mode footer {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        body.dark-mode a {
+            color: #ffd700;
+        }
+
+        /* Dark Mode Toggle Button */
+        #darkModeToggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        #darkModeToggle:hover {
+            background: #333;
+        }
+
+
+        /* Main content styling */
+        .main-content {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 2rem 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dark Mode for main content */
+        body.dark-mode .main-content h2 {
+            color: #fff;
+        }
+        body.dark-mode .main-content h3 {
+            color: #e0e0e0;
+        }
+        body.dark-mode .main-content h3::before {
+            color: #6a9bf7;
+        }
+        body.dark-mode .main-content p,
+        body.dark-mode .main-content ul li {
+            color: #f4efef;
+        }
+        body.dark-mode .main-content a {
+            color: #ffd700;
+        }
+        body.dark-mode .main-content a:hover {
+            color: #ffea85;
+        }
+
+        /* Headings */
+        .main-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #222;
+            text-align: center;
+        }
+        .main-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #444;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .main-content h3::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #6a9bf7;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Paragraphs */
+        .main-content p {
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        /* Animated list items */
+        .main-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            list-style: none;
+            padding-left: 0;
+        }
+        .main-content ul li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+            color: #555;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.6s forwards;
+        }
+        .main-content ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #6a9bf7;
+            font-size: 1rem;
+        }
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .main-content ul li:nth-child(1) { animation-delay: 0.2s; }
+        .main-content ul li:nth-child(2) { animation-delay: 0.4s; }
+        .main-content ul li:nth-child(3) { animation-delay: 0.6s; }
+        .main-content ul li:nth-child(4) { animation-delay: 0.8s; }
+        .main-content ul li:nth-child(5) { animation-delay: 1s; }
+
+        /* Links */
+        .main-content a {
+            color: #0077cc;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .main-content a:hover {
+            color: #ffd700;
+        }
+
+        /* Buttons hover effect */
+        .about-btn:hover {
+            background-color: #ffd700;
+            color: #000;
+            transition: 0.3s;
+        }
+        .nav-brand img {
+        width: 500px;
+        height: 280px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        object-fit: contain;
+        background: white;
+        padding: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-brand">
+            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
+            <button id="darkModeToggle">🌙</button>
+        </div>
+    </header>
+
+    <hr />
+
+    <div style="display: flex; justify-content: flex-start; max-width: 800px; margin: 0 auto 24px auto;" class="btn-container">
+        <a href="../index.html" class="about-btn">&#8592; Back to Home</a>
+    </div>
+
+    <div class="main-content">
+        <h2>Terms of Service</h2>
+
+        <p>Welcome to <strong>Job Junction</strong>. By using our platform, you agree to comply with and be bound by the following terms and conditions.</p>
+
+        <h3>1. Acceptance of Terms</h3>
+        <p>By accessing and using Job Junction, you agree to follow these Terms of Service and all applicable laws and regulations.</p>
+
+        <h3>2. User Responsibilities</h3>
+        <ul>
+            <li>Provide accurate and up-to-date information.</li>
+            <li>Maintain the confidentiality of your account credentials.</li>
+            <li>Use the platform only for lawful purposes.</li>
+            <li>Do not attempt to interfere with or disrupt the platform.</li>
+        </ul>
+
+        <h3>3. Content Ownership</h3>
+        <p>All content provided on Job Junction, including job postings, resumes, and articles, is owned by Job Junction or its licensors.</p>
+
+        <h3>4. Prohibited Activities</h3>
+        <ul>
+            <li>Unauthorized access or use of data or accounts.</li>
+            <li>Impersonating other users or entities.</li>
+            <li>Engaging in fraudulent or harmful activities.</li>
+            <li>Uploading malicious software or content.</li>
+        </ul>
+
+        <h3>5. Limitation of Liability</h3>
+        <p>Job Junction is not liable for any direct, indirect, or consequential damages arising from your use of the platform.</p>
+
+        <h3>6. Termination</h3>
+        <p>We reserve the right to suspend or terminate your account for violations of these terms without prior notice.</p>
+
+        <h3>7. Updates to Terms</h3>
+        <p>We may update these Terms of Service from time to time. Changes will be posted on this page.</p>
+
+        <h3>8. Contact Us</h3>
+        <p>If you have questions or concerns about these terms, please contact us at <a href="mailto:support@jobjunction.com">support@jobjunction.com</a>.</p>
+    </div>
+
+    <button id="backToTopBtn" aria-label="Back to Top">↑</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-tagline" style="font-size: 20px;">Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
+        <br><br>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>For Job Seekers</h4>
+                <ul>
+                    <li><a href="/jobs">Browse Jobs</a></li>
+                    <li><a href="/internships">Internships</a></li>
+                    <li><a href="/advice">Advice</a></li>
+                    <li><a href="/salary-guide">Salary Guide</a></li>
+                    <li><a href="/resume-builder">Resume Builder</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>For Employers</h4>
+                <ul>
+                    <li><a href="/post-job">Post a Job</a></li>
+                    <li><a href="/talent-search">Talent Search</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="footer-copy">© 2025 Job Junction. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const toggleBtn = document.getElementById('darkModeToggle');
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById("backToTopBtn");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
