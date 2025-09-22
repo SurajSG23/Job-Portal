@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Project | Job Junction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
 
 :root {
@@ -192,6 +194,11 @@
       color: #111827;
       font-weight: bold;
     }
+    .contact h2:hover {
+      color: #2563eb;
+            text-decoration: underline;
+
+    } 
 
     /* Launch Info */
     .launch {
@@ -200,6 +207,7 @@
       background: #eee;
       border-radius: 8px;
     }
+    
 
     /* Responsive */
     @media (max-width: 600px) {
@@ -313,6 +321,84 @@ section {
   padding: 20px;
   border-radius: 8px;
 }
+.contact {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.contact h2 {
+  color: #3b82f6;
+  margin-bottom: 30px;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.inner-card {
+  background: #f3f4f6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  flex: 1 1 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.inner-card p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.inner-card a {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.inner-card a:hover {
+  color: #1d4ed8;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #1d4ed8;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 </style>
 </head>
@@ -342,16 +428,29 @@ section {
       </section>
       
 
-    <!-- Contact -->
-    <section class="contact">
-      <h2>Contact Information</h2>
-      <p>Email: <a href="mailto:jobjunction@gmail.com">jobjunction@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/SurajSG23/Job-Portal?tab=contributing-ov-file" target="_blank">Job Junction Repository</a></p>
-      <p>Follow us: 
-        <a href="#">Twitter</a> | 
-        <a href="#">LinkedIn</a>
-      </p>
-    </section>
+   <!-- Contact Section -->
+<section class="contact">
+  <h2>Contact Information</h2>
+
+  <div class="contact-card">
+    <!-- Card 1: Email & GitHub -->
+    <div class="inner-card">
+      <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:jobjunction@gmail.com">jobjunction@gmail.com</a></p>
+      <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/SurajSG23/Job-Portal" target="_blank">Job Junction Repo</a></p>
+    </div>
+
+    <!-- Card 2: Social Media -->
+    <div class="inner-card">
+      <p>Follow us:</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Launch Info -->
     <section class="launch">
