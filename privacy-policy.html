@@ -6,8 +6,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - Job Junction</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* ===== FOOTER CSS ===== */
+footer {
+  background: #111827;
+  color: #fff;
+  padding: 2rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.footer-col h3 {
+  margin-bottom: 1rem;
+  color: #2563eb;
+  font-size: 1.1rem;
+}
+
+.footer-col a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #d1d5db;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #2563eb;
+}
+
+.footer-col p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.footer-col p:hover {
+  color: #2563eb;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #2563eb;
+}
+
+.footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-col a,
+  .social-icons a {
+    justify-content: center;
+  }
+
+  .footer-col p {
+    justify-content: center;
+  }
+}
+</style>  
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -38,12 +127,42 @@
     </ul>
     <p>For more details, please contact us via the Contact page.</p>
   </main>
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-credit">
-        &copy; 2025 Job Junction. All rights reserved.
+  <!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+      <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Important Links</h3>
+      <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+      <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+      <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+      <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+      <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="footer-credit">
+    &copy; 2025 Job Junction. All rights reserved.
+  </div>
+</footer>
 </body>
 </html>
