@@ -1,4 +1,4 @@
-/* General page styles
+
 body {
     font-family: Arial, sans-serif;
     background: #f8f9fa;
@@ -19,6 +19,9 @@ h1 {
     gap: 20px;
     padding: 20px;
 }
+
+/* Job Listing Card */
+
 
 .jList {
     background: #fff;
@@ -54,7 +57,6 @@ h1 {
     font-size: 14px;
 }
 
-/* Job Type Badge */
 .type p {
     display: inline-block;
     padding: 4px 8px;
@@ -65,13 +67,14 @@ h1 {
     margin-top: 5px;
 }
 
-/* Links */
 .job-links {
     text-decoration: none;
     color: inherit;
 }
+.job-links:hover {
+    text-decoration: underline;
+}
 
-/* Save Job Button */
 .save-job-btn {
     margin-top: 10px;
     padding: 8px;
