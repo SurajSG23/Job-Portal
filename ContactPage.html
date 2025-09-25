@@ -4,512 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Contact Us</title>
+    <link rel="stylesheet" href="Contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-      :root {
-        --gap: 12px;
-        --radius: 10px;
-        --maxw: 720px;
-        --primary-bg: #f9fafb;
-        --secondary-bg: #ffffff;
-        --text-color: #222;
-        --border-color: #e5e7eb;
-        --accent-color: #667eea;
-        --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
-      
-      .dark-mode {
-        --primary-bg: #121212;
-        --secondary-bg: #1e1e1e;
-        --text-color: #e0e0e0;
-        --border-color: #333;
-        --accent-color: #0077ff;
-        --accent-gradient: linear-gradient(135deg, #0077ff 0%, #66aaff 100%);
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      }
-      
-      * {
-        box-sizing: border-box;
-      }
-      
-      body {
-        margin: 0;
-        font-family: 'Poppins', Arial, sans-serif;
-        background: var(--primary-bg);
-        color: var(--text-color);
-        transition: background-color 0.3s, color 0.3s;
-        min-height: 100vh;
-      }
-      
-      /* Improved navbar for dark mode */
-      .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: var(--secondary-bg);
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 12px rgba(102,126,234,0.08);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        transition: all 0.3s ease;
-      }
-      
-      .dark-mode .navbar {
-        background: #2a2a2a;
-        box-shadow: 0 2px 12px rgba(0, 119, 255, 0.2);
-        border-bottom: 1px solid #444;
-      }
-      
-      .nav-brand {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-      
-      .nav-brand img {
-        width: 100px;
-        height: 100px;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        object-fit: contain;
-        background: white;
-        padding: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
-      
-      .dark-mode .nav-brand img {
-        background: linear-gradient(135deg, #eaeef4 0%, #ecf1f6 100%);
-        box-shadow: 0 4px 12px rgba(102, 170, 255, 0.3);
-        border: 1px solid #66aaff;
-      }
-      
-      .home-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background: var(--accent-gradient);
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
 
-      .home-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
-      
-      .dark-mode .home-btn {
-        background: linear-gradient(135deg, #66aaff 0%, #0077ff 100%);
-        box-shadow: 0 4px 8px rgba(102, 170, 255, 0.2);
-      }
-      
-      .dark-mode .home-btn:hover {
-        box-shadow: 0 6px 12px rgba(102, 170, 255, 0.3);
-      }
-      
-      .nav-menu {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        align-items: center;
-      }
-      
-      .nav-link {
-        color: #3d55b4;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-        position: relative;
-        padding: 0.5rem 0;
-        transition: color 0.2s;
-      }
-      
-      .nav-link:hover, .nav-link.active {
-        color: #764ba2;
-      }
-      
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        min-width: 180px;
-        background: #fff;
-        box-shadow: 0 8px 24px rgba(30,58,138,0.08);
-        border-radius: 10px;
-        z-index: 100;
-        padding: 0;
-        list-style: none;
-      }
-      
-      .dropdown:hover > .dropdown-content,
-      .dropdown.open > .dropdown-content {
-        display: block;
-        animation: fadeIn 0.2s;
-      }
-      
-      .dropdown-content a {
-        display: block;
-        padding: 12px 20px;
-        color: #1e3a8a;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: background 0.2s;
-      }
-      
-      .dropdown-content a:hover {
-        background: #f0f4ff;
-      }
-      
-      .nav-actions {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-      }
-      
-      .btn-primary, .btn-ghost {
-        padding: 0.5rem 1.2rem;
-        border-radius: 8px;
-        font-weight: 600;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.2s;
-        text-decoration: none;
-        display: inline-block;
-      }
-      
-      .btn-primary {
-        background: var(--accent-gradient);
-        color: #fff;
-        box-shadow: 0 4px 6px rgba(102, 126, 234, 0.2);
-      }
-      
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
-      }
-      
-      .btn-ghost {
-        background: transparent;
-        color: #764ba2;
-        border: 1px solid #764ba2;
-      }
-      
-      .btn-ghost:hover {
-        background: #764ba2;
-        color: #fff;
-      }
-      
-      .theme-toggle {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #764ba2;
-        cursor: pointer;
-        transition: color 0.2s, transform 0.2s;
-        padding: 0.5rem;
-        border-radius: 50%;
-      }
-      
-      .theme-toggle:hover {
-        color: #667eea;
-        transform: rotate(15deg);
-      }
-
-      .dark-mode .theme-toggle {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #667eea;
-        cursor: pointer;
-        transition: color 0.2s, transform 0.2s;
-        padding: 0.5rem;
-        border-radius: 50%;
-      }
-      
-      .dark-mode .theme-toggle:hover {
-        color: #764ba2;
-        transform: rotate(15deg);
-      }
-      
-      .mobile-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: #764ba2;
-        cursor: pointer;
-        margin-left: 1rem;
-      }
-      
-      @media (max-width: 900px) {
-        .nav-menu {
-          flex-direction: column;
-          position: absolute;
-          top: 70px;
-          left: 0;
-          right: 0;
-          background: #fff;
-          box-shadow: 0 8px 24px rgba(30,58,138,0.08);
-          border-radius: 0 0 16px 16px;
-          display: none;
-        }
-        .nav-menu.active {
-          display: flex;
-        }
-        .mobile-toggle {
-          display: block;
-        }
-        
-        .nav-actions {
-          gap: 0.5rem;
-        }
-        
-        .btn-primary, .btn-ghost {
-          padding: 0.4rem 1rem;
-          font-size: 0.9rem;
-        }
-      }
-      
-      .wrap {
-        max-width: var(--maxw);
-        margin: 6vh auto;
-        padding: 28px;
-        background: var(--secondary-bg);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        transition: background-color 0.3s, border-color 0.3s;
-      }
-      
-      h1 {
-        margin: 0 0 6px;
-        font-weight: 700;
-        letter-spacing: 0.2px;
-        color: var(--text-color);
-      }
-      
-      p.lead {
-        margin-top: 0;
-        color: #6b7280;
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-      }
-      
-      form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--gap);
-      }
-      
-      .full {
-        grid-column: 1/-1;
-      }
-      
-      label {
-        display: block;
-        font-size: 0.95rem;
-        margin-bottom: 6px;
-        color: var(--text-color);
-        font-weight: 500;
-      }
-      
-      input,
-      textarea,
-      select {
-        width: 100%;
-        padding: 12px 14px;
-        background: var(--primary-bg);
-        color: var(--text-color);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        outline: none;
-        transition: border-color 0.3s, box-shadow 0.3s;
-        font-family: inherit;
-        font-size: 1rem;
-      }
-      
-      input:focus,
-      textarea:focus {
-        border-color: var(--accent-color);
-        box-shadow: 0 0 0 3px rgba(92, 121, 255, 0.2);
-      }
-      
-      textarea {
-        resize: vertical;
-        min-height: 140px;
-      }
-      
-      .row {
-        display: flex;
-        gap: var(--gap);
-      }
-      
-      .help {
-        font-size: 0.82rem;
-        color: #9fb0df;
-        margin-top: 6px;
-      }
-      
-      .error {
-        color: #ff6b6b;
-        font-size: 0.85rem;
-        margin-top: 6px;
-        display: none;
-      }
-      
-      .hidden {
-        display: none !important;
-      }
-      
-      button {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 8px;
-        background: var(--accent-gradient);
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-size: 1rem;
-        box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
-      }
-      
-      button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
-      }
-      
-      button[disabled] {
-        opacity: 0.7;
-        cursor: not-allowed;
-        transform: none;
-        box-shadow: none;
-      }
-      
-      .notice {
-        margin-top: 18px;
-        padding: 12px 14px;
-        border-radius: 8px;
-        background: var(--primary-bg);
-        border: 1px solid var(--border-color);
-        display: none;
-        font-weight: 500;
-      }
-      
-      .notice.ok {
-        border-color: #4ecdc4;
-        background-color: rgba(78, 205, 196, 0.1);
-        color: #1a936f;
-      }
-      
-      .notice.err {
-        border-color: #ff6b6b;
-        background-color: rgba(255, 107, 107, 0.1);
-        color: #d32f2f;
-      }
-      
-      /* honeypot visually hidden but focusable for a11y tools */
-      .honeypot {
-        position: absolute;
-        left: -9999px;
-      }
-      
-      @media (max-width: 720px) {
-        form {
-          grid-template-columns: 1fr;
-        }
-        
-        .wrap {
-          margin: 3vh auto;
-          padding: 20px;
-        }
-        
-        h1 {
-          font-size: 1.8rem;
-        }
-      }
-
-      /* Style the intl-tel-input dropdown for dark background */
-      .iti {
-        width: 100%;
-      }
-      
-      .iti__country-list {
-        background-color: var(--secondary-bg) !important;
-        color: var(--text-color) !important;
-        border: 1px solid var(--border-color) !important;
-        box-shadow: var(--shadow);
-        z-index: 9999;
-      }
-
-      .iti__country {
-        color: var(--text-color) !important;
-      }
-
-      .iti__dial-code {
-        color: #bbbbbb !important;
-      }
-
-      .iti__highlight {
-        background-color: var(--accent-color) !important;
-        color: #fff !important;
-      }
-
-      .iti__country:hover {
-        background-color: var(--primary-bg) !important;
-      }
-      
-      .dark-mode .nav-link {
-        color: #e0e0e0;
-      }
-      
-      .dark-mode .dropdown-content {
-        background: #2a2a2a;
-        border: 1px solid #444;
-      }
-      
-      .dark-mode .dropdown-content a {
-        color: #e0e0e0;
-      }
-      
-      .dark-mode .dropdown-content a:hover {
-        background: #333;
-      }
-      
-      .dark-mode .btn-ghost {
-        border: 1px solid #ccc;
-        color: #fff;
-        background: #2a2a2a;
-      }
-      
-      .dark-mode .btn-ghost:hover {
-        background: #333;
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px);}
-        to { opacity: 1; transform: translateY(0);}
-      }
-      
-      footer {
-        text-align: center;
-        padding: 2rem;
-        margin-top: 2rem;
-        color: #6b7280;
-        font-size: 0.9rem;
-        border-top: 1px solid var(--border-color);
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -529,8 +28,29 @@
         </button>
       </div>
     </nav>
-    
-    <main class="wrap" role="main">
+     <div class="contact-heading">
+          <i class="fa-solid fa-envelope"></i>
+           <h1 class="fade-in mob-res">Stay Connected</h1>
+        </div>
+
+        <section class="grid-container">
+ <!-- Cards Column -->
+  <div class="cards-column">
+    <div class="card">
+      <h3>Connect with us</h3>
+      <p>Find your dream Job on our Job-Portal</p>
+    </div>
+    <div class="card">
+      <h3>24/7 at your service</h3>
+      <p>Feel free to reach out. We will appriciate your queries.</p>
+    </div>
+    <div class="card">
+      <h3>Grow your connections</h3>
+      <p>Job-Portal connects you with real-world. Network with like-minded people.</p>
+    </div>
+  </div>
+    <div class="contact-column">
+      <main class="wrap" role="main">
       <h1>Contact us</h1>
       <p class="lead">
         Questions, feedback, or a friendly hello—drop a message below.
@@ -551,7 +71,7 @@
         </div>
 
         <div class="full">
-          <label for="name">Name *</label>
+          <label for="name"><i class="fa-solid fa-user"></i> Name *</label>
           <input
             id="name"
             name="name"
@@ -566,7 +86,7 @@
         </div>
 
         <div>
-          <label for="email">Email *</label>
+          <label for="email"><i class="fa-solid fa-square-envelope"></i> Email *</label>
           <input
             id="email"
             name="email"
@@ -581,7 +101,7 @@
         </div>
 
         <div>
-          <label for="phone">Phone</label>
+          <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
           <input
             id="phone"
             name="phone"
@@ -596,7 +116,7 @@
         </div>
 
         <div class="full">
-          <label for="subject">Subject *</label>
+          <label for="subject"><i class="fa-solid fa-pen-to-square"></i>  Subject *</label>
           <input
             id="subject"
             name="subject"
@@ -610,7 +130,7 @@
         </div>
 
         <div class="full">
-          <label for="message">Message *</label>
+          <label for="message"><i class="fa-solid fa-message"></i> Message *</label>
           <textarea
             id="message"
             name="message"
@@ -625,8 +145,7 @@
         <div
           class="full row"
           style="align-items: center; justify-content: space-between; flex-wrap: wrap;"
-        >
-          <div
+         > <div
             aria-live="polite"
             aria-atomic="true"
             class="notice"
@@ -636,10 +155,67 @@
         </div>
       </form>
     </main>
+  </div>
+</section>
 
-    <footer>
-      <p>© 2025 Job Junction. All rights reserved.</p>
-    </footer>
+
+      <footer class="footer" style="margin-bottom: 0px;">
+  <!-- Tagline -->
+  <p class="footer-tagline" style="font-size: 20px;">
+    Connecting Talent with Opportunity. Your Career Journey Starts Here!
+  </p>
+  <br><br>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <div class="footer-column">
+      <h4>For Job Seekers</h4>
+      <ul>
+        <li><a href="/jobs">Browse Jobs</a></li>
+        <li><a href="/internships">Internships</a></li>
+        <li><a href="/advice">Advice</a></li>
+        <li><a href="/salary-guide">Salary Guide</a></li>
+        <li><a href="/resume-builder">Resume Builder</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>For Employers</h4>
+      <ul>
+        <li><a href="/post-job">Post a Job</a></li>
+        <li><a href="/talent-search">Talent Search</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/enterprise">Enterprise</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/open-source">Open Source</a></li>
+        <li><a href="/masthead">Masthead</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="footer-social">
+    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">
+    © 2025 Job Junction. All rights reserved.
+  </p>
+</footer>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script>
