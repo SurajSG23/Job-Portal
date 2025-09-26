@@ -709,7 +709,6 @@
           </div>
         </div>
       </footer>
-      <!-- Scripts: Defer for performance -->
       <script src="script.js" defer></script>
       <script defer>
         // Enhanced Theme Toggle System - Works across all pages
@@ -732,7 +731,6 @@
               localStorage.setItem("theme", isDark ? "dark" : "light");
             };
           }
-          // Mobile Navigation Toggle
           const mobileToggle = document.getElementById('mobileToggle');
           const navMenu = document.getElementById('navMenu');
           if (mobileToggle && navMenu) {
@@ -741,7 +739,6 @@
               mobileToggle.classList.toggle('active');
             });
           }
-          // Multilevel Dropdown Toggle for Mobile
           document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
             link.addEventListener('click', function(e) {
               const submenu = this.nextElementSibling;
@@ -918,7 +915,6 @@
         </nav>
       </header>
       <main>
-        <!-- Hero Section -->
         <section class="hero" id="home">
           <div class="hero-background" aria-hidden="true">
             <div class="hero-shapes">
@@ -977,7 +973,6 @@
             </div>
           </div>
         </section>
-        <!-- Features Section -->
         <section class="features" id="features">
           <div class="container">
             <div class="section-header">
