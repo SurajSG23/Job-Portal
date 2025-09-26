@@ -798,7 +798,14 @@ if (jobList) {
 }); // <-- This is the single, correct closing bracket for the main DOMContentLoaded listener
 // Send email notification function (using mailto for demonstration)
 function sendEmailNotification(to, subject, body) {
+  // Validate email
+  if (!to || !/^[\w\.-]+@[\w\.-]+\.\w{2,}$/.test(to)) {
+    alert("Invalid recipient email address.");
+    return;
+  }
+  // Build mailto link
   const mailtoLink = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  // Open user's email client
   window.location.href = mailtoLink;
 }
 
