@@ -5,6 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* style.css */
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background-color: #ffffff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-3px);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="file"],
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #6a5af9;
+    outline: none;
+}
+
+/* Gradient Button */
+form button {
+    background: linear-gradient(90deg, #6a5af9, #9f7afe);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background: linear-gradient(90deg, #5746c0, #8b78f8);
+    transform: translateY(-2px);
+}
+
+/* Application History Styles */
+#applicationHistory {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.application-entry {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    transition: background-color 0.2s ease;
+}
+
+.application-entry:last-child {
+    border-bottom: none;
+}
+
+.application-entry:hover {
+    background-color: #f7f7ff;
+}
+
+.application-entry p {
+    margin: 5px 0;
+}
+h1{
+    color: #6a5af9;
+}
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    form, #applicationHistory {
+        padding: 20px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+    </style>
 </head>
 <body>
 

@@ -485,7 +485,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return "Click on a job card to view details and apply.";
     return "I'm here to help with job-related queries!";
   }
-
   // =======================
   // JOB ALERT MODAL
   // =======================
@@ -516,6 +515,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
+
   if (simulateJobBtn && modal && alertMessage) {
     simulateJobBtn.addEventListener("click", function () {
       const savedKeyword = localStorage.getItem("jobAlertKeyword");
@@ -527,6 +530,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+
+
   if (closeModalBtn && modal) {
     closeModalBtn.addEventListener("click", function () {
       modal.style.display = "none";
@@ -538,9 +544,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =======================
-  // APPLICATION FORM & HISTORY
-  // =======================
   const form = document.getElementById("applicationForm");
   const historyDiv = document.getElementById("applicationHistory");
 
@@ -565,7 +568,6 @@ document.addEventListener("DOMContentLoaded", () => {
       historyDiv.appendChild(card);
     });
   }
-
   if (form && historyDiv) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -578,6 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please fill all fields and upload a resume.");
         return;
       }
+
       const reader = new FileReader();
       reader.onload = function () {
         const newApp = {
@@ -600,10 +603,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     loadApplications();
   }
-
-  // =======================
-  // USER PROFILE LOGIC
-  // =======================
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
     showProfile(currentUser.username);
@@ -672,6 +671,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Username already exists.");
       return;
     }
+
+    users = users.map(user => {
     users = users.map((user) => {
       if (user.username === currentUser.username) {
         return { ...user, username: newUsername };
@@ -690,7 +691,28 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("currentUser");
     location.reload();
   };
+  // HERO SECTION CTA BUTTONS LOGIC (for homepage)
+  // Ensure both CTA buttons work consistently across all pages
+  document.addEventListener("DOMContentLoaded", () => {
+    // Consistent CTA button logic for hero section
+    const browseJobsBtn = document.querySelector('.get-started-btn');
+    const postJobBtn = document.querySelector('.post-job-btn');
+    if (browseJobsBtn) {
+      browseJobsBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = "components/seeker.html";
+      });
+    }
+    if (postJobBtn) {
+      postJobBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = "components/employer-post.html";
+      });
+    }
+  });
 });
+
+console.log("Script loaded");
 console.log("Script loaded");
 
 // =======================
@@ -724,6 +746,7 @@ function createLoadingSpinner() {
           0% { transform: rotate(0deg);}
           100% { transform: rotate(360deg);}
         }
+
       </style>
     `;
     document.body.appendChild(spinner);
@@ -736,10 +759,10 @@ function removeLoadingSpinner() {
   if (spinner) spinner.style.display = "none";
 }
 
-// Example usage for dynamic fetch (replace with your actual fetch logic)
 function fetchDynamicContent(url, callback) {
   createLoadingSpinner();
-  // Simulate async fetch (replace with real fetch)
+  
+
   setTimeout(() => {
     // ...fetch logic here...
     removeLoadingSpinner();
@@ -775,7 +798,14 @@ if (jobList) {
 }); // <-- This is the single, correct closing bracket for the main DOMContentLoaded listener
 // Send email notification function (using mailto for demonstration)
 function sendEmailNotification(to, subject, body) {
+  // Validate email
+  if (!to || !/^[\w\.-]+@[\w\.-]+\.\w{2,}$/.test(to)) {
+    alert("Invalid recipient email address.");
+    return;
+  }
+  // Build mailto link
   const mailtoLink = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  // Open user's email client
   window.location.href = mailtoLink;
 }
 
@@ -856,7 +886,6 @@ closeBtn.addEventListener("click", () => {
 
 // Forgot password link styling should be placed in your CSS file, not here.
 // Remove this CSS block from the JS file.
-=======
 const menuLinks = document.querySelectorAll('[role="menuitem"]');
 
 
@@ -865,7 +894,6 @@ menuLinks.forEach(link => {
     const parentMenu = link.closest('[role="menubar"], [role="menu"]');
     const menuItems = [...parentMenu.querySelectorAll('[role="menuitem"]')];
     const currentIndex = menuItems.indexOf(link);
-=======
 // Example usage: Call this function where you want to trigger the email notification
 // sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
 

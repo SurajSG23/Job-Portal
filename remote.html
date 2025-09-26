@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Remote Jobs - Job Junction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Consistent Navbar -->
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction Logo" />
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-content" aria-label="submenu">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="remote.html">Remote Jobs</a></li>
+            <li><a href="#">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">FAQs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="login.html" class="btn-ghost">Login</a>
+        <a href="signup.html" class="btn-primary">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding:2.5rem 1rem 1.5rem 1rem;">
+      <h1 class="hero-title">Remote Jobs</h1>
+      <p class="hero-description">
+        Explore top remote job opportunities from leading companies. Work from anywhere and build your career on your terms!
+      </p>
+    </section>
+    <section class="jobs-container" style="max-width:900px;margin:2rem auto;">
+      <!-- Example remote job cards -->
+      <div class="job-card">
+        <h3>Frontend Developer (Remote)</h3>
+        <p><strong>Company:</strong> Tech Innovators</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p><strong>Salary:</strong> $70,000 - $100,000</p>
+        <a href="#" class="get-started-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <h3>UI/UX Designer (Remote)</h3>
+        <p><strong>Company:</strong> Creative Minds</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p><strong>Salary:</strong> $60,000 - $90,000</p>
+        <a href="#" class="get-started-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <h3>Backend Engineer (Remote)</h3>
+        <p><strong>Company:</strong> Cloud Solutions</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p><strong>Salary:</strong> $80,000 - $120,000</p>
+        <a href="#" class="get-started-btn">Apply Now</a>
+      </div>
+      <!-- Add more remote job cards as needed -->
+    </section>
+  </main>
+
+  <footer class="footer site-footer">
+    <div class="footer-content">
+      <div class="footer-main" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
+        <div class="footer-brand" style="flex:1;min-width:220px;">
+          <img src="assets/logo.webp" alt="Job Junction Logo" style="width:56px;height:56px;border-radius:12px;margin-bottom:1rem;">
+          <p style="font-size:1.1rem;color:#ffe7b2;margin-bottom:1rem;">
+            Connecting Talent with Opportunity.<br>Your Career Journey Starts Here!
+          </p>
+          <div class="social-icons" style="margin-bottom:1rem;">
+            <a href="https://github.com/SurajSG23/Job-Portal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-columns" style="flex:3;display:flex;flex-wrap:wrap;gap:2rem;">
+          <div class="footer-col" style="min-width:160px;">
+            <h4>For Job Seekers</h4>
+            <ul>
+              <li><a href="components/seeker.html">Browse Jobs</a></li>
+              <li><a href="internships.html">Internships</a></li>
+              <li><a href="#">Advice</a></li>
+              <li><a href="#">Salary Guide</a></li>
+              <li><a href="#">Resume Builder</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" style="min-width:160px;">
+            <h4>For Employers</h4>
+            <ul>
+              <li><a href="#">Post a Job</a></li>
+              <li><a href="#">Talent Search</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Enterprise</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" style="min-width:160px;">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="components/about.html">About Us</a></li>
+              <li><a href="ContactPage.html">Contact</a></li>
+              <li><a href="#">Open Source</a></li>
+              <li><a href="masthead.html">Masthead</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-use.html">Terms of Use</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" style="min-width:160px;">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="components/events.html">Events</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr style="border:none;border-top:1px solid #ffe7b2;margin:2rem 0;">
+      <div class="footer-credit" style="text-align:center;color:#ffe7b2;font-size:1rem;">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</body>
+</html>

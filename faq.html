@@ -6,8 +6,127 @@
   <title>Job Junction | FAQ</title>
   <link rel="stylesheet" href="faq.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <style>
+        /* ---------------- HEADER ---------------- */
+    main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
+  margin-bottom: 50px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #eee;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .menu-toggle,
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* ---------------- HEADER (Mobile) ---------------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #512da8;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
+      }
+
+      nav a {
+        padding: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <main-header>
+    <div class="logo">Job Junction</div>
+    <nav id="navMenu">
+      <a href="home.html">Home</a>
+      <div class="dropdown" id="jobsDropdown">
+        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+        <div class="dropdown-menu" id="jobsMenu">
+          <a href="internships.html">Internships</a>
+          <a href="part-time.html">Part Time Jobs</a>
+          <a href="remote.html">Remote Jobs</a>
+        </div>
+      </div>
+      <a href="companies.html">Companies</a>
+      <a href="about.html">About</a>
+      <a href="ContactPage.html">Contact</a>
+    </nav>
+  </main-header>
+
   <header>
     <h1>Frequently Asked Questions</h1>
      <i class="fa-solid fa-circle-question" id="question-icon"></i>
