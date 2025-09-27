@@ -63,81 +63,7 @@
       gap: 20px;
     }
 
-    .job-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .job-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .featured {
-      border: 2px solid #f39c12;
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #f39c12;
-      color: white;
-      padding: 5px 10px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border-radius: 5px;
-    }
-
-    .company-logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    .job-title {
-      font-size: 1.2rem;
-      color: #2b3a67;
-      margin: 5px 0;
-    }
-
-    .company-name {
-      font-size: 0.95rem;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .job-desc {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
-    .salary {
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #27ae60;
-      margin-bottom: 15px;
-    }
-
-    .apply-btn {
-      background: #2b3a67;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .apply-btn:hover {
-      background: #1a253f;
-    }
+  
 
     /* Animations */
     @keyframes fadeInDown {
@@ -258,39 +184,6 @@
 
     .menu-toggle {
       display: none;
-    }
-
-    /* ===== MAIN ===== */
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border: 3px solid #2563eb;
-    }
-
-    /* Terms Cards */
-    .terms-cards {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .term-card {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      background-color: #e0f2fe; /* light blue */
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    .term-card i {
-      color: #2563eb;
-      font-size: 1.5rem;
     }
 
     /* ===== FOOTER ===== */
@@ -493,6 +386,81 @@
   }
 }
 
+    .job-cards-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .job-card {
+      background: #f0f9ff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid transparent; /* default */
+    }
+
+    .job-card.featured {
+      border-color: #2563eb;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 12px;
+    }
+
+    .job-icon {
+      color: #2563eb;
+      margin-bottom: 15px;
+    }
+
+    .job-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 5px; }
+
+    .separator { width: 50px; height: 3px; background: #2563eb; border: none; margin: 10px auto; }
+
+    .company-name { font-weight: 500; color: #111827; margin-bottom: 8px; }
+
+    .job-desc { font-size: 0.95rem; color: #333; margin-bottom: 10px; }
+
+    .salary { font-weight: 600; color: #27ae60; margin-bottom: 15px; }
+
+    .apply-btn {
+      background: #2563eb;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .apply-btn:hover { background: #1a253f; }
+
+    @media (max-width: 992px) {
+      .job-cards-container { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .job-cards-container { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -521,8 +489,9 @@
     <!-- Sample 9 job cards -->
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-code fa-3x job-icon"></i>
       <h2 class="job-title">Frontend Developer</h2>
+      <hr class="separator"/>
       <p class="company-name">TechNova</p>
       <p class="job-desc">Build beautiful and performant interfaces using React.</p>
       <p class="salary">💰 $85,000 - $105,000</p>
@@ -531,17 +500,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-paintbrush fa-3x job-icon"></i>
       <h2 class="job-title">UI/UX Designer</h2>
+      <hr class="separator"/>
       <p class="company-name">DesignPro</p>
       <p class="job-desc">Design modern UI systems for our global app.</p>
       <p class="salary">💰 $70,000 - $90,000</p>
       <button class="apply-btn" onclick="applyNow('UI/UX Designer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-server fa-3x job-icon"></i>
       <h2 class="job-title">Backend Engineer</h2>
+      <hr class="separator"/>
       <p class="company-name">CloudCore</p>
       <p class="job-desc">Develop scalable APIs and infrastructure on AWS.</p>
       <p class="salary">💰 $95,000 - $115,000</p>
@@ -550,17 +522,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-layer-group fa-3x job-icon"></i>
       <h2 class="job-title">Full Stack Developer</h2>
+      <hr class="separator"/>
       <p class="company-name">StackForge</p>
       <p class="job-desc">Join our team to work on exciting web projects.</p>
       <p class="salary">💰 $100,000 - $130,000</p>
       <button class="apply-btn" onclick="applyNow('Full Stack Developer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-briefcase fa-3x job-icon"></i>
       <h2 class="job-title">Product Manager</h2>
+      <hr class="separator"/>
       <p class="company-name">InnoSoft</p>
       <p class="job-desc">Lead the product development from idea to launch.</p>
       <p class="salary">💰 $110,000 - $140,000</p>
@@ -569,17 +544,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-gears fa-3x job-icon"></i>
       <h2 class="job-title">DevOps Engineer</h2>
+      <hr class="separator"/>
       <p class="company-name">AutoDeploy</p>
       <p class="job-desc">Automate CI/CD pipelines and maintain deployments.</p>
       <p class="salary">💰 $90,000 - $120,000</p>
       <button class="apply-btn" onclick="applyNow('DevOps Engineer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-mobile-screen-button fa-3x job-icon"></i>
       <h2 class="job-title">Mobile App Developer</h2>
+      <hr class="separator"/>
       <p class="company-name">Appify</p>
       <p class="job-desc">Create stunning Android & iOS apps using Flutter.</p>
       <p class="salary">💰 $80,000 - $100,000</p>
@@ -588,17 +566,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-microscope fa-3x job-icon"></i>
       <h2 class="job-title">QA Engineer</h2>
+      <hr class="separator"/>
       <p class="company-name">Testify</p>
       <p class="job-desc">Automate testing pipelines and improve quality.</p>
       <p class="salary">💰 $70,000 - $95,000</p>
       <button class="apply-btn" onclick="applyNow('QA Engineer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-chart-line fa-3x job-icon"></i>
       <h2 class="job-title">Data Analyst</h2>
+      <hr class="separator"/>
       <p class="company-name">InsightLab</p>
       <p class="job-desc">Analyze datasets to drive business decisions.</p>
       <p class="salary">💰 $75,000 - $100,000</p>
