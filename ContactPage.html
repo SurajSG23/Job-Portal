@@ -51,6 +51,43 @@ ul li a:hover i {
 .footer-column{
 margin-right: 200px;
 }
+/* Tablets */
+@media (max-width: 992px) {
+  .footer-links {
+    gap: 40px; /* reduce space between columns */
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* stack footer columns vertically */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-column {
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .footer-tagline {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+  }
+}
 
     </style>
   </head>
