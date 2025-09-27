@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Job Junction</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; font-family:'Inter', sans-serif;}
+    body { background-color:#f4f6f8; color:#333;}
+
+    a { text-decoration:none; }
+
+    /* Navbar */
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:0.8rem 2rem; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:999;}
+    .nav-brand img { height:50px; width:auto;}
+    .nav-menu { display:flex; list-style:none; gap:1.5rem;}
+    .nav-link { color:#333; font-weight:500; display:flex; align-items:center; gap:0.3rem; transition:color 0.2s;}
+    .nav-link:hover { color:#1a73e8;}
+    .nav-actions .btn-ghost, .nav-actions .btn-primary { padding:0.5rem 1rem; border-radius:6px; font-weight:600; transition:0.3s;}
+    .btn-ghost { background-color:transparent; border:1px solid #1a73e8; color:#1a73e8;}
+    .btn-ghost:hover { background-color:#1a73e8; color:#fff;}
+    .btn-primary { background-color:#1a73e8; color:#fff; border:none;}
+    .btn-primary:hover { background-color:#155ab6;}
+
+    /* Hero Section */
+    .hero {
+      text-align:center;
+      padding:5rem 1rem 4rem 1rem;
+      background: linear-gradient(135deg, #1a73e8, #3a99ff);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      opacity:0.15;
+    }
+    .hero-title { font-size:3rem; font-weight:700; margin-bottom:1rem; z-index:1; position:relative;}
+    .hero-description { font-size:1.2rem; color:#e0e0e0; max-width:800px; margin:0 auto; z-index:1; position:relative;}
+
+    /* About Card */
+    .about-card {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #fff;
+      max-width:1000px;
+      margin:2rem auto;
+      padding:2.5rem 2rem;
+      border-radius:20px;
+      box-shadow:0 12px 25px rgba(0,0,0,0.2);
+      text-align:center;
+      transition:0.3s;
+      position:relative;
+    }
+    .about-card:hover { transform:translateY(-8px) scale(1.02);}
+    .about-card i { font-size:3rem; margin-bottom:1rem; color:#fff;}
+    .about-card h3 { font-size:2rem; margin-bottom:1rem; font-weight:700;}
+    .about-card p { font-size:1.1rem; line-height:1.6; margin-bottom:1.5rem;}
+    .about-card .cta-btn { padding:0.7rem 1.5rem; border-radius:10px; background-color:#fff; color:#ff7e5f; font-weight:600; text-transform:uppercase; transition:0.3s;}
+    .about-card .cta-btn:hover { background-color:#ffd1b3; color:#ff5c2e; }
+
+    /* Vision & Mission Cards */
+    .cards-container { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:2rem; max-width:1000px; margin:3rem auto;}
+    .card { background-color:#fff; border-radius:15px; padding:2rem 1.5rem; text-align:center; transition:0.4s; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+    .card:hover { transform: translateY(-10px) scale(1.05); box-shadow:0 15px 25px rgba(0,0,0,0.2);}
+    .card h3 { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; font-size:1.6rem; margin-bottom:1rem; color:#1a73e8;}
+    .card h3 i { font-size:2.5rem; color:#ff7e5f; }
+    .card p { font-size:1rem; color:#555; line-height:1.5; }
+
+    /* Footer */
+    .site-footer { background-color:#000; color:#fff; padding:3rem 2rem; font-family:'Inter', sans-serif;}
+    .footer-container { display:flex; flex-wrap:wrap; justify-content:space-between; max-width:1200px; margin:0 auto; gap:2rem;}
+    .footer-brand { flex:1 1 250px; min-width:220px;}
+    .footer-tagline { font-size:1rem; margin-bottom:1rem; color:#b3b3b3; line-height:1.5;}
+    .social-icons { display:flex; align-items:center; gap:1rem; margin-bottom:2rem;}
+    .social-icons a { color:#fff; font-size:1.3rem; transition:0.3s;}
+    .social-icons a:hover { color:#1a73e8;}
+    .footer-links { flex:3 1 600px; display:flex; gap:3rem; flex-wrap:wrap;}
+    .footer-col h4 { margin-bottom:0.8rem; color:#fff;}
+    .footer-col ul { list-style:none; padding:0;}
+    .footer-col ul li { margin-bottom:0.5rem;}
+    .footer-col ul li a { color:#b3b3b3; transition:0.3s; text-decoration:none;}
+    .footer-col ul li a:hover { color:#1a73e8;}
+    .footer-bottom { text-align:center; margin-top:2rem; color:#b3b3b3; font-size:0.95rem; border-top:1px solid #333; padding-top:1rem;}
+.footer-col{
+    margin-left: 100px;
+
+}
+    @media(max-width:768px){
+      .cards-container { grid-template-columns:1fr; }
+      .nav-menu { display:none; }
+      footer .footer-container { flex-direction:column; }
+      .footer-links { flex-direction:column; gap:1.5rem; }
+      .social-icons { justify-content:flex-start; }
+    }
+/* ====== Mobile Responsive Adjustments ====== */
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem; /* reduce padding */
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+    gap: 0.5rem; /* reduce gap between login/signup */
+  }
+
+  .btn-ghost, .btn-primary {
+    padding: 0.4rem 0.8rem; /* smaller buttons */
+    font-size: 0.9rem;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.6rem 1rem;
+    width: 100%;
+  }
+
+  /* Footer adjustments */
+  .footer-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1rem; /* reduce footer padding */
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-col {
+    margin-left: 0; /* remove extra margin from desktop */
+  }
+
+  .footer-brand {
+    margin-bottom: 1rem; /* compact spacing */
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+    gap: 0.8rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem; /* smaller text */
+    padding-top: 0.8rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction Logo" />
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="components/seeker.html" class="nav-link">Browse Jobs</a></li>
+        <li><a href="remote.html" class="nav-link">Remote Jobs</a></li>
+        <li><a href="part-time.html" class="nav-link">Part-Time Jobs</a></li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-ghost"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="signup.html" class="btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">About Job Junction</h1>
+    <p class="hero-description">
+      Job Junction is a modern job portal dedicated to connecting job seekers and employers efficiently. 
+      Whether you're looking for full-time, part-time, or remote opportunities, our platform offers a 
+      user-friendly experience and reliable resources to support your career journey.
+    </p>
+  </section>
+
+  <!-- About Card -->
+  <section class="about-card">
+    <i class="fas fa-users"></i>
+    <h3>Empowering Your Career</h3>
+    <p>We strive to make job hunting simple and transparent, helping every individual find the right opportunity with ease. Our focus is on innovation, inclusivity, and creating a trusted platform for career growth.</p>
+    <a href="signup.html" class="cta-btn">Join Now</a>
+  </section>
+
+  <!-- Vision & Mission Cards -->
+  <section class="cards-container">
+    <div class="card">
+      <h3><i class="fas fa-bullseye"></i> Our Vision</h3>
+      <p>To be the most trusted job platform globally, empowering talent to find meaningful opportunities easily.</p>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-lightbulb"></i> Our Mission</h3>
+      <p>To bridge the gap between job seekers and employers by providing an intuitive, transparent, and inclusive platform.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <p class="footer-tagline">
+          Connecting Talent with Opportunity.<br>
+          Your Career Journey Starts Here!
+        </p>
+        <div class="social-icons">
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>For Job Seekers</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-search"></i> Browse Jobs</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i> Internships</a></li>
+            <li><a href="#"><i class="fas fa-lightbulb"></i> Advice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>For Employers</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-briefcase"></i> Post a Job</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Talent Search</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
