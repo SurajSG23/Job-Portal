@@ -91,7 +91,90 @@ margin-right: 200px;
 }
 .footer-links{
   margin-right: 180px;
+
+  /* Tablets */
+@media (max-width: 992px) {
+  .footer-links {
+    gap: 40px; /* reduce space between columns */
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
 }
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* stack footer columns vertically */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-column {
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .footer-tagline {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+  }
+}
+
+}@media (max-width: 768px) {
+  footer {
+    text-align: center;       /* center all footer text */
+  }
+
+  .footer-links {
+    display: flex !important; /* ensure flex is applied */
+    flex-direction: column;   /* stack columns vertically */
+    align-items: center;      /* center columns horizontally */
+    margin: 0 auto;           /* center the container */
+    gap: 30px;
+  }
+
+  .footer-links .footer-column {
+    margin: 0;
+    width: 100%;              /* let columns take full width */
+    max-width: 300px;         /* optional: limit width for better look */
+    text-align: center;
+  }
+
+  .footer-links ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  .footer-links ul li a {
+    justify-content: center;  /* center icon + text */
+    display: flex;
+    gap: 8px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  #footer-statement p {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
     </style>
 </head>
 <body>
