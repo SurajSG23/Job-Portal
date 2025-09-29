@@ -4,181 +4,134 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Contact Us</title>
-    <link rel="stylesheet" href="phonevalidator.css" />
+    <link rel="stylesheet" href="Contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      :root {
-        --gap: 12px;
-        --radius: 10px;
-        --maxw: 720px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        background: #0b1020;
-        color: #eef1f7;
-      }
-      .wrap {
-        max-width: var(--maxw);
-        margin: 6vh auto;
-        padding: 28px;
-        background: #121a33;
-        border: 1px solid #22305a;
-        border-radius: var(--radius);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      }
-      h1 {
-        margin: 0 0 6px;
-        font-weight: 700;
-        letter-spacing: 0.2px;
-      }
-      p.lead {
-        margin-top: 0;
-        color: #b8c3e3;
-      }
-      form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--gap);
-      }
-      .full {
-        grid-column: 1/-1;
-      }
-      label {
-        display: block;
-        font-size: 0.95rem;
-        margin-bottom: 6px;
-        color: #d7def3;
-      }
-      input,
-      textarea,
-      select {
-        width: 100%;
-        padding: 12px 14px;
-        background: #0c1330;
-        color: #eef1f7;
-        border: 1px solid #2a3a74;
-        border-radius: 8px;
-        outline: none;
-      }
-      input:focus,
-      textarea:focus {
-        border-color: #5c79ff;
-        box-shadow: 0 0 0 3px rgba(92, 121, 255, 0.2);
-      }
-      textarea {
-        resize: vertical;
-        min-height: 140px;
-      }
-      .row {
-        display: flex;
-        gap: var(--gap);
-      }
-      .help {
-        font-size: 0.82rem;
-        color: #9fb0df;
-        margin-top: 6px;
-      }
-      .error {
-        color: #ff8d8d;
-        font-size: 0.85rem;
-        margin-top: 6px;
-        display: none;
-      }
-      .hidden {
-        display: none !important;
-      }
-      button {
-        padding: 12px 16px;
-        border: none;
-        border-radius: 8px;
-        background: #5c79ff;
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-      }
-      button[disabled] {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
-      .notice {
-        margin-top: 18px;
-        padding: 12px 14px;
-        border-radius: 8px;
-        background: #0f1736;
-        border: 1px solid #2a3a74;
-        display: none;
-      }
-      .notice.ok {
-        border-color: #2d7d46;
-      }
-      .notice.err {
-        border-color: #9b3636;
-      }
-      /* honeypot visually hidden but focusable for a11y tools */
-      .honeypot {
-        position: absolute;
-        left: -9999px;
-      }
-      @media (max-width: 720px) {
-        form {
-          grid-template-columns: 1fr;
-        }
-      }
-
-       .home-btn {
-      display: inline-block;
-      margin-left: 1rem;
-      margin-top: 1rem;
-      padding: 10px 20px;
-      background-color: #2a3a74; /* green */
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    .home-btn:hover {
-      background-color: #45a049; /* darker green on hover */
-    }
-
-      /* Style the intl-tel-input dropdown for dark background */
-.iti__country-list {
-  background-color: #1e1e2f !important; /* dark background */
-  color: #ffffff !important; /* white text */
-  border: 1px solid #444 !important; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  z-index: 9999; /* ensures it stays above other elements */
+      ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;   /* stack items in a column */
+  gap: 12px;                /* space between each item */
 }
 
-.iti__country {
-  color: #ffffff !important; /* text visible */
+ul li {
+  display: flex;
+  align-items: center;
 }
 
-.iti__dial-code {
-  color: #bbbbbb !important; /* lighter gray for dial code */
+ul li a {
+  text-decoration: none;
+  color: #333;              /* text color */
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
 }
 
-.iti__highlight {
-  background-color: #3b82f6 !important; /* nice blue highlight */
-  color: #fff !important;
+ul li a i {
+  margin-right: 10px;       /* spacing between icon and text */
+  font-size: 18px;
+  color: white;           /* icon color */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.iti__country:hover {
-  background-color: #2a2a3d !important; /* hover effect */
+ul li a:hover {
+  color: wheat;           /* text hover color */
+}
+
+ul li a:hover i {
+  transform: scale(1.2);    /* icon zoom effect */
+  color: #333;              /* icon changes color */
+}
+.footer-column{
+margin-right: 200px;
+}
+/* Tablets */
+@media (max-width: 992px) {
+  .footer-links {
+    gap: 40px; /* reduce space between columns */
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* stack footer columns vertically */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-column {
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .footer-tagline {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+  }
 }
 
     </style>
   </head>
   <body>
-    <div><a href="index.html" class="home-btn">Home</a></div>
-    <main class="wrap" role="main">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction Logo">
+        <P>        </P>
+        <a href="index.html" class="home-btn">Home</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-ghost">Login</a>
+        <a href="signup.html" class="btn-primary">Sign Up</a>
+        <button class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+     <div class="contact-heading">
+          <i class="fa-solid fa-envelope"></i>
+           <h1 class="fade-in mob-res">Stay Connected</h1>
+        </div>
+
+        <section class="grid-container">
+ <!-- Cards Column -->
+  <div class="cards-column">
+    <div class="card">
+      <h3>Connect with us</h3>
+      <p>Find your dream Job on our Job-Portal</p>
+    </div>
+    <div class="card">
+      <h3>24/7 at your service</h3>
+      <p>Feel free to reach out. We will appriciate your queries.</p>
+    </div>
+    <div class="card">
+      <h3>Grow your connections</h3>
+      <p>Job-Portal connects you with real-world. Network with like-minded people.</p>
+    </div>
+  </div>
+    <div class="contact-column">
+      <main class="wrap" role="main">
       <h1>Contact us</h1>
       <p class="lead">
         Questions, feedback, or a friendly hello—drop a message below.
@@ -199,7 +152,7 @@
         </div>
 
         <div class="full">
-          <label for="name">Name *</label>
+          <label for="name"><i class="fa-solid fa-user"></i> Name *</label>
           <input
             id="name"
             name="name"
@@ -208,12 +161,13 @@
             maxlength="100"
             minlength="3"
             autocomplete="name"
+            placeholder="Your full name"
           />
           <div class="error" data-for="name"></div>
         </div>
 
         <div>
-          <label for="email">Email *</label>
+          <label for="email"><i class="fa-solid fa-square-envelope"></i> Email *</label>
           <input
             id="email"
             name="email"
@@ -222,12 +176,13 @@
             maxlength="120"
             autocomplete="email"
             inputmode="email"
+            placeholder="your.email@example.com"
           />
           <div class="error" data-for="email"></div>
         </div>
 
         <div>
-          <label for="phone">Phone</label>
+          <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
           <input
             id="phone"
             name="phone"
@@ -238,14 +193,11 @@
             inputmode="tel"
             placeholder="Enter your phone number"
           />
-          <!-- <div class="help">
-            Include country code if outside your region, e.g. +1 415 555 0101
-          </div> -->
           <div class="error" data-for="phone"></div>
         </div>
 
         <div class="full">
-          <label for="subject">Subject *</label>
+          <label for="subject"><i class="fa-solid fa-pen-to-square"></i>  Subject *</label>
           <input
             id="subject"
             name="subject"
@@ -253,12 +205,13 @@
             required
             minlength="3"
             maxlength="150"
+            placeholder="What is this regarding?"
           />
           <div class="error" data-for="subject"></div>
         </div>
 
         <div class="full">
-          <label for="message">Message *</label>
+          <label for="message"><i class="fa-solid fa-message"></i> Message *</label>
           <textarea
             id="message"
             name="message"
@@ -272,9 +225,8 @@
 
         <div
           class="full row"
-          style="align-items: center; justify-content: space-between"
-        >
-          <div
+          style="align-items: center; justify-content: space-between; flex-wrap: wrap;"
+         > <div
             aria-live="polite"
             aria-atomic="true"
             class="notice"
@@ -284,7 +236,70 @@
         </div>
       </form>
     </main>
+  </div>
+</section>
 
+
+      <footer class="footer" style="margin-bottom: 0px;">
+  <!-- Tagline -->
+  <p class="footer-tagline" style="font-size: 20px; margin-top: 50px;">
+    Connecting Talent with Opportunity. Your Career Journey Starts Here!
+  </p>
+  <br><br>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <div class="footer-column">
+      <h4>For Job Seekers</h4>
+      <ul>
+      <li><a href="#"><i class="fas fa-search"></i> Browse Jobs</a></li>
+      <li><a href="#"><i class="fas fa-graduation-cap"></i>Internships</a></li>
+      <li><a href="#"><i class="fas fa-lightbulb"></i>Advice</a></li>
+      <li><a href="#"><i class="fas fa-dollar-sign"></i>Salary Insights</a></li>
+      <li><a href="#"><i class="fas fa-book"></i>Skill Development</a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
+    </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>For Employers</h4>
+       <ul>
+      <li><a href="#"><i class="fas fa-briefcase"></i> Post a Job</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Talent Search</a></li>
+      <li><a href="#"><i class="fas fa-coins"></i> Pricing</a></li>
+      <li><a href="#"><i class="fas fa-building"></i> Enterprise</a></li>
+    </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+       <ul>
+      <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#"><i class="fas fa-code-branch"></i> Open Source</a></li>
+      <li><a href="#"><i class="fas fa-users-cog"></i> Masthead</a></li>
+      <li><a href="#"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+      <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+    </ul>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="footer-social" style="margin-top: 0px;">
+    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">
+    © 2025 Job Junction. All rights reserved.
+  </p>
+</footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script>
       // Basic helpers
       const $ = (s, root = document) => root.querySelector(s);
@@ -305,6 +320,62 @@
       const form = $("#contactForm");
       const notice = $("#formNotice");
       const btn = $("#submitBtn");
+      const themeToggle = $("#themeToggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      // Initialize intl-tel-input
+      const phoneInput = document.querySelector("#phone");
+      const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        geoIpLookup: function(callback) {
+          // Use a free API for IP geolocation
+          fetch("https://ipapi.co/json")
+            .then(function(res) { return res.json(); })
+            .then(function(data) { callback(data.country_code); })
+            .catch(function() { callback("us"); });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        separateDialCode: true,
+        preferredCountries: ['us', 'gb', 'ca', 'au', 'in'],
+        hiddenInput: "full_phone",
+        customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+          return "e.g. " + selectedCountryPlaceholder;
+        }
+      });
+
+      // Update phone input when country changes
+      phoneInput.addEventListener("countrychange", function() {
+        // Adjust the placeholder based on the selected country
+        const placeholder = iti.getSelectedCountryData().placeholder;
+        if (placeholder) {
+          phoneInput.placeholder = placeholder.replace(/[0-9]/g, 'X');
+        }
+      });
+
+      // Check for saved theme preference or respect OS preference
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      const currentTheme = localStorage.getItem("theme");
+      
+      if (currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches)) {
+        document.body.classList.add("dark-mode");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+
+      // Theme toggle functionality
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        } else {
+          localStorage.setItem("theme", "light");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        }
+      });
 
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const phoneRe = /^[+()\-.\s\d]{7,20}$/; // permissive, formats like +1 555-555-5555
@@ -318,11 +389,19 @@
           return; // silently drop bots
         }
 
+        // Validate phone number if provided
+        if (phoneInput.value.trim()) {
+          if (!iti.isValidNumber()) {
+            setError("phone", "Please enter a valid phone number.");
+            return;
+          }
+        }
+
         // Collect values
         const data = {
           name: $("#name").value.trim(),
           email: $("#email").value.trim(),
-          phone: $("#phone").value.trim(),
+          phone: iti.isValidNumber() ? iti.getNumber() : "",
           subject: $("#subject").value.trim(),
           message: $("#message").value.trim(),
         };
@@ -342,10 +421,6 @@
           setError("email", "Please enter a valid email.");
           ok = false;
         }
-        if (data.phone && !phoneRe.test(data.phone)) {
-          setError("phone", "Please enter a valid phone number.");
-          ok = false;
-        }
         if (!data.subject) {
           setError("subject", "Please enter a subject.");
           ok = false;
@@ -363,394 +438,20 @@
         notice.style.display = "block";
         notice.textContent = "Sending…";
 
-        try {
-          const res = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-          });
-
-          if (!res.ok) {
-            const err = await res.json().catch(() => ({}));
-            throw new Error(err.message || "Send failed. Please try again.");
-          }
-
+        // Simulate API call with timeout
+        setTimeout(() => {
           notice.className = "notice ok";
           notice.textContent = "Thanks! Your message was sent successfully.";
           form.reset();
-        } catch (err) {
-          notice.className = "notice err";
-          notice.textContent = err.message || "Something went wrong.";
-        } finally {
+          iti.setNumber("");
           btn.disabled = false;
-        }
+          
+          // Clear success message after 5 seconds
+          setTimeout(() => {
+            notice.style.display = "none";
+          }, 5000);
+        }, 1500);
       });
     </script>
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Page</title>
-    <style>
-      .outer_div {
-        background-color: rgb(221, 237, 250);
-        /* text-align: center; */
-        margin: auto;
-        /* margin-left: 2rem; */
-        margin-top: 10rem;       
-        width: 40rem;
-        height: 28rem;
-        border-radius: 1rem;
-      }
-
-      .inner_div {
-        margin-left: 2rem;
-        margin-top: 0rem;
-      }
-
-      .input-field {
-        height: 1.7rem;
-        width: 13rem;
-        border-radius: 0.3rem;
-        border: 0.1rem solid grey;
-        padding: 0.2rem;
-      }
-
-      #header1 {
-        padding-top: 2rem;
-        margin-left: 2rem;
-      }
-
-      #header2 {
-        color: grey;
-        margin: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      #s-btn {
-        background-color: rgb(13, 13, 160);
-        width: 5.5rem;
-        height: 2.5rem;
-        border-radius: 0.5rem;
-        color: white;
-        margin-top: 0.8rem;
-        cursor: pointer;
-      }
-
-      #s-btn:hover {
-        background-color: rgb(62, 62, 239);
-        border-radius: 0.5rem;
-      }
-
-      .label {
-        font-size: 1.2rem;
-      }
-
-
-      /* ===== Responsive & Animated Contact Form ===== */
-
-/* Fade & slide-in animation */
-@keyframes fadeSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-}
-      /* ===== Animated Responsive Header ===== */
-.contact-header {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: bold;
-  text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: whitesmoke;
-  letter-spacing: 1px;
-  animation: fadeSlideIn 1.2s ease forwards;
-}
-
-@keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.outer_div {
-  animation: fadeSlideUp 0.8s ease-out;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .outer_div {
-    width: 90%;
-    height: auto;
-    margin-top: 5rem;
-    padding-bottom: 2rem;
-  }
-
-  .inner_div {
-    margin-left: 1rem;
-  }
-
-  .input-field {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  #s-btn {
-    width: 100%;
-    height: 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #header1 {
-    font-size: 1.5rem;
-    margin-left: 1rem;
-  }
-
-  #header2 {
-    font-size: 1rem;
-    margin: 1rem;
-  }
-
-  .label {
-    font-size: 1rem;
-  }
-
-  .input-field {
-    font-size: 0.9rem;
-    height: 2rem;
-  }
-}
-/* ===== Hover & Focus Animations for Form ===== */
-.outer_div:hover{
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-  transform: translateY(-5px);
-  border: 1px solid rgb(13, 13, 160);
-}
-.input-field {
-  transition: all 0.3s ease;
-}
-
-.input-field:hover,
-.input-field:focus {
-  border-color: rgb(13, 13, 160);
-  box-shadow: 0 0 8px rgba(13, 13, 160, 0.3);
-  transform: scale(1.02);
-}
-
-/* Button hover animation */
-#s-btn {
-  transition: all 0.3s ease;
-}
-
-#s-btn:hover {
-  background-color: rgb(62, 62, 239);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 12px rgba(62, 62, 239, 0.3);
-}
-
-@media (max-width: 480px) {
-  .contact-header {
-    font-size: 1.6rem;
-    margin-top: 1.5rem;
-  }
-}
-      /* ===== Footer Styles ===== */
-      /* ===== Footer Styles ===== */
-.site-footer {
-  background-color: rgb(13, 13, 160);
-  color: white;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.site-footer a {
-  color: white;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-container {
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Responsive footer text size */
-@media (max-width: 480px) {
-  .site-footer {
-    font-size: 0.85rem;
-    padding: 1rem;
-  }
-}
-
-.footer-container {
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Responsive footer text size */
-@media (max-width: 480px) {
-  .site-footer {
-    font-size: 0.85rem;
-    padding: 1rem;
-  }
-}
-
-.footer-container {
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Responsive footer text size */
-@media (max-width: 480px) {
-  .site-footer {
-    font-size: 0.85rem;
-    padding: 1rem;
-  }
-}
-
-
-    </style>
-  </head>
-  <body
-    style="
-      background-image: url('https://template.canva.com/EAGWyGhrv-A/1/0/1600w-HQtb5Nt0SbA.jpg');
-    "
-  >
-  <h1 class="contact-header">Contact Us</h1>
-
-    <div class="outer_div">
-      <h2 id="header1">Contact Us</h2>
-      <h3 id="header2">Contact Us</h3>
-      <form id="contactForm" novalidate>
-        <div class="inner_div">
-          <label for="name" class="label">Name :</label><br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            minlength="3"
-            class="input-field"
-            required
-            placeholder="Name"
-          /><br /><br />
-
-          <label for="email" class="label">Email : </label><br />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="Email : a@gmial.com"
-            class="input-field"
-          /><br /><br />
-
-          <label for="number" class="label">Phone Number :</label><br />
-          <input
-            type="tel"
-            id="number"
-            name="number"
-            minlength="10"
-            maxlength="10"
-            placeholder="Phone"
-            required
-            class="input-field"
-          /><br /><br />
-
-          <button type="submit" id="s-btn" >Submit</button>
-        </div>
-      </form>
-    </div>
-
-    <!----footer----->
-    <footer class="site-footer">
-  <div class="footer-container">
-    <p> &copy; 2025 Job Junction | All Rights Reserved</p>
-    <p>
-      <a href="#">Privacy Policy</a> | 
-      <a href="#">Terms of Service</a>
-    </p>
-  </div>
-</footer>
-
-
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Get input values
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("number").value;
-
-  // Error messages container
-  let errors = [];
-
-  // Custom validation
-  if (name.length < 3) {
-    errors.push("Name must be at least 3 characters long.");
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    errors.push("Please enter a valid email address.");
-  }
-
-  if (phone.length !== 10) {
-    errors.push("Phone number should be of 10 digits.");
-  }
-
-  // If errors exist, alert them
-  if (errors.length > 0) {
-    alert(errors.join("\n"));
-    console.log(errors);
-  } else {
-    // If all validations pass
-    alert("Form submitted successfully!");
-    console.log({name , email , phone});
-    // Optionally, you can submit the form here:
-    // this.submit();
-  }
-});
-
-    </script>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-      <script src="./phone-validation.js"></script>
-
-      <!-- Initialize country code dropdown -->
-      <script>
-        const phoneInputField = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInputField, {
-          initialCountry: "in",
-          preferredCountries: ["in", "us", "gb"],
-          separateDialCode: true,
-          utilsScript:
-            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
-        });
-
-          phoneInputField.addEventListener("input", () => {
-          phoneInputField.value = phoneInputField.value.replace(/\D/g, "");
-        });
-      </script>
-
-  </body>
-</html> -->

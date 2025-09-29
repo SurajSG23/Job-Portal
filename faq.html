@@ -4,199 +4,134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Junction | FAQ</title>
+  <link rel="stylesheet" href="faq.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <style>
-    /* Base */
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-    }
-    
-    header {
-      background: #60a5fa;
-      color: #fff;
-      padding: 1.2rem;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-    }
-
-    /* Search */
-    .search-box {
-      max-width: 600px;
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
-    }
-    .search-box input {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #60a5fa;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    /* FAQ container */
-    .faq-container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-    .category {
-      margin-bottom: 30px;
-    }
-    .category h2 {
-      background: #60a5fa;
-      color: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 0 0 15px 0;
-    }
-
-    /* Questions */
-    .faq {
-      background: #fff;
-      margin: 10px 0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .faq:hover {
-      transform: translateY(-3px);
-    }
-    .faq-question {
-      padding: 15px;
-      cursor: pointer;
+        /* ---------------- HEADER ---------------- */
+    main-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 20px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
+  margin-bottom: 50px;
+    }
+
+    .logo {
+      font-size: 24px;
       font-weight: bold;
     }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 15px;
-      background: #f4f4f4;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-    .faq.active .faq-answer {
-      max-height: 300px;
-      padding: 15px;
-    }
-    .icon {
-      transition: transform 0.3s ease;
-    }
-    .faq.active .icon {
-      transform: rotate(180deg);
+
+    nav {
+      display: flex;
+      gap: 20px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .faq-question {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Category hover + animation */
-.category h2 {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeSlide 0.8s ease forwards;
-}
-.category h2:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.6);
-}
-
-/* FAQ animation */
-.faq {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeSlide 0.6s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.faq:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-/* Answer expand animation */
-.faq-answer {
-  opacity: 0;
-  transition: max-height 0.6s ease, padding 0.4s ease, opacity 0.4s ease;
-}
-.faq.active .faq-answer {
-  opacity: 1;
-  animation: glow 0.8s ease;
-}
-
-/* Keyframes */
-@keyframes fadeSlide {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes glow {
-  0% { box-shadow: inset 0 0 0 rgba(96,165,250,0); }
-  50% { box-shadow: inset 0 0 10px rgba(96,165,250,0.4); }
-  100% { box-shadow: inset 0 0 0 rgba(96,165,250,0); }
-}
-
-/* Search bar animations */
-.search-box input {
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 0 rgba(96,165,250,0);
-}
-
-.search-box input:focus {
-  outline: none;
-  transform: scale(1.03);
-  border-color: #3b82f6;
-  box-shadow: 0 0 10px rgba(96,165,250,0.6);
-  background: #f0f7ff;
-}
-
-.search-box input::placeholder {
-  color: #999;
-  transition: opacity 0.3s ease;
-}
-
-.search-box input:focus::placeholder {
-  opacity: 0.5;
-}
-.search-box:hover{
-    outline: none;
-    transform: scale(1.03);
-    border-color: #3b82f6;
-  box-shadow: 0 0 10px rgba(96,165,250,0.6);
-  background: #f0f7ff;
-}
-
- .home-btn {
-      display: inline-block;
-      margin-left: 1rem;
-      margin-top: 1rem;
-      padding: 10px 20px;
-      background-color: #2a3a74; /* green */
-      color: white;
+    nav a {
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
-    .home-btn:hover {
-      background-color: #45a049; /* darker green on hover */
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #eee;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .menu-toggle,
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* ---------------- HEADER (Mobile) ---------------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #512da8;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
+      }
+
+      nav a {
+        padding: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <main-header>
+    <div class="logo">Job Junction</div>
+    <nav id="navMenu">
+      <a href="home.html">Home</a>
+      <div class="dropdown" id="jobsDropdown">
+        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+        <div class="dropdown-menu" id="jobsMenu">
+          <a href="internships.html">Internships</a>
+          <a href="part-time.html">Part Time Jobs</a>
+          <a href="remote.html">Remote Jobs</a>
+        </div>
+      </div>
+      <a href="companies.html">Companies</a>
+      <a href="about.html">About</a>
+      <a href="ContactPage.html">Contact</a>
+    </nav>
+  </main-header>
+
   <header>
     <h1>Frequently Asked Questions</h1>
+     <i class="fa-solid fa-circle-question" id="question-icon"></i>
     <p>Find answers to common questions about Job Junction</p>
-  <div><a href="index.html" class="home-btn">Home</a></div>
+  <div><a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Home</a></div>
 
   </header>
 
@@ -237,6 +172,10 @@
     <div class="category">
       <h2>Internships</h2>
       <div class="faq">
+         <div class="faq-question">Who can apply for this internship ? <span class="icon">▼</span></div>
+        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you’re passionate about building, coding, or creating with technology, this internship is for you.</div>
+      </div>
+      <div class="faq">
         <div class="faq-question">Are internships paid? <span class="icon">▼</span></div>
         <div class="faq-answer">Some internships are paid, while others may be unpaid or offer stipends. Details are mentioned in each listing.</div>
       </div>
@@ -249,9 +188,68 @@
         <div class="faq-question">How do employers post jobs? <span class="icon">▼</span></div>
         <div class="faq-answer">Employers can register, log in, and use the "Post a Job" option to list openings.</div>
       </div>
+     <div class="faq">
+        <div class="faq-question">What kind of onboarding or training should we provide ?<span class="icon">▼</span></div>
+        <div class="faq-answer">It depends on your job role, but you'll be working on real-world tech projects that sharpen your skills and expose you to industry practices.</div>
+      </div>
+  </div>
+  </div>
+
+  <footer class="footer" style="margin-bottom: 0px;">
+  <!-- Tagline -->
+  <p class="footer-tagline" style="font-size: 20px;">
+    Connecting Talent with Opportunity. Your Career Journey Starts Here!
+  </p>
+  <br><br>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <div class="footer-column">
+      <h4>For Job Seekers</h4>
+      <ul>
+        <li><a href="components/seeker.html">Browse Jobs</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="#">Advice</a></li>
+        <li><a href="#">Salary Guide</a></li>
+        <li><a href="#">Resume Builder</a></li>
+      </ul>
     </div>
 
+    <div class="footer-column">
+      <h4>For Employers</h4>
+      <ul>
+        <li><a href="#">Post a Job</a></li>
+        <li><a href="#">Talent Search</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Enterprise</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="components/about.html">About Us</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+        <li><a href="#">Open Source</a></li>
+        <li><a href="masthead.html">Masthead</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-use.html">Terms of Use</a></li>
+      </ul>
+    </div>
   </div>
+
+  <!-- Social Links -->
+  <div class="footer-social">
+    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">
+    © 2025 Job Junction. All rights reserved.
+  </p>
+</footer>
 
   <script>
     // Toggle FAQs

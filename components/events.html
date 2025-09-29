@@ -7,58 +7,146 @@
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="events.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Event Cards */
+    .events-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+
+    .event-card {
+      background-color: #fff; /* White background */
+      border: 1px solid #ddd; /* Subtle border */
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease; /* Smooth transition for hover effects */
+      cursor: pointer;
+    }
+
+    .event-card:hover {
+      transform: scale(1.02); /* Slightly enlarge */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+      border-color: #aaa; /* Slightly darker border on hover */
+    }
+
+    .event-card h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.3rem;
+      color: #333;
+    }
+
+    .event-card p {
+      margin: 0 0 5px 0;
+      color: #555;
+      line-height: 1.5;
+    }
+    .event-card .register-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #fff; /* underline-like effect */
+}
+
+.event-card .register-btn:hover {
+  background-color: #0056b3;
+  border-bottom: 2px solid #fff; /* keep underline on hover */
+}
+
+  </style>
 </head>
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="nav-brand">
-        <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo" />
-      </div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="../index.html" class="nav-link">Home</a></li>
-        <li><a href="events.html" class="nav-link active">Events</a></li>
-        <li><a href="seeker.html" class="nav-link">Jobs</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="events-hero">
-      <h1>Professional Events</h1>
-      <p>Discover upcoming and past networking meetups, career fairs, workshops, webinars, and hackathons.</p>
-      <div class="events-filters">
-        <select id="eventTypeFilter">
-          <option value="">All Types</option>
-          <option value="Networking">Networking</option>
-          <option value="Career Fair">Career Fair</option>
-          <option value="Workshop">Workshop</option>
-          <option value="Webinar">Webinar</option>
-          <option value="Hackathon">Hackathon</option>
-        </select>
-        <select id="eventLocationFilter">
-          <option value="">All Locations</option>
-          <option value="Delhi">Delhi</option>
-          <option value="Bangalore">Bangalore</option>
-          <option value="Remote">Remote</option>
-          <option value="Mumbai">Mumbai</option>
-        </select>
-        <select id="eventStatusFilter">
-          <option value="upcoming">Upcoming</option>
-          <option value="past">Past</option>
-        </select>
-      </div>
-    </section>
-    <section id="eventsList" class="events-list">
-      <!-- Events will be rendered here -->
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-bottom">
-      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+<header class="header">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo" id="siteLogo" style="background-color:white;"/>
     </div>
-  </footer>
-  <script src="events.js"></script>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="events.html" class="nav-link active">Events</a></li>
+      <li><a href="seeker.html" class="nav-link">Jobs</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="../ContactPage.html" class="nav-link">Contact Us</a></li>
+    </ul>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section class="events-hero">
+    <h1>Professional Events</h1>
+    <p>Discover upcoming and past networking meetups, career fairs, workshops, webinars, and hackathons.</p>
+    <div class="events-filters">
+      <select id="eventTypeFilter">
+        <option value="">All Types</option>
+        <option value="Networking">Networking</option>
+        <option value="Career Fair">Career Fair</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Webinar">Webinar</option>
+        <option value="Hackathon">Hackathon</option>
+      </select>
+      <select id="eventLocationFilter">
+        <option value="">All Locations</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Remote">Remote</option>
+        <option value="Mumbai">Mumbai</option>
+      </select>
+      <select id="eventStatusFilter">
+        <option value="upcoming">Upcoming</option>
+        <option value="past">Past</option>
+      </select>
+    </div>
+  </section>
+
+  <section id="eventsList" class="events-list">
+    <!-- Event cards will be dynamically rendered here via events.js -->
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-bottom" style="margin-top: 30px;">
+    <center>
+      <p>&copy; 2025 Job Junction. All rights reserved.</p>
+    </center>
+    <br><br>
+  </div>
+</footer>
+
+<script src="events.js"></script>
+<script>
+  // Persistent Dark Mode Toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("theme-icon");
+    function setTheme(dark) {
+      document.body.classList.toggle("dark", dark);
+      if (themeIcon) {
+        themeIcon.classList.toggle("fa-moon", !dark);
+        themeIcon.classList.toggle("fa-sun", dark);
+      }
+    }
+    const darkMode = localStorage.getItem("jobPortalTheme") === "dark";
+    setTheme(darkMode);
+    if (themeToggle) {
+      themeToggle.onclick = () => {
+        const isDark = !document.body.classList.contains("dark");
+        setTheme(isDark);
+        localStorage.setItem("jobPortalTheme", isDark ? "dark" : "light");
+      };
+    }
+  });
+</script>
 </body>
 </html>

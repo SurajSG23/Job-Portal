@@ -2,251 +2,202 @@
 <html lang="en">
 
 <head>
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "logo": "../assets/logo.webp",
-      "sameAs": [
-        "https://github.com/SurajSG23/Job-Portal"
-      ]
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Junction | Home Page</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== GLOBAL ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', Arial, sans-serif; }
+    body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #111827; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+
+    /* ===== HEADER ===== */
+    .header-div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+      border-bottom: 3px solid #2563eb;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
     }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav a { text-decoration: none; color: #111827; font-weight: 500; }
+    nav a:hover { color: #2563eb; }
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; background: #fff; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2); border: 2px solid #2563eb; border-radius: 0.5rem; top: 2rem; left: 0; flex-direction: column; min-width: 180px; z-index: 999; }
+    .dropdown-menu a { padding: 0.5rem 1rem; display: block; color: #111827; }
+    .dropdown-menu a:hover { background: #2563eb; color: #fff; }
+    .dropdown-menu.show { display: flex; }
+    .menu-toggle, .theme-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    .menu-toggle { display: none; }
+
+    /* ===== WELCOME SECTION ===== */
+    .homepage-header-div {
+      width: 100%;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      color: #fff;
     }
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Junction | Home Page</title>
-    <meta name="description" content="Job Junction home page. Choose your role as a job seeker or employer and get started!" />
-    <meta name="keywords" content="home, job portal, job search, careers, employment, HTML, CSS, JavaScript, Firebase" />
-    <meta name="author" content="Job Junction Team" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Job Junction | Home Page" />
-    <meta property="og:description" content="Choose your role as a job seeker or employer and get started!" />
-    <meta property="og:image" content="../assets/logo.webp" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/homepage.html" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Job Junction | Home Page" />
-    <meta name="twitter:description" content="Choose your role as a job seeker or employer and get started!" />
-    <meta name="twitter:image" content="../assets/logo.webp" />
-    <link rel="stylesheet" href="homePage.css">
-    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Poppins', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .homepage-header {
-            width: 100%;
-            padding: 2rem 0 1rem 0;
-            text-align: center;
-        }
-        .homepage-header .logo-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(30,58,138,0.10);
-            margin-bottom: 1rem;
-        }
-        .homepage-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-        .homepage-header p {
-            color: #e0e7ff;
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-        }
-        .role-cards {
-            display: flex;
-            gap: 2.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        .role-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 32px rgba(30,58,138,0.10);
-            padding: 2.5rem 2rem 2rem 2rem;
-            width: 260px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            position: relative;
-        }
-        .role-card:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 16px 40px rgba(102,126,234,0.18);
-            border: 1.5px solid #764ba2;
-        }
-        .role-card img {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 1.2rem;
-            border-radius: 1rem;
-            box-shadow: 0 2px 12px rgba(102,126,234,0.10);
-            background: #f9fafb;
-        }
-        .role-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #3d55b4;
-            margin-bottom: 0.5rem;
-        }
-        .role-card p {
-            font-size: 1rem;
-            color: #64748b;
-            margin-bottom: 1.2rem;
-        }
-        .role-card .get-started-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.7rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            box-shadow: 0 2px 8px rgba(102,126,234,0.10);
-        }
-        .role-card .get-started-btn:hover {
-            background: linear-gradient(135deg, #764ba2, #667eea);
-        }
-        .homepage-footer {
-            text-align: center;
-            color: #e0e7ff;
-            font-size: 0.95rem;
-            margin-top: 2rem;
-            padding-bottom: 1rem;
-        }
-        @media (max-width: 700px) {
-            .role-cards {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .role-card {
-                width: 90vw;
-                max-width: 340px;
-            }
-            .homepage-header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    .homepage-header-div .logo-img { width: 80px; height: 80px; border-radius: 16px; box-shadow: 0 4px 24px rgba(30,58,138,0.10); margin-bottom: 1rem; }
+    .homepage-header-div h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 1px; }
+    .homepage-header-div p { font-size: 1.15rem; margin-bottom: 2rem; color: #e0e7ff; }
+
+    /* ===== ROLE CARDS ===== */
+    .role-cards { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .role-card { background: rgba(255,255,255,0.95); border-radius: 1.5rem; box-shadow: 0 8px 32px rgba(30,58,138,0.10); padding: 2.5rem 2rem 2rem 2rem; width: 260px; text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+    .role-card:hover { transform: translateY(-8px) scale(1.04); box-shadow: 0 16px 40px rgba(102,126,234,0.18); border: 1.5px solid #764ba2; }
+    .role-card img { width: 90px; height: 90px; margin-bottom: 1.2rem; border-radius: 1rem; box-shadow: 0 2px 12px rgba(102,126,234,0.10); background: #f9fafb; }
+    .role-card h3 { font-size: 1.25rem; font-weight: 600; color: #3d55b4; margin-bottom: 0.5rem; }
+    .role-card p { font-size: 1rem; color: #64748b; margin-bottom: 1.2rem; }
+    .role-card .get-started-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 8px; padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; box-shadow: 0 2px 8px rgba(102,126,234,0.10); }
+    .role-card .get-started-btn:hover { background: linear-gradient(135deg, #764ba2, #667eea); }
+
+    /* ===== FOOTER ===== */
+    .footer-div { background: #111827; color: #fff; padding: 2rem; width: 100%; margin-top: 2rem; }
+    .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+    .footer-col h3 { margin-bottom: 1rem; color: #2563eb; }
+    .footer-col a { display: block; color: #d1d5db; text-decoration: none; margin-bottom: 0.5rem; }
+    .footer-col a:hover { color: #2563eb; }
+    .footer-col p:hover { color: #2563eb; }
+    .social-icons { display: flex; flex-direction: column; gap: 0.5rem; }
+    .social-icons a { font-size: 1.1rem; color: #fff; text-decoration: none; display: flex; align-items: center; }
+    .social-icons a:hover { color: #2563eb; }
+    .social-icons a i { margin-right: 8px; }
+    .footer-col p { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .footer-credit { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #9ca3af; }
+
+    @media(max-width: 768px){
+      .role-cards { flex-direction: column; gap: 1.5rem; }
+      .role-card { width: 90vw; max-width: 340px; }
+      .homepage-header-div h1 { font-size: 2rem; }
+      .footer-container { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+      .footer-col .social-icons { flex-direction: row; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 
 <body>
-    <header class="homepage-header">
-        <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img" loading="lazy">
-        <h1>Welcome to Job Junction</h1>
-        <p>Choose your role and start your journey.<br>
-        <span style="font-size:0.98rem;">Find jobs, connect with employers, and grow your career.</span></p>
-    </header>
-    <main>
-        <div class="role-cards">
-            <a href="../components/seeker.html" style="text-decoration:none;">
-                <div class="role-card" tabindex="0" aria-label="I am a job seeker">
-                    <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
-                    <h3>I am a seeker</h3>
-                    <p>Browse jobs, apply easily, and track your applications.</p>
-                    <button class="get-started-btn">Get Started</button>
-                </div>
-            </a>
-            <a href="../components/employer.html" style="text-decoration:none;">
-                <div class="role-card" tabindex="0" aria-label="I am an employer">
-                    <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
-                    <h3>I am an employer</h3>
-                    <p>Post jobs, manage applicants, and find top talent.</p>
-                    <button class="get-started-btn">Get Started</button>
-                </div>
-            </a>
+  <!-- Header -->
+  <div class="header-div">
+    <div class="logo">Job Junction</div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav id="navMenu">
+      <a href="home.html">Home</a>
+      <div class="dropdown" id="jobsDropdown">
+        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+        <div class="dropdown-menu" id="jobsMenu">
+          <a href="internships.html">Internships</a>
+          <a href="part-time.html">Part Time Jobs</a>
+          <a href="remote.html">Remote Jobs</a>
         </div>
-    </main>
-    <footer class="homepage-footer">
-        &copy; 2025 Job Junction. All rights reserved.
-    </footer>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+      </div>
+      <a href="companies.html">Companies</a>
+      <a href="about.html">About</a>
+      <a href="ContactPage.html">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+  </div>
 
-<body>
-    <div class="page-wrapper">
-        <!-- Header Section -->
-        <header class="header">
-            <div class="logo-container">
-                <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img">
-                <h1 class="logo-text">Job Junction</h1>
-            </div>
-        </header>
+  <!-- Welcome Section -->
+  <div class="homepage-header-div">
+    <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img" loading="lazy">
+    <h1>Welcome to Job Junction</h1>
+    <p>Choose your role and start your journey.<br>
+      <span style="font-size:0.98rem;">Find jobs, connect with employers, and grow your career.</span></p>
+  </div>
 
-        <!-- Main Content Section -->
-        <main class="main-content">
-            <div class="hero-section">
-                <h2 class="hero-title">Welcome to Job Junction</h2>
-                <p class="hero-subtitle">Your gateway to career opportunities and talent acquisition</p>
-            </div>
-
-            <div class="role-selection">
-                <h3 class="selection-title">Choose Your Role</h3>
-                <div class="role-cards">
-                    <a href="../components/seeker.html" class="role-card seeker-card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
-                            </div>
-                            <div class="card-text">
-                                <h4>I am a Job Seeker</h4>
-                                <p>Find your dream job and advance your career</p>
-                            </div>
-                        </div>
-                    </a>
-                    
-                    <a href="../components/employer.html" class="role-card employer-card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
-                            </div>
-                            <div class="card-text">
-                                <h4>I am an Employer</h4>
-                                <p>Find talented professionals for your organization</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer Section -->
-        <footer class="footer">
-            <p>&copy; 2024 Job Junction. All rights reserved.</p>
-        </footer>
+  <!-- Role Cards -->
+  <main>
+    <div class="role-cards">
+      <a href="../components/seeker.html" style="text-decoration:none;">
+        <div class="role-card" tabindex="0" aria-label="I am a job seeker">
+          <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
+          <h3>I am a seeker</h3>
+          <p>Browse jobs, apply easily, and track your applications.</p>
+          <button class="get-started-btn">Get Started</button>
+        </div>
+      </a>
+      <a href="../components/employer.html" style="text-decoration:none;">
+        <div class="role-card" tabindex="0" aria-label="I am an employer">
+          <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
+          <h3>I am an employer</h3>
+          <p>Post jobs, manage applicants, and find top talent.</p>
+          <button class="get-started-btn">Get Started</button>
+        </div>
+      </a>
     </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="footer-div">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="par"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+    const jobsToggle = document.getElementById("jobsToggle");
+    const jobsMenu = document.getElementById("jobsMenu");
+    jobsToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      jobsMenu.classList.toggle("show");
+    });
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      if (document.body.classList.contains("dark")) {
+        document.body.style.background = "#111827";
+        document.body.style.color = "#f9fafb";
+      } else {
+        document.body.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+        document.body.style.color = "#111827";
+      }
+    });
+  </script>
 </body>
 </html>
