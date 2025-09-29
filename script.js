@@ -870,3 +870,87 @@ menuLinks.forEach(link => {
 // sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
 
 console.log("Script loaded");
+// LOGIN REDIRECT FUNCTION
+function handleLogin(event) {
+  event.preventDefault();
+  
+  const username = document.getElementById("login-username")?.value.trim();
+  const password = document.getElementById("login-password")?.value.trim();
+  
+  if (!username || !password) {
+    alert("Please fill in all fields.");
+    return;
+  }
+  
+  // Get users from localStorage
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const foundUser = users.find(user => user.username === username && user.password === password);
+  
+  if (!foundUser) {
+    alert("Invalid credentials. Please try again.");
+    return;
+  }
+  
+  // Save current user and redirect
+  localStorage.setItem("currentUser", JSON.stringify(foundUser));
+  alert("Login successful! Redirecting to homepage...");
+  
+  // Redirect to homepage after successful login
+  setTimeout(() => {
+    window.location.href = "components/homepage.html";
+  }, 1000);
+}
+
+// SIGNUP REDIRECT FUNCTION
+function handleSignup(event) {
+  event.preventDefault();
+  
+  const username = document.getElementById("register-username")?.value.trim();
+  const password = document.getElementById("register-password")?.value.trim();
+  const confirmPassword = document.getElementById("confirm-password")?.value.trim();
+  
+  if (!username || !password || !confirmPassword) {
+    alert("Please fill in all fields.");
+    return;
+  }
+  
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+  
+  // Get existing users
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  
+  if (users.find(user => user.username === username)) {
+    alert("Username already exists. Please choose another.");
+    return;
+  }
+  
+  // Add new user
+  users.push({ username, password });
+  localStorage.setItem("users", JSON.stringify(users));
+  
+  // Auto-login the new user
+  localStorage.setItem("currentUser", JSON.stringify({ username, password }));
+  alert("Registration successful! Redirecting to homepage...");
+  
+  // Redirect to homepage after successful signup
+  setTimeout(() => {
+    window.location.href = "components/homepage.html";
+  }, 1000);
+}
+
+// Attach event listeners when DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
+  
+  if (loginForm) {
+    loginForm.addEventListener("submit", handleLogin);
+  }
+  
+  if (signupForm) {
+    signupForm.addEventListener("submit", handleSignup);
+  }
+});
