@@ -111,4 +111,219 @@ h1 {
 #backToTopBtn.show {
     display: block;
 }
- 
+
+/* Mobile Responsive Styles for Homepage */
+/* Add this to your style.css file */
+
+/* Mobile Navigation */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding: 1rem 0;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0.5rem 1rem;
+  }
+  
+  .nav-actions {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #3d55b4;
+    cursor: pointer;
+  }
+}
+
+/* Hero Section Mobile */
+@media (max-width: 900px) {
+  .hero {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .get-started-btn,
+  .learn-more-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .hero-visual {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Features Section Mobile */
+@media (max-width: 900px) {
+  .features {
+    padding: 2rem 1rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Job Listing Section Mobile */
+@media (max-width: 900px) {
+  .job-page {
+    flex-direction: column;
+  }
+  
+  .filter-panel {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .job-list {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .job-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* Footer Mobile */
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .footer-columns {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-col {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .footer-brand img {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .social-icons a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .features {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .footer-content {
+    padding: 0 1rem;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 400px) {
+  .hero {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .get-started-btn,
+  .learn-more-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .footer-col h4 {
+    font-size: 1rem;
+  }
+}
+
