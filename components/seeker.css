@@ -1210,3 +1210,243 @@ footer h3 {
 .apply.active {
   display: flex !important;
 }
+
+/* Updated Hover Effects for seeker.html to match global styles */
+/* Add this to components/seeker.css */
+
+/* Navigation Links Hover */
+.headlinks a {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.headlinks a:hover {
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+.headlinks a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.headlinks a:hover::after {
+  width: 100%;
+}
+
+/* Apply Button Hover */
+.apply-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.apply-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.apply-btn:hover::before {
+  left: 100%;
+}
+
+/* Job Cards Hover */
+.job-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Search Bar Hover */
+.search-bar {
+  transition: all 0.3s ease;
+}
+
+.search-bar:hover {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-bar:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+  transform: scale(1.02);
+}
+
+/* Filter Dropdown Hover */
+.filter-dropdown {
+  transition: all 0.3s ease;
+}
+
+.filter-dropdown:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+/* Submit/Cancel Buttons Hover */
+.Submit {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.Submit:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.Cancel {
+  transition: all 0.3s ease;
+}
+
+.Cancel:hover {
+  background: #f3f4f6;
+  color: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Links Hover */
+footer a {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+footer a:hover {
+  color: #667eea;
+  transform: translateX(5px);
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: #667eea;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Social Icons Hover */
+.social-icons a {
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #667eea;
+  transform: translateY(-3px) scale(1.2);
+}
+
+/* Back to Top Button Hover */
+#backToTopBtn {
+  transition: all 0.3s ease;
+}
+
+#backToTopBtn:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Logo Hover */
+.logo {
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(5deg) scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* Modal Close Button Hover */
+.modal-close-btn {
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  transform: scale(1.2);
+}
+
+/* Input Fields Hover/Focus */
+.input {
+  transition: all 0.3s ease;
+}
+
+.input:hover {
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.input:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+  transform: scale(1.02);
+}
+
+/* Skills Container Hover */
+.skill-input-container {
+  transition: all 0.3s ease;
+}
+
+.skill-input-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Tag Hover */
+.tag {
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
