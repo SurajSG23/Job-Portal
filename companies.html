@@ -9,7 +9,173 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
+<style>
+   .footer-links   ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;   /* stack items in a column */
+  gap: 12px;                /* space between each item */
+}
 
+.footer-links ul li {
+  display: flex;
+  align-items: center;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;              /* text color */
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+ul li a i {
+  margin-right: 10px;       /* spacing between icon and text */
+  font-size: 18px;
+  color: white;           /* icon color */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+ul li a:hover {
+  color: wheat;           /* text hover color */
+}
+
+ul li a:hover i {
+  transform: scale(1.2);    /* icon zoom effect */
+  color: #333;              /* icon changes color */
+}
+.footer-column{
+margin-right: 200px;
+}
+/* Tablets */
+@media (max-width: 992px) {
+  .footer-links {
+    gap: 40px; /* reduce space between columns */
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* stack footer columns vertically */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-column {
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .footer-tagline {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+  }
+}
+.footer-links{
+  margin-right: 180px;
+
+  /* Tablets */
+@media (max-width: 992px) {
+  .footer-links {
+    gap: 40px; /* reduce space between columns */
+  }
+
+  .footer-column {
+    min-width: 150px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* stack footer columns vertically */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-column {
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .footer-tagline {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+  }
+}
+
+}@media (max-width: 768px) {
+  footer {
+    text-align: center;       /* center all footer text */
+  }
+
+  .footer-links {
+    display: flex !important; /* ensure flex is applied */
+    flex-direction: column;   /* stack columns vertically */
+    align-items: center;      /* center columns horizontally */
+    margin: 0 auto;           /* center the container */
+    gap: 30px;
+  }
+
+  .footer-links .footer-column {
+    margin: 0;
+    width: 100%;              /* let columns take full width */
+    max-width: 300px;         /* optional: limit width for better look */
+    text-align: center;
+  }
+
+  .footer-links ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  .footer-links ul li a {
+    justify-content: center;  /* center icon + text */
+    display: flex;
+    gap: 8px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  #footer-statement p {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+    </style>
 </head>
 <body>
 
@@ -100,7 +266,7 @@
     </div>
   </section>
   <footer>
-    <div id="footer-statement">
+    <div id="footer-statement" style="margin-top: 50px;">
       <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
     </div>
   
@@ -108,34 +274,35 @@
       <div class="footer-links">
         <h3>For Job Seekers</h3>
         <ul>
-          <li><a href="#">Browse Job</a></li>
-          <li><a href="internships.html">Internships</a></li>
-          <li><a href="#">Advice</a></li>
-          <li><a href="#">Salary Guide</a></li>
-          <li><a href="#">Resume Builder</a></li>
-        </ul>
+      <li><a href="#"><i class="fas fa-search"></i> Browse Jobs</a></li>
+      <li><a href="#"><i class="fas fa-graduation-cap"></i>Internships</a></li>
+      <li><a href="#"><i class="fas fa-lightbulb"></i>Advice</a></li>
+      <li><a href="#"><i class="fas fa-dollar-sign"></i>Salary Insights</a></li>
+      <li><a href="#"><i class="fas fa-book"></i>Skill Development</a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
+    </ul>
       </div>
   
       <div class="footer-links">
         <h3>For Employers</h3>
         <ul>
-          <li><a href="#">Post a Job</a></li>
-          <li><a href="#">Talent Search</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Enterprise</a></li>
-        </ul>
+      <li><a href="#"><i class="fas fa-briefcase"></i> Post a Job</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Talent Search</a></li>
+      <li><a href="#"><i class="fas fa-coins"></i> Pricing</a></li>
+      <li><a href="#"><i class="fas fa-building"></i> Enterprise</a></li>
+    </ul>
       </div>
   
       <div class="footer-links">
         <h3>Company</h3>
-        <ul>
-          <li><a href="components/about.html">About Us</a></li>
-          <li><a href="ContactPage.html">Contact</a></li>
-          <li><a href="open-source.html">Open Source</a></li>
-          <li><a href="masthead.html">Masthead</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
+         <ul>
+      <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#"><i class="fas fa-code-branch"></i> Open Source</a></li>
+      <li><a href="#"><i class="fas fa-users-cog"></i> Masthead</a></li>
+      <li><a href="#"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+      <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+    </ul>
       </div>
     </div>
   
