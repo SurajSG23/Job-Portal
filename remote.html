@@ -28,6 +28,11 @@
       text-decoration: none;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     /* =========================
        Navbar
     ========================= */
@@ -112,9 +117,17 @@
     .hero-title {
       font-size: 3rem;
       font-weight: 700;
-      color: #1a73e8;
-      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #056df6, rgb(101, 137, 255));
+      
+      background-clip: text;       
+      -webkit-background-clip: text; 
+      
+      -webkit-text-fill-color: transparent;
+      color: transparent;          
+      text-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
+
 
     .hero-description {
       font-size: 1.2rem;
@@ -460,6 +473,19 @@
   margin-right: 0.5rem;
   color: white; /* blue icons */
 }
+.site-footer {
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #1a73e8, #00c6ff);
+  border-image-slice: 1;
+}
+.footer-col ul li a {
+  position: relative;
+  display: inline-block;
+}
+.footer-col ul li a:hover {
+  transform: translateX(4px);
+  color: #1a73e8;
+}
 
   </style>
 </head>
@@ -488,7 +514,7 @@
   <!-- Hero Section -->
   <main>
     <section class="hero">
-      <h1 class="hero-title">Remote Jobs</h1>
+      <h1 class="hero-title">Remote Jobs</h1><br>
       <p class="hero-description">
         Explore top remote job opportunities from leading companies. Work from anywhere and build your career on your terms!
       </p>
