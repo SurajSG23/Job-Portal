@@ -1,4 +1,3 @@
-
 function updateDropdown(label) {
   document.getElementById('jobDropdown').textContent = label;
 }
@@ -264,4 +263,93 @@ document.addEventListener("DOMContentLoaded", function () {
   backToTopBtn.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+});
+
+// Enhanced Search Functionality - Add to seeker.js
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('searchInput');
+  const clearSearchBtn = document.getElementById('clearSearch');
+  const searchSuggestions = document.getElementById('searchSuggestions');
+  const resetFiltersBtn = document.getElementById('resetFilters');
+  
+  // Sample suggestions data
+  const suggestions = [
+    'Frontend Developer', 'Backend Developer', 'Full Stack Developer',
+    'UI/UX Designer', 'Data Scientist', 'Product Manager',
+    'Software Engineer', 'DevOps Engineer', 'Mobile Developer'
+  ];
+  
+  // Show/hide clear button
+  searchInput.addEventListener('input', function() {
+    if (this.value.length > 0) {
+      clearSearchBtn.classList.add('visible');
+      showSuggestions(this.value);
+    } else {
+      clearSearchBtn.classList.remove('visible');
+      hideSuggestions();
+    }
+  });
+  
+  // Clear search
+  clearSearchBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    clearSearchBtn.classList.remove('visible');
+    hideSuggestions();
+    // Trigger search with empty value
+    performSearch('');
+  });
+  
+  // Show suggestions
+  function showSuggestions(query) {
+    const filtered = suggestions.filter(item => 
+      item.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    if (filtered.length > 0 && query.length > 0) {
+      searchSuggestions.innerHTML = filtered.map(item => 
+        `<div class="suggestion-item">${item}</div>`
+      ).join('');
+      searchSuggestions.classList.add('show');
+      
+      // Add click handlers to suggestions
+      document.querySelectorAll('.suggestion-item').forEach(item => {
+        item.addEventListener('click', function() {
+          searchInput.value = this.textContent;
+          hideSuggestions();
+          performSearch(this.textContent);
+        });
+      });
+    } else {
+      hideSuggestions();
+    }
+  }
+  
+  // Hide suggestions
+  function hideSuggestions() {
+    searchSuggestions.classList.remove('show');
+  }
+  
+  // Reset all filters
+  resetFiltersBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    document.getElementById('locationFilter').value = '';
+    document.getElementById('salaryFilter').value = '';
+    document.getElementById('jobTypeFilter').value = '';
+    clearSearchBtn.classList.remove('visible');
+    hideSuggestions();
+    performSearch('');
+  });
+  
+  // Hide suggestions when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-box-wrapper')) {
+      hideSuggestions();
+    }
+  });
+  
+  // Perform search function (integrate with your existing search logic)
+  function performSearch(query) {
+    // Add your search logic here
+    console.log('Searching for:', query);
+  }
 });
