@@ -53,17 +53,505 @@
     <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
     <link rel="stylesheet" href="footer.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- for icons -->
+<style>
+  .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
+    .header h1 {
+      font-size: 2.5rem;
+      color: #2b3a67;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 1rem;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 15px auto 30px;
+      text-align: center;
+      background-color: #2b3a67;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1a253f;
+    }
+
+    .job-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+  
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+      /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+      border-bottom: 3px solid #2563eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    margin-bottom: 50px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111827;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+      border: 2px solid #2563eb;
+      border-radius: 0.5rem;
+      top: 2rem;
+      left: 0;
+      flex-direction: column;
+      min-width: 180px;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      padding: 0.5rem 1rem;
+      display: block;
+      color: #111827;
+    }
+
+    .dropdown-menu a:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* Mobile dropdown toggle */
+    .dropdown-menu.show {
+      display: flex;
+    }
+
+    .menu-toggle, .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-col p:hover {
+      color: #2563eb;
+    }
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+.social-icons a:hover {
+      font-size: 1.1rem;
+      color: #2563eb;
+
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .social-icons a i {
+      margin-right: 8px;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    
+
+    /* ===== MEDIA QUERIES ===== */
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        border: 2px solid #2563eb;
+        border-radius: 0.5rem;
+        padding: 1rem;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .terms-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        justify-content: center;
+      }
+    }
+    /* ===== MEDIA QUERIES ===== */
+@media(max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    border: 2px solid #2563eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .terms-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* ✅ FIX FOOTER COLUMNS */
+  .footer-container {
+    grid-template-columns: 1fr;   /* stack all columns */
+    text-align: center;
+  }
+
+  .footer-col {
+    margin-bottom: 1.5rem;        /* spacing between sections */
+  }
+
+  .footer-col .social-icons {
+    justify-content: center;
+    flex-direction: row;          /* icons side by side on mobile */
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+@media(max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Social icons horizontal */
+  .footer-col .social-icons { 
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 1rem; 
+  }
+  /* Contact & paragraphs truly centered */
+  .footer-col p { 
+    display: block; 
+    margin: 0.25rem 0; 
+    text-align: center; 
+  }
+}
+.footer-final-col h4{
+  margin-top: 50px;
+}
+@media(max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Social icons stacked vertically on mobile */
+  .footer-col .social-icons { 
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 0.5rem; 
+  }
+  /* Contact paragraphs centered */
+  .footer-col p { 
+    display: block; 
+    margin: 0.25rem 0; 
+    text-align: center; 
+  }
+}
+/* Remove default margin & padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make header span full width */
+header {
+  width: 100%;
+  padding: 1rem; /* optional: you can keep horizontal padding smaller */
+}
+/* ===== FOOTER FINAL ===== */
+.footer-final {
+  background: #111827;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-final-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-final-col {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.footer-final-col h4 {
+  color: #2563eb;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-final-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-final-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-final-col ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-final-col ul li a:hover {
+  color: #2563eb;
+}
+
+/* Social Icons */
+.footer-final-social {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0 20px;
+}
+
+.footer-final-social a {
+  color: #fff;
+  font-size: 30px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-final-social a:hover {
+  color: #2563eb;
+  transform: scale(1.2);
+}
+
+/* Copyright */
+.footer-final-copy {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media(max-width: 768px) {
+  .footer-final-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-final-col {
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .footer-final-social {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+</style>
 
 
 </head>
 
 <body>
-    <header>
-        <div class="headContainer">
-            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" />
+    <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">Job Junction</div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav id="navMenu">
+      <a href="home.html">Home</a>
+      <div class="dropdown" id="jobsDropdown">
+        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+        <div class="dropdown-menu" id="jobsMenu">
+          <a href="internships.html">Internships</a>
+          <a href="part-time.html">Part Time Jobs</a>
+          <a href="remote.html">Remote Jobs</a>
         </div>
-    </header>
+      </div>
+      <a href="companies.html">Companies</a>
+      <a href="about.html">About</a>
+      <a href="ContactPage.html">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+  </header>
     <hr />
     <div style="display: flex; justify-content: flex-start; max-width: 800px; margin: 0 auto 24px auto;" class="btn-container">
       <a href="homepage.html" class="about-btn">&#8592; Back to Role</a>
@@ -241,61 +729,63 @@
   ↑
 </button>
 
-<footer class="footer" style="margin-bottom: 0px;">
+<footer class="footer-final">
   <!-- Tagline -->
-  <p class="footer-tagline" style="font-size: 20px;">
+  <p class="footer-final-tagline" style="font-size: 20px; text-align:center;">
     Connecting Talent with Opportunity. Your Career Journey Starts Here!
   </p>
-  <br><br>
 
   <!-- Footer Links -->
-  <div class="footer-links">
-    <div class="footer-column">
+  <div class="footer-final-container">
+    <!-- Job Seekers Column -->
+    <div class="footer-final-col">
       <h4>For Job Seekers</h4>
       <ul>
-        <li><a href="jobs.html">Browse Jobs</a></li>
-        <li><a href="internships.html">Internships</a></li>
-        <li><a href="advice.html">Advice</a></li>
-        <li><a href="salary-insights.html">Salary Insights</a></li>
-        <li><a href="skill-development.html">Skill Development</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="resume-builder.html">Resume Builder</a></li>
+        <li><a href="#"><i class="fas fa-search"></i> Browse Jobs</a></li>
+        <li><a href="#"><i class="fas fa-graduation-cap"></i> Internships</a></li>
+        <li><a href="#"><i class="fas fa-lightbulb"></i> Advice</a></li>
+        <li><a href="#"><i class="fas fa-dollar-sign"></i> Salary Insights</a></li>
+        <li><a href="#"><i class="fas fa-book"></i> Skill Development</a></li>
+        <li><a href="#"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
       </ul>
     </div>
 
-    <div class="footer-column">
+    <!-- Employers Column -->
+    <div class="footer-final-col">
       <h4>For Employers</h4>
       <ul>
-        <li><a href="/post-job">Post a Job</a></li>
-        <li><a href="/talent-search">Talent Search</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/enterprise">Enterprise</a></li>
+        <li><a href="#"><i class="fas fa-briefcase"></i> Post a Job</a></li>
+        <li><a href="#"><i class="fas fa-users"></i> Talent Search</a></li>
+        <li><a href="#"><i class="fas fa-coins"></i> Pricing</a></li>
+        <li><a href="#"><i class="fas fa-building"></i> Enterprise</a></li>
       </ul>
     </div>
 
-<div class="footer-column">
-  <h4>Company</h4>
-  <ul>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="ContactPage.html">Contact</a></li>
-    <li><a href="open-source.html">Open Source</a></li>
-    <li><a href="masthead.html">Masthead</a></li>
-    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-    <li><a href="terms.html">Terms of Service</a></li>
-  </ul>
-</div>
+    <!-- Company Column -->
+    <div class="footer-final-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="#"><i class="fas fa-code-branch"></i> Open Source</a></li>
+        <li><a href="#"><i class="fas fa-users-cog"></i> Masthead</a></li>
+        <li><a href="#"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+        <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Social Links -->
-  <div class="footer-social">
-    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
-    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
-    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
+  <div class="footer-final-social">
+    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
 
   <!-- Copyright -->
-  <p class="footer-copy">
+  <div class="footer-final-copy">
     © 2025 Job Junction. All rights reserved.
-  </p>
+  </div>
 </footer>
 
 
@@ -369,7 +859,33 @@ backToTopBtn.addEventListener("click", () => {
 
     elements.forEach((el) => observer.observe(el));
   });
+  // Toggle mobile menu
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
 
+    // Mobile dropdown toggle
+    const jobsToggle = document.getElementById("jobsToggle");
+    const jobsMenu = document.getElementById("jobsMenu");
+    jobsToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      jobsMenu.classList.toggle("show");
+    });
+
+    // Theme toggle (light/dark)
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      if(document.body.classList.contains("dark")){
+        document.body.style.background="#111827";
+        document.body.style.color="#f9fafb";
+      } else {
+        document.body.style.background="#f9fafb";
+        document.body.style.color="#111827";
+      }
+    });
 
 
 

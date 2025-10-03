@@ -413,6 +413,51 @@
         transform: translateY(0);
       }
     }
+
+    /* Back to Top Button Styles */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.3s;
+  z-index: 9999;
+}
+
+#backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  background-color: #2563eb;
+  transform: translateY(-5px);
+}
+
+/* Dark mode support */
+body.dark #backToTop {
+  background-color: #2563eb;
+  color: #f3f4f6;        
+}
+
+body.dark #backToTop:hover {
+  background-color: #3b82f6;
+}
+
   </style>
 </head>
 <body>
@@ -502,6 +547,11 @@
     </div>
   </section>
 
+  <!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -573,6 +623,29 @@
         jobsDropdown.classList.remove("open");
       }
     });
+
+    // Back to Top Button
+const backToTopBtn = document.getElementById("backToTop");
+
+// Show button after scrolling down 300px
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+// Smooth scroll to top on click
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
   </script>
+
+
 </body>
 </html>
