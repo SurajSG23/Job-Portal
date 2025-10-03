@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 
   <style>
     :root {
@@ -413,6 +417,65 @@
         transform: translateY(0);
       }
     }
+    .about-us {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 40px;
+  color: #ff6600; /* Change color to match theme */
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -445,23 +508,27 @@
     <button class="btn">Get Started</button>
   </section>
 
-  <section class="about-us">
-    <h2>About Us</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Our Mission</h3>
-        <p>We connect talented individuals with their dream jobs to empower career growth.</p>
-      </div>
-      <div class="card">
-        <h3>Our Vision</h3>
-        <p>To be the leading platform where job seekers and employers thrive together.</p>
-      </div>
-      <div class="card">
-        <h3>Our Values</h3>
-        <p>Integrity, Innovation, and Inclusion guide everything we do.</p>
-      </div>
+ <section class="about-us">
+  <h2>About Us</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon"><i class="fas fa-bullseye"></i></div>
+      <h3>Our Mission</h3>
+      <p>We connect talented individuals with their dream jobs to empower career growth.</p>
     </div>
-  </section>
+    <div class="card">
+      <div class="icon"><i class="fas fa-eye"></i></div>
+      <h3>Our Vision</h3>
+      <p>To be the leading platform where job seekers and employers thrive together.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><i class="fas fa-handshake"></i></div>
+      <h3>Our Values</h3>
+      <p>Integrity, Innovation, and Inclusion guide everything we do.</p>
+    </div>
+  </div>
+</section>
+
 
   <section class="services">
     <h2>Our Services</h2>
