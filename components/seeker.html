@@ -280,6 +280,60 @@
             <h2>Jobs In Demand</h2>
             <p>Most viewed and all-time-top-selling services</p>
         </div>
+        <div class="search-filter-container">
+  <div class="search-box-wrapper">
+    <div class="search-input-group">
+      <i class="fas fa-search search-icon"></i>
+      <input 
+        type="text" 
+        id="searchInput" 
+        class="search-bar enhanced-search" 
+        placeholder="Search jobs by title, company, or skills..." 
+        autocomplete="off"
+      />
+      <button class="clear-search-btn" id="clearSearch" title="Clear search">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="search-suggestions" id="searchSuggestions">
+      <!-- Dynamic suggestions will appear here -->
+    </div>
+  </div>
+  
+  <div class="filters-wrapper">
+    <select id="locationFilter" class="filter-dropdown enhanced-filter">
+      <option value="">All Locations</option>
+      <option value="remote">Remote</option>
+      <option value="new-york">New York</option>
+      <option value="san-francisco">San Francisco</option>
+      <option value="london">London</option>
+      <option value="berlin">Berlin</option>
+    </select>
+    
+    <select id="salaryFilter" class="filter-dropdown enhanced-filter">
+      <option value="">All Salaries</option>
+      <option value="30000">$30K+</option>
+      <option value="50000">$50K+</option>
+      <option value="75000">$75K+</option>
+      <option value="100000">$100K+</option>
+    </select>
+    
+    <select id="jobTypeFilter" class="filter-dropdown enhanced-filter">
+      <option value="">All Types</option>
+      <option value="full-time">Full Time</option>
+      <option value="part-time">Part Time</option>
+      <option value="contract">Contract</option>
+      <option value="internship">Internship</option>
+    </select>
+    
+    <button class="filter-reset-btn" id="resetFilters" title="Reset all filters">
+      <i class="fas fa-redo"></i> Reset
+    </button>
+  </div>
+</div>
+    <div class="jobs-container">
+
+    </div>
 
         <div class="search-filter-container">
             <input type="text" id="searchInput" class="search-bar fancy-input" placeholder=" Search by position..." />
@@ -294,8 +348,6 @@
 
     <!-- Jobs Grid -->
     <div class="jobs-container" id="jobsContainer">
-
-        
 
     </div>
 
