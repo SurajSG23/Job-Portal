@@ -14,59 +14,17 @@
 
     a { text-decoration:none; }
 
-    /* Dark Mode Styles - Only applied when body has .dark class */
-    body.dark {
-      background-color: #0f172a;
-      color: #e2e8f0;
-    }
-
     /* Navbar */
     .navbar { display:flex; justify-content:space-between; align-items:center; padding:0.8rem 2rem; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:999;}
-    body.dark .navbar {
-      background-color: #1e293b;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
     .nav-brand img { height:50px; width:auto;}
     .nav-menu { display:flex; list-style:none; gap:1.5rem;}
     .nav-link { color:#333; font-weight:500; display:flex; align-items:center; gap:0.3rem; transition:color 0.2s;}
-    body.dark .nav-link {
-      color: #e2e8f0;
-    }
     .nav-link:hover { color:#1a73e8;}
-    body.dark .nav-link:hover { color:#3b82f6;}
-    .nav-actions { display: flex; align-items: center; gap: 1rem; }
     .nav-actions .btn-ghost, .nav-actions .btn-primary { padding:0.5rem 1rem; border-radius:6px; font-weight:600; transition:0.3s;}
     .btn-ghost { background-color:transparent; border:1px solid #1a73e8; color:#1a73e8;}
     .btn-ghost:hover { background-color:#1a73e8; color:#fff;}
-    body.dark .btn-ghost {
-      border-color: #3b82f6;
-      color: #3b82f6;
-    }
-    body.dark .btn-ghost:hover {
-      background-color: #3b82f6;
-      color: #fff;
-    }
     .btn-primary { background-color:#1a73e8; color:#fff; border:none;}
     .btn-primary:hover { background-color:#155ab6;}
-    body.dark .btn-primary {
-      background-color: #3b82f6;
-    }
-    body.dark .btn-primary:hover {
-      background-color: #2563eb;
-    }
-
-    /* Theme Toggle Button */
-    .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      cursor: pointer;
-      color: #333;
-      transition: color 0.3s;
-    }
-    body.dark .theme-toggle {
-      color: #e2e8f0;
-    }
 
     /* Hero Section */
     .hero {
@@ -111,52 +69,30 @@
     /* Vision & Mission Cards */
     .cards-container { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:2rem; max-width:1000px; margin:3rem auto;}
     .card { background-color:#fff; border-radius:15px; padding:2rem 1.5rem; text-align:center; transition:0.4s; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-    body.dark .card {
-      background-color: #1e293b;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
     .card:hover { transform: translateY(-10px) scale(1.05); box-shadow:0 15px 25px rgba(0,0,0,0.2);}
-    body.dark .card:hover {
-      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
-    }
     .card h3 { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; font-size:1.6rem; margin-bottom:1rem; color:#1a73e8;}
-    body.dark .card h3 {
-      color: #3b82f6;
-    }
     .card h3 i { font-size:2.5rem; color:#ff7e5f; }
     .card p { font-size:1rem; color:#555; line-height:1.5; }
-    body.dark .card p {
-      color: #cbd5e1;
-    }
 
     /* Footer */
     .site-footer { background-color:#000; color:#fff; padding:3rem 2rem; font-family:'Inter', sans-serif;}
-    body.dark .site-footer {
-      background-color: #0f172a;
-    }
     .footer-container { display:flex; flex-wrap:wrap; justify-content:space-between; max-width:1200px; margin:0 auto; gap:2rem;}
     .footer-brand { flex:1 1 250px; min-width:220px;}
     .footer-tagline { font-size:1rem; margin-bottom:1rem; color:#b3b3b3; line-height:1.5;}
     .social-icons { display:flex; align-items:center; gap:1rem; margin-bottom:2rem;}
     .social-icons a { color:#fff; font-size:1.3rem; transition:0.3s;}
     .social-icons a:hover { color:#1a73e8;}
-    body.dark .social-icons a:hover {
-      color: #3b82f6;
-    }
     .footer-links { flex:3 1 600px; display:flex; gap:3rem; flex-wrap:wrap;}
     .footer-col h4 { margin-bottom:0.8rem; color:#fff;}
     .footer-col ul { list-style:none; padding:0;}
     .footer-col ul li { margin-bottom:0.5rem;}
     .footer-col ul li a { color:#b3b3b3; transition:0.3s; text-decoration:none;}
     .footer-col ul li a:hover { color:#1a73e8;}
-    body.dark .footer-col ul li a:hover {
-      color: #3b82f6;
-    }
     .footer-bottom { text-align:center; margin-top:2rem; color:#b3b3b3; font-size:0.95rem; border-top:1px solid #333; padding-top:1rem;}
-    .footer-col{
-        margin-left: 100px;
-    }
+.footer-col{
+    margin-left: 100px;
 
+}
     @media(max-width:768px){
       .cards-container { grid-template-columns:1fr; }
       .nav-menu { display:none; }
@@ -164,80 +100,76 @@
       .footer-links { flex-direction:column; gap:1.5rem; }
       .social-icons { justify-content:flex-start; }
     }
-    /* ====== Mobile Responsive Adjustments ====== */
-    @media (max-width: 768px) {
-      /* Navbar adjustments */
-      .navbar {
-        flex-wrap: wrap;
-        padding: 0.5rem 1rem; /* reduce padding */
-      }
+/* ====== Mobile Responsive Adjustments ====== */
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem; /* reduce padding */
+  }
 
-      .nav-actions {
-        width: 100%;
-        justify-content: flex-start;
-        margin-top: 0.5rem;
-        gap: 0.5rem; /* reduce gap between login/signup */
-      }
+  .nav-actions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+    gap: 0.5rem; /* reduce gap between login/signup */
+  }
 
-      .btn-ghost, .btn-primary {
-        padding: 0.4rem 0.8rem; /* smaller buttons */
-        font-size: 0.9rem;
-      }
+  .btn-ghost, .btn-primary {
+    padding: 0.4rem 0.8rem; /* smaller buttons */
+    font-size: 0.9rem;
+  }
 
-      .nav-menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background: #fff;
-        margin-top: 0.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 0.5rem 0;
-      }
-      body.dark .nav-menu {
-        background: #1e293b;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      }
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+  }
 
-      .nav-menu.active {
-        display: flex;
-      }
+  .nav-menu.active {
+    display: flex;
+  }
 
-      .nav-link {
-        padding: 0.6rem 1rem;
-        width: 100%;
-      }
+  .nav-link {
+    padding: 0.6rem 1rem;
+    width: 100%;
+  }
 
-      /* Footer adjustments */
-      .footer-container {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem 1rem; /* reduce footer padding */
-      }
+  /* Footer adjustments */
+  .footer-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1rem; /* reduce footer padding */
+  }
 
-      .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-      }
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-      .footer-col {
-        margin-left: 0; /* remove extra margin from desktop */
-      }
+  .footer-col {
+    margin-left: 0; /* remove extra margin from desktop */
+  }
 
-      .footer-brand {
-        margin-bottom: 1rem; /* compact spacing */
-      }
+  .footer-brand {
+    margin-bottom: 1rem; /* compact spacing */
+  }
 
-      .social-icons {
-        justify-content: flex-start;
-        gap: 0.8rem;
-      }
+  .social-icons {
+    justify-content: flex-start;
+    gap: 0.8rem;
+  }
 
-      .footer-bottom {
-        font-size: 0.85rem; /* smaller text */
-        padding-top: 0.8rem;
-      }
-    }
+  .footer-bottom {
+    font-size: 0.85rem; /* smaller text */
+    padding-top: 0.8rem;
+  }
+}
 
   </style>
 </head>
@@ -247,7 +179,7 @@
   <header>
     <nav class="navbar">
       <div class="nav-brand">
-        <img src="assets/logo.webp" alt="Job Junction Logo" style="background:white;">
+        <img src="assets/logo.webp" alt="Job Junction Logo" />
       </div>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
@@ -259,9 +191,6 @@
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-        </button>
         <a href="login.html" class="btn-ghost"><i class="fas fa-sign-in-alt"></i> Login</a>
         <a href="signup.html" class="btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
       </div>
@@ -345,38 +274,6 @@
       &copy; 2025 Job Junction. All rights reserved.
     </div>
   </footer>
-
-  <script>
-    // Dark mode toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
-    
-    // Check for saved theme preference or respect OS preference
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-      document.body.classList.add('dark');
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-    }
-    
-    themeToggle.addEventListener('click', function() {
-      // Toggle dark mode
-      document.body.classList.toggle('dark');
-      
-      // Update icon
-      if (document.body.classList.contains('dark')) {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
 
 </body>
 </html>
