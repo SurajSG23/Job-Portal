@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 
   <style>
     :root {
@@ -413,49 +417,63 @@
         transform: translateY(0);
       }
     }
+    .about-us {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
 
-    /* Back to Top Button Styles */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  font-size: 1.2rem;
+.about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.cards {
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s, transform 0.3s;
-  z-index: 9999;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-#backToTop.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+.card {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#backToTop:hover {
-  background-color: #2563eb;
-  transform: translateY(-5px);
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Dark mode support */
-body.dark #backToTop {
-  background-color: #2563eb;
-  color: #f3f4f6;        
+.icon {
+  font-size: 40px;
+  color: #ff6600; /* Change color to match theme */
+  margin-bottom: 15px;
 }
 
-body.dark #backToTop:hover {
-  background-color: #3b82f6;
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
   </style>
@@ -490,23 +508,27 @@ body.dark #backToTop:hover {
     <button class="btn">Get Started</button>
   </section>
 
-  <section class="about-us">
-    <h2>About Us</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Our Mission</h3>
-        <p>We connect talented individuals with their dream jobs to empower career growth.</p>
-      </div>
-      <div class="card">
-        <h3>Our Vision</h3>
-        <p>To be the leading platform where job seekers and employers thrive together.</p>
-      </div>
-      <div class="card">
-        <h3>Our Values</h3>
-        <p>Integrity, Innovation, and Inclusion guide everything we do.</p>
-      </div>
+ <section class="about-us">
+  <h2>About Us</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon"><i class="fas fa-bullseye"></i></div>
+      <h3>Our Mission</h3>
+      <p>We connect talented individuals with their dream jobs to empower career growth.</p>
     </div>
-  </section>
+    <div class="card">
+      <div class="icon"><i class="fas fa-eye"></i></div>
+      <h3>Our Vision</h3>
+      <p>To be the leading platform where job seekers and employers thrive together.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><i class="fas fa-handshake"></i></div>
+      <h3>Our Values</h3>
+      <p>Integrity, Innovation, and Inclusion guide everything we do.</p>
+    </div>
+  </div>
+</section>
+
 
   <section class="services">
     <h2>Our Services</h2>
@@ -546,11 +568,6 @@ body.dark #backToTop:hover {
       </div>
     </div>
   </section>
-
-  <!-- Back to Top Button -->
-<button id="backToTop" title="Back to Top">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
 
   <footer>
     <div class="footer-container">
@@ -623,29 +640,6 @@ body.dark #backToTop:hover {
         jobsDropdown.classList.remove("open");
       }
     });
-
-    // Back to Top Button
-const backToTopBtn = document.getElementById("backToTop");
-
-// Show button after scrolling down 300px
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    backToTopBtn.classList.add("show");
-  } else {
-    backToTopBtn.classList.remove("show");
-  }
-});
-
-// Smooth scroll to top on click
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
   </script>
-
-
 </body>
 </html>
