@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="faq.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <style>
-        /* ---------------- HEADER ---------------- */
+    /* ---------------- HEADER ---------------- */
     main-header {
       display: flex;
       justify-content: space-between;
@@ -17,8 +17,8 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-  background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
-  margin-bottom: 50px;
+      background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
+      margin-bottom: 50px;
     }
 
     .logo {
@@ -105,6 +105,69 @@
         display: flex;
       }
     }
+
+    /* ---------------- DARK MODE STYLES ---------------- */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode header {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .faq-container {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode .category h2 {
+      color: #bb86fc;
+    }
+
+    body.dark-mode .faq {
+      background-color: #2d2d2d;
+      border-left: 4px solid #bb86fc;
+    }
+
+    body.dark-mode .faq-question {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .faq-answer {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .search-box input {
+      background-color: #2d2d2d;
+      color: #e0e0e0;
+      border: 1px solid #444;
+    }
+
+    body.dark-mode .footer {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .footer-column h4 {
+      color: #bb86fc;
+    }
+
+    body.dark-mode .footer-column ul li a {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .footer-column ul li a:hover {
+      color: #bb86fc;
+    }
+
+    body.dark-mode .footer-social a {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .footer-social a:hover {
+      color: #bb86fc;
+    }
   </style>
 </head>
 <body>
@@ -124,6 +187,9 @@
       <a href="companies.html">Companies</a>
       <a href="about.html">About</a>
       <a href="ContactPage.html">Contact</a>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
     </nav>
   </main-header>
 
@@ -132,7 +198,6 @@
      <i class="fa-solid fa-circle-question" id="question-icon"></i>
     <p>Find answers to common questions about Job Junction</p>
   <div><a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Home</a></div>
-
   </header>
 
   <!-- Search -->
@@ -173,7 +238,7 @@
       <h2>Internships</h2>
       <div class="faq">
          <div class="faq-question">Who can apply for this internship ? <span class="icon">▼</span></div>
-        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you’re passionate about building, coding, or creating with technology, this internship is for you.</div>
+        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you're passionate about building, coding, or creating with technology, this internship is for you.</div>
       </div>
       <div class="faq">
         <div class="faq-question">Are internships paid? <span class="icon">▼</span></div>
@@ -210,18 +275,18 @@
         <li><a href="components/seeker.html">Browse Jobs</a></li>
         <li><a href="internships.html">Internships</a></li>
         <li><a href="#">Advice</a></li>
-        <li><a href="#">Salary Guide</a></li>
-        <li><a href="#">Resume Builder</a></li>
+        <li><a href="salary-insights.html">Salary Guide</a></li>
+        <li><a href="resume-builder.html">Resume Builder</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
       <h4>For Employers</h4>
       <ul>
-        <li><a href="#">Post a Job</a></li>
-        <li><a href="#">Talent Search</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Enterprise</a></li>
+        <li><a href="components/employer.html">Post a Job</a></li>
+        <li><a href="components/employer.html">Talent Search</a></li>
+        <li><a href="components/employer.html">Pricing</a></li>
+        <li><a href="components/employer.html">Enterprise</a></li>
       </ul>
     </div>
 
@@ -230,7 +295,7 @@
       <ul>
         <li><a href="components/about.html">About Us</a></li>
         <li><a href="ContactPage.html">Contact</a></li>
-        <li><a href="#">Open Source</a></li>
+        <li><a href="open-source.html">Open Source</a></li>
         <li><a href="masthead.html">Masthead</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-use.html">Terms of Use</a></li>
@@ -278,10 +343,32 @@
     });
 
     // Animate FAQ cards on load with delay
-document.querySelectorAll('.faq').forEach((faq, i) => {
-  faq.style.animationDelay = `${i * 0.1}s`;
-});
+    document.querySelectorAll('.faq').forEach((faq, i) => {
+      faq.style.animationDelay = `${i * 0.1}s`;
+    });
 
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+      }
+    });
   </script>
 </body>
 </html>

@@ -194,6 +194,20 @@
               </div>
             </div>
           </section>
+          <!-- Video Instructions Section -->
+          <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
+            <h2 style="font-size:2rem; font-weight:700; color:#3d55b4; margin-bottom:1rem;">How to Use Job Junction</h2>
+            <p style="color:#64748b; font-size:1.15rem; margin-bottom:2rem;">
+              Watch this quick video guide to learn how to search for jobs, apply, and manage your career on Job Junction.
+            </p>
+            <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:1rem; box-shadow:0 2px 12px rgba(102,126,234,0.10); margin-bottom:1rem;">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Job Junction Instructions" frameborder="0" allowfullscreen
+                style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:1rem;"></iframe>
+            </div>
+            <p style="color:#3d55b4; font-size:1rem;">
+              Need more help? Visit our <a href="#contact" style="color:#764ba2; text-decoration:underline;">Contact</a> page or check out our <a href="#features" style="color:#764ba2; text-decoration:underline;">Features</a> below!
+            </p>
+          </section>
           <!-- Features Section -->
           <section class="features" id="features">
             <div class="container">
@@ -232,6 +246,37 @@
               </div>
             </div>
           </section>
+          <!-- Unified Filter Sidebar -->
+          <aside id="filter-sidebar" class="filter-sidebar">
+            <h3>Filter Jobs</h3>
+            <form id="jobFilterForm">
+              <div class="filter-group">
+                <label for="salaryRange">Salary Range</label>
+                <select id="salaryRange" name="salaryRange">
+                  <option value="">Any</option>
+                  <option value="0-50000">0 - 50,000</option>
+                  <option value="50000-100000">50,000 - 1,00,000</option>
+                  <option value="100000-200000">1,00,000 - 2,00,000</option>
+                  <option value="200000+">2,00,000+</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="jobType">Job Type</label>
+                <select id="jobType" name="jobType">
+                  <option value="">Any</option>
+                  <option value="fulltime">Full Time</option>
+                  <option value="parttime">Part Time</option>
+                  <option value="internship">Internship</option>
+                  <option value="remote">Remote</option>
+                </select>
+              </div>
+              <!-- Add more filters as needed -->
+              <div class="filter-actions">
+                <button type="submit" class="apply-filter-btn">Apply</button>
+                <button type="button" class="clear-filter-btn" id="clearFilters">Clear</button>
+              </div>
+            </form>
+          </aside>
           <!-- Job Listing/Filter Section -->
           <div class="job-page">
             <aside id="filter-panel" class="filter-panel">
@@ -324,7 +369,7 @@
             function setTheme(dark) {
               document.body.classList.toggle("dark", dark);
               const themeIcon = document.getElementById("theme-icon");
-              if (themeIcon) {
+              if themeIcon) {
                 themeIcon.classList.toggle("fa-moon", !dark);
                 themeIcon.classList.toggle("fa-sun", dark);
               }
@@ -587,6 +632,20 @@
             </div>
           </div>
         </section>
+        <!-- Video Instructions Section -->
+        <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
+          <h2 style="font-size:2rem; font-weight:700; color:#3d55b4; margin-bottom:1rem;">How to Use Job Junction</h2>
+          <p style="color:#64748b; font-size:1.15rem; margin-bottom:2rem;">
+            Watch this quick video guide to learn how to search for jobs, apply, and manage your career on Job Junction.
+          </p>
+          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:1rem; box-shadow:0 2px 12px rgba(102,126,234,0.10); margin-bottom:1rem;">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Job Junction Instructions" frameborder="0" allowfullscreen
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:1rem;"></iframe>
+          </div>
+          <p style="color:#3d55b4; font-size:1rem;">
+            Need more help? Visit our <a href="#contact" style="color:#764ba2; text-decoration:underline;">Contact</a> page or check out our <a href="#features" style="color:#764ba2; text-decoration:underline;">Features</a> below!
+          </p>
+        </section>
         <!-- Features Section -->
         <section class="features" id="features">
           <div class="container">
@@ -625,6 +684,37 @@
             </div>
           </div>
         </section>
+        <!-- Unified Filter Sidebar -->
+        <aside id="filter-sidebar" class="filter-sidebar">
+          <h3>Filter Jobs</h3>
+          <form id="jobFilterForm">
+            <div class="filter-group">
+              <label for="salaryRange">Salary Range</label>
+              <select id="salaryRange" name="salaryRange">
+                <option value="">Any</option>
+                <option value="0-50000">0 - 50,000</option>
+                <option value="50000-100000">50,000 - 1,00,000</option>
+                <option value="100000-200000">1,00,000 - 2,00,000</option>
+                <option value="200000+">2,00,000+</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="jobType">Job Type</label>
+              <select id="jobType" name="jobType">
+                <option value="">Any</option>
+                <option value="fulltime">Full Time</option>
+                <option value="parttime">Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="remote">Remote</option>
+              </select>
+            </div>
+            <!-- Add more filters as needed -->
+            <div class="filter-actions">
+              <button type="submit" class="apply-filter-btn">Apply</button>
+              <button type="button" class="clear-filter-btn" id="clearFilters">Clear</button>
+            </div>
+          </form>
+        </aside>
         <!-- Job Listing/Filter Section -->
         <div class="job-page">
           <aside id="filter-panel" class="filter-panel">
@@ -646,6 +736,116 @@
           </section>
         </div>
       </main>
+                <!-- Enhanced Footer Section -->
+        <!-- filepath: c:\Users\LENOVO\JobPortal\index.html -->
+        <footer class="footer site-footer">
+          <div class="footer-content">
+            <div class="footer-main" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
+              <div class="footer-brand" style="flex:1;min-width:220px;">
+                <img src="assets/logo.webp" alt="Job Junction Logo" style="width:56px;height:56px;border-radius:12px;margin-bottom:1rem;">
+                <p style="font-size:1.1rem;color:#ffe7b2;margin-bottom:1rem;">
+                  Connecting Talent with Opportunity.<br>Your Career Journey Starts Here!
+                </p>
+                <div class="social-icons" style="margin-bottom:1rem;">
+                  <a href="https://github.com/SurajSG23/Job-Portal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+              </div>
+              <div class="footer-columns" style="flex:3;display:flex;flex-wrap:wrap;gap:2rem;">
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>For Job Seekers</h4>
+                  <ul>
+                    <li><a href="components/seeker.html">Browse Jobs</a></li>
+                    <li><a href="internships.html">Internships</a></li>
+                    <li><a href="#">Advice</a></li>
+                    <li><a href="#">Salary Guide</a></li>
+                    <li><a href="#">Resume Builder</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>For Employers</h4>
+                  <ul>
+                    <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Talent Search</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Enterprise</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>Company</h4>
+                  <ul>
+                    <li><a href="components/about.html">About Us</a></li>
+                    <li><a href="ContactPage.html">Contact</a></li>
+                    <li><a href="#">Open Source</a></li>
+                    <li><a href="masthead.html">Masthead</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>Resources</h4>
+                  <ul>
+                    <li><a href="components/events.html">Events</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Help Center</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <hr style="border:none;border-top:1px solid #ffe7b2;margin:2rem 0;">
+            <div class="footer-credit" style="text-align:center;color:#ffe7b2;font-size:1rem;">
+              &copy; 2025 Job Junction. All rights reserved.
+            </div>
+          </div>
+        </footer>
+               
+        <!-- Scripts: Defer for performance -->
+        <script src="script.js" defer></script>
+        <script defer>
+          // Enhanced Theme Toggle System - Works across all pages
+          document.addEventListener('DOMContentLoaded', () => {
+            function setTheme(dark) {
+              document.body.classList.toggle("dark", dark);
+              const themeIcon = document.getElementById("theme-icon");
+              if (themeIcon) {
+                themeIcon.classList.toggle("fa-moon", !dark);
+                themeIcon.classList.toggle("fa-sun", dark);
+              }
+            }
+            const darkMode = localStorage.getItem("theme") === "dark";
+            setTheme(darkMode);
+            const themeToggle = document.getElementById("themeToggle");
+            if (themeToggle) {
+              themeToggle.onclick = () => {
+                const isDark = !document.body.classList.contains("dark");
+                setTheme(isDark);
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+              };
+            }
+            // Mobile Navigation Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            if (mobileToggle && navMenu) {
+              mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileToggle.classList.toggle('active');
+              });
+            }
+            // Multilevel Dropdown Toggle for Mobile
+            document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+              link.addEventListener('click', function(e) {
+                const submenu = this.nextElementSibling;
+                if (submenu && submenu.classList.contains('dropdown-content')) {
+                  if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+                    parentLi.forEach(li => {
+                      if (li !== this.parentElement) li.classList.remove('open');
+                    });
+                    this.parentElement.classList.toggle('open');
+                  }
       <!-- Footer -->
       <footer class="footer site-footer">
         <div class="footer-content">
@@ -751,14 +951,18 @@
                   });
                   this.parentElement.classList.toggle('open');
                 }
-              }
+              });
+            });
+            document.addEventListener('click', function(e) {
+              document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+                if (!drop.contains(e.target)) drop.classList.remove('open');
+              });
             });
           });
-          document.addEventListener('click', function(e) {
-            document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
-              if (!drop.contains(e.target)) drop.classList.remove('open');
-            });
-          });
+        </script>
+      </body>
+      </html>
+      <!DOCTYPE html>
         });
       </script>
     </body>
@@ -973,6 +1177,20 @@
             </div>
           </div>
         </section>
+        <!-- Video Instructions Section -->
+        <section class="video-instructions" style="background:#f9fafb; padding:3rem 0; border-radius:2rem; margin:2rem auto; max-width:900px; box-shadow:0 4px 24px rgba(102,126,234,0.08); text-align:center;">
+          <h2 style="font-size:2rem; font-weight:700; color:#3d55b4; margin-bottom:1rem;">How to Use Job Junction</h2>
+          <p style="color:#64748b; font-size:1.15rem; margin-bottom:2rem;">
+            Watch this quick video guide to learn how to search for jobs, apply, and manage your career on Job Junction.
+          </p>
+          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:1rem; box-shadow:0 2px 12px rgba(102,126,234,0.10); margin-bottom:1rem;">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Job Junction Instructions" frameborder="0" allowfullscreen
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:1rem;"></iframe>
+          </div>
+          <p style="color:#3d55b4; font-size:1rem;">
+            Need more help? Visit our <a href="#contact" style="color:#764ba2; text-decoration:underline;">Contact</a> page or check out our <a href="#features" style="color:#764ba2; text-decoration:underline;">Features</a> below!
+          </p>
+        </section>
         <section class="features" id="features">
           <div class="container">
             <div class="section-header">
@@ -1010,6 +1228,37 @@
             </div>
           </div>
         </section>
+        <!-- Unified Filter Sidebar -->
+        <aside id="filter-sidebar" class="filter-sidebar">
+          <h3>Filter Jobs</h3>
+          <form id="jobFilterForm">
+            <div class="filter-group">
+              <label for="salaryRange">Salary Range</label>
+              <select id="salaryRange" name="salaryRange">
+                <option value="">Any</option>
+                <option value="0-50000">0 - 50,000</option>
+                <option value="50000-100000">50,000 - 1,00,000</option>
+                <option value="100000-200000">1,00,000 - 2,00,000</option>
+                <option value="200000+">2,00,000+</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="jobType">Job Type</label>
+              <select id="jobType" name="jobType">
+                <option value="">Any</option>
+                <option value="fulltime">Full Time</option>
+                <option value="parttime">Part Time</option>
+                <option value="internship">Internship</option>
+                <option value="remote">Remote</option>
+              </select>
+            </div>
+            <!-- Add more filters as needed -->
+            <div class="filter-actions">
+              <button type="submit" class="apply-filter-btn">Apply</button>
+              <button type="button" class="clear-filter-btn" id="clearFilters">Clear</button>
+            </div>
+          </form>
+        </aside>
         <!-- Job Listing/Filter Section -->
         <div class="job-page">
           <aside id="filter-panel" class="filter-panel">
@@ -1031,6 +1280,101 @@
           </section>
         </div>
       </main>
+                <!-- Enhanced Footer Section -->
+        <!-- filepath: c:\Users\LENOVO\JobPortal\index.html -->
+        <footer class="footer site-footer">
+          <div class="footer-content">
+            <div class="footer-main" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
+              <div class="footer-brand" style="flex:1;min-width:220px;">
+                <img src="assets/logo.webp" alt="Job Junction Logo" style="width:56px;height:56px;border-radius:12px;margin-bottom:1rem;">
+                <p style="font-size:1.1rem;color:#ffe7b2;margin-bottom:1rem;">
+                  Connecting Talent with Opportunity.<br>Your Career Journey Starts Here!
+                </p>
+                <div class="social-icons" style="margin-bottom:1rem;">
+                  <a href="https://github.com/SurajSG23/Job-Portal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+              </div>
+              <div class="footer-columns" style="flex:3;display:flex;flex-wrap:wrap;gap:2rem;">
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>For Job Seekers</h4>
+                  <ul>
+                    <li><a href="components/seeker.html">Browse Jobs</a></li>
+                    <li><a href="internships.html">Internships</a></li>
+                    <li><a href="#">Advice</a></li>
+                    <li><a href="#">Salary Guide</a></li>
+                    <li><a href="#">Resume Builder</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>For Employers</h4>
+                  <ul>
+                    <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Talent Search</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Enterprise</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>Company</h4>
+                  <ul>
+                    <li><a href="components/about.html">About Us</a></li>
+                    <li><a href="ContactPage.html">Contact</a></li>
+                    <li><a href="#">Open Source</a></li>
+                    <li><a href="masthead.html">Masthead</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col" style="min-width:160px;">
+                  <h4>Resources</h4>
+                  <ul>
+                                       <li><a href="components/events.html">Events</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Help Center</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <hr style="border:none;border-top:1px solid #ffe7b2;margin:2rem 0;">
+            <div class="footer-credit" style="text-align:center;color:#ffe7b2;font-size:1rem;">
+              &copy; 2025 Job Junction. All rights reserved.
+            </div>
+          </div>
+        </footer>
+               
+        <!-- Scripts: Defer for performance -->
+        <script src="script.js" defer></script>
+        <script defer>
+          // Enhanced Theme Toggle System - Works across all pages
+          document.addEventListener('DOMContentLoaded', () => {
+            function setTheme(dark) {
+              document.body.classList.toggle("dark", dark);
+              const themeIcon = document.getElementById("theme-icon");
+              if (themeIcon) {
+                themeIcon.classList.toggle("fa-moon", !dark);
+                themeIcon.classList.toggle("fa-sun", dark);
+              }
+            }
+            const darkMode = localStorage.getItem("theme") === "dark";
+            setTheme(darkMode);
+            const themeToggle = document.getElementById("themeToggle");
+            if (themeToggle) {
+              themeToggle.onclick = () => {
+                const isDark = !document.body.classList.contains("dark");
+                setTheme(isDark);
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+              };
+            }
+            // Mobile Navigation Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            if (mobileToggle && navMenu) {
+              mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileToggle.classList.toggle('active');
       <!-- Footer -->
       <footer class="footer site-footer">
         <div class="footer-content">
@@ -1527,8 +1871,32 @@
               parentLi.forEach(li => {
                 if (li !== this.parentElement) li.classList.remove('open');
               });
-              this.parentElement.classList.toggle('open');
             }
+            // Multilevel Dropdown Toggle for Mobile
+            document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+              link.addEventListener('click', function(e) {
+                const submenu = this.nextElementSibling;
+                if (submenu && submenu.classList.contains('dropdown-content')) {
+                  if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    const parentLi = this.parentElement.parentElement.querySelectorAll('.dropdown.open');
+                    parentLi.forEach(li => {
+                      if (li !== this.parentElement) li.classList.remove('open');
+                    });
+                    this.parentElement.classList.toggle('open');
+                  }
+                }
+              });
+            });
+            document.addEventListener('click', function(e) {
+              document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
+                if (!drop.contains(e.target)) drop.classList.remove('open');
+              });
+            });
+          });
+        </script>
+    </body>
+    </html>
           }
         });
       });

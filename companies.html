@@ -10,7 +10,137 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
 
-</head>
+<style>
+   /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-col p:hover {
+      color: #2563eb;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons a:hover {
+      color: #2563eb;
+    }
+
+    .social-icons a i {
+      margin-right: 8px;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    /* ✅ Mobile Responsive Fix */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-col p {
+        display: block;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        flex-direction: row;  /* icons side by side on mobile */
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  max-width: 1200px; /* limit width */
+  margin: 0 auto; /* center the footer */
+  gap: 2rem;
+}
+.footer-col .social-icons {
+  display: flex;
+  flex-direction: column; /* vertical */
+  gap: 1rem;
+  justify-content: flex-start; /* align left */
+}
+.footer-col {
+  text-align: left;
+}
+
+.footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+</style></head>
 <body>
 
   <!-- Header -->
@@ -99,61 +229,39 @@
       </div>
     </div>
   </section>
-  <footer>
-    <div id="footer-statement">
-      <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
-    </div>
-  
-    <div>
-      <div class="footer-links">
-        <h3>For Job Seekers</h3>
-        <ul>
-          <li><a href="#">Browse Job</a></li>
-          <li><a href="internships.html">Internships</a></li>
-          <li><a href="#">Advice</a></li>
-          <li><a href="#">Salary Guide</a></li>
-          <li><a href="#">Resume Builder</a></li>
-        </ul>
+   <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
       </div>
-  
-      <div class="footer-links">
-        <h3>For Employers</h3>
-        <ul>
-          <li><a href="#">Post a Job</a></li>
-          <li><a href="#">Talent Search</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Enterprise</a></li>
-        </ul>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
       </div>
-  
-      <div class="footer-links">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="components/about.html">About Us</a></li>
-          <li><a href="ContactPage.html">Contact</a></li>
-          <li><a href="open-source.html">Open Source</a></li>
-          <li><a href="masthead.html">Masthead</a></li>
-          <li><a href="components\privacypolicy.html">Privacy Policy</a></li>
-          <li><a href="components\terms.html">Terms of Service</a></li>
-        </ul>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
       </div>
     </div>
-  
-    <div class="social-icons">
-      <a href="https://github.com/SurajSG23" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.instagram.com/suraj_sg23/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    <!-- </div>
-  
-    <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
-  </footer> -->
-  
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </footer>
 
   <!-- Scroll Animation Script -->
   <script>

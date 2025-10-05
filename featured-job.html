@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Featured Jobs</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     /* Reset */
@@ -20,6 +19,13 @@
       background: #f4f7fa;
       color: #333;
       padding: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark Mode Styles */
+    body.dark {
+      background: #0f172a;
+      color: #e2e8f0;
     }
 
     .header {
@@ -33,11 +39,19 @@
       animation: fadeInDown 1s ease-in-out;
     }
 
+    body.dark .header h1 {
+      color: #60a5fa;
+    }
+
     .header p {
       color: #666;
       font-size: 1rem;
       margin-top: 10px;
       animation: fadeIn 2s ease-in-out;
+    }
+
+    body.dark .header p {
+      color: #94a3b8;
     }
 
     .back-btn {
@@ -61,82 +75,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-    }
-
-    .job-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .job-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .featured {
-      border: 2px solid #f39c12;
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #f39c12;
-      color: white;
-      padding: 5px 10px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border-radius: 5px;
-    }
-
-    .company-logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    .job-title {
-      font-size: 1.2rem;
-      color: #2b3a67;
-      margin: 5px 0;
-    }
-
-    .company-name {
-      font-size: 0.95rem;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .job-desc {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
-    .salary {
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #27ae60;
-      margin-bottom: 15px;
-    }
-
-    .apply-btn {
-      background: #2b3a67;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .apply-btn:hover {
-      background: #1a253f;
     }
 
     /* Animations */
@@ -177,7 +115,8 @@
       font-size: 0.85rem;
       color: #888;
     }
-      /* ===== HEADER ===== */
+
+    /* ===== HEADER ===== */
     header {
       display: flex;
       align-items: center;
@@ -189,13 +128,24 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-    margin-bottom: 50px;
+      margin-bottom: 50px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark header {
+      background: #1e293b;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.5);
+      border-bottom: 3px solid #3b82f6;
     }
 
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
       color: #2563eb;
+    }
+
+    body.dark .logo {
+      color: #60a5fa;
     }
 
     nav {
@@ -208,10 +158,19 @@
       text-decoration: none;
       color: #111827;
       font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    body.dark nav a {
+      color: #e2e8f0;
     }
 
     nav a:hover {
       color: #2563eb;
+    }
+
+    body.dark nav a:hover {
+      color: #60a5fa;
     }
 
     /* Dropdown */
@@ -231,17 +190,33 @@
       flex-direction: column;
       min-width: 180px;
       z-index: 999;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.dark .dropdown-menu {
+      background: #1e293b;
+      border-color: #3b82f6;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.5);
     }
 
     .dropdown-menu a {
       padding: 0.5rem 1rem;
       display: block;
       color: #111827;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark .dropdown-menu a {
+      color: #e2e8f0;
     }
 
     .dropdown-menu a:hover {
       background: #2563eb;
       color: #fff;
+    }
+
+    body.dark .dropdown-menu a:hover {
+      background: #3b82f6;
     }
 
     /* Mobile dropdown toggle */
@@ -254,43 +229,17 @@
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
+      color: #111827;
+      transition: color 0.3s ease;
+    }
+
+    body.dark .menu-toggle, 
+    body.dark .theme-toggle {
+      color: #e2e8f0;
     }
 
     .menu-toggle {
       display: none;
-    }
-
-    /* ===== MAIN ===== */
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border: 3px solid #2563eb;
-    }
-
-    /* Terms Cards */
-    .terms-cards {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .term-card {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      background-color: #e0f2fe; /* light blue */
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    .term-card i {
-      color: #2563eb;
-      font-size: 1.5rem;
     }
 
     /* ===== FOOTER ===== */
@@ -299,6 +248,11 @@
       color: #fff;
       padding: 2rem;
       margin-top: 2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark footer {
+      background: #0f172a;
     }
 
     .footer-container {
@@ -310,6 +264,11 @@
     .footer-col h3 {
       margin-bottom: 1rem;
       color: #2563eb;
+      transition: color 0.3s ease;
+    }
+
+    body.dark .footer-col h3 {
+      color: #60a5fa;
     }
 
     .footer-col a {
@@ -317,15 +276,25 @@
       color: #d1d5db;
       text-decoration: none;
       margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
     }
 
     .footer-col a:hover {
       color: #2563eb;
     }
 
+    body.dark .footer-col a:hover {
+      color: #60a5fa;
+    }
+
     .footer-col p:hover {
       color: #2563eb;
     }
+
+    body.dark .footer-col p:hover {
+      color: #60a5fa;
+    }
+
     .social-icons {
       display: flex;
       flex-direction: column;
@@ -338,15 +307,17 @@
       text-decoration: none;
       display: flex;
       align-items: center;
+      transition: color 0.3s ease;
     }
-.social-icons a:hover {
-      font-size: 1.1rem;
-      color: #2563eb;
 
-      text-decoration: none;
-      display: flex;
-      align-items: center;
+    .social-icons a:hover {
+      color: #2563eb;
     }
+
+    body.dark .social-icons a:hover {
+      color: #60a5fa;
+    }
+
     .social-icons a i {
       margin-right: 8px;
     }
@@ -356,6 +327,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      transition: color 0.3s ease;
     }
 
     .footer-credit {
@@ -364,7 +336,6 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
-    
 
     /* ===== MEDIA QUERIES ===== */
     @media(max-width: 768px) {
@@ -378,6 +349,12 @@
         border: 2px solid #2563eb;
         border-radius: 0.5rem;
         padding: 1rem;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      body.dark nav {
+        background: #1e293b;
+        border-color: #3b82f6;
       }
 
       nav.show {
@@ -401,97 +378,255 @@
         justify-content: center;
       }
     }
+
     /* ===== MEDIA QUERIES ===== */
-@media(max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border: 2px solid #2563eb;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        border: 2px solid #2563eb;
+        border-radius: 0.5rem;
+        padding: 1rem;
+      }
 
-  nav.show {
-    display: flex;
-  }
+      body.dark nav {
+        background: #1e293b;
+        border-color: #3b82f6;
+      }
 
-  .menu-toggle {
-    display: block;
-  }
+      nav.show {
+        display: flex;
+      }
 
-  .terms-cards {
-    grid-template-columns: 1fr;
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  /* ✅ FIX FOOTER COLUMNS */
-  .footer-container {
-    grid-template-columns: 1fr;   /* stack all columns */
-    text-align: center;
-  }
+      .terms-cards {
+        grid-template-columns: 1fr;
+      }
 
-  .footer-col {
-    margin-bottom: 1.5rem;        /* spacing between sections */
-  }
+      /* ✅ FIX FOOTER COLUMNS */
+      .footer-container {
+        grid-template-columns: 1fr;   /* stack all columns */
+        text-align: center;
+      }
 
-  .footer-col .social-icons {
-    justify-content: center;
-    flex-direction: row;          /* icons side by side on mobile */
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-@media(max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-  }
-  .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /* Social icons horizontal */
-  .footer-col .social-icons { 
-    flex-direction: row; 
-    justify-content: center; 
-    gap: 1rem; 
-  }
-  /* Contact & paragraphs truly centered */
-  .footer-col p { 
-    display: block; 
-    margin: 0.25rem 0; 
-    text-align: center; 
-  }
-}
-@media(max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-  }
-  .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /* Social icons stacked vertically on mobile */
-  .footer-col .social-icons { 
-    flex-direction: column; 
-    justify-content: center; 
-    gap: 0.5rem; 
-  }
-  /* Contact paragraphs centered */
-  .footer-col p { 
-    display: block; 
-    margin: 0.25rem 0; 
-    text-align: center; 
-  }
-}
+      .footer-col {
+        margin-bottom: 1.5rem;        /* spacing between sections */
+      }
+
+      .footer-col .social-icons {
+        justify-content: center;
+        flex-direction: row;          /* icons side by side on mobile */
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      /* Social icons horizontal */
+      .footer-col .social-icons { 
+        flex-direction: row; 
+        justify-content: center; 
+        gap: 1rem; 
+      }
+      /* Contact & paragraphs truly centered */
+      .footer-col p { 
+        display: block; 
+        margin: 0.25rem 0; 
+        text-align: center; 
+      }
+    }
+
+    @media(max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      /* Social icons stacked vertically on mobile */
+      .footer-col .social-icons { 
+        flex-direction: column; 
+        justify-content: center; 
+        gap: 0.5rem; 
+      }
+      /* Contact paragraphs centered */
+      .footer-col p { 
+        display: block; 
+        margin: 0.25rem 0; 
+        text-align: center; 
+      }
+    }
+
+    .job-cards-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .job-card {
+      background: #f0f9ff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      border: 2px solid transparent; /* default */
+    }
+
+    body.dark .job-card {
+      background: #1e293b;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.5);
+    }
+
+    .job-card.featured {
+      border-color: #2563eb;
+    }
+
+    body.dark .job-card.featured {
+      border-color: #3b82f6;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    body.dark .job-card:hover {
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.7);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark .badge {
+      background: #3b82f6;
+    }
+
+    .job-icon {
+      color: #2563eb;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark .job-icon {
+      color: #60a5fa;
+    }
+
+    .job-title { 
+      font-size: 1.3rem; 
+      font-weight: 600; 
+      margin-bottom: 5px; 
+      transition: color 0.3s ease;
+    }
+
+    body.dark .job-title {
+      color: #f1f5f9;
+    }
+
+    .separator { 
+      width: 50px; 
+      height: 3px; 
+      background: #2563eb; 
+      border: none; 
+      margin: 10px auto; 
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark .separator {
+      background: #3b82f6;
+    }
+
+    .company-name { 
+      font-weight: 500; 
+      color: #111827; 
+      margin-bottom: 8px; 
+      transition: color 0.3s ease;
+    }
+
+    body.dark .company-name {
+      color: #cbd5e1;
+    }
+
+    .job-desc { 
+      font-size: 0.95rem; 
+      color: #333; 
+      margin-bottom: 10px; 
+      transition: color 0.3s ease;
+    }
+
+    body.dark .job-desc {
+      color: #94a3b8;
+    }
+
+    .salary { 
+      font-weight: 600; 
+      color: #27ae60; 
+      margin-bottom: 15px; 
+    }
+
+    .apply-btn {
+      background: #2563eb;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .apply-btn:hover { 
+      background: #1a253f; 
+    }
+
+    body.dark .apply-btn {
+      background: #3b82f6;
+    }
+
+    body.dark .apply-btn:hover {
+      background: #2563eb;
+    }
+
+    @media (max-width: 992px) {
+      .job-cards-container { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .job-cards-container { grid-template-columns: 1fr; }
+    }
 
   </style>
 </head>
@@ -517,12 +652,14 @@
     </nav>
     <button class="theme-toggle" id="themeToggle">🌓</button>
   </header>
+
   <section class="job-cards-container">
     <!-- Sample 9 job cards -->
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-code fa-3x job-icon"></i>
       <h2 class="job-title">Frontend Developer</h2>
+      <hr class="separator"/>
       <p class="company-name">TechNova</p>
       <p class="job-desc">Build beautiful and performant interfaces using React.</p>
       <p class="salary">💰 $85,000 - $105,000</p>
@@ -531,17 +668,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-paintbrush fa-3x job-icon"></i>
       <h2 class="job-title">UI/UX Designer</h2>
+      <hr class="separator"/>
       <p class="company-name">DesignPro</p>
       <p class="job-desc">Design modern UI systems for our global app.</p>
       <p class="salary">💰 $70,000 - $90,000</p>
       <button class="apply-btn" onclick="applyNow('UI/UX Designer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-server fa-3x job-icon"></i>
       <h2 class="job-title">Backend Engineer</h2>
+      <hr class="separator"/>
       <p class="company-name">CloudCore</p>
       <p class="job-desc">Develop scalable APIs and infrastructure on AWS.</p>
       <p class="salary">💰 $95,000 - $115,000</p>
@@ -550,17 +690,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-layer-group fa-3x job-icon"></i>
       <h2 class="job-title">Full Stack Developer</h2>
+      <hr class="separator"/>
       <p class="company-name">StackForge</p>
       <p class="job-desc">Join our team to work on exciting web projects.</p>
       <p class="salary">💰 $100,000 - $130,000</p>
       <button class="apply-btn" onclick="applyNow('Full Stack Developer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-briefcase fa-3x job-icon"></i>
       <h2 class="job-title">Product Manager</h2>
+      <hr class="separator"/>
       <p class="company-name">InnoSoft</p>
       <p class="job-desc">Lead the product development from idea to launch.</p>
       <p class="salary">💰 $110,000 - $140,000</p>
@@ -569,17 +712,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-gears fa-3x job-icon"></i>
       <h2 class="job-title">DevOps Engineer</h2>
+      <hr class="separator"/>
       <p class="company-name">AutoDeploy</p>
       <p class="job-desc">Automate CI/CD pipelines and maintain deployments.</p>
       <p class="salary">💰 $90,000 - $120,000</p>
       <button class="apply-btn" onclick="applyNow('DevOps Engineer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-mobile-screen-button fa-3x job-icon"></i>
       <h2 class="job-title">Mobile App Developer</h2>
+      <hr class="separator"/>
       <p class="company-name">Appify</p>
       <p class="job-desc">Create stunning Android & iOS apps using Flutter.</p>
       <p class="salary">💰 $80,000 - $100,000</p>
@@ -588,17 +734,20 @@
 
     <div class="job-card featured">
       <div class="badge">Featured</div>
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+      <i class="fa-solid fa-microscope fa-3x job-icon"></i>
       <h2 class="job-title">QA Engineer</h2>
+      <hr class="separator"/>
       <p class="company-name">Testify</p>
       <p class="job-desc">Automate testing pipelines and improve quality.</p>
       <p class="salary">💰 $70,000 - $95,000</p>
       <button class="apply-btn" onclick="applyNow('QA Engineer')">Apply Now</button>
     </div>
 
-    <div class="job-card">
-      <img src="https://via.placeholder.com/80" class="company-logo" alt="Logo"/>
+    <div class="job-card featured">
+      <div class="badge">Featured</div>
+      <i class="fa-solid fa-chart-line fa-3x job-icon"></i>
       <h2 class="job-title">Data Analyst</h2>
+      <hr class="separator"/>
       <p class="company-name">InsightLab</p>
       <p class="job-desc">Analyze datasets to drive business decisions.</p>
       <p class="salary">💰 $75,000 - $100,000</p>
@@ -616,7 +765,7 @@
         <h3>Important Links</h3>
         <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
         <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-        <a href="par"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
         <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
         <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
       </div>
@@ -645,7 +794,8 @@
       alert("Thank you for your interest in the '" + jobTitle + "' position! Redirecting to application form...");
       // window.location.href = 'apply.html?job=' + encodeURIComponent(jobTitle);
     }
-     // Toggle mobile menu
+    
+    // Toggle mobile menu
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
     menuToggle.addEventListener("click", () => {
@@ -664,13 +814,6 @@
     const themeToggle = document.getElementById("themeToggle");
     themeToggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
-      if(document.body.classList.contains("dark")){
-        document.body.style.background="#111827";
-        document.body.style.color="#f9fafb";
-      } else {
-        document.body.style.background="#f9fafb";
-        document.body.style.color="#111827";
-      }
     });
   </script>
 </body>
