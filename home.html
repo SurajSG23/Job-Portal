@@ -413,6 +413,75 @@
         transform: translateY(0);
       }
     }
+    /* Our Services Section */
+.our-services {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.our-services h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* Cards container */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual card */
+.service-card {
+  flex: 1 1 250px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon styling */
+.service-icon {
+  font-size: 40px;
+  color: #1a73e8; /* Standardized icon color */
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  color: #4dabf7; /* Slightly lighter shade on hover */
+}
+
+/* Card text */
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 90%;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -433,8 +502,8 @@
       </div>
 
       <a href="companies.html">Companies</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#about-us">About</a>
+      <a href="ContactPage.html">Contact</a>
     </nav>
     <button class="theme-toggle" id="themeToggle">🌓</button>
   </header>
@@ -463,26 +532,27 @@
     </div>
   </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="service-card">
-        <div class="service-icon">🔍</div>
-        <h3>Job Search</h3>
-        <p>Access a large database of jobs to find the perfect match for your skills and goals.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💼</div>
-        <h3>Resume Building</h3>
-        <p>Create professional resumes that get you noticed by top recruiters and companies.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🤝</div>
-        <h3>Networking</h3>
-        <p>Connect with recruiters and industry professionals to grow your career network.</p>
-      </div>
+  <section class="our-services">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    <div class="service-card">
+      <i class="fas fa-briefcase service-icon"></i>
+      <h3>Career Guidance</h3>
+      <p>Expert advice to help you grow in your career and find the right opportunities.</p>
     </div>
-  </section>
+    <div class="service-card">
+      <i class="fas fa-chalkboard-teacher service-icon"></i>
+      <h3>Online Courses</h3>
+      <p>Access quality online courses to improve your skills and knowledge.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-handshake service-icon"></i>
+      <h3>Job Placement</h3>
+      <p>Connect with top employers and get assistance in landing your dream job.</p>
+    </div>
+  </div>
+</section>
+
 
   <section class="testimonials">
     <h2>What Our Users Say</h2>
