@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Branding</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f0f6ff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ===== Animated Gradient Hero ===== */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px 20px;
+      background: linear-gradient(270deg, #007bff, #66b3ff, #0099ff);
+      background-size: 600% 600%;
+      color: white;
+      animation: gradientBG 15s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeSlide 1s forwards 0.3s;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      opacity: 0;
+      animation: fadeSlide 1s forwards 0.8s;
+    }
+
+    @keyframes fadeSlide {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    /* ===== Cards Section ===== */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 50px 20px 30px 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      color: #333;
+      width: 350px;
+      padding: 35px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .card button {
+      padding: 12px 25px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .card button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Info container below cards */
+    .info-container {
+      max-width: 900px;
+      margin: 30px auto 60px auto;
+      background: #eaf4ff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      display: none;
+      color: #333;
+      font-size: 1rem;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .info-container h2 {
+      color: #007bff;
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .info-container ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .info-container li {
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .back-btn {
+      display: block;
+      margin: 30px auto 60px auto;
+      padding: 12px 30px;
+      background: #fff;
+      color: #007bff;
+      font-weight: 600;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #cce4ff;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 950px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Explore Personal Branding</h1>
+    <p>Build your online presence with professional tips and strategies to stand out in your career journey.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <i class="fab fa-linkedin"></i>
+      <h3>LinkedIn Profile Tips</h3>
+      <p>Optimize your LinkedIn to showcase your skills and achievements.</p>
+      <button onclick="showInfo('linkedin')">Learn More</button>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-briefcase"></i>
+      <h3>Portfolio Building</h3>
+      <p>Showcase your work and creativity professionally.</p>
+      <button onclick="showInfo('portfolio')">Learn More</button>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-bullhorn"></i>
+      <h3>Online Branding</h3>
+      <p>Boost your personal brand across platforms.</p>
+      <button onclick="showInfo('branding')">Learn More</button>
+    </div>
+  </div>
+
+  <div id="infoContainer" class="info-container"></div>
+
+  <button class="back-btn" onclick="window.location.href='resources.html'">← Back to Resources</button>
+
+  <script>
+    const infoContainer = document.getElementById('infoContainer');
+
+    const infoContent = {
+      linkedin: `
+        <h2><i class="fab fa-linkedin"></i> LinkedIn Profile Tips</h2>
+        <ul>
+          <li>Use a professional profile photo and banner.</li>
+          <li>Write a strong headline and summary.</li>
+          <li>Highlight skills, projects, and achievements.</li>
+          <li>Request recommendations and endorsements.</li>
+          <li>Engage by posting and connecting with peers.</li>
+        </ul>
+      `,
+      portfolio: `
+        <h2><i class="fas fa-briefcase"></i> Portfolio Building Tips</h2>
+        <ul>
+          <li>Showcase top projects with screenshots or demos.</li>
+          <li>Include short descriptions and technologies used.</li>
+          <li>Keep design simple, clean, and responsive.</li>
+          <li>Include your role and key learnings in each project.</li>
+          <li>Update portfolio regularly with new work.</li>
+        </ul>
+      `,
+      branding: `
+        <h2><i class="fas fa-bullhorn"></i> Online Personal Branding</h2>
+        <ul>
+          <li>Maintain consistent photos, bios, and tone across platforms.</li>
+          <li>Share insightful posts and blogs in your field.</li>
+          <li>Join relevant communities to network professionally.</li>
+          <li>Engage with others and respond thoughtfully.</li>
+          <li>Maintain professionalism in all online interactions.</li>
+        </ul>
+      `
+    };
+
+    function showInfo(type) {
+      infoContainer.innerHTML = infoContent[type];
+      infoContainer.style.display = 'block';
+      infoContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+
+</body>
+</html>
