@@ -170,6 +170,76 @@
         width: 90%;
       }
     }
+    /* ===== Personal Branding Media Queries ===== */
+@media (max-width: 1200px) {
+  .cards {
+    gap: 25px;
+  }
+  .card {
+    width: 320px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 950px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+  .card h3 {
+    font-size: 1.4rem;
+  }
+  .card p {
+    font-size: 0.95rem;
+  }
+  .card button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+/* Container padding for small screens */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 50px 15px 30px 15px; /* reduce horizontal padding for small screens */
+}
+
+@media (max-width: 950px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px; /* extra padding to prevent touching edges */
+  }
+  .card {
+    width: 95%; /* slightly smaller so cards don’t touch screen */
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    padding: 40px 15px;
+  }
+  .card {
+    width: 100%; /* fully responsive */
+    box-sizing: border-box; /* ensures padding doesn't overflow */
+  }
+}
+
   </style>
 </head>
 <body>
