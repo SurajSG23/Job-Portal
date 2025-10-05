@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Growth</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f0f6ff;
+      color: #333;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 20px 20px 50px 20px;
+      background: linear-gradient(135deg, #007bff, #66b3ff);
+      color: white;
+      animation: fadeSlide 1s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Cards Container */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding: 50px 15px;
+    }
+
+    .card {
+      background: #eaf4ff;
+      border-radius: 15px;
+      width: 300px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      background: #d6ebff;
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+
+    .card button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .card button:hover {
+      background: #005bb5;
+    }
+
+    /* Info Container */
+    .info-container {
+      max-width: 900px;
+      margin: 20px auto 60px auto;
+      padding: 30px 20px;
+      background: #d6ebff;
+      border-radius: 15px;
+      display: none; /* initially hidden */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .info-container h4 {
+      color: #007bff;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .info-container ul {
+      text-align: left;
+      padding-left: 20px;
+      font-size: 1rem;
+    }
+
+    .info-container li {
+      margin-bottom: 8px;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: block;
+      margin: 20px auto 60px auto;
+      padding: 12px 30px;
+      background: #fff;
+      color: #007bff;
+      font-weight: 600;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #cce4ff;
+      transform: scale(1.05);
+    }
+
+    /* Media Queries */
+    @media (max-width: 950px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 20px;
+      }
+      .card {
+        width: 95%;
+      }
+      .info-container {
+        width: 95%;
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .card h3 {
+        font-size: 1.3rem;
+      }
+      .card button {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+      }
+      .info-container h4 {
+        font-size: 1.3rem;
+      }
+      .info-container ul {
+        font-size: 0.95rem;
+      }
+      .back-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Career Growth</h1>
+    <p>Learn strategies to get promoted, become a better leader, and continuously develop your skills.</p>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards">
+    <div class="card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Promotion Strategies</h3>
+      <button onclick="showInfo('promotion')">Learn More</button>
+    </div>
+    <div class="card">
+      <i class="fas fa-user-tie"></i>
+      <h3>Leadership Tips</h3>
+      <button onclick="showInfo('leadership')">Learn More</button>
+    </div>
+    <div class="card">
+      <i class="fas fa-graduation-cap"></i>
+      <h3>Continuous Skill Development</h3>
+      <button onclick="showInfo('skills')">Learn More</button>
+    </div>
+  </div>
+
+  <!-- Info Container -->
+  <div class="info-container" id="info-container">
+    <h4 id="info-title"></h4>
+    <ul id="info-list"></ul>
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='resources.html'">← Back to Career Resources</button>
+
+  <script>
+    const infoContainer = document.getElementById('info-container');
+    const infoTitle = document.getElementById('info-title');
+    const infoList = document.getElementById('info-list');
+
+    const data = {
+      promotion: {
+        title: "Promotion Strategies",
+        items: [
+          "Take initiative and show ownership of projects.",
+          "Deliver consistent high-quality work.",
+          "Seek feedback and improve continuously.",
+          "Build strong relationships with colleagues and managers.",
+          "Communicate your achievements effectively."
+        ]
+      },
+      leadership: {
+        title: "Leadership Tips",
+        items: [
+          "Lead by example and maintain professionalism.",
+          "Develop strong communication and decision-making skills.",
+          "Motivate and inspire your team.",
+          "Delegate tasks efficiently and trust your team.",
+          "Encourage collaboration and continuous learning."
+        ]
+      },
+      skills: {
+        title: "Continuous Skill Development",
+        items: [
+          "Stay updated with industry trends.",
+          "Attend workshops and online courses.",
+          "Seek mentorship and coaching.",
+          "Set clear learning goals and track progress.",
+          "Apply new skills in real projects."
+        ]
+      }
+    };
+
+    function showInfo(key) {
+      infoTitle.textContent = data[key].title;
+      infoList.innerHTML = data[key].items.map(item => `<li>${item}</li>`).join('');
+      infoContainer.style.display = 'block';
+      infoContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
