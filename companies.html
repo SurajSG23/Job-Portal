@@ -8,7 +8,9 @@
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  
 />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
    /* ===== FOOTER ===== */
@@ -139,6 +141,466 @@
   text-align: center;
   margin-top: 2rem;
 }
+/* Partner Companies Section */
+.partner-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.partner-container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.partner-section h2 {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.partner-intro {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+/* Grid Layout (3 per row) */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Individual Cards */
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.partner-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.partner-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.partner-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
+
+/* Button Styling */
+.btn-view {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-view:hover {
+  background: #0056b3;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+  .partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Full-width Button */
+.partner-card .btn-view {
+  display: block;       /* makes it take full width */
+  width: 100%;          /* full width of card */
+  text-align: center;   /* center text inside */
+  margin-top: 15px;     /* spacing from content above */
+  padding: 12px 0;      /* vertical padding */
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.partner-card .btn-view:hover {
+  background: #0056b3;
+}
+.partner-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.partner-container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.partner-section h2 {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.partner-intro {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  margin-top: 50px;
+}
+
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.partner-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.partner-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.partner-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.partner-card p i {
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.partner-card .btn-view {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  padding: 12px 0;
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.partner-card .btn-view:hover {
+  background: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Hero Section */
+.partner-hero {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('hero-bg-pattern.png') center/cover no-repeat;
+  opacity: 0.1; /* subtle background pattern */
+  z-index: 0;
+}
+
+.partner-container {
+  position: relative;
+  z-index: 1; /* keep content above background */
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 15px 35px;
+  background: #fff;
+  color: #60a5fa;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #f0f0f0;
+  color: #0056b3;
+}
+
+/* Animations (optional) */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    padding: 12px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  max-width: 1200px; /* limit width */
+  margin: 0 auto; /* center the footer */
+  gap: 2rem;
+}
+.footer-col .social-icons {
+  display: flex;
+  flex-direction: column; /* vertical */
+  gap: 1rem;
+  justify-content: flex-start; /* align left */
+}
+.footer-col {
+  text-align: left;
+}
+
+.footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+}
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.partner-card:hover {
+  transform: translateY(-10px) scale(1.05); /* lift and slight zoom */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* deeper shadow */
+  background: #f0f8ff; /* subtle background change on hover */
+}
+
+.partner-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease;
+}
+
+.partner-card:hover img {
+  transform: scale(1.1); /* slight zoom on company logo */
+}
+
+.partner-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.partner-card:hover h3 {
+  color: #007bff; /* title color change on hover */
+}
+
+.partner-card p i {
+  transition: color 0.3s ease;
+}
+
+.partner-card:hover p i {
+  color: #0056b3; /* icon color change on hover */
+}
+
+.partner-card .btn-view {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  padding: 12px 0;
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.partner-card .btn-view:hover {
+  background: #0056b3;
+  transform: scale(1.05); /* slight pop effect */
+}
+/* Footer Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col p {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-col .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Partner Grid Responsive */
+@media (max-width: 900px) {
+  .partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Section Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    padding: 12px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
 
 </style></head>
 <body>
@@ -177,58 +639,64 @@
     </div>
   </nav>
 </header>
+<!-- Companies Section -->
+<section class="partner-section">
+ <!-- Hero Section -->
+<section class="partner-hero">
+  <div class="partner-container">
+    <h1 class="hero-title animate">Our Partner Companies</h1>
+    <p class="hero-subtitle animate">
+      Explore the top employers hiring through Job Junction. Find opportunities by company and start your career journey.
+    </p>
+    <a href="#partner-grid" class="hero-btn animate">View Companies</a>
+  </div>
+</section>
 
-  <!-- Companies Section -->
-  <section class="companies">
-    <div class="container">
-      <h2 class="animate">Our Partner Companies</h2>
-      <p class="companies-intro animate">
-        Explore the top employers hiring through Job Junction. Find opportunities by company and start your career journey.
-      </p>
 
-      <div class="company-grid">
-        <!-- Company Card 1 -->
-        <div class="company-card animate" id="comp-box">
-          <img src="tech_solutions_company.jpg" alt="Company Logo">
-          <h3>Tech Solutions Inc.</h3>
-          <p class="industry">Information Technology</p>
-          <p class="location">Toronto, Canada</p>
-          <p class="positions">5 Open Positions</p>
-          <a href="#" class="btn-view">View Jobs</a>
-        </div>
+    <div class="partner-grid">
+      <!-- Company Card 1 -->
+      <div class="partner-card animate">
+        <img src="tech_solutions_company.jpg" alt="Tech Solutions Logo">
+        <h3>Tech Solutions Inc.</h3>
+        <p class="industry"><i class="fa-solid fa-briefcase"></i> Information Technology</p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> Toronto, Canada</p>
+        <p class="positions"><i class="fa-solid fa-user-check"></i> 5 Open Positions</p>
+        <a href="#" class="btn-view">View Jobs</a>
+      </div>
 
-        <!-- Company Card 2 -->
-        <div class="company-card animate" id="comp-box">
-          <img src="green_earth_company.png" alt="Company Logo">
-          <h3>Green Earth Ltd.</h3>
-          <p class="industry">Environmental Services</p>
-          <p class="location">Vancouver, Canada</p>
-          <p class="positions">3 Open Positions</p>
-          <a href="#" class="btn-view">View Jobs</a>
-        </div>
+      <!-- Company Card 2 -->
+      <div class="partner-card animate">
+        <img src="green_earth_company.png" alt="Green Earth Logo">
+        <h3>Green Earth Ltd.</h3>
+        <p class="industry"><i class="fa-solid fa-briefcase"></i> Environmental Services</p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> Vancouver, Canada</p>
+        <p class="positions"><i class="fa-solid fa-user-check"></i> 3 Open Positions</p>
+        <a href="#" class="btn-view">View Jobs</a>
+      </div>
 
-        <!-- Company Card 3 -->
-        <div class="company-card animate" id="comp-box">
-          <img src="healthplus_comapany.png" alt="Company Logo">
-          <h3>HealthPlus Corp.</h3>
-          <p class="industry">Healthcare</p>
-          <p class="location">Montreal, Canada</p>
-          <p class="positions">7 Open Positions</p>
-          <a href="#" class="btn-view">View Jobs</a>
-        </div>
+      <!-- Company Card 3 -->
+      <div class="partner-card animate">
+        <img src="healthplus_comapany.png" alt="HealthPlus Logo">
+        <h3>HealthPlus Corp.</h3>
+        <p class="industry"><i class="fa-solid fa-briefcase"></i> Healthcare</p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> Montreal, Canada</p>
+        <p class="positions"><i class="fa-solid fa-user-check"></i> 7 Open Positions</p>
+        <a href="#" class="btn-view">View Jobs</a>
+      </div>
 
-        <!-- Company Card 4 -->
-        <div class="company-card animate" id="comp-box">
-          <img src="finpro_company.png" alt="Company Logo">
-          <h3>FinPro Group</h3>
-          <p class="industry">Finance & Banking</p>
-          <p class="location">Calgary, Canada</p>
-          <p class="positions">4 Open Positions</p>
-          <a href="#" class="btn-view">View Jobs</a>
-        </div>
+      <!-- Company Card 4 -->
+      <div class="partner-card animate">
+        <img src="finpro_company.png" alt="FinPro Logo">
+        <h3>FinPro Group</h3>
+        <p class="industry"><i class="fa-solid fa-briefcase"></i> Finance & Banking</p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> Calgary, Canada</p>
+        <p class="positions"><i class="fa-solid fa-user-check"></i> 4 Open Positions</p>
+        <a href="#" class="btn-view">View Jobs</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
    <footer>
     <div class="footer-container">
       <div class="footer-col">
