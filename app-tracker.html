@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <title>Application Tracker</title>
   <style>
     * {
@@ -223,13 +225,120 @@
       float: right;
       margin-left: 10px;
     }
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-col p:hover {
+      color: #2563eb;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons a:hover {
+      color: #2563eb;
+    }
+
+    .social-icons a i {
+      margin-right: 8px;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    /* ✅ Mobile Responsive Fix */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-col p {
+        display: block;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        flex-direction: row;  /* icons side by side on mobile */
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Back to Top Button -->
   <div class="top-left">
-    <a href="#">⬅ Back to Top</a>
+    <a href="home.html">⬅ Back to Home</a>
   </div>
 
   <header>
@@ -298,7 +407,39 @@
       <button class="close-btn" onclick="closeNote()">Close</button>
     </div>
   </div>
-
+<footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </footer>
   <script>
     let noteModal = document.getElementById("noteModal");
     let noteTitle = document.getElementById("noteTitle");
