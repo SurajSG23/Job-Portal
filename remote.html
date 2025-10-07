@@ -587,8 +587,65 @@
     grid-template-columns: 1fr;
   }
 }
+/* Job Cards */
+.job-card h3 {
+  font-size: 1.7rem;
+  margin: 1rem 0 0.5rem 0; /* reduce bottom margin */
+  color: #2563eb;
+  position: relative;
+  text-align: center; /* center title */
+}
 
-    
+/* Hr line under title */
+.job-card hr {
+  border: 0;
+  border-bottom: 2.5px solid #2563eb;
+  width: 300px;
+  height: 10px;
+  margin: 0.5rem auto 1rem auto; /* center and spacing */
+}
+
+/* Full width apply button */
+.job-card .get-started-btn {
+  display: block;
+  width: calc(100% - 10px); /* full width minus padding */
+  padding: 5px; /* reduce padding */
+  background: #2563eb;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem auto 0 auto; /* center horizontally */
+  transition: background 0.3s;
+}
+
+.job-card .get-started-btn:hover {
+  background: #60a5fa;
+}
+
+      /* Job Filter/Search Bar */
+.job-filter {
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.job-filter input {
+  width: 90%;
+  max-width: 600px;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.job-filter input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 5px rgba(26,115,232,0.3);
+}
 </style>
 </head>
 <body>
@@ -665,11 +722,16 @@
 
     </p>       
   </section>
+   <!-- Filter/Search Bar -->
+<section class="job-filter">
+  <input type="text" id="searchInput" placeholder="Search by job title, company, or location..." />
+</section>
+
 <!-- Job Cards -->
 <section class="jobs-container">
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>Frontend Developer</h3>
+    <h3>Frontend Developer</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> Tech Innovators</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $70,000 - $100,000</p>
@@ -679,7 +741,7 @@
 
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>UI/UX Designer</h3>
+    <h3>UI/UX Designer</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> Creative Minds</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $60,000 - $90,000</p>
@@ -689,7 +751,7 @@
 
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>Backend Engineer</h3>
+    <h3>Backend Engineer</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> Cloud Solutions</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $80,000 - $120,000</p>
@@ -699,7 +761,7 @@
 
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>Full Stack Developer</h3>
+    <h3>Full Stack Developer</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> WebWorks Inc.</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $75,000 - $110,000</p>
@@ -709,7 +771,7 @@
 
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>Digital Marketing Specialist</h3>
+    <h3>Digital Marketing Specialist</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> MarketPro</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $50,000 - $70,000</p>
@@ -719,7 +781,7 @@
 
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>Data Analyst</h3>
+    <h3>Data Analyst</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> Insight Analytics</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $65,000 - $95,000</p>
@@ -729,7 +791,7 @@
 
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
-    <h3>Project Manager</h3>
+    <h3>Project Manager</h3><hr>
     <p class="job-info"><i class="fas fa-building"></i> Global Solutions</p>
     <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
     <p class="job-info"><i class="fas fa-dollar-sign"></i> $80,000 - $120,000</p>
@@ -809,6 +871,29 @@ themeToggle.addEventListener("click", () => {
       button.style.display = 'none'; // hide button
     });
   });
+  const searchInput = document.getElementById('searchInput');
+const jobCards = document.querySelectorAll('.job-card');
+
+searchInput.addEventListener('input', () => {
+  const filter = searchInput.value.toLowerCase();
+
+  jobCards.forEach(card => {
+    const title = card.querySelector('h3').innerText.toLowerCase();
+    const infos = Array.from(card.querySelectorAll('.job-info')).map(p => p.innerText.toLowerCase());
+    
+    const company = infos[0] || '';
+    const location = infos[1] || '';
+    const salary = infos[2] || '';
+
+    if(title.includes(filter) || company.includes(filter) || location.includes(filter)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
+
 </script>
 
 </body>
