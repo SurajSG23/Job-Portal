@@ -1,58 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Remote Jobs - Job Junction</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Remote Jobs Page Styling - Add this to remote.css or in a <style> tag */
-
-    /* Page Container */
-    .remote-page {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    }
-
-    /* Hero Section Enhancement */
-    .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      margin-bottom: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.05"/><circle cx="40" cy="70" r="1" fill="white" opacity="0.1"/></svg>');
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .hero-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 2;
-    }
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Remote Jobs</title>
+<title>About-US</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   * {margin:0; padding:0; box-sizing:border-box;}
@@ -260,7 +211,10 @@
       .hero p{font-size:1rem}
       nav{flex-direction:column; align-items:flex-start}
       nav a{margin-left:0;margin-top:0.5rem}
-     
+      .cards-container {grid-template-columns:1fr;}
+      .info-container {flex-direction:column; align-items:center;}
+      .team-container {grid-template-columns:1fr;}
+      .stats-container {flex-direction:column; align-items:center;}
     }
 
     /* ===== FOOTER ===== */
@@ -277,125 +231,6 @@
       gap: 2rem;
     }
 
-    /* Benefits Section */
-    .remote-benefits {
-      background: #f8fafc;
-      padding: 3rem 1rem;
-      margin: 2rem 0;
-    }
-
-    .benefits-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .benefit-card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(102, 126, 234, 0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .benefit-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
-      color: #fff;
-    }
-
-    /* Dark Mode Support */
-    body.dark .hero {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    }
-
-    body.dark .job-card {
-      background: #1e293b;
-      border-color: #334155;
-      color: #e2e8f0;
-    }
-
-    body.dark .job-card h3 {
-      color: #f1f5f9;
-    }
-
-    body.dark .job-card p {
-      color: #94a3b8;
-    }
-
-    body.dark .remote-stats,
-    body.dark .benefit-card {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.2rem;
-      }
-      
-      .hero-description {
-        font-size: 1.1rem;
-      }
-      
-      .jobs-container {
-        grid-template-columns: 1fr;
-        margin: 2rem auto;
-        padding: 0 0.5rem;
-      }
-      
-      .job-card {
-        padding: 1rem;
-      }
-      
-      .remote-stats {
-        grid-template-columns: 1fr;
-        margin: 1rem;
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        padding: 2rem 0.5rem 1.5rem;
-      }
-      
-      .hero-title {
-        font-size: 1.8rem;
-      }
-      
-      .benefits-container {
-        grid-template-columns: 1fr;
-      }
-    }
-    /* =========================
-       Global Styles
-    ========================= */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background-color: #f4f6f8;
-      color: #333;
     .footer-col h3 {
       margin-bottom: 1rem;
       color: #2563eb;
@@ -588,7 +423,7 @@
   padding: 6rem 2rem;
   color: #ffffff;
   overflow: hidden;
-  background:#2563eb;
+  background: url('https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   background-attachment: fixed; /* nice subtle parallax effect */
 }
 
@@ -669,6 +504,45 @@
       border-radius:2px;
     }
 
+    /* Info Cards */
+    .info-container {display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; max-width:1200px; margin:0 auto 4rem;}
+    .info-card {background:#fff; flex:1; min-width:300px; max-width:400px; padding:3rem; border-radius:20px; text-align:center; box-shadow:0 6px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+    .info-card:hover {transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15);}
+    .info-card i {font-size:3rem; color:#60a5fa; margin-bottom:1rem;}
+    .info-card h3 {margin-bottom:1rem; font-size:1.5rem;}
+    .info-card p {font-size:1rem; color:#555;}
+
+    /* Cards Container (Vision/Mission) */
+    .cards-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(350px,1fr)); gap:2rem; max-width:1100px; margin:0 auto 4rem; padding:0 1rem;}
+    .card {background:#fff; padding:2.5rem; border-radius:20px; text-align:center; box-shadow:0 6px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+    .card:hover {transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15);}
+    .card i {font-size:3rem; color:#60a5fa; margin-bottom:1rem;}
+    .card h3 {margin-bottom:1rem; font-size:1.5rem;}
+    .card p {font-size:1.05rem; color:#555;}
+
+    /* Team Section */
+    .team-container {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; max-width:1100px; margin:0 auto 4rem; padding:0 1rem;}
+    .team-member {background:#fff; padding:2rem; border-radius:20px; text-align:center; box-shadow:0 6px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+    .team-member:hover {transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15);}
+    .team-member img {width:130px; height:130px; border-radius:50%; object-fit:cover; margin-bottom:1rem;}
+    .team-member h4 {font-size:1.3rem; margin-bottom:0.3rem; color:#2563eb;}
+    .team-member span {font-size:0.95rem; color:#555; display:block; margin-bottom:0.5rem;}
+    .team-member p {font-size:0.95rem; color:#555; margin-bottom:1rem;}
+    .team-member .socials a {margin:0 5px; color:#2563eb; font-size:1.2rem; transition:color 0.3s;}
+    .team-member .socials a:hover {color:#60a5fa;}
+
+    /* Stats Section */
+    .stats-container {display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; max-width:1200px; margin:4rem auto;}
+    .stat {background:#fff; flex:1; min-width:200px; max-width:300px; padding:2rem; border-radius:20px; text-align:center; box-shadow:0 6px 25px rgba(0,0,0,0.1);}
+    .stat h3 {font-size:2rem; color:#2563eb; margin-bottom:0.5rem;}
+    .stat p {font-size:1rem; color:#555;}
+
+    /* Testimonials Section */
+    .testimonials {max-width:1100px; margin:0 auto 4rem; padding:0 1rem;}
+    .testimonial-card {background:#fff; padding:2rem; border-radius:20px; margin-bottom:1.5rem; box-shadow:0 6px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+    .testimonial-card:hover {transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15);}
+    .testimonial-card p {font-size:1rem; color:#555; margin-bottom:1rem;}
+    .testimonial-card h4 {color:#2563eb; font-size:1.1rem; font-weight:600;}
 
  /* Responsive */
     @media(max-width:768px){
@@ -676,144 +550,11 @@
       .hero p{font-size:1rem}
       nav{flex-direction:column; align-items:flex-start}
       nav a{margin-left:0;margin-top:0.5rem}
+      .cards-container {grid-template-columns:1fr;}
+      .info-container {flex-direction:column; align-items:center;}
+      .team-container {grid-template-columns:1fr;}
+      .stats-container {flex-direction:column; align-items:center;}
     }
-    /* Job Cards */
-.jobs-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 2.5rem;
-  max-width: 1200px;
-  margin: 0 auto 4rem;
-  padding: 0 1rem;
-}
-
-.job-card {
-  background: #fff;
-  padding: 2.5rem 2rem; /* consistent padding */
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 30px;
-}
-
-.job-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
-}
-
-.job-card h3 {
-  font-size: 1.7rem;
-  margin: 1rem 0 1.5rem 0;
-  color: #2563eb;
-}
-
-.job-card i.job-icon {
-  font-size: 3rem; /* big centered icon */
-  color: #60a5fa;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.job-card p {
-  font-size: 1.15rem;
-  color: black;
-  margin: 0.4rem 0;
-  text-align: left; /* start aligned */
-  padding-left:70px; /* small padding from left */
-}
-
-.get-started-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 2rem;
-  background: #2563eb;
-  color: #fff;
-  border-radius: 10px;
-  font-size: 1.05rem;
-  text-decoration: none;
-  transition: background 0.3s;
-  align-self: center; /* center button */
-}
-
-.get-started-btn:hover {
-  background: #60a5fa;
-}
-
-/* Responsive */
-@media (max-width:1024px) {
-  .jobs-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width:768px) {
-  .jobs-container {
-    grid-template-columns: 1fr;
-  }
-}
-/* Job Cards */
-.job-card h3 {
-  font-size: 1.7rem;
-  margin: 1rem 0 0.5rem 0; /* reduce bottom margin */
-  color: #2563eb;
-  position: relative;
-  text-align: center; /* center title */
-}
-
-/* Hr line under title */
-.job-card hr {
-  border: 0;
-  border-bottom: 2.5px solid #2563eb;
-  width: 300px;
-  height: 10px;
-  margin: 0.5rem auto 1rem auto; /* center and spacing */
-}
-
-/* Full width apply button */
-.job-card .get-started-btn {
-  display: block;
-  width: calc(100% - 10px); /* full width minus padding */
-  padding: 5px; /* reduce padding */
-  background: #2563eb;
-  color: #fff;
-  border-radius: 10px;
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: none;
-  margin: 1rem auto 0 auto; /* center horizontally */
-  transition: background 0.3s;
-}
-
-.job-card .get-started-btn:hover {
-  background: #60a5fa;
-}
-
-      /* Job Filter/Search Bar */
-.job-filter {
-  max-width: 1200px;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.job-filter input {
-  width: 90%;
-  max-width: 600px;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-.job-filter input:focus {
-  outline: none;
-  border-color: #1a73e8;
-  box-shadow: 0 0 5px rgba(26,115,232,0.3);
-}
 </style>
 </head>
 <body>
@@ -884,140 +625,88 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Remote Jobs</h1>
-    <p>
-        Explore top remote job opportunities from leading companies. Work from anywhere and build your career on your terms!
-
-    </p>       
+    <h1>About Job Junction</h1>
+    <p>Empowering Your Career. Job Junction connects job seekers and employers efficiently with a modern, intuitive platform.</p>
+    <a href="signup.html" class="btn">Join Now</a>
   </section>
-   <!-- Filter/Search Bar -->
-<section class="job-filter">
-  <input type="text" id="searchInput" placeholder="Search by job title, company, or location..." />
-</section>
 
-<!-- Job Cards -->
-<section class="jobs-container">
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>Frontend Developer</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> Tech Innovators</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $70,000 - $100,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
+  <!-- What is Job Junction -->
+  <h2 class="section-title">What is Job Junction?</h2>
+  <p style="text-align:center; max-width:900px; margin:0 auto 2rem; color:#333; font-size:1.1rem;">
+    Job Junction is a modern job portal web application built to connect job seekers with employers efficiently. 
+    Explore full-time, part-time, or remote opportunities through an intuitive, user-friendly platform. 
+    Open-source contributions in GirlScript Summer of Code (GSSoC) focus on performance, clean design, and inclusivity.
+  </p>
+
+  <div class="info-container">
+    <div class="info-card">
+      <i class="fas fa-code"></i>
+      <h3>Tech Stack</h3>
+      <p>HTML5, CSS3, JavaScript, Firebase, Font Awesome, Google Fonts (Poppins)</p>
+    </div>
+    <div class="info-card">
+      <i class="fas fa-bolt"></i>
+      <h3>Key Features</h3>
+      <p>Responsive UI, Navigation, Firebase Authentication (In Progress), Search & Filter Options</p>
+    </div>
+    <div class="info-card">
+      <i class="fas fa-bullseye"></i>
+      <h3>Goal</h3>
+      <p>Make job hunting simple, transparent, and accessible while connecting talent with opportunity.</p>
+    </div>
   </div>
 
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>UI/UX Designer</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> Creative Minds</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $60,000 - $90,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
+  <!-- Vision & Mission -->
+  <h2 class="section-title">Vision & Mission</h2>
+  <div class="cards-container">
+    <div class="card">
+      <i class="fas fa-eye"></i>
+      <h3>Our Vision</h3>
+      <p>To be the most trusted job platform globally, empowering talent to find meaningful opportunities easily.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-bullseye"></i>
+      <h3>Our Mission</h3>
+      <p>To bridge the gap between job seekers and employers by providing an intuitive, transparent, and inclusive platform.</p>
+    </div>
   </div>
 
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>Backend Engineer</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> Cloud Solutions</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $80,000 - $120,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
+  <!-- Stats -->
+  <h2 class="section-title">Our Impact</h2>
+  <div class="stats-container">
+    <div class="stat"><h3>500+</h3><p>Jobs Posted</p></div>
+    <div class="stat"><h3>1000+</h3><p>Active Users</p></div>
+    <div class="stat"><h3>150+</h3><p>Companies Joined</p></div>
   </div>
 
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>Full Stack Developer</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> WebWorks Inc.</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $75,000 - $110,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
+  <!-- Testimonials -->
+  <h2 class="section-title">What Users Say</h2>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <p>"Job Junction helped me find a remote job within a week! The platform is clean and easy to use."</p>
+      <h4>- Riya Kharade, Job Seeker</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"As an employer, posting jobs and filtering candidates has never been simpler. Excellent experience!"</p>
+      <h4>- TechCorp HR</h4>
+    </div>
   </div>
 
-  <!-- Footer -->
- <footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-brand">
-     
-      <p class="footer-tagline">
-        Connecting Talent with Opportunity.<br>
-        Your Career Journey Starts Here!
-      </p>
-      <div class="social-icons">
-        <a href="https://github.com/SurajSG23/Job-Portal" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+  <!-- Project Mentors / Admins -->
+  <h2 class="section-title">Project Admins</h2>
+  <div class="team-container">
+    <div class="team-member">
+      <img src="assets/admin.jpg" alt="Mentor 1">
+      <h4>Suraj S G Dhavan</h4>
+      <span>Project Admin</span>
+      <p>This project is handled and managed by her, including web development and UI design.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/SurajSG23"><i class="fab fa-github"></i></a>
       </div>
     </div>
-<div class="footer-links">
-  <div class="footer-col">
-    <h4>For Job Seekers</h4>
-    <ul>
-      <li><a href="components/seeker.html"><i class="fas fa-search"></i> Browse Jobs</a></li>
-      <li><a href="internships.html"><i class="fas fa-graduation-cap"></i>Internships</a></li>
-      <li><a href="#"><i class="fas fa-lightbulb"></i>Advice</a></li>
-      <li><a href="salary-insights.html"><i class="fas fa-dollar-sign"></i>Salary Insights</a></li>
-      <li><a href="#"><i class="fas fa-book"></i>Skill Development</a></li>
-      <li><a href="resume-builder.html"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
-    </ul>
+   
   </div>
-
-  <div class="footer-col">
-    <h4>For Employers</h4>
-    <ul>
-      <li><a href="components/employer.html"><i class="fas fa-briefcase"></i> Post a Job</a></li>
-      <li><a href="components/employer.html"><i class="fas fa-users"></i> Talent Search</a></li>
-      <li><a href="components/employer.html"><i class="fas fa-coins"></i> Pricing</a></li>
-      <li><a href="components/employer.html"><i class="fas fa-building"></i> Enterprise</a></li>
-    </ul>
-  </div>
-
-  <div class="footer-col">
-    <h4>Company</h4>
-    <ul>
-      <li><a href="components/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-      <li><a href="ContactPage.html"><i class="fas fa-envelope"></i> Contact</a></li>
-      <li><a href="open-source.html"><i class="fas fa-code-branch"></i> Open Source</a></li>
-      <li><a href="masthead.html"><i class="fas fa-users-cog"></i> Masthead</a></li>
-      <li><a href="privacy-policy.html"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-      <li><a href="terms-of-use.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
-    </ul>
-  </div>
-</div>
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>Digital Marketing Specialist</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> MarketPro</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $50,000 - $70,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
-  </div>
-
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>Data Analyst</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> Insight Analytics</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $65,000 - $95,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
-  </div>
-
-  <div class="job-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <h3>Project Manager</h3><hr>
-    <p class="job-info"><i class="fas fa-building"></i> Global Solutions</p>
-    <p class="job-info"><i class="fas fa-map-marker-alt"></i> Remote</p>
-    <p class="job-info"><i class="fas fa-dollar-sign"></i> $80,000 - $120,000</p>
-    <a href="#" class="get-started-btn">Apply Now</a>
-    <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
-  </div>
-</section>
-
  <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -1078,40 +767,6 @@ themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 });
- const applyButtons = document.querySelectorAll('.get-started-btn');
-
-  applyButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault(); // prevent default link behavior
-      const card = button.closest('.job-card'); // get parent card
-      const msg = card.querySelector('.apply-msg'); // find message element
-      msg.style.display = 'block'; // show applied message
-      button.style.display = 'none'; // hide button
-    });
-  });
-  const searchInput = document.getElementById('searchInput');
-const jobCards = document.querySelectorAll('.job-card');
-
-searchInput.addEventListener('input', () => {
-  const filter = searchInput.value.toLowerCase();
-
-  jobCards.forEach(card => {
-    const title = card.querySelector('h3').innerText.toLowerCase();
-    const infos = Array.from(card.querySelectorAll('.job-info')).map(p => p.innerText.toLowerCase());
-    
-    const company = infos[0] || '';
-    const location = infos[1] || '';
-    const salary = infos[2] || '';
-
-    if(title.includes(filter) || company.includes(filter) || location.includes(filter)) {
-      card.style.display = 'flex';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-});
-
-
 </script>
 
 </body>
