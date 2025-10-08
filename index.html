@@ -4,112 +4,604 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Junction | Find Your Dream Career</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Job Junction is your gateway to top jobs, career resources, and professional events. Start your career journey today!" />
-  <meta name="keywords" content="jobs, careers, job portal, employment, professional events, job search, Job Junction" />
-  <meta name="author" content="Job Junction Team" />
-  <meta property="og:title" content="Job Junction | Find Your Dream Career" />
-  <meta property="og:description" content="Discover top jobs, career resources, and professional events at Job Junction." />
-  <meta property="og:image" content="assets/logo.webp" />
-  <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://surajsg23.github.io/Job-Portal/" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/favicon.webp" type="image/webp" />
-
-  <!-- Preload critical resources -->
-  <link rel="preload" href="assets/logo.webp" as="image" type="image/webp" />
-  <link rel="preload" href="style.css" as="style" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="companies.css" />
-  <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Job Junction",
-    "url": "https://surajsg23.github.io/Job-Portal/",
-    "logo": "assets/logo.webp",
-    "sameAs": ["https://github.com/SurajSG23/Job-Portal"]
-  }
-  </script>
-
-  <script type="module" src="components/firebaseauth.js"></script>
-
+  
   <style>
-    /* Minimal dropdown CSS */
-    .nav-menu .dropdown-content {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #06b6d4;
+      --bg-light: #ffffff;
+      --bg-gray: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --shadow: rgba(15, 23, 42, 0.08);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.dark {
+      --bg-light: #0f172a;
+      --bg-gray: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border: #334155;
+      --shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 16px var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      gap: 2rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      height: 45px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-link {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link i {
+      font-size: 0.75rem;
+      transition: transform 0.3s;
+    }
+
+    .dropdown:hover .nav-link i {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
       display: none;
       position: absolute;
       left: 0;
       top: 100%;
-      min-width: 180px;
-      background: #fff;
-      box-shadow: 0 8px 24px rgba(30,58,138,0.08);
-      border-radius: 10px;
-      z-index: 100;
-      padding: 0;
-      list-style: none;
+      min-width: 200px;
+      background: var(--bg-light);
+      box-shadow: 0 10px 30px var(--shadow);
+      border-radius: 12px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid var(--border);
     }
-    .nav-menu li { position: relative; }
-    .nav-menu .dropdown:hover > .dropdown-content,
-    .nav-menu .dropdown:focus-within > .dropdown-content {
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
       display: block;
-      animation: fadeIn 0.2s;
+      animation: dropdownFade 0.3s ease;
     }
-    .nav-menu .dropdown-content a {
+
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-content a {
       display: block;
-      padding: 12px 20px;
-      color: #1e3a8a;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
       text-decoration: none;
       border-radius: 8px;
-      transition: background 0.2s;
+      font-size: 0.9rem;
+      transition: var(--transition);
     }
-    .nav-menu .dropdown-content a:hover {
-      background: #f0f4ff;
+
+    .dropdown-content a:hover {
+      background: var(--bg-gray);
+      color: var(--primary);
+      transform: translateX(4px);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    /* Navigation Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
+
+    .theme-toggle {
+      background: var(--bg-gray);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .btn {
+      padding: 0.65rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg-gray);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      box-shadow: 0 4px 12px var(--shadow);
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .hero-badge i {
+      color: var(--primary);
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .get-started-btn {
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+      transition: var(--transition);
+    }
+
+    .get-started-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.4);
+    }
+
+    .get-started-btn i {
+      transition: transform 0.3s;
+    }
+
+    .get-started-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    .learn-more-btn {
+      padding: 1rem 2rem;
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 2px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .learn-more-btn:hover {
+      background: var(--bg-gray);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 6rem 2rem;
+      background: var(--bg-light);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg-gray);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px var(--shadow);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.75rem;
+      color: white;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-gray);
+      padding: 3rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-brand img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .footer-credit {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
     @media (max-width: 900px) {
-      .nav-menu .dropdown-content {
+      .nav-menu {
+        position: fixed;
+        left: 0;
+        top: 75px;
+        flex-direction: column;
+        background: var(--bg-light);
+        width: 100%;
+        padding: 2rem;
+        gap: 1rem;
+        box-shadow: 0 8px 24px var(--shadow);
+        border-top: 1px solid var(--border);
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        align-items: flex-start;
+      }
+
+      .nav-menu.active {
+        transform: translateX(0);
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-actions {
+        gap: 0.5rem;
+      }
+
+      .nav-actions .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .dropdown-content {
         position: static;
         box-shadow: none;
-        display: none;
+        border: none;
+        margin-top: 0.5rem;
+        padding-left: 1rem;
       }
-      .nav-menu .dropdown.open > .dropdown-content {
+
+      .dropdown.open .dropdown-content {
         display: block;
+      }
+
+      .hero {
+        padding: 4rem 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .get-started-btn,
+      .learn-more-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .features {
+        padding: 4rem 1.5rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
   <header>
-    <nav class="navbar" aria-label="Main Navigation">
+    <nav class="navbar">
       <div class="nav-brand">
         <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
       </div>
       <ul class="nav-menu" id="navMenu">
         <li><a href="./components/homepage.html" class="nav-link active">Home</a></li>
         <li class="dropdown">
-          <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+          <a href="#" class="nav-link">
             Jobs <i class="fas fa-chevron-down"></i>
           </a>
-          <ul class="dropdown-content" aria-label="submenu">
+          <ul class="dropdown-content">
             <li><a href="components/seeker.html">Browse Jobs</a></li>
             <li><a href="#">Remote Jobs</a></li>
             <li><a href="featured-job.html">Featured Jobs</a></li>
@@ -120,23 +612,22 @@
         <li><a href="components/about.html" class="nav-link">About</a></li>
         <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
         <li><a href="components/events.html" class="nav-link">Events</a></li>
-        <li><a href="faq.html" class="nav-link">Faqs</a></li>
+        <li><a href="faq.html" class="nav-link">FAQs</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <button class="theme-toggle" id="themeToggle">
           <i class="fas fa-moon" id="theme-icon"></i>
         </button>
         <a href="./login.html" class="btn btn-ghost">Login</a>
         <a href="./signup.html" class="btn btn-primary">Sign Up</a>
       </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation">
+      <button class="mobile-toggle" id="mobileToggle">
         <i class="fa fa-bars"></i>
       </button>
     </nav>
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero-container">
         <div class="hero-content">
@@ -162,7 +653,6 @@
       </div>
     </section>
 
-    <!-- Features -->
     <section class="features" id="features">
       <div class="container">
         <div class="section-header">
@@ -194,8 +684,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer site-footer">
+  <footer class="footer">
     <div class="footer-content">
       <div class="footer-main">
         <div class="footer-brand">
@@ -215,18 +704,17 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js" defer></script>
-  <script defer>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Theme Toggle
       function setTheme(dark) {
         document.body.classList.toggle("dark", dark);
-        const themeIcon = document.getElementById("theme-icon");
-        if (themeIcon) {
-          themeIcon.classList.toggle("fa-moon", !dark);
-          themeIcon.classList.toggle("fa-sun", dark);
+        const icon = document.getElementById("theme-icon");
+        if (icon) {
+          icon.className = dark ? "fas fa-sun" : "fas fa-moon";
         }
       }
+
       const darkMode = localStorage.getItem("theme") === "dark";
       setTheme(darkMode);
 
@@ -239,31 +727,44 @@
         };
       }
 
+      // Mobile Menu Toggle
       const mobileToggle = document.getElementById('mobileToggle');
       const navMenu = document.getElementById('navMenu');
       if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
           navMenu.classList.toggle('active');
-          mobileToggle.classList.toggle('active');
+          const icon = mobileToggle.querySelector('i');
+          icon.className = navMenu.classList.contains('active') ? 'fa fa-times' : 'fa fa-bars';
         });
       }
 
-      document.querySelectorAll('.nav-menu .dropdown > a').forEach(link => {
+      // Dropdown for Mobile
+      document.querySelectorAll('.dropdown > a').forEach(link => {
         link.addEventListener('click', e => {
-          const submenu = link.nextElementSibling;
-          if (submenu && submenu.classList.contains('dropdown-content')) {
-            if (window.innerWidth <= 900) {
-              e.preventDefault();
-              const parent = link.parentElement;
-              parent.classList.toggle('open');
-            }
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            link.parentElement.classList.toggle('open');
           }
         });
       });
 
+      // Close dropdowns when clicking outside
       document.addEventListener('click', e => {
-        document.querySelectorAll('.nav-menu .dropdown.open').forEach(drop => {
-          if (!drop.contains(e.target)) drop.classList.remove('open');
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown.open').forEach(drop => {
+            drop.classList.remove('open');
+          });
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
       });
     });
