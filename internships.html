@@ -1,226 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Internships - Job Junction</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f9f9f9;
-  }
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family:'Arial', sans-serif; background:#f4f4f4; transition:0.3s;}
 
+  /* Header */
   header {
-    background: rgb(124, 124, 253);
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    background:white;
+    color:#60a5fa;
+    padding:12px 25px;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition:0.3s;
   }
 
-  h1 {
-    margin: 0;
-    font-size: 2rem;
+  .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1300px;
+    margin:auto;
   }
 
-  /* Filters */
-  .filter-bar {
-    background: white;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#60a5fa;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#60a5fa;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:#2563eb;
   }
 
-  .filter-bar select
-   {
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#60a5fa;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {color:#2563eb;}
+
+  /* Responsive */
+  @media(max-width:992px){
+    nav ul {
+      position:fixed;
+      top:0;
+      left:-100%;
+      height:100%;
+      width:260px;
+      flex-direction:column;
+      padding-top:70px;
+      background:#60a5fa;
+      transition:0.3s;
+    }
+    nav ul.show {left:0;}
+    nav ul li {width:100%;}
+    nav ul li a {padding:15px 20px;}
+    .dropdown-menu {position:static; display:none;}
+    .dropdown.active .dropdown-menu {display:block;}
+    .hamburger {display:block;}
+    .login-btn, .signup-btn {width:90%; margin:5px 20px;}
+    .theme-toggle {position:absolute; bottom:120px; left:20px;}
   }
 
-  /* Internship Cards Grid */
-  .internship-container
-   {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
+  nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
+
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
+
+  /* Hover and dropdown for desktop */
+@media(min-width: 993px){
+  nav ul li a:hover {
+    background:#2563eb; /* hover color */
+    color:#fff;
   }
 
-  .card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
+  nav ul li:hover .dropdown-menu {
+    display:block; /* show dropdown on hover */
   }
 
-  .card.show {
-    opacity: 1;
-    transform: translateY(0);
+  nav ul li a i {
+    transition:0.3s;
+  }
+  nav ul li:hover a i {
+    transform: rotate(180deg); /* arrow rotates on hover */
+  }
+}
+
+/* Mobile/tablet dropdown behavior */
+@media(max-width: 992px){
+  nav ul {
+    position:fixed;
+    top:0;
+    left:-100%;
+    height:100%;
+    width:260px;
+    flex-direction:column;
+    padding-top:70px;
+    background:#60a5fa;
+    transition:0.3s;
+  }
+  nav ul.show {left:0;}
+
+  nav ul li a {
+    padding:15px 20px;
+    border-radius:0;
   }
 
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  /* Dropdown menu for mobile */
+  .dropdown-menu {
+    display:none; /* hide by default */
+    position:static;
+    background:#60a5fa;
+    box-shadow:none;
+  }
+  .dropdown.active .dropdown-menu {
+    display:block; /* show on click */
   }
 
-  .card h3 {
-    margin-top: 0;
-    color: #333;
-  }
+  /* Buttons full width on mobile */
+  .login-btn, .signup-btn {width:90%; margin:5px 20px;}
 
-  .card p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
-    color: #555;
-  }
+  /* Hamburger */
+  .hamburger {display:block;}
+}
+ /* Footer */
+    footer {background:#2563eb; color:#fff; text-align:center; padding:2rem 1rem;}
+    footer a {color:#fff; margin:0 0.5rem; font-size:1.2rem;}
+    footer a:hover {color:#60a5fa;}
 
-  .apply-btn {
-    display: inline-block;
-    margin-top: 0.8rem;
-    background: rgb(124, 124, 253);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-
-  .apply-btn:hover {
-    background: blue;
-  }
-
-  @media (max-width: 600px) {
-    .filter-bar {
-      flex-direction: column;
-    }
-  }
-      /* ===== GLOBAL ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background: #f9fafb; color: #111827; }
-
-     /* ===== HEADER ===== */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border-bottom: 3px solid #2563eb;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #2563eb;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #111827;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #2563eb;
-    }
-
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border: 2px solid #2563eb;
-      border-radius: 0.5rem;
-      top: 2rem;
-      left: 0;
-      flex-direction: column;
-      min-width: 180px;
-      z-index: 999;
-    }
-
-    .dropdown-menu a {
-      padding: 0.5rem 1rem;
-      display: block;
-      color: #111827;
-    }
-
-    .dropdown-menu a:hover {
-      background: #2563eb;
-      color: #fff;
-    }
-
-    /* Mobile dropdown toggle */
-    .dropdown-menu.show {
-      display: flex;
-    }
-
-    .menu-toggle, .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .menu-toggle {
-      display: none;
-    }
-
-    /* ===== MAIN ===== */
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border: 3px solid #2563eb;
-    }
-
-    /* Terms Cards */
-    .terms-cards {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .term-card {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      background-color: #e0f2fe; /* light blue */
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    .term-card i {
-      color: #2563eb;
-      font-size: 1.5rem;
+    /* Responsive */
+    @media(max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      nav{flex-direction:column; align-items:flex-start}
+      nav a{margin-left:0;margin-top:0.5rem}
+     
     }
 
     /* ===== FOOTER ===== */
@@ -253,9 +244,17 @@
       color: #2563eb;
     }
 
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .footer-col p:hover {
       color: #2563eb;
     }
+
     .social-icons {
       display: flex;
       flex-direction: column;
@@ -269,23 +268,13 @@
       display: flex;
       align-items: center;
     }
-.social-icons a:hover {
-      font-size: 1.1rem;
-      color: #2563eb;
 
-      text-decoration: none;
-      display: flex;
-      align-items: center;
+    .social-icons a:hover {
+      color: #2563eb;
     }
+
     .social-icons a i {
       margin-right: 8px;
-    }
-
-    .footer-col p {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .footer-credit {
@@ -294,289 +283,548 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
-    
 
-    /* ===== MEDIA QUERIES ===== */
-    @media(max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        border: 2px solid #2563eb;
-        border-radius: 0.5rem;
-        padding: 1rem;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .terms-cards {
-        grid-template-columns: 1fr;
-      }
-
+    /* ✅ Mobile Responsive Fix */
+    @media (max-width: 768px) {
       .footer-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-col p {
+        display: block;
         text-align: center;
       }
 
       .footer-col .social-icons {
+        flex-direction: row;  /* icons side by side on mobile */
         justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
       }
     }
-    /* ===== MEDIA QUERIES ===== */
-@media(max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border: 2px solid #2563eb;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
 
-  nav.show {
-    display: flex;
-  }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  max-width: 1200px; /* limit width */
+  margin: 0 auto; /* center the footer */
+  gap: 2rem;
+}
+.footer-col .social-icons {
+  display: flex;
+  flex-direction: column; /* vertical */
+  gap: 1rem;
+  justify-content: flex-start; /* align left */
+}
+.footer-col {
+  text-align: left;
+}
 
-  .menu-toggle {
-    display: block;
-  }
+.footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+}
 
-  .terms-cards {
-    grid-template-columns: 1fr;
-  }
+/* Footer Responsive */
 
-  /* ✅ FIX FOOTER COLUMNS */
+/* Medium devices (tablets) */
+@media (max-width: 992px) {
   .footer-container {
-    grid-template-columns: 1fr;   /* stack all columns */
-    text-align: center;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1.5rem;
   }
 
   .footer-col {
-    margin-bottom: 1.5rem;        /* spacing between sections */
+    text-align: left;
   }
 
-  .footer-col .social-icons {
-    justify-content: center;
-    flex-direction: row;          /* icons side by side on mobile */
+  .social-icons {
+    flex-direction: row; /* social icons side by side */
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 1rem;
   }
 }
-@media(max-width: 768px) {
+
+/* Small devices (mobiles) */
+@media (max-width: 768px) {
   .footer-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 1rem;
     text-align: center;
   }
+
   .footer-col {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  /* Social icons horizontal */
-  .footer-col .social-icons { 
-    flex-direction: row; 
-    justify-content: center; 
-    gap: 1rem; 
-  }
-  /* Contact & paragraphs truly centered */
-  .footer-col p { 
-    display: block; 
-    margin: 0.25rem 0; 
-    text-align: center; 
-  }
-}
-@media(max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+
+  .footer-col p,
+  .footer-col a {
     text-align: center;
   }
-  .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
   }
-  /* Social icons stacked vertically on mobile */
-  .footer-col .social-icons { 
-    flex-direction: column; 
-    justify-content: center; 
-    gap: 0.5rem; 
-  }
-  /* Contact paragraphs centered */
-  .footer-col p { 
-    display: block; 
-    margin: 0.25rem 0; 
-    text-align: center; 
+
+  .footer-credit {
+    font-size: 0.85rem;
   }
 }
-/* Main title section */
-.main-title {
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .footer-container {
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .footer-col h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-col a {
+    font-size: 0.9rem;
+  }
+}
+   /* Hero Section */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 3rem 1rem;
-  background: #e0f2fe; /* light blue background */
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-  margin: 2rem auto;
-  max-width: 800px;
+  padding: 6rem 2rem;
+  color: #ffffff;
+  overflow: hidden;
+  background:#2563eb;
+  background-attachment: fixed; /* nice subtle parallax effect */
 }
 
-.main-title h1 {
-  font-size: 2.5rem;
-  color: #2563eb; /* primary blue */
+/* Soft dark overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6); /* deep navy overlay */
+  z-index: 0;
+}
+
+/* Text styling */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 1s ease-in-out;
 }
 
-.main-title p {
-  font-size: 1.2rem;
-  color: #111827;
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  color: #e2e8f0;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Button */
+.hero .btn {
+  background: #ffffff;
+  color: #2563eb;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero .btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Subtle animations */
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Section Titles */
+    .section-title {text-align:center; color:#2563eb; font-size:2rem; margin:3rem 0 2rem; position:relative;}
+    .section-title::after {
+      content:'';
+      width:60px;
+      height:3px;
+      background:#60a5fa;
+      display:block;
+      margin:0.5rem auto 0;
+      border-radius:2px;
+    }
+
+
+ /* Responsive */
+    @media(max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      nav{flex-direction:column; align-items:flex-start}
+      nav a{margin-left:0;margin-top:0.5rem}
+    }
+ /* ===== SEARCH BAR ===== */
+.search-container {
+  max-width: 1200px;
+  margin: 2rem auto 1rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px; 
+}
+.search-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  border: 1px solid #2563eb;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+.search-container input:focus {
+  box-shadow: 0 0 8px rgba(37,99,235,0.5);
+  border-color: #1e40af;
+}
+
+/* ===== JOBS SECTION ===== */
+.jobs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 1rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 1.8rem 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== ICON ABOVE TITLE ===== */
+.card .job-icon {
+  font-size: 2.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0.8rem auto;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #2563eb;
+  text-align: center;
+}
+
+.card hr {
+  border: 0;
+  border-top: 2px solid #60a5fa;
+  width: 300px;
+  margin: 0.5rem auto 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+.card i {
+  min-width: 20px;
+  text-align: center;
+}
+
+.apply-btn {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0.6rem 1.2rem;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: background 0.3s;
+}
+
+.apply-btn:hover {
+  background: #1e40af;
+}
+
+@media(max-width: 768px){
+  .jobs-container { grid-template-columns: 1fr; }
+}
+body.dark .card {
+  background: #1f2937; /* dark background */
+  color: #e5e7eb; /* light text */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+body.dark .card h3 {
+  color: #60a5fa;
+}
+
+body.dark .card p i {
+  color: #60a5fa;
+}
+
+body.dark .card hr {
+  border-top: 2px solid #2563eb;
+}
+
+body.dark .apply-btn {
+  background: #2563eb;
+  color: #fff;
+}
+
+body.dark .apply-btn:hover {
+  background: #1e40af;
 }
 
 </style>
 </head>
 <body>
-<!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">Job Junction</div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <nav id="navMenu">
-      <a href="home.html">Home</a>
-      <div class="dropdown" id="jobsDropdown">
-        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
-        <div class="dropdown-menu" id="jobsMenu">
-          <a href="internships.html">Internships</a>
-          <a href="part-time.html">Part Time Jobs</a>
-          <a href="remote.html">Remote Jobs</a>
-        </div>
-      </div>
-      <a href="companies.html">Companies</a>
-      <a href="about.html">About</a>
-      <a href="ContactPage.html">Contact</a>
+
+<header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html"><img src="assets/logo.webp"></a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="internships.html">Internship</a></li>
+            <li><a href="part-time.html">Part-time</a></li>
+            <li><a href="remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="career-guides.html">Career Guide</a></li>
+            <li><a href="resume-builder.html">Resume Builder</a></li>
+            <li><a href="interview-prep.html">Interview</a></li>
+            <li><a href="personal-branding.html">Personal Branding</a></li>
+            <li><a href="workplace-communication.html">Workplace</a></li>
+            <li><a href="career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="signup.html">Sitemap</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-  </header>
-<div class="main-title">
-  <h1>Internship Opportunities</h1>
-  <p>Find the perfect internship to kickstart your career!</p>
+
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
+    </div>
+
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+   <h1>Internship Opportunities</h1>
+  <p>Find the perfect internship to kickstart your career!</p>    
+
+  </section>
+   
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search jobs by company, location, or field...">
 </div>
 
-
-<!-- Filters -->
-<div class="filter-bar">
-  <select id="locationFilter">
-    <option value="">Location</option>
-    <option value="Remote">Remote</option>
-    <option value="Delhi">Delhi</option>
-    <option value="Mumbai">Mumbai</option>
-  </select>
-  <select id="durationFilter">
-    <option value="">Duration</option>
-    <option value="1 month">1 month</option>
-    <option value="3 months">3 months</option>
-    <option value="6 months">6 months</option>
-  </select>
-  <select id="stipendFilter">
-    <option value="">Stipend</option>
-    <option value="0">Unpaid</option>
-    <option value="5000">₹5,000+</option>
-    <option value="10000">₹10,000+</option>
-  </select>
-  <select id="fieldFilter">
-    <option value="">Field</option>
-    <option value="Web Development">Web Development</option>
-    <option value="Marketing">Marketing</option>
-    <option value="Design">Design</option>
-  </select>
-</div>
-
-<!-- Internships -->
-<div class="internship-container" id="internshipList">
+  <section class="jobs-container">
+  <!-- Frontend Developer Intern -->
   <div class="card" data-location="Remote" data-duration="3 months" data-stipend="5000" data-field="Web Development">
+    <div class="job-icon"><i class="fas fa-laptop-code"></i></div>
     <h3>Frontend Developer Intern</h3>
-    <p><strong>Company:</strong> Tech Solutions</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 3 months</p>
-    <p><strong>Stipend:</strong> ₹5,000</p>
-    <p><strong>Deadline:</strong> 25 Aug 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> Tech Solutions</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 3 months</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> ₹5,000</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 25 Aug 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
 
+  <!-- Marketing Intern -->
   <div class="card" data-location="Delhi" data-duration="1 month" data-stipend="0" data-field="Marketing">
+    <div class="job-icon"><i class="fas fa-bullhorn"></i></div>
     <h3>Marketing Intern</h3>
-    <p><strong>Company:</strong> BrandBoost</p>
-    <p><strong>Location:</strong> Delhi</p>
-    <p><strong>Duration:</strong> 1 month</p>
-    <p><strong>Stipend:</strong> Unpaid</p>
-    <p><strong>Deadline:</strong> 15 Aug 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> BrandBoost</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Delhi</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 1 month</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> Unpaid</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 15 Aug 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
 
+  <!-- UI/UX Designer Intern -->
   <div class="card" data-location="Mumbai" data-duration="6 months" data-stipend="10000" data-field="Design">
+    <div class="job-icon"><i class="fas fa-paint-brush"></i></div>
     <h3>UI/UX Designer Intern</h3>
-    <p><strong>Company:</strong> Creative Studio</p>
-    <p><strong>Location:</strong> Mumbai</p>
-    <p><strong>Duration:</strong> 6 months</p>
-    <p><strong>Stipend:</strong> ₹12,000</p>
-    <p><strong>Deadline:</strong> 30 Aug 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> Creative Studio</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Mumbai</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 6 months</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> ₹12,000</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 30 Aug 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
 
-  
+  <!-- Backend Developer Intern -->
   <div class="card" data-location="Remote" data-duration="1 month" data-stipend="0" data-field="Web Development">
+    <div class="job-icon"><i class="fas fa-server"></i></div>
     <h3>Backend Developer Intern</h3>
-    <p><strong>Company:</strong> Tech Innovations</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 1 month</p>
-    <p><strong>Stipend:</strong> Unpaid</p>
-    <p><strong>Deadline:</strong> 15 Aug 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> Tech Innovations</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 1 month</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> Unpaid</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 15 Aug 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
 
-   <div class="card" data-location="Remote" data-duration="3 months" data-stipend="10000" data-field="Design">
+  <!-- Graphic Designer Intern -->
+  <div class="card" data-location="Remote" data-duration="3 months" data-stipend="1000" data-field="Design">
+    <div class="job-icon"><i class="fas fa-pencil-ruler"></i></div>
     <h3>Graphic Designer Intern</h3>
-    <p><strong>Company:</strong> Creative Studio</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 3 months</p>
-    <p><strong>Stipend:</strong> ₹1,000</p>
-    <p><strong>Deadline:</strong> 15 Aug 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> Creative Studio</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 3 months</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> ₹1,000</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 15 Aug 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
 
+  <!-- Social Media Marketing Intern -->
   <div class="card" data-location="Delhi" data-duration="1 month" data-stipend="0" data-field="Marketing">
+    <div class="job-icon"><i class="fas fa-share-alt"></i></div>
     <h3>Social Media Marketing Intern</h3>
-    <p><strong>Company:</strong> MediaCorp</p>
-    <p><strong>Location:</strong> Delhi</p>
-    <p><strong>Duration:</strong> 1 month</p>
-    <p><strong>Stipend:</strong> Unpaid</p>
-    <p><strong>Deadline:</strong> 20 Aug 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> MediaCorp</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Delhi</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 1 month</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> Unpaid</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 20 Aug 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
 
-  
-  <div class="card" data-location="Remote" data-duration="3 month" data-stipend="0" data-field="Web Development">
+  <!-- Full Stack Developer Intern -->
+  <div class="card" data-location="Remote" data-duration="3 months" data-stipend="15000" data-field="Web Development">
+    <div class="job-icon"><i class="fas fa-code"></i></div>
     <h3>Full Stack Developer Intern</h3>
-    <p><strong>Company:</strong> Tech Innovations</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 3 month</p>
-    <p><strong>Stipend:</strong> ₹15,000 </p>
-    <p><strong>Deadline:</strong> 15 Sep 2025</p>
+    <hr>
+    <p><i class="fas fa-building"></i> <strong>Company:</strong> Tech Innovations</p>
+    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</p>
+    <p><i class="fas fa-clock"></i> <strong>Duration:</strong> 3 months</p>
+    <p><i class="fas fa-money-bill-wave"></i> <strong>Stipend:</strong> ₹15,000</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Deadline:</strong> 15 Sep 2025</p>
     <a href="#" class="apply-btn">Apply Now</a>
   </div>
-</div>
+</section>
 
-<footer>
+
+
+
+ <footer>
     <div class="footer-container">
       <div class="footer-col">
         <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
@@ -586,7 +834,7 @@
         <h3>Important Links</h3>
         <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
         <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-        <a href="par"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
         <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
         <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
       </div>
@@ -610,72 +858,64 @@
     </div>
   </footer>
 <script>
-  // Fade-in animation on scroll
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.1 });
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const dropdowns = document.querySelectorAll(".dropdown");
+const themeToggle = document.getElementById('themeToggle');
 
-  cards.forEach(card => observer.observe(card));
+// Hamburger toggle
+hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
 
-  // Filter functionality
-  const filters = document.querySelectorAll('.filter-bar select');
-  filters.forEach(filter => {
-    filter.addEventListener('change', () => {
-      const locationValue = document.getElementById('locationFilter').value;
-      const durationValue = document.getElementById('durationFilter').value;
-      const stipendValue = document.getElementById('stipendFilter').value;
-      const fieldValue = document.getElementById('fieldFilter').value;
+// Mobile dropdown toggle
+dropdowns.forEach(drop => {
+  drop.addEventListener("click", e => {
+    if(window.innerWidth <= 992){
+      e.stopPropagation();
+      drop.classList.toggle("active");
+    }
+  });
+});
 
-      cards.forEach(card => {
-        const matchLocation = !locationValue || card.dataset.location === locationValue;
-        const matchDuration = !durationValue || card.dataset.duration === durationValue;
-        const matchStipend = !stipendValue || parseInt(card.dataset.stipend) >= parseInt(stipendValue);
-        const matchField = !fieldValue || card.dataset.field === fieldValue;
+// Dark/Light toggle
+const currentTheme = localStorage.getItem("theme");
+if(currentTheme === "dark") document.body.classList.add("dark");
 
-        if (matchLocation && matchDuration && matchStipend && matchField) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+});
+ const applyButtons = document.querySelectorAll('.get-started-btn');
+
+  applyButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent default link behavior
+      const card = button.closest('.job-card'); // get parent card
+      const msg = card.querySelector('.apply-msg'); // find message element
+      msg.style.display = 'block'; // show applied message
+      button.style.display = 'none'; // hide button
     });
   });
-    // Initial display setup
-    cards.forEach(card => {
+ const searchInput = document.getElementById('searchInput');
+const cards = document.querySelectorAll('.card');
+
+searchInput.addEventListener('input', () => {
+  const filter = searchInput.value.toLowerCase();
+
+  cards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const company = card.querySelector('p strong').textContent.toLowerCase(); // "Company:"
+    const location = card.dataset.location.toLowerCase();
+    const field = card.dataset.field.toLowerCase();
+
+    if(title.includes(filter) || company.includes(filter) || location.includes(filter) || field.includes(filter)) {
       card.style.display = 'block';
-    });
- // Toggle mobile menu
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-    });
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
 
-    // Mobile dropdown toggle
-    const jobsToggle = document.getElementById("jobsToggle");
-    const jobsMenu = document.getElementById("jobsMenu");
-    jobsToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      jobsMenu.classList.toggle("show");
-    });
 
-    // Theme toggle (light/dark)
-    const themeToggle = document.getElementById("themeToggle");
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      if(document.body.classList.contains("dark")){
-        document.body.style.background="#111827";
-        document.body.style.color="#f9fafb";
-      } else {
-        document.body.style.background="#f9fafb";
-        document.body.style.color="#111827";
-      }
-    });
 
 </script>
 
