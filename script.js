@@ -891,3 +891,292 @@ menuLinks.forEach(link => {
 // sendEmailNotification('recipient@example.com', 'Job Portal Notification', 'Your action was successful!');
 
 console.log("Script loaded");
+
+// Enhanced Form Validation with Animated Error Highlights
+// Add this to your script.js or in login.html and signup.html
+
+// Form Validation Functions
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function validatePassword(password) {
+  return password.length >= 6; // Minimum 6 characters
+}
+
+function validateUsername(username) {
+  return username.length >= 3 && /^[a-zA-Z0-9_]+$/.test(username);
+}
+
+// Error Display Functions
+function showError(inputElement, message) {
+  const formGroup = inputElement.closest('.form-group') || inputElement.parentElement;
+  
+  // Remove existing error
+  clearError(inputElement);
+  
+  // Add error styling
+  inputElement.classList.add('error');
+  inputElement.style.borderColor = '#ef4444';
+  inputElement.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+  
+  // Add shake animation
+  inputElement.classList.add('shake');
+  setTimeout(() => inputElement.classList.remove('shake'), 500);
+  
+  // Create and show error message
+  const errorElement = document.createElement('div');
+  errorElement.className = 'error-message';
+  errorElement.textContent = message;
+  errorElement.style.cssText = `
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  `;
+  
+  formGroup.appendChild(errorElement);
+  
+  // Fade in error message
+  setTimeout(() => {
+    errorElement.style.opacity = '1';
+    errorElement.style.transform = 'translateY(0)';
+  }, 50);
+}
+
+function clearError(inputElement) {
+  const formGroup = inputElement.closest('.form-group') || inputElement.parentElement;
+  const errorMessage = formGroup.querySelector('.error-message');
+  
+  // Remove error styling
+  inputElement.classList.remove('error');
+  inputElement.style.borderColor = '';
+  inputElement.style.boxShadow = '';
+  
+  // Remove error message
+  if (errorMessage) {
+    errorMessage.remove();
+  }
+}
+
+function showSuccess(inputElement) {
+  inputElement.style.borderColor = '#10b981';
+  inputElement.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.1)';
+}
+
+// Enhanced Login Validation
+function validateLoginForm(event) {
+  event.preventDefault();
+  
+  const usernameInput = document.getElementById("login-username");
+  const passwordInput = document.getElementById("login-password");
+  let isValid = true;
+  
+  // Clear previous errors
+  clearError(usernameInput);
+  clearError(passwordInput);
+  
+  // Validate username/email
+  if (!usernameInput.value.trim()) {
+    showError(usernameInput, "Username or email is required");
+    isValid = false;
+  } else if (usernameInput.value.includes('@') && !validateEmail(usernameInput.value)) {
+    showError(usernameInput, "Please enter a valid email address");
+    isValid = false;
+  } else if (!usernameInput.value.includes('@') && !validateUsername(usernameInput.value)) {
+    showError(usernameInput, "Username must be at least 3 characters and contain only letters, numbers, and underscores");
+    isValid = false;
+  } else {
+    showSuccess(usernameInput);
+  }
+  
+  // Validate password
+  if (!passwordInput.value) {
+    showError(passwordInput, "Password is required");
+    isValid = false;
+  } else if (!validatePassword(passwordInput.value)) {
+    showError(passwordInput, "Password must be at least 6 characters long");
+    isValid = false;
+  } else {
+    showSuccess(passwordInput);
+  }
+  
+  if (isValid) {
+    // Proceed with login logic
+    handleLogin(event);
+  }
+}
+
+// Enhanced Signup Validation
+function validateSignupForm(event) {
+  event.preventDefault();
+  
+  const usernameInput = document.getElementById("register-username");
+  const emailInput = document.getElementById("register-email");
+  const passwordInput = document.getElementById("register-password");
+  const confirmPasswordInput = document.getElementById("confirm-password");
+  let isValid = true;
+  
+  // Clear previous errors
+  [usernameInput, emailInput, passwordInput, confirmPasswordInput].forEach(input => {
+    if (input) clearError(input);
+  });
+  
+  // Validate username
+  if (!usernameInput.value.trim()) {
+    showError(usernameInput, "Username is required");
+    isValid = false;
+  } else if (!validateUsername(usernameInput.value)) {
+    showError(usernameInput, "Username must be at least 3 characters and contain only letters, numbers, and underscores");
+    isValid = false;
+  } else {
+    showSuccess(usernameInput);
+  }
+  
+  // Validate email (if email field exists)
+  if (emailInput) {
+    if (!emailInput.value.trim()) {
+      showError(emailInput, "Email is required");
+      isValid = false;
+    } else if (!validateEmail(emailInput.value)) {
+      showError(emailInput, "Please enter a valid email address");
+      isValid = false;
+    } else {
+      showSuccess(emailInput);
+    }
+  }
+  
+  // Validate password
+  if (!passwordInput.value) {
+    showError(passwordInput, "Password is required");
+    isValid = false;
+  } else if (!validatePassword(passwordInput.value)) {
+    showError(passwordInput, "Password must be at least 6 characters long");
+    isValid = false;
+  } else {
+    showSuccess(passwordInput);
+  }
+  
+  // Validate confirm password
+  if (confirmPasswordInput) {
+    if (!confirmPasswordInput.value) {
+      showError(confirmPasswordInput, "Please confirm your password");
+      isValid = false;
+    } else if (passwordInput.value !== confirmPasswordInput.value) {
+      showError(confirmPasswordInput, "Passwords do not match");
+      isValid = false;
+    } else {
+      showSuccess(confirmPasswordInput);
+    }
+  }
+  
+  if (isValid) {
+    // Proceed with signup logic
+    handleSignup(event);
+  }
+}
+
+// Real-time validation on input
+function addRealTimeValidation() {
+  // Login form
+  const loginUsername = document.getElementById("login-username");
+  const loginPassword = document.getElementById("login-password");
+  
+  if (loginUsername) {
+    loginUsername.addEventListener('blur', function() {
+      if (this.value.trim()) {
+        if (this.value.includes('@') && !validateEmail(this.value)) {
+          showError(this, "Please enter a valid email address");
+        } else if (!this.value.includes('@') && !validateUsername(this.value)) {
+          showError(this, "Username must be at least 3 characters");
+        } else {
+          clearError(this);
+          showSuccess(this);
+        }
+      }
+    });
+  }
+  
+  if (loginPassword) {
+    loginPassword.addEventListener('blur', function() {
+      if (this.value && !validatePassword(this.value)) {
+        showError(this, "Password must be at least 6 characters long");
+      } else if (this.value) {
+        clearError(this);
+        showSuccess(this);
+      }
+    });
+  }
+  
+  // Signup form
+  const signupUsername = document.getElementById("register-username");
+  const signupEmail = document.getElementById("register-email");
+  const signupPassword = document.getElementById("register-password");
+  const confirmPassword = document.getElementById("confirm-password");
+  
+  if (signupUsername) {
+    signupUsername.addEventListener('blur', function() {
+      if (this.value.trim() && !validateUsername(this.value)) {
+        showError(this, "Username must be at least 3 characters and contain only letters, numbers, and underscores");
+      } else if (this.value.trim()) {
+        clearError(this);
+        showSuccess(this);
+      }
+    });
+  }
+  
+  if (signupEmail) {
+    signupEmail.addEventListener('blur', function() {
+      if (this.value.trim() && !validateEmail(this.value)) {
+        showError(this, "Please enter a valid email address");
+      } else if (this.value.trim()) {
+        clearError(this);
+        showSuccess(this);
+      }
+    });
+  }
+  
+  if (signupPassword) {
+    signupPassword.addEventListener('blur', function() {
+      if (this.value && !validatePassword(this.value)) {
+        showError(this, "Password must be at least 6 characters long");
+      } else if (this.value) {
+        clearError(this);
+        showSuccess(this);
+      }
+    });
+  }
+  
+  if (confirmPassword) {
+    confirmPassword.addEventListener('blur', function() {
+      const password = document.getElementById("register-password").value;
+      if (this.value && this.value !== password) {
+        showError(this, "Passwords do not match");
+      } else if (this.value) {
+        clearError(this);
+        showSuccess(this);
+      }
+    });
+  }
+}
+
+// Initialize validation when DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+  // Attach form validation
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm") || document.getElementById("registerForm");
+  
+  if (loginForm) {
+    loginForm.addEventListener("submit", validateLoginForm);
+  }
+  
+  if (signupForm) {
+    signupForm.addEventListener("submit", validateSignupForm);
+  }
+  
+  // Add real-time validation
+  addRealTimeValidation();
+});
