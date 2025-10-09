@@ -1,309 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Junction | Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family:'Arial', sans-serif; background:#f4f4f4; transition:0.3s;}
 
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  /* Header */
+  header {
+    background:white;
+    color:#60a5fa;
+    padding:12px 25px;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
 
-  <style>
-    :root {
-      --primary-color: #3b82f6;
-      --text-color: #1f2937;
-      --bg-color: #ffffff;
-      --transition: all 0.3s ease;
+  .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1300px;
+    margin:auto;
+  }
+
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#60a5fa;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#60a5fa;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:#2563eb;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#60a5fa;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {color:#2563eb;}
+
+  /* Responsive */
+  @media(max-width:992px){
+    nav ul {
+      position:fixed;
+      top:0;
+      left:-100%;
+      height:100%;
+      width:260px;
+      flex-direction:column;
+      padding-top:70px;
+      background:#60a5fa;
+      transition:0.3s;
     }
-    body.dark {
-      --bg-color: #1f2937;
-      --text-color: #f3f4f6;
-    }
+    nav ul.show {left:0;}
+    nav ul li {width:100%;}
+    nav ul li a {padding:15px 20px;}
+    .dropdown-menu {position:static; display:none;}
+    .dropdown.active .dropdown-menu {display:block;}
+    .hamburger {display:block;}
+    .login-btn, .signup-btn {width:90%; margin:5px 20px;}
+    .theme-toggle {position:absolute; bottom:120px; left:20px;}
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: var(--transition);
-    }
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: var(--bg-color);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  /* Hover and dropdown for desktop */
+@media(min-width: 993px){
+  nav ul li a:hover {
+    background:#2563eb; /* hover color */
+    color:#fff;
+  }
 
-    .logo {
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: var(--primary-color);
-    }
+  nav ul li:hover .dropdown-menu {
+    display:block; /* show dropdown on hover */
+  }
 
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
+  nav ul li a i {
+    transition:0.3s;
+  }
+  nav ul li:hover a i {
+    transform: rotate(180deg); /* arrow rotates on hover */
+  }
+}
 
-    nav a {
-      text-decoration: none;
-      color: var(--text-color);
-      transition: var(--transition);
-      position: relative;
-      padding: 0.5rem;
-    }
+/* Mobile/tablet dropdown behavior */
+@media(max-width: 992px){
+  nav ul {
+    position:fixed;
+    top:0;
+    left:-100%;
+    height:100%;
+    width:260px;
+    flex-direction:column;
+    padding-top:70px;
+    background:#60a5fa;
+    transition:0.3s;
+  }
+  nav ul.show {left:0;}
 
-    nav a:hover {
-      color: var(--primary-color);
-      text-decoration: underline;
-    }
+  nav ul li a {
+    padding:15px 20px;
+    border-radius:0;
+  }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--text-color);
-      cursor: pointer;
-    }
+  /* Dropdown menu for mobile */
+  .dropdown-menu {
+    display:none; /* hide by default */
+    position:static;
+    background:#60a5fa;
+    box-shadow:none;
+  }
+  .dropdown.active .dropdown-menu {
+    display:block; /* show on click */
+  }
 
-    /* Dropdown styles for Jobs */
-    .dropdown {
-      position: relative;
-    }
+  /* Buttons full width on mobile */
+  .login-btn, .signup-btn {width:90%; margin:5px 20px;}
 
-    .dropdown-toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-    }
+  /* Hamburger */
+  .hamburger {display:block;}
+}
+ /* Footer */
+    footer {background:#2563eb; color:#fff; text-align:center; padding:2rem 1rem;}
+    footer a {color:#fff; margin:0 0.5rem; font-size:1.2rem;}
+    footer a:hover {color:#60a5fa;}
 
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: var(--bg-color);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 6px;
-      display: none;
-      flex-direction: column;
-      min-width: 160px;
-      z-index: 10;
-    }
-
-    .dropdown-menu a {
-      padding: 0.75rem 1rem;
-      color: var(--text-color);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background-color 0.3s ease;
-    }
-
-    .dropdown-menu a:hover {
-      background-color: var(--primary-color);
-      color: white;
-    }
-
-    .dropdown.open .dropdown-menu {
-      display: flex;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 4rem 2rem;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-
-    .hero .btn {
-      padding: 0.75rem 1.5rem;
-      border: 3px solid #2563eb;
-      border-radius: 8px;
-      background-color: var(--primary-color);
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .hero .btn:hover {
-      background-color: #2563eb;
-    }
-
-    .theme-toggle {
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      color: var(--text-color);
-    }
-
-    /* About Us Section */
-    .about-us {
-      padding: 4rem 2rem;
-      background-color: var(--bg-color);
-      text-align: center;
-    }
-
-    .about-us h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-
-    .card {
-      background-color: var(--primary-color);
-      color: white;
-      border-radius: 12px;
-      padding: 2rem;
-      width: 280px;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
-    }
-
-    .card h3 {
-      margin-bottom: 1rem;
-    }
-
-    .card p {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    /* Services Section */
-    .services {
-      padding: 4rem 2rem;
-      background-color: #f9fafb;
-      text-align: center;
-    }
-
-    .services h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-    }
-
-    .service-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-
-    .service-card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 2rem;
-      width: 260px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      color: var(--text-color);
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25);
-    }
-
-    .service-icon {
-      font-size: 3rem;
-      color: var(--primary-color);
-    }
-
-    .service-card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 4rem 2rem;
-      background-color: var(--bg-color);
-      text-align: center;
-    }
-
-    .testimonials h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-    }
-
-    .testimonial-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-
-    .testimonial-card {
-      background-color: var(--primary-color);
-      color: white;
-      border-radius: 12px;
-      padding: 2rem;
-      width: 300px;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-      transition: transform 0.3s ease;
-      font-style: italic;
-      cursor: default;
-      position: relative;
-    }
-
-    .testimonial-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5);
-    }
-
-    .testimonial-author {
-      margin-top: 1rem;
-      font-weight: 600;
-      font-style: normal;
-      text-align: right;
+    /* Responsive */
+    @media(max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      nav{flex-direction:column; align-items:flex-start}
+      nav a{margin-left:0;margin-top:0.5rem}
+     
     }
 
     /* ===== FOOTER ===== */
@@ -413,166 +321,451 @@
         transform: translateY(0);
       }
     }
-    /* Our Services Section */
-.our-services {
-  padding: 50px 20px;
-  text-align: center;
+    .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  max-width: 1200px; /* limit width */
+  margin: 0 auto; /* center the footer */
+  gap: 2rem;
 }
-
-.our-services h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
-}
-
-/* Cards container */
-.service-cards {
+.footer-col .social-icons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column; /* vertical */
+  gap: 1rem;
+  justify-content: flex-start; /* align left */
+}
+.footer-col {
+  text-align: left;
 }
 
-/* Individual card */
-.service-card {
-  flex: 1 1 250px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 25px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.footer-credit {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+/* Footer Responsive */
+
+/* Medium devices (tablets) */
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1.5rem;
+  }
+
+  .footer-col {
+    text-align: left;
+  }
+
+  .social-icons {
+    flex-direction: row; /* social icons side by side */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 }
 
-/* Icon styling */
-.service-icon {
-  font-size: 40px;
-  color: #1a73e8; /* Standardized icon color */
-  margin-bottom: 15px;
-  transition: color 0.3s ease;
-}
-
-.service-card:hover .service-icon {
-  color: #4dabf7; /* Slightly lighter shade on hover */
-}
-
-/* Card text */
-.service-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.service-card p {
-  font-size: 16px;
-  color: #555;
-}
-
-/* Responsive adjustments */
+/* Small devices (mobiles) */
 @media (max-width: 768px) {
-  .service-cards {
+  .footer-container {
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-col {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .service-card {
-    width: 90%;
+  .footer-col p,
+  .footer-col a {
+    text-align: center;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .footer-credit {
+    font-size: 0.85rem;
   }
 }
 
-  </style>
+/* Extra small devices */
+@media (max-width: 480px) {
+  .footer-container {
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .footer-col h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-col a {
+    font-size: 0.9rem;
+  }
+}
+/* ===== Hero Section with Image ===== */
+.hero-section {
+  background: 
+    linear-gradient(rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)),
+    url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  text-align: center;
+  padding: 140px 20px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #e0e7ff;
+  margin-bottom: 2rem;
+}
+
+/* Button */
+.hero-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #2563eb;
+  padding: 0.9rem 2.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.hero-btn:hover {
+  background: #60a5fa;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: 100px 20px;
+  }
+}
+/* ===== About Section ===== */
+.about-section {
+  padding: 90px 20px;
+  background: #f9fafb;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #2563eb;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #60a5fa;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: #4b5563;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cards Layout */
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Individual Card */
+.about-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-top: 5px solid #2563eb;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+}
+
+/* Icon */
+.about-icon {
+  font-size: 3rem;
+  color: #2563eb;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.about-card:hover .about-icon {
+  color: #60a5fa;
+}
+
+/* Title */
+.about-card h3 {
+  font-size: 1.4rem;
+  color: #1e3a8a;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* Description */
+.about-card p {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-card {
+    width: 90%;
+  }
+}
+/* User Image Styling */
+.user-img {
+  width: 90px;                 /* perfect size for card layout */
+  height: 90px;
+  border-radius: 50%;          /* makes it circular */
+  object-fit: cover;           /* keeps image properly cropped */
+  border: 3px solid #60a5fa;   /* blue accent border */
+  margin-bottom: 1rem;         /* spacing below image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* soft depth */
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.about-card:hover .user-img {
+  transform: scale(1.08);      /* slight zoom */
+  border-color: #2563eb;       /* darker blue on hover */
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+  
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">Job Junction</div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <nav id="navMenu">
-      <a href="#">Home</a>
 
-      <!-- Dropdown for Jobs -->
-      <div class="dropdown" id="jobsDropdown">
-        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
-        <div class="dropdown-menu" id="jobsMenu">
-          <a href="internships.html">Internships</a>
-          <a href="part-time.html">Part Time Jobs</a>
-          <a href="remote.html">Remote Jobs</a>
-        </div>
-      </div>
+<header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html"><img src="assets/logo.webp"></a>
+    </div>
 
-      <a href="companies.html">Companies</a>
-      <a href="#about-us">About</a>
-      <a href="ContactPage.html">Contact</a>
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="internships.html">Internship</a></li>
+            <li><a href="part-time.html">Part-time</a></li>
+            <li><a href="remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="career-guides.html">Career Guide</a></li>
+            <li><a href="resume-builder.html">Resume Builder</a></li>
+            <li><a href="interview-prep.html">Interview</a></li>
+            <li><a href="personal-branding.html">Personal Branding</a></li>
+            <li><a href="workplace-communication.html">Workplace</a></li>
+            <li><a href="career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="signup.html">Sitemap</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-  </header>
 
-  <section class="hero">
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
+    </div>
+
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+<section class="hero-section">
+  <div class="hero-content">
     <h1>Find Your Dream Job Today</h1>
     <p>Browse top job opportunities, connect with recruiters, and take the next step in your career journey.</p>
-    <button class="btn">Get Started</button>
-  </section>
+    <a href="signup.html" class="hero-btn">Get Started</a>
+  </div>
+</section>
 
-  <section class="about-us">
-    <h2>About Us</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Our Mission</h3>
-        <p>We connect talented individuals with their dream jobs to empower career growth.</p>
-      </div>
-      <div class="card">
-        <h3>Our Vision</h3>
-        <p>To be the leading platform where job seekers and employers thrive together.</p>
-      </div>
-      <div class="card">
-        <h3>Our Values</h3>
-        <p>Integrity, Innovation, and Inclusion guide everything we do.</p>
-      </div>
+
+<section class="about-section">
+  <h2 class="section-title">About Us</h2>
+  <p class="section-subtitle">
+    We are dedicated to helping professionals achieve their dreams by connecting talent with the right opportunities.
+  </p>
+
+  <div class="about-cards">
+    <div class="about-card">
+      <i class="fas fa-bullseye about-icon"></i>
+      <h3>Our Mission</h3>
+      <p>To bridge the gap between job seekers and employers through innovative technology and personalized connections.</p>
     </div>
-  </section>
 
-  <section class="our-services">
-  <h2>Our Services</h2>
-  <div class="service-cards">
-    <div class="service-card">
-      <i class="fas fa-briefcase service-icon"></i>
+    <div class="about-card">
+      <i class="fas fa-lightbulb about-icon"></i>
+      <h3>Our Vision</h3>
+      <p>To become the most trusted global platform where careers grow and companies find exceptional talent effortlessly.</p>
+    </div>
+
+    <div class="about-card">
+      <i class="fas fa-handshake about-icon"></i>
+      <h3>Our Values</h3>
+      <p>We believe in integrity, transparency, and commitment to creating meaningful professional relationships.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-subtitle">
+    We provide professional support and tools to help you learn, grow, and secure the perfect career opportunity.
+  </p>
+
+  <div class="about-cards">
+    <div class="about-card">
+      <i class="fas fa-user-graduate about-icon"></i>
       <h3>Career Guidance</h3>
       <p>Expert advice to help you grow in your career and find the right opportunities.</p>
     </div>
-    <div class="service-card">
-      <i class="fas fa-chalkboard-teacher service-icon"></i>
+
+    <div class="about-card">
+      <i class="fas fa-laptop-code about-icon"></i>
       <h3>Online Courses</h3>
       <p>Access quality online courses to improve your skills and knowledge.</p>
     </div>
-    <div class="service-card">
-      <i class="fas fa-handshake service-icon"></i>
+
+    <div class="about-card">
+      <i class="fas fa-briefcase about-icon"></i>
       <h3>Job Placement</h3>
       <p>Connect with top employers and get assistance in landing your dream job.</p>
     </div>
   </div>
 </section>
+<section class="about-section">
+  <h2 class="section-title">What Our Users Say</h2>
+  <p class="section-subtitle">
+    Hear from our users who found their dream jobs and boosted their careers with our platform.
+  </p>
 
-
-  <section class="testimonials">
-    <h2>What Our Users Say</h2>
-    <div class="testimonial-cards">
-      <div class="testimonial-card">
-        “Job Junction helped me land my dream job in just a few weeks! The platform is easy to use and full of great opportunities.”
-        <div class="testimonial-author">- Sarah K.</div>
-      </div>
-      <div class="testimonial-card">
-        “The resume builder was a lifesaver. I felt confident applying to jobs knowing my resume stood out.”
-        <div class="testimonial-author">- James P.</div>
-      </div>
-      <div class="testimonial-card">
-        “I love the networking features that allowed me to connect with recruiters directly. Highly recommended!”
-        <div class="testimonial-author">- Priya M.</div>
-      </div>
+  <div class="about-cards">
+    <div class="about-card">
+        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="User 2" class="user-img" />
+      <h3>Arjun Mehta</h3>
+      
+      <p  class="user-role">Marketing Executive</p>
+      <p class="user-review">
+        “This platform helped me discover amazing opportunities! The career guidance feature was a game-changer.”</p>
     </div>
-  </section>
 
-  <footer>
+    <div class="about-card">
+      <img src="assets/user1.jpg" alt="User 1" class="user-img" />
+      <h3>Riya Kharade</h3>
+      <p class="user-role">Software Engineer</p>
+      <p class="user-review">
+        “I learned new skills through the online courses and quickly landed a job that fits my interests perfectly!”
+      </p>
+    </div>
+
+    <div class="about-card">
+        <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="User 3" class="user-img" />
+      <h3>Priya Nair</h3>
+      <p class="user-role">HR Specialist</p>
+      <p class="user-review">
+        “User-friendly, professional, and effective! The job placement team truly cares about your career growth.”
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+ <footer>
     <div class="footer-container">
       <div class="footer-col">
         <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
@@ -605,44 +798,67 @@
       &copy; 2025 Job Junction. All rights reserved.
     </div>
   </footer>
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const dropdowns = document.querySelectorAll(".dropdown");
+const themeToggle = document.getElementById('themeToggle');
 
-  <script>
-    // Toggle mobile nav
-    document.getElementById('menuToggle').addEventListener('click', function () {
-      document.getElementById('navMenu').classList.toggle('active');
-    });
+// Hamburger toggle
+hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
 
-    // Theme toggle (Dark/Light)
-    const themeToggle = document.getElementById("themeToggle");
-    const prefersDark = localStorage.getItem("theme") === "dark";
-
-    function applyTheme(isDark) {
-      document.body.classList.toggle("dark", isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+// Mobile dropdown toggle
+dropdowns.forEach(drop => {
+  drop.addEventListener("click", e => {
+    if(window.innerWidth <= 992){
+      e.stopPropagation();
+      drop.classList.toggle("active");
     }
+  });
+});
 
-    applyTheme(prefersDark);
+// Dark/Light toggle
+const currentTheme = localStorage.getItem("theme");
+if(currentTheme === "dark") document.body.classList.add("dark");
 
-    themeToggle.addEventListener("click", () => {
-      const isDark = !document.body.classList.contains("dark");
-      applyTheme(isDark);
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+});
+ const applyButtons = document.querySelectorAll('.get-started-btn');
+
+  applyButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent default link behavior
+      const card = button.closest('.job-card'); // get parent card
+      const msg = card.querySelector('.apply-msg'); // find message element
+      msg.style.display = 'block'; // show applied message
+      button.style.display = 'none'; // hide button
     });
+  });
+  const searchInput = document.getElementById('searchInput');
+const jobCards = document.querySelectorAll('.job-card');
 
-    // Dropdown toggle for Jobs menu
-    const jobsDropdown = document.getElementById("jobsDropdown");
-    const jobsToggle = document.getElementById("jobsToggle");
+searchInput.addEventListener('input', () => {
+  const filter = searchInput.value.toLowerCase();
 
-    jobsToggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      jobsDropdown.classList.toggle("open");
-    });
+  jobCards.forEach(card => {
+    const title = card.querySelector('h3').innerText.toLowerCase();
+    const infos = Array.from(card.querySelectorAll('.job-info')).map(p => p.innerText.toLowerCase());
+    
+    const company = infos[0] || '';
+    const location = infos[1] || '';
+    const salary = infos[2] || '';
 
-    // Close dropdown if clicking outside
-    document.addEventListener("click", function (e) {
-      if (!jobsDropdown.contains(e.target)) {
-        jobsDropdown.classList.remove("open");
-      }
-    });
-  </script>
+    if(title.includes(filter) || company.includes(filter) || location.includes(filter)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
+</script>
+
 </body>
 </html>
