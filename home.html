@@ -6,6 +6,10 @@
   <title>Job Junction | Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
   <style>
     :root {
       --primary-color: #3b82f6;
@@ -141,11 +145,12 @@
 
     .hero .btn {
       padding: 0.75rem 1.5rem;
-      border: none;
+      border: 3px solid #2563eb;
       border-radius: 8px;
       background-color: var(--primary-color);
       color: white;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
       transition: var(--transition);
     }
@@ -301,39 +306,100 @@
       text-align: right;
     }
 
-    /* Footer styles */
+    /* ===== FOOTER ===== */
     footer {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-      font-weight: 500;
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
     }
 
-    /* Responsive */
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-col p:hover {
+      color: #2563eb;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons a:hover {
+      color: #2563eb;
+    }
+
+    .social-icons a i {
+      margin-right: 8px;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    /* ✅ Mobile Responsive Fix */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        display: none;
-        background-color: var(--bg-color);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        padding: 1rem 2rem;
-      }
-      nav.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
       }
 
-      .cards,
-      .service-cards,
-      .testimonial-cards {
+      .footer-col {
+        display: flex;
         flex-direction: column;
         align-items: center;
+      }
+
+      .footer-col p {
+        display: block;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        flex-direction: row;  /* icons side by side on mobile */
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
       }
     }
 
@@ -347,6 +413,75 @@
         transform: translateY(0);
       }
     }
+    /* Our Services Section */
+.our-services {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.our-services h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* Cards container */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual card */
+.service-card {
+  flex: 1 1 250px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon styling */
+.service-icon {
+  font-size: 40px;
+  color: #1a73e8; /* Standardized icon color */
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  color: #4dabf7; /* Slightly lighter shade on hover */
+}
+
+/* Card text */
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 90%;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -367,8 +502,8 @@
       </div>
 
       <a href="companies.html">Companies</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#about-us">About</a>
+      <a href="ContactPage.html">Contact</a>
     </nav>
     <button class="theme-toggle" id="themeToggle">🌓</button>
   </header>
@@ -397,26 +532,27 @@
     </div>
   </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="service-card">
-        <div class="service-icon">🔍</div>
-        <h3>Job Search</h3>
-        <p>Access a large database of jobs to find the perfect match for your skills and goals.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💼</div>
-        <h3>Resume Building</h3>
-        <p>Create professional resumes that get you noticed by top recruiters and companies.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🤝</div>
-        <h3>Networking</h3>
-        <p>Connect with recruiters and industry professionals to grow your career network.</p>
-      </div>
+  <section class="our-services">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    <div class="service-card">
+      <i class="fas fa-briefcase service-icon"></i>
+      <h3>Career Guidance</h3>
+      <p>Expert advice to help you grow in your career and find the right opportunities.</p>
     </div>
-  </section>
+    <div class="service-card">
+      <i class="fas fa-chalkboard-teacher service-icon"></i>
+      <h3>Online Courses</h3>
+      <p>Access quality online courses to improve your skills and knowledge.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-handshake service-icon"></i>
+      <h3>Job Placement</h3>
+      <p>Connect with top employers and get assistance in landing your dream job.</p>
+    </div>
+  </div>
+</section>
+
 
   <section class="testimonials">
     <h2>What Our Users Say</h2>
@@ -437,7 +573,37 @@
   </section>
 
   <footer>
-    <p>© 2025 Job Junction. All rights reserved.</p>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
   </footer>
 
   <script>
