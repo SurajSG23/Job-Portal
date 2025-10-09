@@ -1,6 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Remote Jobs - Job Junction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Remote Jobs Page Styling - Add this to remote.css or in a <style> tag */
+
+    /* Page Container */
+    .remote-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    /* Hero Section Enhancement */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.05"/><circle cx="40" cy="70" r="1" fill="white" opacity="0.1"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Remote Jobs</title>
@@ -228,6 +277,125 @@
       gap: 2rem;
     }
 
+    /* Benefits Section */
+    .remote-benefits {
+      background: #f8fafc;
+      padding: 3rem 1rem;
+      margin: 2rem 0;
+    }
+
+    .benefits-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .benefit-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(102, 126, 234, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    /* Dark Mode Support */
+    body.dark .hero {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    }
+
+    body.dark .job-card {
+      background: #1e293b;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+
+    body.dark .job-card h3 {
+      color: #f1f5f9;
+    }
+
+    body.dark .job-card p {
+      color: #94a3b8;
+    }
+
+    body.dark .remote-stats,
+    body.dark .benefit-card {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-description {
+        font-size: 1.1rem;
+      }
+      
+      .jobs-container {
+        grid-template-columns: 1fr;
+        margin: 2rem auto;
+        padding: 0 0.5rem;
+      }
+      
+      .job-card {
+        padding: 1rem;
+      }
+      
+      .remote-stats {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 0.5rem 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .benefits-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* =========================
+       Global Styles
+    ========================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
     .footer-col h3 {
       margin-bottom: 1rem;
       color: #2563eb;
@@ -769,6 +937,56 @@
     <p class="apply-msg" style="display:none; color:green; margin-top:1rem; font-weight:600;">Applied Successfully!</p>
   </div>
 
+  <!-- Footer -->
+ <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+     
+      <p class="footer-tagline">
+        Connecting Talent with Opportunity.<br>
+        Your Career Journey Starts Here!
+      </p>
+      <div class="social-icons">
+        <a href="https://github.com/SurajSG23/Job-Portal" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+<div class="footer-links">
+  <div class="footer-col">
+    <h4>For Job Seekers</h4>
+    <ul>
+      <li><a href="components/seeker.html"><i class="fas fa-search"></i> Browse Jobs</a></li>
+      <li><a href="internships.html"><i class="fas fa-graduation-cap"></i>Internships</a></li>
+      <li><a href="#"><i class="fas fa-lightbulb"></i>Advice</a></li>
+      <li><a href="salary-insights.html"><i class="fas fa-dollar-sign"></i>Salary Insights</a></li>
+      <li><a href="#"><i class="fas fa-book"></i>Skill Development</a></li>
+      <li><a href="resume-builder.html"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <h4>For Employers</h4>
+    <ul>
+      <li><a href="components/employer.html"><i class="fas fa-briefcase"></i> Post a Job</a></li>
+      <li><a href="components/employer.html"><i class="fas fa-users"></i> Talent Search</a></li>
+      <li><a href="components/employer.html"><i class="fas fa-coins"></i> Pricing</a></li>
+      <li><a href="components/employer.html"><i class="fas fa-building"></i> Enterprise</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="components/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="ContactPage.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="open-source.html"><i class="fas fa-code-branch"></i> Open Source</a></li>
+      <li><a href="masthead.html"><i class="fas fa-users-cog"></i> Masthead</a></li>
+      <li><a href="privacy-policy.html"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+      <li><a href="terms-of-use.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+    </ul>
+  </div>
+</div>
   <div class="job-card">
     <i class="fas fa-briefcase job-icon"></i>
     <h3>Digital Marketing Specialist</h3><hr>
