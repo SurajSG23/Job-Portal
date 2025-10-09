@@ -1,110 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Internships - Job Junction</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Junction</title>
+
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f9f9f9;
-  }
-
-  header {
-    background: rgb(124, 124, 253);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 2rem;
-  }
-
-  /* Filters */
-  .filter-bar {
-    background: white;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-
-  .filter-bar select
-   {
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-
-  /* Internship Cards Grid */
-  .internship-container
-   {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-  }
-
-  .card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  .card.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  }
-
-  .card h3 {
-    margin-top: 0;
-    color: #333;
-  }
-
-  .card p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
-    color: #555;
-  }
-
-  .apply-btn {
-    display: inline-block;
-    margin-top: 0.8rem;
-    background: rgb(124, 124, 253);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-
-  .apply-btn:hover {
-    background: blue;
-  }
-
-  @media (max-width: 600px) {
-    .filter-bar {
-      flex-direction: column;
-    }
-  }
-      /* ===== GLOBAL ===== */
+  <style>
+    /* ===== GLOBAL ===== */
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
     body { background: #f9fafb; color: #111827; }
 
@@ -422,32 +327,11 @@
     text-align: center; 
   }
 }
-/* Main title section */
-.main-title {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: #e0f2fe; /* light blue background */
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-  margin: 2rem auto;
-  max-width: 800px;
-}
 
-.main-title h1 {
-  font-size: 2.5rem;
-  color: #2563eb; /* primary blue */
-  margin-bottom: 1rem;
-}
-
-.main-title p {
-  font-size: 1.2rem;
-  color: #111827;
-}
-
-</style>
+  </style>
 </head>
 <body>
-<!-- ===== HEADER ===== -->
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="logo">Job Junction</div>
     <button class="menu-toggle" id="menuToggle">☰</button>
@@ -467,116 +351,14 @@
     </nav>
     <button class="theme-toggle" id="themeToggle">🌓</button>
   </header>
-<div class="main-title">
-  <h1>Internship Opportunities</h1>
-  <p>Find the perfect internship to kickstart your career!</p>
-</div>
 
+  <!-- ===== MAIN ===== -->
+  <main style="padding:2rem; max-width:800px; margin:auto;">
+    <h1>Welcome to Job Junction</h1>
+    <p>Find the best jobs, internships, and remote work opportunities.</p>
+  </main>
 
-<!-- Filters -->
-<div class="filter-bar">
-  <select id="locationFilter">
-    <option value="">Location</option>
-    <option value="Remote">Remote</option>
-    <option value="Delhi">Delhi</option>
-    <option value="Mumbai">Mumbai</option>
-  </select>
-  <select id="durationFilter">
-    <option value="">Duration</option>
-    <option value="1 month">1 month</option>
-    <option value="3 months">3 months</option>
-    <option value="6 months">6 months</option>
-  </select>
-  <select id="stipendFilter">
-    <option value="">Stipend</option>
-    <option value="0">Unpaid</option>
-    <option value="5000">₹5,000+</option>
-    <option value="10000">₹10,000+</option>
-  </select>
-  <select id="fieldFilter">
-    <option value="">Field</option>
-    <option value="Web Development">Web Development</option>
-    <option value="Marketing">Marketing</option>
-    <option value="Design">Design</option>
-  </select>
-</div>
-
-<!-- Internships -->
-<div class="internship-container" id="internshipList">
-  <div class="card" data-location="Remote" data-duration="3 months" data-stipend="5000" data-field="Web Development">
-    <h3>Frontend Developer Intern</h3>
-    <p><strong>Company:</strong> Tech Solutions</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 3 months</p>
-    <p><strong>Stipend:</strong> ₹5,000</p>
-    <p><strong>Deadline:</strong> 25 Aug 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-
-  <div class="card" data-location="Delhi" data-duration="1 month" data-stipend="0" data-field="Marketing">
-    <h3>Marketing Intern</h3>
-    <p><strong>Company:</strong> BrandBoost</p>
-    <p><strong>Location:</strong> Delhi</p>
-    <p><strong>Duration:</strong> 1 month</p>
-    <p><strong>Stipend:</strong> Unpaid</p>
-    <p><strong>Deadline:</strong> 15 Aug 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-
-  <div class="card" data-location="Mumbai" data-duration="6 months" data-stipend="10000" data-field="Design">
-    <h3>UI/UX Designer Intern</h3>
-    <p><strong>Company:</strong> Creative Studio</p>
-    <p><strong>Location:</strong> Mumbai</p>
-    <p><strong>Duration:</strong> 6 months</p>
-    <p><strong>Stipend:</strong> ₹12,000</p>
-    <p><strong>Deadline:</strong> 30 Aug 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-
-  
-  <div class="card" data-location="Remote" data-duration="1 month" data-stipend="0" data-field="Web Development">
-    <h3>Backend Developer Intern</h3>
-    <p><strong>Company:</strong> Tech Innovations</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 1 month</p>
-    <p><strong>Stipend:</strong> Unpaid</p>
-    <p><strong>Deadline:</strong> 15 Aug 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-
-   <div class="card" data-location="Remote" data-duration="3 months" data-stipend="10000" data-field="Design">
-    <h3>Graphic Designer Intern</h3>
-    <p><strong>Company:</strong> Creative Studio</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 3 months</p>
-    <p><strong>Stipend:</strong> ₹1,000</p>
-    <p><strong>Deadline:</strong> 15 Aug 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-
-  <div class="card" data-location="Delhi" data-duration="1 month" data-stipend="0" data-field="Marketing">
-    <h3>Social Media Marketing Intern</h3>
-    <p><strong>Company:</strong> MediaCorp</p>
-    <p><strong>Location:</strong> Delhi</p>
-    <p><strong>Duration:</strong> 1 month</p>
-    <p><strong>Stipend:</strong> Unpaid</p>
-    <p><strong>Deadline:</strong> 20 Aug 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-
-  
-  <div class="card" data-location="Remote" data-duration="3 month" data-stipend="0" data-field="Web Development">
-    <h3>Full Stack Developer Intern</h3>
-    <p><strong>Company:</strong> Tech Innovations</p>
-    <p><strong>Location:</strong> Remote</p>
-    <p><strong>Duration:</strong> 3 month</p>
-    <p><strong>Stipend:</strong> ₹15,000 </p>
-    <p><strong>Deadline:</strong> 15 Sep 2025</p>
-    <a href="#" class="apply-btn">Apply Now</a>
-  </div>
-</div>
-
-<footer>
+  <footer>
     <div class="footer-container">
       <div class="footer-col">
         <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
@@ -609,47 +391,10 @@
       &copy; 2025 Job Junction. All rights reserved.
     </div>
   </footer>
-<script>
-  // Fade-in animation on scroll
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.1 });
 
-  cards.forEach(card => observer.observe(card));
-
-  // Filter functionality
-  const filters = document.querySelectorAll('.filter-bar select');
-  filters.forEach(filter => {
-    filter.addEventListener('change', () => {
-      const locationValue = document.getElementById('locationFilter').value;
-      const durationValue = document.getElementById('durationFilter').value;
-      const stipendValue = document.getElementById('stipendFilter').value;
-      const fieldValue = document.getElementById('fieldFilter').value;
-
-      cards.forEach(card => {
-        const matchLocation = !locationValue || card.dataset.location === locationValue;
-        const matchDuration = !durationValue || card.dataset.duration === durationValue;
-        const matchStipend = !stipendValue || parseInt(card.dataset.stipend) >= parseInt(stipendValue);
-        const matchField = !fieldValue || card.dataset.field === fieldValue;
-
-        if (matchLocation && matchDuration && matchStipend && matchField) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-    // Initial display setup
-    cards.forEach(card => {
-      card.style.display = 'block';
-    });
- // Toggle mobile menu
+  <!-- ===== JS ===== -->
+  <script>
+      // Toggle mobile menu
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
     menuToggle.addEventListener("click", () => {
@@ -676,8 +421,6 @@
         document.body.style.color="#111827";
       }
     });
-
-</script>
-
+  </script>
 </body>
 </html>

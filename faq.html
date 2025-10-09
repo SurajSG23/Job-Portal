@@ -6,14 +6,198 @@
   <title>Job Junction | FAQ</title>
   <link rel="stylesheet" href="faq.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <style>
+    /* ---------------- HEADER ---------------- */
+    main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
+      margin-bottom: 50px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #eee;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .menu-toggle,
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* ---------------- HEADER (Mobile) ---------------- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #512da8;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
+      }
+
+      nav a {
+        padding: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+    /* ---------------- DARK MODE STYLES ---------------- */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode header {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .faq-container {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode .category h2 {
+      color: #bb86fc;
+    }
+
+    body.dark-mode .faq {
+      background-color: #2d2d2d;
+      border-left: 4px solid #bb86fc;
+    }
+
+    body.dark-mode .faq-question {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .faq-answer {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .search-box input {
+      background-color: #2d2d2d;
+      color: #e0e0e0;
+      border: 1px solid #444;
+    }
+
+    body.dark-mode .footer {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .footer-column h4 {
+      color: #bb86fc;
+    }
+
+    body.dark-mode .footer-column ul li a {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .footer-column ul li a:hover {
+      color: #bb86fc;
+    }
+
+    body.dark-mode .footer-social a {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .footer-social a:hover {
+      color: #bb86fc;
+    }
+  </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <main-header>
+    <div class="logo">Job Junction</div>
+    <nav id="navMenu">
+      <a href="home.html">Home</a>
+      <div class="dropdown" id="jobsDropdown">
+        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+        <div class="dropdown-menu" id="jobsMenu">
+          <a href="internships.html">Internships</a>
+          <a href="part-time.html">Part Time Jobs</a>
+          <a href="remote.html">Remote Jobs</a>
+        </div>
+      </div>
+      <a href="companies.html">Companies</a>
+      <a href="about.html">About</a>
+      <a href="ContactPage.html">Contact</a>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+  </main-header>
+
   <header>
     <h1>Frequently Asked Questions</h1>
      <i class="fa-solid fa-circle-question" id="question-icon"></i>
     <p>Find answers to common questions about Job Junction</p>
   <div><a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Home</a></div>
-
   </header>
 
   <!-- Search -->
@@ -54,7 +238,7 @@
       <h2>Internships</h2>
       <div class="faq">
          <div class="faq-question">Who can apply for this internship ? <span class="icon">▼</span></div>
-        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you’re passionate about building, coding, or creating with technology, this internship is for you.</div>
+        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you're passionate about building, coding, or creating with technology, this internship is for you.</div>
       </div>
       <div class="faq">
         <div class="faq-question">Are internships paid? <span class="icon">▼</span></div>
@@ -88,33 +272,33 @@
     <div class="footer-column">
       <h4>For Job Seekers</h4>
       <ul>
-        <li><a href="/jobs">Browse Jobs</a></li>
-        <li><a href="/internships">Internships</a></li>
-        <li><a href="/advice">Advice</a></li>
-        <li><a href="/salary-guide">Salary Guide</a></li>
-        <li><a href="/resume-builder">Resume Builder</a></li>
+        <li><a href="components/seeker.html">Browse Jobs</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="#">Advice</a></li>
+        <li><a href="salary-insights.html">Salary Guide</a></li>
+        <li><a href="resume-builder.html">Resume Builder</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
       <h4>For Employers</h4>
       <ul>
-        <li><a href="/post-job">Post a Job</a></li>
-        <li><a href="/talent-search">Talent Search</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/enterprise">Enterprise</a></li>
+        <li><a href="components/employer.html">Post a Job</a></li>
+        <li><a href="components/employer.html">Talent Search</a></li>
+        <li><a href="components/employer.html">Pricing</a></li>
+        <li><a href="components/employer.html">Enterprise</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
       <h4>Company</h4>
       <ul>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/open-source">Open Source</a></li>
-        <li><a href="/masthead">Masthead</a></li>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="components/about.html">About Us</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+        <li><a href="open-source.html">Open Source</a></li>
+        <li><a href="masthead.html">Masthead</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-use.html">Terms of Use</a></li>
       </ul>
     </div>
   </div>
@@ -159,10 +343,32 @@
     });
 
     // Animate FAQ cards on load with delay
-document.querySelectorAll('.faq').forEach((faq, i) => {
-  faq.style.animationDelay = `${i * 0.1}s`;
-});
+    document.querySelectorAll('.faq').forEach((faq, i) => {
+      faq.style.animationDelay = `${i * 0.1}s`;
+    });
 
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+      }
+    });
   </script>
 </body>
 </html>
