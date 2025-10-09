@@ -353,3 +353,233 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Searching for:', query);
   }
 });
+
+// Interactive Job Cards JavaScript
+// Add this to your seeker.js or script.js
+
+class InteractiveJobCards {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.setupJobCards();
+    this.setupEventListeners();
+  }
+
+  setupJobCards() {
+    // Sample job data - replace with your actual data
+    this.jobsData = [
+      {
+        id: 1,
+        title: "Senior Frontend Developer",
+        company: "TechCorp Inc.",
+        location: "Remote",
+        salary: "$80K - $120K",
+        type: "Full-time",
+        tags: ["React", "TypeScript", "Remote"],
+        description: "Join our innovative team to build cutting-edge web applications using modern technologies. Work with a collaborative team on exciting projects.",
+        requirements: [
+          "3+ years React experience",
+          "TypeScript proficiency",
+          "Modern CSS/SCSS skills",
+          "REST API integration",
+          "Git version control"
+        ],
+        posted: "2 days ago"
+      },
+      {
+        id: 2,
+        title: "UI/UX Designer",
+        company: "Creative Minds",
+        location: "New York",
+        salary: "$60K - $90K",
+        type: "Full-time",
+        tags: ["Figma", "Design Systems", "Prototyping"],
+        description: "Create intuitive and beautiful user experiences for our digital products. Collaborate with development teams to bring designs to life.",
+        requirements: [
+          "3+ years UI/UX experience",
+          "Figma/Sketch proficiency",
+          "Design system experience",
+          "User research skills",
+          "Portfolio required"
+        ],
+        posted: "1 week ago"
+      }
+      // Add more job data as needed
+    ];
+
+    this.renderJobCards();
+  }
+
+  renderJobCards() {
+    const jobsContainer = document.querySelector('.jobs-container');
+    if (!jobsContainer) return;
+
+    jobsContainer.innerHTML = this.jobsData.map(job => this.createJobCardHTML(job)).join('');
+  }
+
+  createJobCardHTML(job) {
+    return `
+      <div class="job-card" data-job-id="${job.id}">
+        <div class="job-card-inner">
+          <div class="job-card-front">
+            <div class="job-card-header">
+              <h3>${job.title}</h3>
+              <div class="company-name">
+                <div class="company-logo"></div>
+                ${job.company}
+              </div>
+              <div class="job-meta">
+                <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                <span><i class="fas fa-dollar-sign"></i> ${job.salary}</span>
+                <span><i class="fas fa-clock"></i> ${job.type}</span>
+              </div>
+              <div class="job-tags">
+                ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
+              </div>
+              <small style="color: #64748b; margin-top: auto;">${job.posted}</small>
+            </div>
+            <div class="flip-indicator" title="View details">
+              <i class="fas fa-info"></i>
+            </div>
+          </div>
+          <div class="job-card-back">
+            <div class="back-indicator" title="Back to overview">
+              <i class="fas fa-arrow-left"></i>
+            </div>
+            <h4>${job.title}</h4>
+            <div class="job-description">
+              ${job.description}
+            </div>
+            <div class="job-requirements">
+              <h5>Requirements:</h5>
+              <ul class="requirements-list">
+                ${job.requirements.map(req => `<li>${req}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="job-actions">
+              <button class="apply-btn" onclick="applyToJob(${job.id})">
+                <i class="fas fa-paper-plane"></i> Apply Now
+              </button>
+              <button class="save-btn" onclick="saveJob(${job.id})">
+                <i class="fas fa-heart"></i> Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  setupEventListeners() {
+    document.addEventListener('click', (e) => {
+      const jobCard = e.target.closest('.job-card');
+      if (!jobCard) return;
+
+      // Handle flip indicator click
+      if (e.target.closest('.flip-indicator') || e.target.closest('.back-indicator')) {
+        this.toggleCard(jobCard);
+        return;
+      }
+
+      // Handle card click (but not on buttons)
+      if (!e.target.closest('button') && !e.target.closest('a')) {
+        this.toggleCard(jobCard);
+      }
+    });
+
+    // Close card when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.job-card')) {
+        this.closeAllCards();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeAllCards();
+      }
+    });
+  }
+
+  toggleCard(card) {
+    const isFlipped = card.classList.contains('flipped');
+    
+    // Close other cards first
+    this.closeAllCards();
+    
+    if (!isFlipped) {
+      card.classList.add('flipped');
+      // Add loading effect
+      card.classList.add('loading');
+      setTimeout(() => {
+        card.classList.remove('loading');
+      }, 300);
+    }
+  }
+
+  closeAllCards() {
+    document.querySelectorAll('.job-card.flipped').forEach(card => {
+      card.classList.remove('flipped');
+    });
+  }
+}
+
+// Job action functions
+function applyToJob(jobId) {
+  // Add loading state
+  const button = event.target;
+  const originalText = button.innerHTML;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Applying...';
+  button.disabled = true;
+  
+  // Simulate API call
+  setTimeout(() => {
+    alert(`Applied to job ${jobId}!`);
+    button.innerHTML = '<i class="fas fa-check"></i> Applied';
+    button.style.background = '#10b981';
+    
+    // Reset after 2 seconds
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.disabled = false;
+      button.style.background = '';
+    }, 2000);
+  }, 1000);
+}
+
+function saveJob(jobId) {
+  const button = event.target;
+  const originalText = button.innerHTML;
+  
+  if (button.classList.contains('saved')) {
+    button.innerHTML = '<i class="fas fa-heart-broken"></i> Removed';
+    button.classList.remove('saved');
+  } else {
+    button.innerHTML = '<i class="fas fa-heart"></i> Saved';
+    button.classList.add('saved');
+    button.style.background = '#ef4444';
+  }
+  
+  // Reset after 1 second
+  setTimeout(() => {
+    button.innerHTML = originalText;
+    button.style.background = '';
+  }, 1000);
+}
+
+// Initialize when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+  new InteractiveJobCards();
+});
+
+// Alternative: Expandable cards (simpler implementation)
+function initExpandableCards() {
+  document.querySelectorAll('.job-card.expandable').forEach(card => {
+    card.addEventListener('click', function() {
+      this.classList.toggle('expanded');
+    });
+  });
+}
