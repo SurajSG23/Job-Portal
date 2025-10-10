@@ -1,426 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Junction</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Junction</title>
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <style>
-    /* ===== GLOBAL ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background: #f9fafb; color: #111827; }
-
-     /* ===== HEADER ===== */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border-bottom: 3px solid #2563eb;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #2563eb;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #111827;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #2563eb;
-    }
-
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border: 2px solid #2563eb;
-      border-radius: 0.5rem;
-      top: 2rem;
-      left: 0;
-      flex-direction: column;
-      min-width: 180px;
-      z-index: 999;
-    }
-
-    .dropdown-menu a {
-      padding: 0.5rem 1rem;
-      display: block;
-      color: #111827;
-    }
-
-    .dropdown-menu a:hover {
-      background: #2563eb;
-      color: #fff;
-    }
-
-    /* Mobile dropdown toggle */
-    .dropdown-menu.show {
-      display: flex;
-    }
-
-    .menu-toggle, .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .menu-toggle {
-      display: none;
-    }
-
-    /* ===== MAIN ===== */
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border: 3px solid #2563eb;
-    }
-
-    /* Terms Cards */
-    .terms-cards {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .term-card {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      background-color: #e0f2fe; /* light blue */
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    .term-card i {
-      color: #2563eb;
-      font-size: 1.5rem;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111827;
-      color: #fff;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-col h3 {
-      margin-bottom: 1rem;
-      color: #2563eb;
-    }
-
-    .footer-col a {
-      display: block;
-      color: #d1d5db;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-col a:hover {
-      color: #2563eb;
-    }
-
-    .footer-col p:hover {
-      color: #2563eb;
-    }
-    .social-icons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .social-icons a {
-      font-size: 1.1rem;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-.social-icons a:hover {
-      font-size: 1.1rem;
-      color: #2563eb;
-
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-    .social-icons a i {
-      margin-right: 8px;
-    }
-
-    .footer-col p {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-credit {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-    
-
-    /* ===== MEDIA QUERIES ===== */
-    @media(max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        border: 2px solid #2563eb;
-        border-radius: 0.5rem;
-        padding: 1rem;
+    <style>
+      /* ===== GLOBAL ===== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #f9fafb;
+        color: #111827;
       }
 
-      nav.show {
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        border-bottom: 3px solid #2563eb;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2563eb;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #111827;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: #2563eb;
+      }
+
+      /* Dropdown */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        border: 2px solid #2563eb;
+        border-radius: 0.5rem;
+        top: 2rem;
+        left: 0;
+        flex-direction: column;
+        min-width: 180px;
+        z-index: 999;
+      }
+
+      .dropdown-menu a {
+        padding: 0.5rem 1rem;
+        display: block;
+        color: #111827;
+      }
+
+      .dropdown-menu a:hover {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      /* Mobile dropdown toggle */
+      .dropdown-menu.show {
         display: flex;
       }
 
-      .menu-toggle {
-        display: block;
+      .menu-toggle,
+      .theme-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
       }
 
+      .menu-toggle {
+        display: none;
+      }
+
+      /* ===== MAIN ===== */
+      main {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        border: 3px solid #2563eb;
+      }
+
+      /* Terms Cards */
       .terms-cards {
-        grid-template-columns: 1fr;
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .term-card {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        background-color: #e0f2fe; /* light blue */
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+      }
+
+      .term-card i {
+        color: #2563eb;
+        font-size: 1.5rem;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #111827;
+        color: #fff;
+        padding: 2rem;
+        margin-top: 2rem;
       }
 
       .footer-container {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        margin-bottom: 1rem;
+        color: #2563eb;
+      }
+
+      .footer-col a {
+        display: block;
+        color: #d1d5db;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-col a:hover {
+        color: #2563eb;
+      }
+
+      .footer-col p:hover {
+        color: #2563eb;
+      }
+      .social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .social-icons a {
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      .social-icons a:hover {
+        font-size: 1.1rem;
+        color: #2563eb;
+
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      .social-icons a i {
+        margin-right: 8px;
+      }
+
+      .footer-col p {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-credit {
         text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #9ca3af;
       }
 
-      .footer-col .social-icons {
-        justify-content: center;
+      /* ===== MEDIA QUERIES ===== */
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: #fff;
+          position: absolute;
+          top: 70px;
+          right: 20px;
+          border: 2px solid #2563eb;
+          border-radius: 0.5rem;
+          padding: 1rem;
+        }
+
+        nav.show {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .terms-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .footer-col .social-icons {
+          justify-content: center;
+        }
       }
-    }
-    /* ===== MEDIA QUERIES ===== */
-@media(max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border: 2px solid #2563eb;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
+      /* ===== MEDIA QUERIES ===== */
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: #fff;
+          position: absolute;
+          top: 70px;
+          right: 20px;
+          border: 2px solid #2563eb;
+          border-radius: 0.5rem;
+          padding: 1rem;
+        }
 
-  nav.show {
-    display: flex;
-  }
+        nav.show {
+          display: flex;
+        }
 
-  .menu-toggle {
-    display: block;
-  }
+        .menu-toggle {
+          display: block;
+        }
 
-  .terms-cards {
-    grid-template-columns: 1fr;
-  }
+        .terms-cards {
+          grid-template-columns: 1fr;
+        }
 
-  /* ✅ FIX FOOTER COLUMNS */
-  .footer-container {
-    grid-template-columns: 1fr;   /* stack all columns */
-    text-align: center;
-  }
+        /* ✅ FIX FOOTER COLUMNS */
+        .footer-container {
+          grid-template-columns: 1fr; /* stack all columns */
+          text-align: center;
+        }
 
-  .footer-col {
-    margin-bottom: 1.5rem;        /* spacing between sections */
-  }
+        .footer-col {
+          margin-bottom: 1.5rem; /* spacing between sections */
+        }
 
-  .footer-col .social-icons {
-    justify-content: center;
-    flex-direction: row;          /* icons side by side on mobile */
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-@media(max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-  }
-  .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /* Social icons horizontal */
-  .footer-col .social-icons { 
-    flex-direction: row; 
-    justify-content: center; 
-    gap: 1rem; 
-  }
-  /* Contact & paragraphs truly centered */
-  .footer-col p { 
-    display: block; 
-    margin: 0.25rem 0; 
-    text-align: center; 
-  }
-}
-@media(max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-  }
-  .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /* Social icons stacked vertically on mobile */
-  .footer-col .social-icons { 
-    flex-direction: column; 
-    justify-content: center; 
-    gap: 0.5rem; 
-  }
-  /* Contact paragraphs centered */
-  .footer-col p { 
-    display: block; 
-    margin: 0.25rem 0; 
-    text-align: center; 
-  }
-}
+        .footer-col .social-icons {
+          justify-content: center;
+          flex-direction: row; /* icons side by side on mobile */
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          text-align: center;
+        }
+        .footer-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        /* Social icons horizontal */
+        .footer-col .social-icons {
+          flex-direction: row;
+          justify-content: center;
+          gap: 1rem;
+        }
+        /* Contact & paragraphs truly centered */
+        .footer-col p {
+          display: block;
+          margin: 0.25rem 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          text-align: center;
+        }
+        .footer-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        /* Social icons stacked vertically on mobile */
+        .footer-col .social-icons {
+          flex-direction: column;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+        /* Contact paragraphs centered */
+        .footer-col p {
+          display: block;
+          margin: 0.25rem 0;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="logo">Job Junction</div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav id="navMenu">
+        <a href="home.html">Home</a>
+        <div class="dropdown" id="jobsDropdown">
+          <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+          <div class="dropdown-menu" id="jobsMenu">
+            <a href="internships.html">Internships</a>
+            <a href="part-time.html">Part Time Jobs</a>
+            <a href="remote.html">Remote Jobs</a>
+          </div>
+        </div>
+        <a href="companies.html">Companies</a>
+        <a href="about.html">About</a>
+        <a href="ContactPage.html">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle">🌓</button>
+    </header>
 
-  </style>
-</head>
-<body>
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">Job Junction</div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <nav id="navMenu">
-      <a href="home.html">Home</a>
-      <div class="dropdown" id="jobsDropdown">
-        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
-        <div class="dropdown-menu" id="jobsMenu">
-          <a href="internships.html">Internships</a>
-          <a href="part-time.html">Part Time Jobs</a>
-          <a href="remote.html">Remote Jobs</a>
+    <!-- ===== MAIN ===== -->
+    <main style="padding: 2rem; max-width: 800px; margin: auto">
+      <h1>Welcome to Job Junction</h1>
+      <p>Find the best jobs, internships, and remote work opportunities.</p>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+          <p>
+            Find internships, part-time jobs, and remote opportunities tailored
+            for you.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Important Links</h3>
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="internships.html"
+            ><i class="fa-solid fa-graduation-cap"></i> Internships</a
+          >
+          <a href="par"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+          <a href="remote.html"
+            ><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a
+          >
+          <a href="companies.html"
+            ><i class="fa-solid fa-building"></i> Companies</a
+          >
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+        </div>
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
         </div>
       </div>
-      <a href="companies.html">Companies</a>
-      <a href="about.html">About</a>
-      <a href="ContactPage.html">Contact</a>
-    </nav>
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-  </header>
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved. |
+        <a
+          href="./components/privacy.html"
+          style="
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+          "
+        >
+          Privacy Policy
+        </a>
+      </div>
+    </footer>
 
-  <!-- ===== MAIN ===== -->
-  <main style="padding:2rem; max-width:800px; margin:auto;">
-    <h1>Welcome to Job Junction</h1>
-    <p>Find the best jobs, internships, and remote work opportunities.</p>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Important Links</h3>
-        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-        <a href="par"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
-        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
-        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
-      </div>
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
-      </div>
-      <div class="footer-col">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-credit">
-      &copy; 2025 Job Junction. All rights reserved.
-    </div>
-  </footer>
-
-  <!-- ===== JS ===== -->
-  <script>
+    <!-- ===== JS ===== -->
+    <script>
       // Toggle mobile menu
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-    });
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
 
-    // Mobile dropdown toggle
-    const jobsToggle = document.getElementById("jobsToggle");
-    const jobsMenu = document.getElementById("jobsMenu");
-    jobsToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      jobsMenu.classList.toggle("show");
-    });
+      // Mobile dropdown toggle
+      const jobsToggle = document.getElementById("jobsToggle");
+      const jobsMenu = document.getElementById("jobsMenu");
+      jobsToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        jobsMenu.classList.toggle("show");
+      });
 
-    // Theme toggle (light/dark)
-    const themeToggle = document.getElementById("themeToggle");
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      if(document.body.classList.contains("dark")){
-        document.body.style.background="#111827";
-        document.body.style.color="#f9fafb";
-      } else {
-        document.body.style.background="#f9fafb";
-        document.body.style.color="#111827";
-      }
-    });
-  </script>
-</body>
+      // Theme toggle (light/dark)
+      const themeToggle = document.getElementById("themeToggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        if (document.body.classList.contains("dark")) {
+          document.body.style.background = "#111827";
+          document.body.style.color = "#f9fafb";
+        } else {
+          document.body.style.background = "#f9fafb";
+          document.body.style.color = "#111827";
+        }
+      });
+    </script>
+  </body>
 </html>
