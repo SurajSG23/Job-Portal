@@ -1,327 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Open Source - Job Junction</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #333;
-  }
-  header {
-    background: #4698e5;
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-    animation: fadeIn 1.2s ease-in-out;
-    position: relative;
-  }
-  /* Back to Home link styling */
-  .back-home {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  .back-home:hover {
-    color: #ffcccb;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
-  header p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-  /* Buttons */
-  .cta-buttons {
-    margin-top: 1.2rem;
-  }
-  .cta-buttons a {
-    display: inline-block;
-    margin: 0.4rem;
-    padding: 0.7rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    background: #2f2ca0;
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-  .cta-buttons a:hover {
-    transform: scale(1.05);
-    background: #1f2937;
-  }
-
-  /* Powered By */
-  .powered-by {
-    text-align: center;
-    padding: 2rem 1rem;
-    background: white;
-    margin: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-  }
-  .powered-by.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .powered-by img {
-    max-width: 280px;
-    margin: 1rem;
-    transition: transform 0.3s ease;
-  }
-  .powered-by img:hover {
-    transform: scale(1.08);
-  }
-  /* Contact */
-  .contact {
-    padding: 2rem 1rem;
-    text-align: center;
-    background: #fff;
-    margin: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-  }
-  .contact.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  form {
-    max-width: 500px;
-    margin: auto;
-    text-align: left;
-  }
-  form input, form textarea {
-    width: 100%;
-    padding: 0.7rem;
-    margin: 0.6rem 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  form button {
-    background: #2f2ca0;
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  form button:hover {
-    background: #111827;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: #111827;
-    color: #fff;
-    padding: 2rem;
-    margin-top: 3rem; /* pre-footer spacing */
-  }
-  .footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-  }
-  .footer-col h3 {
-    margin-bottom: 1rem;
-    color: #2563eb;
-  }
-  .footer-col a {
-    display: block;
-    color: #d1d5db;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .footer-col a:hover {
-    color: #2563eb;
-    transform: translateX(5px);
-  }
-  .footer-col p {
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-   .footer-col p:hover {
-    color: #2563eb;
-    transform: translateX(5px);
-  }
-  .social-icons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .social-icons a {
-    font-size: 1.1rem;
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .social-icons a:hover {
-    color: #2563eb;
-    transform: translateX(5px);
-  }
-  .footer-credit {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #9ca3af;
-  }
-
-  /* Animations */
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    header h1 { font-size: 2rem; }
-    header p { font-size: 1rem; }
-    .cta-buttons a { padding: 0.5rem 1rem; font-size: 0.9rem; }
-    .powered-by img { max-width: 120px; }
-    .contact form { max-width: 90%; }
-    .footer-container {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-    .footer-col .social-icons { justify-content: center; }
-  }
-  @media (max-width: 480px) {
-    header h1 { font-size: 1.5rem; }
-    header p { font-size: 0.9rem; }
-    .cta-buttons a { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
-    .powered-by img { max-width: 100px; }
-    .contact form { max-width: 100%; }
-  }
-  @media (max-width: 480px) {
-  /* Footer adjustments for small screens */
-  .footer-container {
-    grid-template-columns: 1fr;  /* single column layout */
-    text-align: center;           /* center text */
-    gap: 1.5rem;                 /* adjust spacing */
-  }
-
-  .footer-col {
-    justify-content: center;      /* center icons & links */
-  }
-
-  .footer-col .social-icons {
-    flex-direction: row;          /* show social icons in a row */
-    justify-content: center;      /* center them */
-    flex-wrap: wrap;              /* wrap if too many icons */
-    gap: 0.5rem;
-  }
-
-  .footer-col p, 
-  .footer-col a {
-    justify-content: center;      /* center phone/email links */
-  }
-}
-
-</style>
-</head>
-<body>
-
-<!-- Intro Section -->
-<header>
-  <a href="index.html" class="back-home">&larr; Back to Home</a>
-  <h1>Namaste Contributors 🙏</h1>
-  <p>We are proud to be part of the open-source community. Join us in building something amazing together!</p>
-  <div class="cta-buttons">
-    <a href="https://gssoc.girlscript.tech/" target="_blank">Know More about GSSoC</a>
-    <a href="https://github.com/SurajSG23/Job-Portal" target="_blank">Join Us on GitHub</a>
-  </div>
-</header>
-
-<!-- Powered By -->
-<div class="powered-by">
-  <h2>Open Source Proudly Powered By:</h2>
-  <img src="gssoc-logo.png" alt="GSSoC Logo">
-</div>
-
-<!-- Contact Section -->
-<div class="contact">
-  <h2>Connect With Us</h2>
-  <p>We’d love to hear from you! Whether you have ideas, feedback, or want to collaborate, reach out.</p>
-  <p><strong>📍 Location:</strong> Remote</p>
-  <p><strong>📧 Email:</strong> contact@jobportal.com</p>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" rows="4" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</div>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-      <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
-    </div>
-    <div class="footer-col">
-      <h3>Important Links</h3>
-      <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-      <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
-      <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
-      <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
-    </div>
-    <div class="footer-col">
-      <h3>Contact</h3>
-      <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-      <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
-    </div>
-    <div class="footer-col">
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
-        <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-credit">
-    &copy; 2025 Job Junction. All rights reserved.
-  </div>
-</footer>
-
-<script>
-  // Scroll Animation for Sections
-  const sections = document.querySelectorAll('.powered-by, .contact');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('show');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source - Job Junction</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        color: #333;
       }
-    });
-  }, { threshold: 0.2 });
+      header {
+        background: #4698e5;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+        animation: fadeIn 1.2s ease-in-out;
+        position: relative;
+      }
+      /* Back to Home link styling */
+      .back-home {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      .back-home:hover {
+        color: #ffcccb;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      header p {
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+      }
+      /* Buttons */
+      .cta-buttons {
+        margin-top: 1.2rem;
+      }
+      .cta-buttons a {
+        display: inline-block;
+        margin: 0.4rem;
+        padding: 0.7rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        color: white;
+        background: #2f2ca0;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      .cta-buttons a:hover {
+        transform: scale(1.05);
+        background: #1f2937;
+      }
 
-  sections.forEach(sec => observer.observe(sec));
-</script>
+      /* Powered By */
+      .powered-by {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: white;
+        margin: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
+      .powered-by.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .powered-by img {
+        max-width: 280px;
+        margin: 1rem;
+        transition: transform 0.3s ease;
+      }
+      .powered-by img:hover {
+        transform: scale(1.08);
+      }
+      /* Contact */
+      .contact {
+        padding: 2rem 1rem;
+        text-align: center;
+        background: #fff;
+        margin: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
+      .contact.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      form {
+        max-width: 500px;
+        margin: auto;
+        text-align: left;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 0.7rem;
+        margin: 0.6rem 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      form button {
+        background: #2f2ca0;
+        color: white;
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      form button:hover {
+        background: #111827;
+      }
 
-</body>
+      /* ===== FOOTER ===== */
+      footer {
+        background: #111827;
+        color: #fff;
+        padding: 2rem;
+        margin-top: 3rem; /* pre-footer spacing */
+      }
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+      .footer-col h3 {
+        margin-bottom: 1rem;
+        color: #2563eb;
+      }
+      .footer-col a {
+        display: block;
+        color: #d1d5db;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .footer-col a:hover {
+        color: #2563eb;
+        transform: translateX(5px);
+      }
+      .footer-col p {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .footer-col p:hover {
+        color: #2563eb;
+        transform: translateX(5px);
+      }
+      .social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .social-icons a {
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .social-icons a:hover {
+        color: #2563eb;
+        transform: translateX(5px);
+      }
+      .footer-credit {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #9ca3af;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        header p {
+          font-size: 1rem;
+        }
+        .cta-buttons a {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+        .powered-by img {
+          max-width: 120px;
+        }
+        .contact form {
+          max-width: 90%;
+        }
+        .footer-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .footer-col .social-icons {
+          justify-content: center;
+        }
+      }
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        header p {
+          font-size: 0.9rem;
+        }
+        .cta-buttons a {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.8rem;
+        }
+        .powered-by img {
+          max-width: 100px;
+        }
+        .contact form {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 480px) {
+        /* Footer adjustments for small screens */
+        .footer-container {
+          grid-template-columns: 1fr; /* single column layout */
+          text-align: center; /* center text */
+          gap: 1.5rem; /* adjust spacing */
+        }
+
+        .footer-col {
+          justify-content: center; /* center icons & links */
+        }
+
+        .footer-col .social-icons {
+          flex-direction: row; /* show social icons in a row */
+          justify-content: center; /* center them */
+          flex-wrap: wrap; /* wrap if too many icons */
+          gap: 0.5rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+          justify-content: center; /* center phone/email links */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Intro Section -->
+    <header>
+      <a href="index.html" class="back-home">&larr; Back to Home</a>
+      <h1>Namaste Contributors 🙏</h1>
+      <p>
+        We are proud to be part of the open-source community. Join us in
+        building something amazing together!
+      </p>
+      <div class="cta-buttons">
+        <a href="https://gssoc.girlscript.tech/" target="_blank"
+          >Know More about GSSoC</a
+        >
+        <a href="https://github.com/SurajSG23/Job-Portal" target="_blank"
+          >Join Us on GitHub</a
+        >
+      </div>
+    </header>
+
+    <!-- Powered By -->
+    <div class="powered-by">
+      <h2>Open Source Proudly Powered By:</h2>
+      <img src="gssoc-logo.png" alt="GSSoC Logo" />
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <h2>Connect With Us</h2>
+      <p>
+        We’d love to hear from you! Whether you have ideas, feedback, or want to
+        collaborate, reach out.
+      </p>
+      <p><strong>📍 Location:</strong> Remote</p>
+      <p><strong>📧 Email:</strong> contact@jobportal.com</p>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+          <p>
+            Find internships, part-time jobs, and remote opportunities tailored
+            for you.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Important Links</h3>
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="internships.html"
+            ><i class="fa-solid fa-graduation-cap"></i> Internships</a
+          >
+          <a href="part-time.html"
+            ><i class="fa-solid fa-clock"></i> Part Time Jobs</a
+          >
+          <a href="remote.html"
+            ><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a
+          >
+          <a href="companies.html"
+            ><i class="fa-solid fa-building"></i> Companies</a
+          >
+          <a href="privacy-policy.html"
+            ><i class="fa-solid fa-user-shield"></i> Privacy Policy</a
+          >
+          <a href="terms-of-use.html"
+            ><i class="fa-solid fa-file-contract"></i> Terms of Use</a
+          >
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Scroll Animation for Sections
+      const sections = document.querySelectorAll(".powered-by, .contact");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      sections.forEach((sec) => observer.observe(sec));
+    </script>
+  </body>
 </html>

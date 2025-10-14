@@ -1,897 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Internship</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family:'Arial', sans-serif; background:#f4f4f4; transition:0.3s;}
-
-  /* Header */
-  header {
-    background:white;
-    color:#60a5fa;
-    padding:12px 25px;
-    position: sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-    transition:0.3s;
-  }
-
-  .container {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    max-width:1300px;
-    margin:auto;
-  }
-
-  /* Logo */
-  .logo a {
-    display:flex;
-    align-items:center;
-    color:#60a5fa;
-    text-decoration:none;
-    font-size:28px;
-    font-weight:700;
-    letter-spacing:1px;
-  }
-  .logo img {height:40px; margin-right:8px;}
-
-  /* Nav */
-  nav ul {
-    list-style:none;
-    display:flex;
-    align-items:center;
-    gap:15px;
-  }
-  nav ul li {position:relative;}
-  nav ul li a {
-    color:#60a5fa;
-    text-decoration:none;
-    padding:10px 18px;
-    display:block;
-    font-weight:500;
-    border-radius:5px;
-    transition:0.3s;
-  }
-  nav ul li a:hover {
-    background:#2563eb;
-    color:#2563eb;
-  }
-
-  /* Dropdown */
-  .dropdown-menu {
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    background:white;
-    min-width:220px;
-    border-radius:5px;
-    overflow:hidden;
-    box-shadow:0 5px 12px rgba(0,0,0,0.15);
-    z-index:1000;
-    transition:0.3s;
-  }
-  .dropdown-menu li a {padding:10px 15px;}
-  .dropdown:hover .dropdown-menu {display:block;}
-
-  /* Buttons */
-  .btn {
-    padding:10px 22px;
-    border:none;
-    border-radius:6px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-  }
-  .login-btn {background:#2563eb; color:#fff;}
-  .login-btn:hover {background:#1e40af;}
-  .signup-btn {background:#fff; color:#2563eb;}
-  .signup-btn:hover {background:#e0f2fe;}
-
-  /* Hamburger */
-  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
-
-  /* Dark/Light Toggle */
-  .theme-toggle {
-    margin-left:10px;
-    cursor:pointer;
-    font-size:20px;
-    color:#60a5fa;
-    transition:0.3s;
-  }
-  .theme-toggle:hover {color:#2563eb;}
-
-  /* Responsive */
-  @media(max-width:992px){
-    nav ul {
-      position:fixed;
-      top:0;
-      left:-100%;
-      height:100%;
-      width:260px;
-      flex-direction:column;
-      padding-top:70px;
-      background:#60a5fa;
-      transition:0.3s;
-    }
-    nav ul.show {left:0;}
-    nav ul li {width:100%;}
-    nav ul li a {padding:15px 20px;}
-    .dropdown-menu {position:static; display:none;}
-    .dropdown.active .dropdown-menu {display:block;}
-    .hamburger {display:block;}
-    .login-btn, .signup-btn {width:90%; margin:5px 20px;}
-    .theme-toggle {position:absolute; bottom:120px; left:20px;}
-  }
-
-  nav ul li a i {margin-left:5px; transition:0.3s;}
-  nav ul li:hover a i {transform: rotate(180deg);}
-
-  /* Dark Theme */
-  body.dark {background:#121212; color:#fff;}
-  body.dark header {background:#1e3a8a;}
-  body.dark nav ul li a:hover {background:#2563eb;}
-  body.dark .dropdown-menu {background:#1e3a8a;}
-  body.dark .login-btn {background:#3b82f6; color:#fff;}
-  body.dark .login-btn:hover {background:#2563eb;}
-  body.dark .signup-btn {background:#2563eb; color:#fff;}
-  body.dark .signup-btn:hover {background:#3b82f6;}
-  body.dark .theme-toggle {color:#fff;}
-
-  /* Hover and dropdown for desktop */
-@media(min-width: 993px){
-  nav ul li a:hover {
-    background:#2563eb; /* hover color */
-    color:#fff;
-  }
-
-  nav ul li:hover .dropdown-menu {
-    display:block; /* show dropdown on hover */
-  }
-
-  nav ul li a i {
-    transition:0.3s;
-  }
-  nav ul li:hover a i {
-    transform: rotate(180deg); /* arrow rotates on hover */
-  }
-}
-
-/* Mobile/tablet dropdown behavior */
-@media(max-width: 992px){
-  nav ul {
-    position:fixed;
-    top:0;
-    left:-100%;
-    height:100%;
-    width:260px;
-    flex-direction:column;
-    padding-top:70px;
-    background:#60a5fa;
-    transition:0.3s;
-  }
-  nav ul.show {left:0;}
-
-  nav ul li a {
-    padding:15px 20px;
-    border-radius:0;
-  }
-
-  /* Dropdown menu for mobile */
-  .dropdown-menu {
-    display:none; /* hide by default */
-    position:static;
-    background:#60a5fa;
-    box-shadow:none;
-  }
-  .dropdown.active .dropdown-menu {
-    display:block; /* show on click */
-  }
-
-  /* Buttons full width on mobile */
-  .login-btn, .signup-btn {width:90%; margin:5px 20px;}
-
-  /* Hamburger */
-  .hamburger {display:block;}
-}
- /* Footer */
-    footer {background:#2563eb; color:#fff; text-align:center; padding:2rem 1rem;}
-    footer a {color:#fff; margin:0 0.5rem; font-size:1.2rem;}
-    footer a:hover {color:#60a5fa;}
-
-    /* Responsive */
-    @media(max-width:768px){
-      .hero h1{font-size:2.2rem}
-      .hero p{font-size:1rem}
-      nav{flex-direction:column; align-items:flex-start}
-      nav a{margin-left:0;margin-top:0.5rem}
-     
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111827;
-      color: #fff;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-col h3 {
-      margin-bottom: 1rem;
-      color: #2563eb;
-    }
-
-    .footer-col a {
-      display: block;
-      color: #d1d5db;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-col a:hover {
-      color: #2563eb;
-    }
-
-    .footer-col p {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-col p:hover {
-      color: #2563eb;
-    }
-
-    .social-icons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .social-icons a {
-      font-size: 1.1rem;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .social-icons a:hover {
-      color: #2563eb;
-    }
-
-    .social-icons a i {
-      margin-right: 8px;
-    }
-
-    .footer-credit {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    /* ✅ Mobile Responsive Fix */
-    @media (max-width: 768px) {
-      .footer-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internship</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        background: #f4f4f4;
+        transition: 0.3s;
       }
 
-      .footer-col {
+      /* Header */
+      header {
+        background: white;
+        color: #60a5fa;
+        padding: 12px 25px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .container {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
+        max-width: 1300px;
+        margin: auto;
+      }
+
+      /* Logo */
+      .logo a {
+        display: flex;
+        align-items: center;
+        color: #60a5fa;
+        text-decoration: none;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .logo img {
+        height: 40px;
+        margin-right: 8px;
+      }
+
+      /* Nav */
+      nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      nav ul li {
+        position: relative;
+      }
+      nav ul li a {
+        color: #60a5fa;
+        text-decoration: none;
+        padding: 10px 18px;
+        display: block;
+        font-weight: 500;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        background: #2563eb;
+        color: #2563eb;
+      }
+
+      /* Dropdown */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 220px;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: 0.3s;
+      }
+      .dropdown-menu li a {
+        padding: 10px 15px;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      /* Buttons */
+      .btn {
+        padding: 10px 22px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .login-btn {
+        background: #2563eb;
+        color: #fff;
+      }
+      .login-btn:hover {
+        background: #1e40af;
+      }
+      .signup-btn {
+        background: #fff;
+        color: #2563eb;
+      }
+      .signup-btn:hover {
+        background: #e0f2fe;
+      }
+
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: #2563eb;
+      }
+
+      /* Dark/Light Toggle */
+      .theme-toggle {
+        margin-left: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        color: #60a5fa;
+        transition: 0.3s;
+      }
+      .theme-toggle:hover {
+        color: #2563eb;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        nav ul {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          height: 100%;
+          width: 260px;
+          flex-direction: column;
+          padding-top: 70px;
+          background: #60a5fa;
+          transition: 0.3s;
+        }
+        nav ul.show {
+          left: 0;
+        }
+        nav ul li {
+          width: 100%;
+        }
+        nav ul li a {
+          padding: 15px 20px;
+        }
+        .dropdown-menu {
+          position: static;
+          display: none;
+        }
+        .dropdown.active .dropdown-menu {
+          display: block;
+        }
+        .hamburger {
+          display: block;
+        }
+        .login-btn,
+        .signup-btn {
+          width: 90%;
+          margin: 5px 20px;
+        }
+        .theme-toggle {
+          position: absolute;
+          bottom: 120px;
+          left: 20px;
+        }
+      }
+
+      nav ul li a i {
+        margin-left: 5px;
+        transition: 0.3s;
+      }
+      nav ul li:hover a i {
+        transform: rotate(180deg);
+      }
+
+      /* Dark Theme */
+      body.dark {
+        background: #121212;
+        color: #fff;
+      }
+      body.dark header {
+        background: #1e3a8a;
+      }
+      body.dark nav ul li a:hover {
+        background: #2563eb;
+      }
+      body.dark .dropdown-menu {
+        background: #1e3a8a;
+      }
+      body.dark .login-btn {
+        background: #3b82f6;
+        color: #fff;
+      }
+      body.dark .login-btn:hover {
+        background: #2563eb;
+      }
+      body.dark .signup-btn {
+        background: #2563eb;
+        color: #fff;
+      }
+      body.dark .signup-btn:hover {
+        background: #3b82f6;
+      }
+      body.dark .theme-toggle {
+        color: #fff;
+      }
+
+      /* Hover and dropdown for desktop */
+      @media (min-width: 993px) {
+        nav ul li a:hover {
+          background: #2563eb; /* hover color */
+          color: #fff;
+        }
+
+        nav ul li:hover .dropdown-menu {
+          display: block; /* show dropdown on hover */
+        }
+
+        nav ul li a i {
+          transition: 0.3s;
+        }
+        nav ul li:hover a i {
+          transform: rotate(180deg); /* arrow rotates on hover */
+        }
+      }
+
+      /* Mobile/tablet dropdown behavior */
+      @media (max-width: 992px) {
+        nav ul {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          height: 100%;
+          width: 260px;
+          flex-direction: column;
+          padding-top: 70px;
+          background: #60a5fa;
+          transition: 0.3s;
+        }
+        nav ul.show {
+          left: 0;
+        }
+
+        nav ul li a {
+          padding: 15px 20px;
+          border-radius: 0;
+        }
+
+        /* Dropdown menu for mobile */
+        .dropdown-menu {
+          display: none; /* hide by default */
+          position: static;
+          background: #60a5fa;
+          box-shadow: none;
+        }
+        .dropdown.active .dropdown-menu {
+          display: block; /* show on click */
+        }
+
+        /* Buttons full width on mobile */
+        .login-btn,
+        .signup-btn {
+          width: 90%;
+          margin: 5px 20px;
+        }
+
+        /* Hamburger */
+        .hamburger {
+          display: block;
+        }
+      }
+      /* Footer */
+      footer {
+        background: #2563eb;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      footer a {
+        color: #fff;
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+      }
+      footer a:hover {
+        color: #60a5fa;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav a {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #111827;
+        color: #fff;
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        margin-bottom: 1rem;
+        color: #2563eb;
+      }
+
+      .footer-col a {
+        display: block;
+        color: #d1d5db;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-col a:hover {
+        color: #2563eb;
       }
 
       .footer-col p {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-col p:hover {
+        color: #2563eb;
+      }
+
+      .social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .social-icons a {
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .social-icons a:hover {
+        color: #2563eb;
+      }
+
+      .social-icons a i {
+        margin-right: 8px;
+      }
+
+      .footer-credit {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #9ca3af;
+      }
+
+      /* ✅ Mobile Responsive Fix */
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          text-align: center;
+        }
+
+        .footer-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-col p {
+          display: block;
+          text-align: center;
+        }
+
+        .footer-col .social-icons {
+          flex-direction: row; /* icons side by side on mobile */
+          justify-content: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+        max-width: 1200px; /* limit width */
+        margin: 0 auto; /* center the footer */
+        gap: 2rem;
+      }
+      .footer-col .social-icons {
+        display: flex;
+        flex-direction: column; /* vertical */
+        gap: 1rem;
+        justify-content: flex-start; /* align left */
+      }
+      .footer-col {
+        text-align: left;
+      }
+
+      .footer-credit {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      /* Footer Responsive */
+
+      /* Medium devices (tablets) */
+      @media (max-width: 992px) {
+        .footer-container {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns */
+          gap: 1.5rem;
+        }
+
+        .footer-col {
+          text-align: left;
+        }
+
+        .social-icons {
+          flex-direction: row; /* social icons side by side */
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+
+      /* Small devices (mobiles) */
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr; /* 1 column */
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .footer-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-col p,
+        .footer-col a {
+          text-align: center;
+        }
+
+        .social-icons {
+          flex-direction: row;
+          justify-content: center;
+          gap: 0.8rem;
+        }
+
+        .footer-credit {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* Extra small devices */
+      @media (max-width: 480px) {
+        .footer-container {
+          gap: 0.8rem;
+          padding: 1rem;
+        }
+
+        .footer-col h3 {
+          font-size: 1.1rem;
+        }
+
+        .footer-col a {
+          font-size: 0.9rem;
+        }
+      }
+      /* Hero Section */
+      .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 6rem 2rem;
+        color: #ffffff;
+        overflow: hidden;
+        background: #2563eb;
+        background-attachment: fixed; /* nice subtle parallax effect */
+      }
+
+      /* Soft dark overlay for readability */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.6); /* deep navy overlay */
+        z-index: 0;
+      }
+
+      /* Text styling */
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+        position: relative;
+        z-index: 1;
+        animation: fadeInDown 1s ease-in-out;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+        color: #e2e8f0;
+        animation: fadeInUp 1.2s ease-in-out;
+      }
+
+      /* Button */
+      .hero .btn {
+        background: #ffffff;
+        color: #2563eb;
+        font-weight: 600;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero .btn:hover {
+        background: #2563eb;
+        color: #ffffff;
+        transform: scale(1.05);
+      }
+
+      /* Subtle animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Section Titles */
+      .section-title {
+        text-align: center;
+        color: #2563eb;
+        font-size: 2rem;
+        margin: 3rem 0 2rem;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        width: 60px;
+        height: 3px;
+        background: #60a5fa;
         display: block;
+        margin: 0.5rem auto 0;
+        border-radius: 2px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav a {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+      }
+      /* ===== SEARCH BAR ===== */
+      .search-container {
+        max-width: 1200px;
+        margin: 2rem auto 1rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      .search-container input {
+        width: 100%;
+        max-width: 400px;
+        padding: 0.6rem 1rem;
+        border-radius: 50px;
+        border: 1px solid #2563eb;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s;
+      }
+      .search-container input:focus {
+        box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+        border-color: #1e40af;
+      }
+
+      /* ===== JOBS SECTION ===== */
+      .jobs-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 1rem auto 3rem;
+        padding: 0 1rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 1.8rem 1.5rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ===== ICON ABOVE TITLE ===== */
+      .card .job-icon {
+        font-size: 2.5rem;
+        color: #fff;
+        background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 0.8rem auto;
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: #2563eb;
         text-align: center;
       }
 
-      .footer-col .social-icons {
-        flex-direction: row;  /* icons side by side on mobile */
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+      .card hr {
+        border: 0;
+        border-top: 2px solid #60a5fa;
+        width: 300px;
+        margin: 0.5rem auto 1rem;
       }
-    }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
+      .card p {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: flex-start;
+        padding-left: 30px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      .card i {
+        min-width: 20px;
+        text-align: center;
       }
-    }
-    .footer-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-  max-width: 1200px; /* limit width */
-  margin: 0 auto; /* center the footer */
-  gap: 2rem;
-}
-.footer-col .social-icons {
-  display: flex;
-  flex-direction: column; /* vertical */
-  gap: 1rem;
-  justify-content: flex-start; /* align left */
-}
-.footer-col {
-  text-align: left;
-}
 
-.footer-credit {
-  text-align: center;
-  margin-top: 2rem;
-}
+      .apply-btn {
+        margin-top: 1rem;
+        text-align: center;
+        padding: 0.6rem 1.2rem;
+        background: #2563eb;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: background 0.3s;
+      }
 
-/* Footer Responsive */
+      .apply-btn:hover {
+        background: #1e40af;
+      }
 
-/* Medium devices (tablets) */
-@media (max-width: 992px) {
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 1.5rem;
-  }
+      @media (max-width: 768px) {
+        .jobs-container {
+          grid-template-columns: 1fr;
+        }
+      }
+      body.dark .card {
+        background: #1f2937; /* dark background */
+        color: #e5e7eb; /* light text */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      }
 
-  .footer-col {
-    text-align: left;
-  }
+      body.dark .card h3 {
+        color: #60a5fa;
+      }
 
-  .social-icons {
-    flex-direction: row; /* social icons side by side */
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
+      body.dark .card p i {
+        color: #60a5fa;
+      }
 
-/* Small devices (mobiles) */
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr; /* 1 column */
-    gap: 1rem;
-    text-align: center;
-  }
+      body.dark .card hr {
+        border-top: 2px solid #2563eb;
+      }
 
-  .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+      body.dark .apply-btn {
+        background: #2563eb;
+        color: #fff;
+      }
 
-  .footer-col p,
-  .footer-col a {
-    text-align: center;
-  }
+      body.dark .apply-btn:hover {
+        background: #1e40af;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="home.html"><img src="assets/logo.webp" /></a>
+        </div>
 
-  .social-icons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.8rem;
-  }
+        <!-- Navigation -->
+        <nav>
+          <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about-us.html">About</a></li>
 
-  .footer-credit {
-    font-size: 0.85rem;
-  }
-}
+            <!-- Jobs Dropdown -->
+            <li class="dropdown">
+              <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="internships.html">Internship</a></li>
+                <li><a href="part-time.html">Part-time</a></li>
+                <li><a href="remote.html">Remote</a></li>
+              </ul>
+            </li>
 
-/* Extra small devices */
-@media (max-width: 480px) {
-  .footer-container {
-    gap: 0.8rem;
-    padding: 1rem;
-  }
+            <li><a href="companies.html">Companies</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="ContactPage.html">Contact</a></li>
 
-  .footer-col h3 {
-    font-size: 1.1rem;
-  }
+            <!-- Resources Dropdown -->
+            <li class="dropdown">
+              <a href="resources.html"
+                >Resources <i class="fa-solid fa-chevron-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="career-guides.html">Career Guide</a></li>
+                <li><a href="resume-builder.html">Resume Builder</a></li>
+                <li><a href="interview-prep.html">Interview</a></li>
+                <li><a href="personal-branding.html">Personal Branding</a></li>
+                <li><a href="workplace-communication.html">Workplace</a></li>
+                <li><a href="career-growth.html">Career Growth</a></li>
+              </ul>
+            </li>
 
-  .footer-col a {
-    font-size: 0.9rem;
-  }
-}
-   /* Hero Section */
-.hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 6rem 2rem;
-  color: #ffffff;
-  overflow: hidden;
-  background:#2563eb;
-  background-attachment: fixed; /* nice subtle parallax effect */
-}
+            <!-- More Dropdown -->
+            <li class="dropdown">
+              <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="signup.html">Sitemap</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms-of-use.html">Terms</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
 
-/* Soft dark overlay for readability */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.6); /* deep navy overlay */
-  z-index: 0;
-}
+        <!-- Right side buttons -->
+        <div
+          class="right-buttons"
+          style="display: flex; align-items: center; gap: 10px"
+        >
+          <button
+            class="btn login-btn"
+            onclick="window.location.href='login.html'"
+          >
+            Login
+          </button>
+          <button
+            class="btn signup-btn"
+            onclick="window.location.href='signup.html'"
+          >
+            Signup
+          </button>
 
-/* Text styling */
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 1;
-  animation: fadeInDown 1s ease-in-out;
-}
+          <i
+            class="fa-solid fa-moon theme-toggle"
+            id="themeToggle"
+            title="Toggle Dark/Light"
+          ></i>
+        </div>
 
-.hero p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-  position: relative;
-  z-index: 1;
-  color: #e2e8f0;
-  animation: fadeInUp 1.2s ease-in-out;
-}
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </header>
 
-/* Button */
-.hero .btn {
-  background: #ffffff;
-  color: #2563eb;
-  font-weight: 600;
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.hero .btn:hover {
-  background: #2563eb;
-  color: #ffffff;
-  transform: scale(1.05);
-}
-
-/* Subtle animations */
-@keyframes fadeInDown {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-/* Section Titles */
-    .section-title {text-align:center; color:#2563eb; font-size:2rem; margin:3rem 0 2rem; position:relative;}
-    .section-title::after {
-      content:'';
-      width:60px;
-      height:3px;
-      background:#60a5fa;
-      display:block;
-      margin:0.5rem auto 0;
-      border-radius:2px;
-    }
-
-
- /* Responsive */
-    @media(max-width:768px){
-      .hero h1{font-size:2.2rem}
-      .hero p{font-size:1rem}
-      nav{flex-direction:column; align-items:flex-start}
-      nav a{margin-left:0;margin-top:0.5rem}
-    }
- /* ===== SEARCH BAR ===== */
-.search-container {
-  max-width: 1200px;
-  margin: 2rem auto 1rem;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px; 
-}
-.search-container input {
-  width: 100%;
-  max-width: 400px;
-  padding: 0.6rem 1rem;
-  border-radius: 50px;
-  border: 1px solid #2563eb;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s;
-}
-.search-container input:focus {
-  box-shadow: 0 0 8px rgba(37,99,235,0.5);
-  border-color: #1e40af;
-}
-
-/* ===== JOBS SECTION ===== */
-.jobs-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 1rem auto 3rem;
-  padding: 0 1rem;
-}
-
-.card {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 1.8rem 1.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-/* ===== ICON ABOVE TITLE ===== */
-.card .job-icon {
-  font-size: 2.5rem;
-  color: #fff;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 0.8rem auto;
-  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-}
-
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #2563eb;
-  text-align: center;
-}
-
-.card hr {
-  border: 0;
-  border-top: 2px solid #60a5fa;
-  width: 300px;
-  margin: 0.5rem auto 1rem;
-}
-
-.card p {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: flex-start;
-  padding-left: 30px;
-}
-
-.card i {
-  min-width: 20px;
-  text-align: center;
-}
-
-.apply-btn {
-  margin-top: 1rem;
-  text-align: center;
-  padding: 0.6rem 1.2rem;
-  background: #2563eb;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 50px;
-  transition: background 0.3s;
-}
-
-.apply-btn:hover {
-  background: #1e40af;
-}
-
-@media(max-width: 768px){
-  .jobs-container { grid-template-columns: 1fr; }
-}
-body.dark .card {
-  background: #1f2937; /* dark background */
-  color: #e5e7eb; /* light text */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-}
-
-body.dark .card h3 {
-  color: #60a5fa;
-}
-
-body.dark .card p i {
-  color: #60a5fa;
-}
-
-body.dark .card hr {
-  border-top: 2px solid #2563eb;
-}
-
-body.dark .apply-btn {
-  background: #2563eb;
-  color: #fff;
-}
-
-body.dark .apply-btn:hover {
-  background: #1e40af;
-}
-
-</style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo">
-      <a href="home.html"><img src="assets/logo.webp"></a>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Professional Events</h1>
+      <p>
+        Discover upcoming and past networking meetups, career fairs, workshops,
+        webinars, and hackathons.
+      </p>
+    </section>
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search events by type, location, or status..."
+      />
     </div>
 
-    <!-- Navigation -->
-    <nav>
-      <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about-us.html">About</a></li>
-
-        <!-- Jobs Dropdown -->
-        <li class="dropdown">
-          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="internships.html">Internship</a></li>
-            <li><a href="part-time.html">Part-time</a></li>
-            <li><a href="remote.html">Remote</a></li>
-          </ul>
-        </li>
-
-        <li><a href="companies.html">Companies</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="ContactPage.html">Contact</a></li>
-
-        <!-- Resources Dropdown -->
-        <li class="dropdown">
-          <a href="resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="career-guides.html">Career Guide</a></li>
-            <li><a href="resume-builder.html">Resume Builder</a></li>
-            <li><a href="interview-prep.html">Interview</a></li>
-            <li><a href="personal-branding.html">Personal Branding</a></li>
-            <li><a href="workplace-communication.html">Workplace</a></li>
-            <li><a href="career-growth.html">Career Growth</a></li>
-          </ul>
-        </li>
-
-        <!-- More Dropdown -->
-        <li class="dropdown">
-          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="signup.html">Sitemap</a></li>
-            <li><a href="privacy-policy.html">Privacy</a></li>
-            <li><a href="terms-of-use.html">Terms</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Right side buttons -->
-    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
-      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
-<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
-
-      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
-    </div>
-
-    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
-  </div>
-</header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-   <h1>Professional Events</h1>
-  <p>Discover upcoming and past networking meetups, career fairs, workshops, webinars, and hackathons.</p>    
-
-  </section>
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search events by type, location, or status...">
-</div>
-
-<section class="jobs-container">
-  <!-- Tech Networking Meetup -->
-  <div class="card" data-location="Delhi" data-duration="6 hours" data-stipend="Free" data-field="Networking">
-    <div class="job-icon"><i class="fas fa-network-wired"></i></div>
-    <h3>Tech Networking Meetup</h3>
-    <hr>
-    <p><i class="fas fa-building"></i> <strong>Venue:</strong> Delhi Tech Hub</p>
-    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Delhi</p>
-    <p><i class="fas fa-clock"></i> <strong>Time:</strong> 6:00 PM</p>
-    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 10 Sep 2025</p>
-    <p><i class="fas fa-tag"></i> <strong>Type:</strong> Networking</p>
-    <a href="https://example.com/register/networking" class="apply-btn" target="_blank">Register</a>
-  </div>
-
-  <!-- Virtual Career Fair -->
-  <div class="card" data-location="Remote" data-duration="Full Day" data-stipend="Free" data-field="Career Fair">
-    <div class="job-icon"><i class="fas fa-handshake"></i></div>
-    <h3>Virtual Career Fair</h3>
-    <hr>
-    <p><i class="fas fa-building"></i> <strong>Venue:</strong> Online (Zoom)</p>
-    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</p>
-    <p><i class="fas fa-clock"></i> <strong>Time:</strong> 10:00 AM</p>
-    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 20 Sep 2025</p>
-    <p><i class="fas fa-tag"></i> <strong>Type:</strong> Career Fair</p>
-    <a href="https://example.com/register/careerfair" class="apply-btn" target="_blank">Register</a>
-  </div>
-
-  <!-- Resume Building Workshop -->
-  <div class="card" data-location="Bangalore" data-duration="2 hours" data-stipend="Free" data-field="Workshop">
-    <div class="job-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-    <h3>Resume Building Workshop</h3>
-    <hr>
-    <p><i class="fas fa-building"></i> <strong>Venue:</strong> Bangalore Career Center</p>
-    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Bangalore</p>
-    <p><i class="fas fa-clock"></i> <strong>Time:</strong> 2:00 PM</p>
-    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 15 Aug 2025</p>
-    <p><i class="fas fa-tag"></i> <strong>Type:</strong> Workshop</p>
-    <a href="https://example.com/recordings/resume-workshop" class="apply-btn" target="_blank">View Recording</a>
-  </div>
-
-  <!-- AI in Careers Webinar -->
-  <div class="card" data-location="Remote" data-duration="1 hour" data-stipend="Free" data-field="Webinar">
-    <div class="job-icon"><i class="fas fa-robot"></i></div>
-    <h3>AI in Careers Webinar</h3>
-    <hr>
-    <p><i class="fas fa-building"></i> <strong>Venue:</strong> Online (Teams)</p>
-    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote</p>
-    <p><i class="fas fa-clock"></i> <strong>Time:</strong> 5:00 PM</p>
-    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 01 Aug 2025</p>
-    <p><i class="fas fa-tag"></i> <strong>Type:</strong> Webinar</p>
-    <a href="https://example.com/recordings/ai-webinar" class="apply-btn" target="_blank">View Recording</a>
-  </div>
-
-  <!-- Annual Hackathon -->
-  <div class="card" data-location="Mumbai" data-duration="Full Day" data-stipend="Prizes" data-field="Hackathon">
-    <div class="job-icon"><i class="fas fa-code"></i></div>
-    <h3>Annual Hackathon</h3>
-    <hr>
-    <p><i class="fas fa-building"></i> <strong>Venue:</strong> Mumbai Innovation Lab</p>
-    <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> Mumbai</p>
-    <p><i class="fas fa-clock"></i> <strong>Time:</strong> 9:00 AM</p>
-    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 05 Oct 2025</p>
-    <p><i class="fas fa-tag"></i> <strong>Type:</strong> Hackathon</p>
-    <a href="https://example.com/register/hackathon" class="apply-btn" target="_blank">Register</a>
-  </div>
-</section>
-
-
-
-
-
- <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+    <section class="jobs-container">
+      <!-- Tech Networking Meetup -->
+      <div
+        class="card"
+        data-location="Delhi"
+        data-duration="6 hours"
+        data-stipend="Free"
+        data-field="Networking"
+      >
+        <div class="job-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Tech Networking Meetup</h3>
+        <hr />
+        <p>
+          <i class="fas fa-building"></i> <strong>Venue:</strong> Delhi Tech Hub
+        </p>
+        <p>
+          <i class="fas fa-location-dot"></i> <strong>Location:</strong> Delhi
+        </p>
+        <p><i class="fas fa-clock"></i> <strong>Time:</strong> 6:00 PM</p>
+        <p>
+          <i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 10 Sep 2025
+        </p>
+        <p><i class="fas fa-tag"></i> <strong>Type:</strong> Networking</p>
+        <a
+          href="https://example.com/register/networking"
+          class="apply-btn"
+          target="_blank"
+          >Register</a
+        >
       </div>
-      <div class="footer-col">
-        <h3>Important Links</h3>
-        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
-        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
-        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+
+      <!-- Virtual Career Fair -->
+      <div
+        class="card"
+        data-location="Remote"
+        data-duration="Full Day"
+        data-stipend="Free"
+        data-field="Career Fair"
+      >
+        <div class="job-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Virtual Career Fair</h3>
+        <hr />
+        <p>
+          <i class="fas fa-building"></i> <strong>Venue:</strong> Online (Zoom)
+        </p>
+        <p>
+          <i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote
+        </p>
+        <p><i class="fas fa-clock"></i> <strong>Time:</strong> 10:00 AM</p>
+        <p>
+          <i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 20 Sep 2025
+        </p>
+        <p><i class="fas fa-tag"></i> <strong>Type:</strong> Career Fair</p>
+        <a
+          href="https://example.com/register/careerfair"
+          class="apply-btn"
+          target="_blank"
+          >Register</a
+        >
       </div>
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+
+      <!-- Resume Building Workshop -->
+      <div
+        class="card"
+        data-location="Bangalore"
+        data-duration="2 hours"
+        data-stipend="Free"
+        data-field="Workshop"
+      >
+        <div class="job-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h3>Resume Building Workshop</h3>
+        <hr />
+        <p>
+          <i class="fas fa-building"></i> <strong>Venue:</strong> Bangalore
+          Career Center
+        </p>
+        <p>
+          <i class="fas fa-location-dot"></i>
+          <strong>Location:</strong> Bangalore
+        </p>
+        <p><i class="fas fa-clock"></i> <strong>Time:</strong> 2:00 PM</p>
+        <p>
+          <i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 15 Aug 2025
+        </p>
+        <p><i class="fas fa-tag"></i> <strong>Type:</strong> Workshop</p>
+        <a
+          href="https://example.com/recordings/resume-workshop"
+          class="apply-btn"
+          target="_blank"
+          >View Recording</a
+        >
       </div>
-      <div class="footer-col">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+
+      <!-- AI in Careers Webinar -->
+      <div
+        class="card"
+        data-location="Remote"
+        data-duration="1 hour"
+        data-stipend="Free"
+        data-field="Webinar"
+      >
+        <div class="job-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI in Careers Webinar</h3>
+        <hr />
+        <p>
+          <i class="fas fa-building"></i> <strong>Venue:</strong> Online (Teams)
+        </p>
+        <p>
+          <i class="fas fa-location-dot"></i> <strong>Location:</strong> Remote
+        </p>
+        <p><i class="fas fa-clock"></i> <strong>Time:</strong> 5:00 PM</p>
+        <p>
+          <i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 01 Aug 2025
+        </p>
+        <p><i class="fas fa-tag"></i> <strong>Type:</strong> Webinar</p>
+        <a
+          href="https://example.com/recordings/ai-webinar"
+          class="apply-btn"
+          target="_blank"
+          >View Recording</a
+        >
+      </div>
+
+      <!-- Annual Hackathon -->
+      <div
+        class="card"
+        data-location="Mumbai"
+        data-duration="Full Day"
+        data-stipend="Prizes"
+        data-field="Hackathon"
+      >
+        <div class="job-icon"><i class="fas fa-code"></i></div>
+        <h3>Annual Hackathon</h3>
+        <hr />
+        <p>
+          <i class="fas fa-building"></i> <strong>Venue:</strong> Mumbai
+          Innovation Lab
+        </p>
+        <p>
+          <i class="fas fa-location-dot"></i> <strong>Location:</strong> Mumbai
+        </p>
+        <p><i class="fas fa-clock"></i> <strong>Time:</strong> 9:00 AM</p>
+        <p>
+          <i class="fas fa-calendar-alt"></i> <strong>Date:</strong> 05 Oct 2025
+        </p>
+        <p><i class="fas fa-tag"></i> <strong>Type:</strong> Hackathon</p>
+        <a
+          href="https://example.com/register/hackathon"
+          class="apply-btn"
+          target="_blank"
+          >Register</a
+        >
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+          <p>
+            Find internships, part-time jobs, and remote opportunities tailored
+            for you.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Important Links</h3>
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="internships.html"
+            ><i class="fa-solid fa-graduation-cap"></i> Internships</a
+          >
+          <a href="part-time.html"
+            ><i class="fa-solid fa-clock"></i> Part Time Jobs</a
+          >
+          <a href="remote.html"
+            ><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a
+          >
+          <a href="companies.html"
+            ><i class="fa-solid fa-building"></i> Companies</a
+          >
+          <a href="privacy-policy.html"
+            ><i class="fa-solid fa-user-shield"></i> Privacy Policy</a
+          >
+          <a href="terms-of-use.html"
+            ><i class="fa-solid fa-file-contract"></i> Terms of Use</a
+          >
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-credit">
-      &copy; 2025 Job Junction. All rights reserved.
-    </div>
-  </footer>
-<script>
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const dropdowns = document.querySelectorAll(".dropdown");
-const themeToggle = document.getElementById('themeToggle');
 
-// Hamburger toggle
-hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
+    </footer>
 
-// Mobile dropdown toggle
-dropdowns.forEach(drop => {
-  drop.addEventListener("click", e => {
-    if(window.innerWidth <= 992){
-      e.stopPropagation();
-      drop.classList.toggle("active");
-    }
-  });
-});
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      const dropdowns = document.querySelectorAll(".dropdown");
+      const themeToggle = document.getElementById("themeToggle");
 
-// Dark/Light toggle
-const currentTheme = localStorage.getItem("theme");
-if(currentTheme === "dark") document.body.classList.add("dark");
+      // Hamburger toggle
+      hamburger.addEventListener("click", () =>
+        navLinks.classList.toggle("show")
+      );
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-});
- const applyButtons = document.querySelectorAll('.get-started-btn');
+      // Mobile dropdown toggle
+      dropdowns.forEach((drop) => {
+        drop.addEventListener("click", (e) => {
+          if (window.innerWidth <= 992) {
+            e.stopPropagation();
+            drop.classList.toggle("active");
+          }
+        });
+      });
 
-  applyButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault(); // prevent default link behavior
-      const card = button.closest('.job-card'); // get parent card
-      const msg = card.querySelector('.apply-msg'); // find message element
-      msg.style.display = 'block'; // show applied message
-      button.style.display = 'none'; // hide button
-    });
-  });
- const searchInput = document.getElementById('searchInput');
-const cards = document.querySelectorAll('.card');
+      // Dark/Light toggle
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme === "dark") document.body.classList.add("dark");
 
-searchInput.addEventListener('input', () => {
-  const filter = searchInput.value.toLowerCase();
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("dark") ? "dark" : "light"
+        );
+      });
+      const applyButtons = document.querySelectorAll(".get-started-btn");
 
-  cards.forEach(card => {
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    const company = card.querySelector('p strong').textContent.toLowerCase(); // "Company:"
-    const location = card.dataset.location.toLowerCase();
-    const field = card.dataset.field.toLowerCase();
+      applyButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault(); // prevent default link behavior
+          const card = button.closest(".job-card"); // get parent card
+          const msg = card.querySelector(".apply-msg"); // find message element
+          msg.style.display = "block"; // show applied message
+          button.style.display = "none"; // hide button
+        });
+      });
+      const searchInput = document.getElementById("searchInput");
+      const cards = document.querySelectorAll(".card");
 
-    if(title.includes(filter) || company.includes(filter) || location.includes(filter) || field.includes(filter)) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-});
+      searchInput.addEventListener("input", () => {
+        const filter = searchInput.value.toLowerCase();
 
+        cards.forEach((card) => {
+          const title = card.querySelector("h3").textContent.toLowerCase();
+          const company = card
+            .querySelector("p strong")
+            .textContent.toLowerCase(); // "Company:"
+          const location = card.dataset.location.toLowerCase();
+          const field = card.dataset.field.toLowerCase();
 
-
-</script>
-
-</body>
+          if (
+            title.includes(filter) ||
+            company.includes(filter) ||
+            location.includes(filter) ||
+            field.includes(filter)
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
