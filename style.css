@@ -1562,6 +1562,7 @@ body.dark .btn-ghost {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
 }
 
+
 .error-message {
   display: block;
   color: #ef4444;
@@ -1575,3 +1576,4 @@ body.dark .btn-ghost {
 .form-input.success {
   border-color: #10b981;
 }
+
