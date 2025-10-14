@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions | Job Junction</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --bg-light: #ffffff;
+      --bg-gray: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --shadow: rgba(15, 23, 42, 0.08);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-gray);
+      margin: 0;
+      padding: 0;
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--gradient);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #e0e7ff;
+    }
+
+    /* Cards Section */
+    .terms-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 25px 25px 25px 80px;
+      box-shadow: 0 4px 10px var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      border-left: 6px solid var(--primary);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(15, 23, 42, 0.15);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .card ul {
+      margin-left: 20px;
+    }
+
+    .card i {
+      position: absolute;
+      left: 20px;
+      top: 25px;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    /* Accept Checkbox */
+    .accept-container {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.95rem;
+    }
+
+    .accept-container input[type="checkbox"] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 20px auto 60px;
+      padding: 12px 28px;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-4px);
+      opacity: 0.9;
+    }
+
+    /* Disabled button if checkbox not checked */
+    .back-btn:disabled {
+      background: #a5b4fc;
+      cursor: not-allowed;
+    }
+    .accept-container {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
+
+/* Custom checkbox label */
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;  /* Align checkbox and text */
+  cursor: pointer;
+  user-select: none;
+  font-size: 1rem;
+  gap: 10px; /* space between checkbox and text */
+}
+
+/* Hide default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Create custom checkmark */
+.custom-checkbox .checkmark {
+  width: 22px;
+  height: 22px;
+  background-color: var(--bg-light);
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Checkmark icon inside */
+.custom-checkbox .checkmark::after {
+  content: "\f00c"; /* Font Awesome check icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--secondary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+  font-size: 14px;
+}
+
+/* Show checkmark when checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Optional hover effect */
+.custom-checkbox:hover .checkmark {
+  box-shadow: 0 0 6px var(--secondary);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Terms & Conditions</h1>
+    <p>Understand your rights and responsibilities while using <strong>Job Junction</strong>.</p>
+  </section>
+
+  <!-- Cards Section -->
+  <section class="terms-section">
+
+    <div class="card">
+      <i class="fas fa-file-contract"></i>
+      <h2>1. Acceptance of Terms</h2>
+      <p>By creating an account on Job Junction, you agree to follow all the terms and policies outlined here. If you disagree, please refrain from using the platform.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-user-shield"></i>
+      <h2>2. User Responsibilities</h2>
+      <ul>
+        <li>Provide accurate and complete information during registration.</li>
+        <li>Keep your password and login credentials secure.</li>
+        <li>Do not misuse or disrupt the website’s functionality.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-user-secret"></i>
+      <h2>3. Privacy Policy</h2>
+      <p>Your personal data will be used for authentication and service improvements only. We value your privacy and will not share your data with third parties without consent.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-ban"></i>
+      <h2>4. Account Termination</h2>
+      <p>Accounts that violate rules, engage in fraudulent activity, or misuse the system may be suspended or permanently removed.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-copyright"></i>
+      <h2>5. Content Ownership</h2>
+      <p>All designs, images, and code belong to the contributors of Job Junction. Reuse or redistribution without permission is not allowed.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-edit"></i>
+      <h2>6. Modifications to Terms</h2>
+      <p>We may update these terms as needed. Continued use of your account means you accept any changes made.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-envelope"></i>
+      <h2>7. Contact Us</h2>
+      <p>Have questions? Reach out to us anytime through our <a href="ContactPage.html" style="color: var(--primary); text-decoration: none;">Contact Page</a>.</p>
+    </div>
+
+  </section>
+
+ <!-- Accept Checkbox -->
+<div class="accept-container">
+  <label class="custom-checkbox">
+    <input type="checkbox" id="acceptTerms">
+    <span class="checkmark"></span>
+    I have read and agree to the Terms & Conditions
+  </label>
+</div>
+
+
+  <!-- Back Button -->
+  <a href="signup.html" id="backBtn" class="back-btn">← Back to Sign Up</a>
+
+  <script>
+    const checkbox = document.getElementById('acceptTerms');
+    const backBtn = document.getElementById('backBtn');
+
+    // Disable button until checkbox checked
+    backBtn.addEventListener('click', (e) => {
+      if (!checkbox.checked) {
+        e.preventDefault();
+        alert("Please agree to the Terms & Conditions to proceed.");
+      }
+    });
+  </script>
+
+</body>
+</html>

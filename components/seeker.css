@@ -173,8 +173,6 @@ header {
     height: 100%;
 }
 
-
-
 #dropdown{
     padding: 6px;
     font-size: .8rem;
@@ -436,6 +434,7 @@ footer {
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -457,6 +456,30 @@ footer {
     font-weight: 500;
 }
 
+.suggestions-list li:hover {
+    background: linear-gradient(135deg, #e6f3ff, #cce7ff);
+    color: #1e40af;
+    transform: translateX(5px);
+}
+
+footer {
+    background: rgba(33, 181, 204, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #1e3a8a;
+    padding: 2rem 5%;
+    font-family: "Poppins", sans-serif;
+    border-top: 1px solid rgba(46, 7, 117, 0.3);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#footer-statement {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+}
+  
 /* CARD FOOTER */
 .card-footer {
     display: flex;
@@ -554,6 +577,253 @@ footer {
     transform: scale(1.05);
     background-color: rgb(102, 102, 253);
     color: white;
+}
+/* Enhanced Search Box Styles - Add to seeker.css */
+.search-filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+}
+
+.search-box-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.search-input-group:focus-within {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: #fff;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #64748b;
+  font-size: 1.1rem;
+  z-index: 2;
+}
+
+.enhanced-search {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #1e293b;
+  outline: none;
+}
+
+.enhanced-search::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.clear-search-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.clear-search-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.search-suggestions.show {
+  display: block;
+}
+
+.suggestion-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background: #f8fafc;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.filters-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.enhanced-filter {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #1e293b;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.enhanced-filter:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+.filter-reset-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-reset-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+=======
+/* Improved Job Card Design for seeker.html */
+/* Add this to seeker.css or in a <style> block in seeker.html */
+
+.jobs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+.job-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(102,126,234,0.10);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.job-card:hover, .job-card:focus-within {
+  box-shadow: 0 8px 32px rgba(102,126,234,0.18);
+  transform: translateY(-4px) scale(1.02);
+  border-color: #667eea;
+}
+
+.job-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3d55b4;
+  margin-bottom: 0.3rem;
+}
+
+.job-card .company {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 0.2rem;
+}
+
+.job-card .meta {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.98rem;
+  color: #764ba2;
+  margin-bottom: 0.5rem;
+}
+
+.job-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.job-card .tag {
+  background: #e0e7ff;
+  color: #3d55b4;
+  font-size: 0.92rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 1rem;
+  font-weight: 500;
+}
+
+.job-card .apply-btn {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.job-card .apply-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .jobs-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .job-card {
+    padding: 1rem 0.7rem;
+  }
 }
 
 /* RESPONSIVE DESIGN */
@@ -669,7 +939,7 @@ footer {
 }
 .search-filter-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1rem;
   justify-content: center;
   margin: 2rem 0;
@@ -708,6 +978,7 @@ footer {
   background-size: 1rem;
   padding-right: 2.5rem;
 }
+
 
 /* Optional: Add hover effect */
 .fancy-input:hover,
@@ -762,4 +1033,890 @@ footer {
 }
 #backToTopBtn:hover {
   background-color: #1e40af;
+}
+/* --- Navigation Bar Fix --- */
+.headContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+  border-radius: 0 0 1.2rem 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+.headlinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.headlinks a, .headlinks button {
+  color: #3d55b4;
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.headlinks a:hover, .headlinks button:hover {
+  background: #f0f4ff;
+  color: #764ba2;
+}
+.apply-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.apply-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* --- Provide Details Modal Fix --- */
+.apply {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(102,126,234,0.10);
+  padding: 2rem 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  position: relative;
+  z-index: 200;
+}
+.apply.active {
+  display: flex;
+}
+.apply h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3d55b4;
+  margin-bottom: 1rem;
+}
+.apply .modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #764ba2;
+  cursor: pointer;
+}
+.apply div {
+  margin-bottom: 0.7rem;
+}
+.input, #skillInput {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+.skill-input-container {
+  margin-bottom: 1rem;
+}
+#tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.tag {
+  background: #667eea;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+}
+.suggestions-list {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+  margin-top: 0.3rem;
+  padding: 0.3rem 0;
+  list-style: none;
+  max-height: 120px;
+  overflow-y: auto;
+}
+.suggestions-list li {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+.suggestions-list li:hover {
+  background: #e0e7ff;
+}
+.job-type-apply {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+.job-type-apply input[type="radio"] {
+  margin-right: 0.3rem;
+}
+.job-type-apply h4 {
+  margin: 0 0.7rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3d55b4;
+  display: inline;
+}
+.Submit, .Cancel {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  margin-right: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.Cancel {
+  background: #e5e7eb;
+  color: #3d55b4;
+}
+.Submit:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+.Cancel:hover {
+  background: #d1d5db;
+  color: #764ba2;
+}
+
+/* --- Jobs Section --- */
+.body2 {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(102,126,234,0.08);
+}
+.heading h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3d55b4;
+  margin-bottom: 0.5rem;
+}
+.heading p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.search-filter-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-bar, .filter-dropdown {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  background: #fff;
+}
+.jobs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+/* --- Back to Top Button --- */
+#backToTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #667eea;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 16px rgba(102,126,234,0.15);
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+#backToTopBtn.show {
+  display: block;
+}
+
+/* --- Footer --- */
+footer {
+  background: #23272f;
+  color: #e5e7eb;
+  padding: 2rem 0 1rem;
+  border-radius: 2rem 2rem 0 0;
+  margin-top: 2rem;
+  text-align: center;
+}
+#footer-statement {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #e0e7eb;
+}
+.footer-links {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 2rem 1rem 2rem;
+  text-align: left;
+}
+.footer-links h3 {
+  color: #f093fb;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 0.4rem;
+}
+.footer-links ul li a {
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links ul li a:hover {
+  color: #f093fb;
+}
+.social-icons {
+  margin: 1rem 0;
+}
+.social-icons a {
+  color: #e5e7eb;
+  margin: 0 0.7rem;
+  font-size: 1.5rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.social-icons a:hover {
+  color: #f093fb;
+  transform: scale(1.2);
+}
+footer h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .headContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .headlinks {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .body2 {
+    padding: 0.5rem;
+    margin: 1rem auto;
+  }
+  .jobs-container {
+    grid-template-columns: 1fr;
+  }
+  .apply {
+    max-width: 95vw;
+    padding: 1rem;
+  }
+  .footer-links {
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .logo { width: 36px; height: 36px; }
+  .headContainer { padding: 0.5rem; }
+  .body2 { padding: 0.3rem; }
+  .apply { padding: 0.7rem; }
+  .footer-links { margin: 0.5rem auto; }
+}
+
+/* --- Show Modal on .active --- */
+.apply.active {
+  display: flex !important;
+}
+/* Interactive Job Card Flip/Expand Animations */
+/* Add this to your seeker.css or components/seeker.css */
+
+.job-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  height: 280px;
+  perspective: 1000px;
+}
+
+.job-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.job-card.flipped .job-card-inner {
+  transform: rotateY(180deg);
+}
+
+.job-card-front,
+.job-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-card-front {
+  background: #fff;
+}
+
+.job-card-back {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* Front Card Content */
+.job-card-header {
+  text-align: left;
+}
+
+.job-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.company-name {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.company-logo {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.job-tag {
+  background: #e0e7ff;
+  color: #3d55b4;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 1rem;
+  font-weight: 500;
+}
+
+.flip-indicator {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.flip-indicator:hover {
+  background: #667eea;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Back Card Content */
+.job-card-back h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.job-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+.job-requirements {
+  margin-bottom: 1rem;
+}
+
+.job-requirements h5 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.requirements-list li {
+  margin-bottom: 0.3rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.requirements-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.job-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.apply-btn,
+.save-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.apply-btn {
+  background: #fff;
+  color: #667eea;
+  border: 2px solid #fff;
+}
+
+.apply-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.save-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.save-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.back-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.back-indicator:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Hover Effects */
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+}
+
+/* Alternative: Expandable Cards */
+.job-card.expandable {
+  height: auto;
+  min-height: 280px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.job-card.expandable.expanded {
+  height: auto;
+  min-height: 400px;
+}
+
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.job-card.expanded .expandable-content {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .job-card {
+    height: 250px;
+  }
+  
+  .job-card-front,
+  .job-card-back {
+    padding: 1rem;
+  }
+  
+  .job-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .job-actions {
+    flex-direction: column;
+  }
+}
+
+/* Loading Animation */
+.job-card.loading {
+  pointer-events: none;
+}
+
+.job-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+/* Updated Hover Effects for seeker.html to match global styles */
+/* Add this to components/seeker.css */
+
+/* Navigation Links Hover */
+.headlinks a {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.headlinks a:hover {
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+.headlinks a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.headlinks a:hover::after {
+  width: 100%;
+}
+
+/* Apply Button Hover */
+.apply-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.apply-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.apply-btn:hover::before {
+  left: 100%;
+}
+
+/* Job Cards Hover */
+.job-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Search Bar Hover */
+.search-bar {
+  transition: all 0.3s ease;
+}
+
+.search-bar:hover {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-bar:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+  transform: scale(1.02);
+}
+
+/* Filter Dropdown Hover */
+.filter-dropdown {
+  transition: all 0.3s ease;
+}
+
+.filter-dropdown:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+/* Submit/Cancel Buttons Hover */
+.Submit {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.Submit:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.Cancel {
+  transition: all 0.3s ease;
+}
+
+.Cancel:hover {
+  background: #f3f4f6;
+  color: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Links Hover */
+footer a {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+footer a:hover {
+  color: #667eea;
+  transform: translateX(5px);
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: #667eea;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Social Icons Hover */
+.social-icons a {
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #667eea;
+  transform: translateY(-3px) scale(1.2);
+}
+
+/* Back to Top Button Hover */
+#backToTopBtn {
+  transition: all 0.3s ease;
+}
+
+#backToTopBtn:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Logo Hover */
+.logo {
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(5deg) scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* Modal Close Button Hover */
+.modal-close-btn {
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  transform: scale(1.2);
+}
+
+/* Input Fields Hover/Focus */
+.input {
+  transition: all 0.3s ease;
+}
+
+.input:hover {
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.input:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+  transform: scale(1.02);
+}
+
+/* Skills Container Hover */
+.skill-input-container {
+  transition: all 0.3s ease;
+}
+
+.skill-input-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Tag Hover */
+.tag {
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }

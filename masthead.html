@@ -4,126 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Project | Job Junction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
+    /* Root Colors & Variables */
+    :root {
+      --primary-50: #eff6ff;
+      --primary-500: #3b82f6;
+      --primary-700: #1d4ed8;
+      --gray-50: #f9fafb;
+      --gray-200: #e5e7eb;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --background: var(--white);
+      --surface: var(--gray-50);
+      --text-primary: var(--gray-900);
+      --accent: var(--primary-500);
+      --accent-hover: var(--primary-700);
+    }
 
-:root {
-  /* Light Theme Colors Only */
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
-  --primary-800: #1e40af;
-  --primary-900: #1e3a8a;
-
-  --secondary-50: #f0f9ff;
-  --secondary-100: #e0f2fe;
-  --secondary-200: #bae6fd;
-  --secondary-300: #7dd3fc;
-  --secondary-400: #38bdf8;
-  --secondary-500: #0ea5e9;
-  --secondary-600: #0284c7;
-  --secondary-700: #0369a1;
-  --secondary-800: #075985;
-  --secondary-900: #0c4a6e;
-
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
-
-  --white: #ffffff;
-  --black: #000000;
-
-  /* Semantic Colors */
-  --background: var(--white);
-  --surface: var(--gray-50);
-  --text-primary: var(--gray-900);
-  --text-secondary: var(--gray-600);
-  --border: var(--gray-200);
-  --accent: var(--primary-600);
-  --accent-hover: var(--primary-700);
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-  /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-
-  /* Spacing */
-  --container-padding: 2rem;
-  --section-padding: 5rem 0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background: #dbeafe;
-      color: #333;
+      background: var(--background);
+      color: var(--text-primary);
     }
-    .masthead-header {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #b0d2ff;
-  color: #333;
-}
 
-.masthead-header h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-.masthead-header p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
+    a:hover {
+      color: var(--accent-hover);
+    }
 
-@media (max-width: 768px) {
-  .masthead-header h2 {
-    font-size: 2rem;
-  }
-  .masthead-header p {
-    font-size: 1rem;
-  }
-}
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
 
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
+    button:hover {
+      background: var(--accent-hover);
     }
 
     h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #222;
+      color: var(--gray-900);
+    }
+
+    /* Masthead */
+    .masthead-header {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #b0d2ff;
+      color: #333;
+    }
+
+    .masthead-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .masthead-header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
     }
 
     /* Mission */
@@ -137,60 +105,105 @@
 
     /* Core Team */
     #core-team {
-  text-align: center;
-  padding: 50px 20px ;
-  background: #f9f9f9;
-  border-radius: 10px;
-}
-
-#core-team h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
-.contributors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.contributor {
-  width: 120px;
-  text-align: center;
-}
-
-.contributor img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-}
-
-.contributor p {
-  margin-top: 8px;
-  font-size: 0.9rem;
-}
-
-
-
-    /* Contact */
-    .contact {
       text-align: center;
-      padding: 50px;
-      background: #fff;
+      padding: 50px 20px;
+      background: #f9f9f9;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin-bottom: 40px;
-      margin-top: 50px;
     }
 
-    .contact a {
-      display: inline-block;
-      margin: 10px;
-      text-decoration: none;
-      color: #111827;
+    .contributors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contributor {
+      width: 120px;
+      text-align: center;
+    }
+
+    .contributor img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+    }
+
+    .contributor p, .contributor small {
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      padding: 30px 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    .contact h2 {
+      color: var(--accent);
+      margin-bottom: 25px;
+    }
+
+    .contact-card {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .inner-card {
+      background: #f3f4f6;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      flex: 1 1 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 0;
+    }
+
+    .inner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .inner-card p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    .inner-card a {
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .inner-card a:hover {
+      color: var(--primary-700);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--primary-700);
+      transform: scale(1.2);
     }
 
     /* Launch Info */
@@ -199,62 +212,96 @@
       padding: 20px;
       background: #eee;
       border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      height: 50px;
+      width: 50px;
+      position: fixed;
+      bottom: 40px;
+      right: 20px;
+      z-index: 1000;
+      background: linear-gradient(135deg,#0077b5 ,#4facfe );
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    #backToTop:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
-      .member img {
-        width: 80px;
-        height: 80px;
-      }
+    @media (max-width: 768px) {
+      .masthead-header h2 { font-size: 2rem; }
+      .masthead-header p { font-size: 1rem; }
+      .contact-card { flex-direction: column; align-items: center; gap: 15px; }
+      .inner-card { width: 100%; padding: 15px; }
+      .social-icons { gap: 12px; }
+      .social-icons a { font-size: 1.3rem; }
     }
 
+    /* Dark Theme */
+    :root[data-theme="dark"] {
+      --background: #111827;
+      --surface: #1f2937;
+      --text-primary: #f9fafb;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+    }
 
-    /* Back to Top Button Styles */
-    #backToTop {
-            height: 50px;
-            width: 50px;
-          position: fixed;
-          bottom: 40px;
-          right: 20px;
-          z-index: 1000;
-          background: linear-gradient(135deg,#0077b5 ,#4facfe );
-          color: white;
-          border: none;
-          border-radius: 50%;
-          padding: 15px;
-          font-size: 18px;
-          cursor: pointer;
-          display: none;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-          transition: transform 0.3s ease, opacity 0.3s ease;
-          }
+    body[data-theme="dark"] {
+      background: var(--background);
+      color: var(--text-primary);
+    }
 
-          #backToTop:hover {
-          transform: scale(1.1);
-          opacity: 0.9;
-          box-shadow: rgba(0,0,0,0.8);
-          }
+    .theme-toggle {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
 
-          @media (max-width: 600px) {
-          #backToTop {
-            padding: 12px;
-            font-size: 16px;
-            bottom: 20px;
-            right: 20px;
-          }
-          }
+    .theme-toggle:hover { background: var(--accent-hover); }
+@media (max-width: 480px) {
+  .contact-card {
+    flex-direction: column;      /* Stack cards vertically */
+    align-items: center;         /* Center them */
+    gap: 10px;                   /* Reduce gap between cards */
+  }
+
+  .inner-card {
+    width: 100%;                 /* Full width */
+    padding: 15px;               /* Adjust padding */
+    margin-bottom: 0;            /* Remove extra bottom margin */
+  }
+}
+
   </style>
 </head>
 <body>
 
-    <section class="masthead-header">
-        <h2>Masthead</h2>
-        <p>This section introduces our job portal’s identity, vision, and key offerings to guide users from the very first glance.</p>
-      </section>
-      
+  <section class="masthead-header">
+    <h2>Masthead</h2>
+    <p>This section introduces our job portal’s identity, vision, and key offerings to guide users from the very first glance.</p>
+    <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+  </section>
 
-      
   <div class="container">
 
     <!-- Mission -->
@@ -265,20 +312,28 @@
 
     <!-- Core Team -->
     <section id="core-team">
-        <h2>Core Team</h2>
-        <div id="contributors" class="contributors"></div>
-      </section>
-      
+      <h2>Core Team</h2>
+      <div id="contributors" class="contributors"></div>
+    </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section class="contact">
       <h2>Contact Information</h2>
-      <p>Email: <a href="mailto:jobjunction@gmail.com">jobjunction@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/SurajSG23/Job-Portal?tab=contributing-ov-file" target="_blank">Job Junction Repository</a></p>
-      <p>Follow us: 
-        <a href="#">Twitter</a> | 
-        <a href="#">LinkedIn</a>
-      </p>
+      <div class="contact-card">
+        <div class="inner-card">
+          <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:jobjunction@gmail.com">jobjunction@gmail.com</a></p>
+          <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/SurajSG23/Job-Portal" target="_blank">Job Junction Repo</a></p>
+        </div>
+        <div class="inner-card">
+          <p>Follow us:</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Launch Info -->
@@ -289,66 +344,60 @@
 
   </div>
 
-
-
-    <!-- Back to Top Button -->
-    <button id="backToTop">↑</button>
-
+  <!-- Back to Top Button -->
+  <button id="backToTop">↑</button>
 
   <script>
-    const repoOwner = "SurajSG23";   // GitHub username
-    const repoName = "Job-Portal";   // Repository name
-  
+    // Fetch GitHub Contributors
     async function fetchContributors() {
       try {
-        const response = await fetch(`https://api.github.com/repos/SurajSG23/Job-Portal/contributors`);
+        const response = await fetch("https://api.github.com/repos/SurajSG23/Job-Portal/contributors");
         const contributors = await response.json();
-  
         const container = document.getElementById("contributors");
-        container.innerHTML = ""; // clear if reloaded
-  
-        contributors.forEach(contributor => {
+        container.innerHTML = "";
+        contributors.forEach(c => {
           const div = document.createElement("div");
           div.classList.add("contributor");
-  
           div.innerHTML = `
-            <a href="${contributor.html_url}" target="_blank">
-              <img src="${contributor.avatar_url}" alt="${contributor.login}">
-              <p>${contributor.login}</p>
-              <small>Commits: ${contributor.contributions}</small>
+            <a href="${c.html_url}" target="_blank">
+              <img src="${c.avatar_url}" alt="${c.login}">
+              <p>${c.login}</p>
+              <small>Commits: ${c.contributions}</small>
             </a>
           `;
           container.appendChild(div);
         });
-      } catch (error) {
-        console.error("Error fetching contributors:", error);
-      }
+      } catch(e) { console.error(e); }
     }
-  
     fetchContributors();
 
+    // Back to Top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 50 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-    //back to top button 
-// Show button when scrolled down
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    backToTop.style.display = "block";
-  } else {
-    backToTop.style.display = "none";
-  }
-});
-
-// Smooth scroll to top
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+    // Theme Toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const root = document.documentElement;
+    if(localStorage.getItem("theme") === "dark") {
+      root.setAttribute("data-theme", "dark");
+      themeToggle.textContent = "☀️ Light Mode";
+    }
+    themeToggle.addEventListener("click", () => {
+      if(root.getAttribute("data-theme") === "dark") {
+        root.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙 Dark Mode";
+      } else {
+        root.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️ Light Mode";
+      }
+    });
   </script>
-  
-
-  
-
 </body>
 </html>
-

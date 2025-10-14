@@ -138,8 +138,8 @@ body {
     transition: all 0.3s ease;
     font-weight: 500;
 }
-
-.nav-item i {
+.nav-item i
+ {
     margin-right: 0.75rem;
     width: 20px;
 }

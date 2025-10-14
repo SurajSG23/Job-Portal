@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap - Modern Design</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* Hero Section */
+    .hero {
+      width: 100%;
+      min-height: 300px;
+      background: linear-gradient(135deg, #1a73e8, #ff6600);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      line-height: 1.2;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      opacity: 0.9;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #ff6600;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    .hero .btn:hover {
+      background: #ffcc99;
+      color: #1a73e8;
+    }
+
+    /* Decorative shapes */
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+    }
+
+    .hero::before {
+      width: 200px;
+      height: 200px;
+      background: white;
+      top: 20px;
+      left: 30px;
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      background: white;
+      bottom: -50px;
+      right: -50px;
+    }
+
+    /* Sitemap grid */
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 30px;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 1000px) {
+      .sitemap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .sitemap-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Category Card */
+    .card {
+      background: linear-gradient(135deg, #ff6600, #ff9966);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: white;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    /* Link cards */
+    .link-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .link-list li {
+      margin-bottom: 10px;
+    }
+
+    .link-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: white;
+      color: #1a73e8;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .link-list a:hover {
+      background: #1a73e8;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .link-list a i {
+      color: #ff6600;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Explore Our Website Sitemap</h1>
+    <p>Find all the important pages and resources in one place</p>
+    <a href="#sitemap" class="btn">Explore Sitemap</a>
+  </section>
+
+  <!-- Sitemap Grid -->
+  <div id="sitemap" class="sitemap-grid">
+
+    <!-- Category Cards -->
+    <div class="card">
+      <h2><i class="fas fa-home"></i> Main Pages</h2>
+      <ul class="link-list">
+        <li><a href="home.html"><i class="fas fa-angle-right"></i> Home</a></li>
+        <li><a href="contactpage.html"><i class="fas fa-angle-right"></i> Contact Page</a></li>
+        <li><a href="faq.html"><i class="fas fa-angle-right"></i> FAQ</a></li>
+        <li><a href="privacy-policy.html"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+        <li><a href="terms-of-use.html"><i class="fas fa-angle-right"></i> Terms of Use</a></li>
+        <li><a href="masthead.s.html"><i class="fas fa-angle-right"></i> Masterhead</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-briefcase"></i> Careers & Jobs</h2>
+      <ul class="link-list">
+        <li><a href="featured-job.html"><i class="fas fa-angle-right"></i> Featured Job</a></li>
+        <li><a href="internships.html"><i class="fas fa-angle-right"></i> Internship</a></li>
+        <li><a href="job-application.html"><i class="fas fa-angle-right"></i> Job Application</a></li>
+        <li><a href="companies.html"><i class="fas fa-angle-right"></i> Companies</a></li>
+        <li><a href="remote.html"><i class="fas fa-angle-right"></i> Remote Jobs</a></li>
+        <li><a href="salary-insights.html"><i class="fas fa-angle-right"></i> Salary Insights</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-user"></i> User Account</h2>
+      <ul class="link-list">
+        <li><a href="login.html"><i class="fas fa-angle-right"></i> Login</a></li>
+        <li><a href="signup.html"><i class="fas fa-angle-right"></i> Sign Up</a></li>
+        <li><a href="application.html"><i class="fas fa-angle-right"></i> Application</a></li>
+        <li><a href="app-tracker.html"><i class="fas fa-angle-right"></i> App Tracker</a></li>
+        <li><a href="resume-builder.html"><i class="fas fa-angle-right"></i> Resume Builder</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-lightbulb"></i> Learning & Development</h2>
+      <ul class="link-list">
+        <li><a href="skill-development.html"><i class="fas fa-angle-right"></i> Skill Development</a></li>
+        <li><a href="resources.html"><i class="fas fa-angle-right"></i> Resources</a></li>
+        <li><a href="open-source.html"><i class="fas fa-angle-right"></i> Open Source Projects</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-chart-line"></i> Career Growth</h2>
+      <ul class="link-list">
+        <li><a href="personal-branding.html"><i class="fas fa-angle-right"></i> Personal Branding</a></li>
+        <li><a href="interview-prep.html"><i class="fas fa-angle-right"></i> Interview Tips</a></li>
+        <li><a href="workplace.html"><i class="fas fa-angle-right"></i> Workplace Guidance</a></li>
+        <li><a href="career-growth.html"><i class="fas fa-angle-right"></i> Career Growth</a></li>
+        <li><a href="career-guide.html"><i class="fas fa-angle-right"></i> Career Guide</a></li>
+        <li><a href="success-stories.html"><i class="fas fa-angle-right"></i> Success Stories</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

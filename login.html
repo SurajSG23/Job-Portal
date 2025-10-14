@@ -11,6 +11,7 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
+
     body {
       background: #000000;
       display: flex;
@@ -19,6 +20,7 @@
       min-height: 100vh;
       padding: 20px;
     }
+
     .split-container {
       display: flex;
       width: 900px;
@@ -28,19 +30,21 @@
       overflow: hidden;
       background: white;
     }
+
     .left-panel {
-      flex: 1;
-      position: relative;
-      background-image: url('https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1779&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-right: 1px solid #ccc;
-    }
+  flex: 1;
+  position: relative;
+  background-image: url('./assets/login_final.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #ccc;
+}
+    
     .left-panel::before {
       content: "";
       position: absolute;
@@ -59,16 +63,22 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .left-panel h1 {
-      font-size: 2.5rem;
+.left-panel h1 {
+      font-size: 1.5rem;
       font-weight: 700;
       line-height: 1.1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0rem;
+      margin-left: 30px;
+      text-align: center;
+
     }
     .left-panel p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       max-width: 90%;
-      line-height: 1.5;
+      margin-top:5px;
+            margin-bottom: 0rem;
+      margin-left: 30px;
+text-align: center;
     }
     .right-panel {
       flex: 1;
@@ -241,8 +251,7 @@
   <div class="split-container">
     <div class="left-panel">
       <div>
-        <p class="quote-header">A WISE QUOTE</p>
-      </div>
+     </div>
       <div>
         <h1>Get Everything You Want</h1>
         <p>You can get everything you want if you work hard, trust the process, and stick to the plan.</p>
@@ -272,7 +281,7 @@
           <input type="checkbox" id="remember" />
           <label for="remember">Remember Me</label>
         </div>
-        <a href="forgotPass.html" class="forgot-password">Forgot Password?</a>
+        <a href="forgotPass.html" class="forgot-password" id="forgotPasswordLink">Forgot Password?</a>
         <button type="submit" class="btn">Sign In</button>
         <div class="spinner" id="login-spinner"></div>
         <div class="divider">
@@ -306,6 +315,9 @@
     const loginEmail = document.getElementById("login-email");
     const loginEmailFeedback = document.getElementById("loginEmailFeedback");
     const loginSpinner = document.getElementById("login-spinner");
+    const passwordInput = document.getElementById('login-password'); // Get password input
+    const passwordError = document.getElementById('passwordError'); // Get password error
+    const rememberMeCheckbox = document.getElementById('remember'); // Get checkbox
 
     loginEmail.addEventListener("input", () => {
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -315,27 +327,50 @@
     });
 
     loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // Stop the form from submitting normally
 
-      //password validation
-      const password = document.getElementById('login-password');
-    const passwordError = document.getElementById('passwordError');
-
-      if (password.value.length < 5) {
+      // --- Password validation ---
+      if (passwordInput.value.length < 5) {
         passwordError.style.display = "block";
-        return;
+        return; // Stop the function if password is invalid
       } else {
         passwordError.style.display = "none";
       }
       
-      // Spinner
+      // --- Show spinner ---
       loginSpinner.style.display = "block";
-      // Simulate form submission
+      
+      // --- Simulate a successful API call/login ---
       setTimeout(() => {
+        // --- THIS IS THE NEW LOGIC ---
+        
+        // 1. Check if "Remember Me" is ticked
+        const rememberMe = rememberMeCheckbox.checked;
+
+        // 2. Save the login state.
+        // We just save a simple 'true' value. In a real app, this would be a secure token (like a JWT).
+        if (rememberMe) {
+            // localStorage persists even after the browser is closed
+            localStorage.setItem('isLoggedIn', 'true');
+        } else {
+            // sessionStorage is cleared when the browser tab is closed
+            sessionStorage.setItem('isLoggedIn', 'true');
+        }
+
+        // 3. Hide spinner (optional since we are leaving the page)
         loginSpinner.style.display = "none";
-        alert("Login successful!");
-        loginForm.reset();
+
+        // 4. Redirect to the index page
+        window.location.href = "index.html"; // <-- THIS REDIRECTS THE USER
+
+        // We remove the alert() and form.reset() since we are navigating away
       }, 1500);
+    });
+
+    // Fix for "Forgot Password?" link not responding
+    document.getElementById("forgotPasswordLink").addEventListener("click", function(e) {
+      e.preventDefault();
+      window.location.href = "forgotPass.html";
     });
   </script>
 </body>

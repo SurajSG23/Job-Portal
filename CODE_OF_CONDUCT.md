@@ -1,53 +1,91 @@
-# Contributor Covenant Code of Conduct
+CODE_OF_CONDUCT.m# Job Junction — Code of Conduct
 
-## Our Pledge
+*Maintaining a safe, respectful, and welcoming community for all contributors.*
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+---
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+## 🤝 Our Pledge
 
-## Our Standards
+We, as members and contributors of **Job Junction**, pledge to make participation in this project a **harassment-free experience for everyone**.  
+We are committed to creating an **inclusive, friendly, and professional environment** where collaboration thrives.
 
-Examples of behavior that contributes to a positive environment for our community include:
-- Demonstrating empathy and kindness toward other people
-- Being respectful of differing opinions, viewpoints, and experiences
-- Giving and gracefully accepting constructive feedback
-- Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-- Focusing on what is best not just for us as individuals, but for the overall community
+We pledge to:
+- Treat everyone with **respect and empathy**.  
+- Celebrate **diversity and differences**.  
+- Promote **learning, creativity, and growth** in all contributions.
 
-Examples of unacceptable behavior include:
-- The use of sexualized language or imagery, and sexual attention or advances of any kind
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others’ private information, such as a physical or email address, without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+---
 
-## Enforcement Responsibilities
+## 🌟 Expected Behavior
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+Positive behaviors that help build a welcoming community:  
+- Show kindness and professionalism toward others.  
+- Respect differing opinions and experiences.  
+- Give and receive constructive feedback gracefully.  
+- Take responsibility for mistakes and learn from them.  
+- Focus on the success of the **whole project**.
 
-Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
+---
 
-## Scope
+## 🚫 Unacceptable Behavior
 
-This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces.
+The following behaviors are not tolerated:  
+- Harassment, bullying, or personal attacks.  
+- Discrimination based on race, gender, sexual orientation, religion, disability, or age.  
+- Offensive, explicit, or inappropriate content.  
+- Publishing private information without consent.  
+- Disruptive or unprofessional behavior.
 
-## Enforcement
+---
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT EMAIL].
-All complaints will be reviewed and investigated promptly and fairly.
+## 🛡 Enforcement Responsibilities
 
-All community leaders are obligated to respect the privacy and security of the reporter of any incident.
+Community leaders are responsible for:  
+- Clarifying and enforcing this Code of Conduct.  
+- Taking corrective action when necessary.  
+- Maintaining confidentiality of all reports.
 
-## Enforcement Guidelines
+---
 
-Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
+## 📢 Reporting Guidelines
 
-1. Correction
-2. Warning
-3. Temporary Ban
-4. Permanent Ban
+If you witness or experience unacceptable behavior:  
+1. Contact the maintainers via GitHub Issues or Discord.  
+2. Reports will be treated with **confidentiality and respect**.  
+3. Community leaders will respond promptly and take fair action.  
 
-## Attribution
+> **No retaliation will occur** against reporters acting in good faith.
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
+---
+
+## 🌍 Scope
+
+This Code of Conduct applies to:  
+- All project spaces (online & offline).  
+- Public interactions representing **Job Junction** (GitHub, Discord, events, social media).
+
+---
+
+## ⚖️ Enforcement Guidelines
+
+Consequences for violations may include:  
+1. **Correction** – Private warning or request for apology.  
+2. **Warning** – Official warning with conditions.  
+3. **Temporary Ban** – Restricted access to project spaces.  
+4. **Permanent Ban** – Removal for repeated or serious violations.
+
+---
+
+## 📜 Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant (v3.0)](https://www.contributor-covenant.org/version/3/0/code_of_conduct/), with modifications for **Job Junction under GSSoC’25**.  
+
+We thank all contributors, maintainers, and members for helping make **Job Junction** a **safe, inclusive, and professional space**.
+
+---
+
+### 🎉 Final Note
+
+This Code of Conduct is more than just rules — it’s about building a **community where creativity, collaboration, and kindness thrive**.  
+
+Let’s make **Job Junction** a place where everyone feels welcome to **learn, contribute, and innovate**.

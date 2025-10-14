@@ -1,13 +1,759 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Saved Jobs</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saved Jobs</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family:'Arial', sans-serif; background:#f4f4f4; transition:0.3s;}
+
+  /* Header */
+  header {
+    background:white;
+    color:#60a5fa;
+    padding:12px 25px;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+
+  .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1300px;
+    margin:auto;
+  }
+
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#60a5fa;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#60a5fa;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:#2563eb;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#60a5fa;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {color:#2563eb;}
+
+  /* Responsive */
+  @media(max-width:992px){
+    nav ul {
+      position:fixed;
+      top:0;
+      left:-100%;
+      height:100%;
+      width:260px;
+      flex-direction:column;
+      padding-top:70px;
+      background:#60a5fa;
+      transition:0.3s;
+    }
+    nav ul.show {left:0;}
+    nav ul li {width:100%;}
+    nav ul li a {padding:15px 20px;}
+    .dropdown-menu {position:static; display:none;}
+    .dropdown.active .dropdown-menu {display:block;}
+    .hamburger {display:block;}
+    .login-btn, .signup-btn {width:90%; margin:5px 20px;}
+    .theme-toggle {position:absolute; bottom:120px; left:20px;}
+  }
+
+  nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
+
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
+
+  /* Hover and dropdown for desktop */
+@media(min-width: 993px){
+  nav ul li a:hover {
+    background:#2563eb; /* hover color */
+    color:#fff;
+  }
+
+  nav ul li:hover .dropdown-menu {
+    display:block; /* show dropdown on hover */
+  }
+
+  nav ul li a i {
+    transition:0.3s;
+  }
+  nav ul li:hover a i {
+    transform: rotate(180deg); /* arrow rotates on hover */
+  }
+}
+
+/* Mobile/tablet dropdown behavior */
+@media(max-width: 992px){
+  nav ul {
+    position:fixed;
+    top:0;
+    left:-100%;
+    height:100%;
+    width:260px;
+    flex-direction:column;
+    padding-top:70px;
+    background:#60a5fa;
+    transition:0.3s;
+  }
+  nav ul.show {left:0;}
+
+  nav ul li a {
+    padding:15px 20px;
+    border-radius:0;
+  }
+
+  /* Dropdown menu for mobile */
+  .dropdown-menu {
+    display:none; /* hide by default */
+    position:static;
+    background:#60a5fa;
+    box-shadow:none;
+  }
+  .dropdown.active .dropdown-menu {
+    display:block; /* show on click */
+  }
+
+  /* Buttons full width on mobile */
+  .login-btn, .signup-btn {width:90%; margin:5px 20px;}
+
+  /* Hamburger */
+  .hamburger {display:block;}
+}
+ /* Footer */
+    footer {background:#2563eb; color:#fff; text-align:center; padding:2rem 1rem;}
+    footer a {color:#fff; margin:0 0.5rem; font-size:1.2rem;}
+    footer a:hover {color:#60a5fa;}
+
+    /* Responsive */
+    @media(max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      nav{flex-direction:column; align-items:flex-start}
+      nav a{margin-left:0;margin-top:0.5rem}
+      .cards-container {grid-template-columns:1fr;}
+      .info-container {flex-direction:column; align-items:center;}
+      .team-container {grid-template-columns:1fr;}
+      .stats-container {flex-direction:column; align-items:center;}
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-col p:hover {
+      color: #2563eb;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons a:hover {
+      color: #2563eb;
+    }
+
+    .social-icons a i {
+      margin-right: 8px;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    /* ✅ Mobile Responsive Fix */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-col p {
+        display: block;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        flex-direction: row;  /* icons side by side on mobile */
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  max-width: 1200px; /* limit width */
+  margin: 0 auto; /* center the footer */
+  gap: 2rem;
+}
+.footer-col .social-icons {
+  display: flex;
+  flex-direction: column; /* vertical */
+  gap: 1rem;
+  justify-content: flex-start; /* align left */
+}
+.footer-col {
+  text-align: left;
+}
+
+.footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Footer Responsive */
+
+/* Medium devices (tablets) */
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1.5rem;
+  }
+
+  .footer-col {
+    text-align: left;
+  }
+
+  .social-icons {
+    flex-direction: row; /* social icons side by side */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* Small devices (mobiles) */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col p,
+  .footer-col a {
+    text-align: center;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .footer-credit {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .footer-container {
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .footer-col h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-col a {
+    font-size: 0.9rem;
+  }
+}
+   /* Hero Section */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem;
+  color: #ffffff;
+  overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background-attachment: fixed; /* nice subtle parallax effect */
+}
+
+/* Soft dark overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6); /* deep navy overlay */
+  z-index: 0;
+}
+
+/* Text styling */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  color: #e2e8f0;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Button */
+.hero .btn {
+  background: #ffffff;
+  color: #2563eb;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero .btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Subtle animations */
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+
+ /* Responsive */
+    @media(max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      nav{flex-direction:column; align-items:flex-start}
+      nav a{margin-left:0;margin-top:0.5rem}
+   
+    }
+    
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:6rem 2rem; color:#ffffff; background:#2563eb; overflow:hidden;
+}
+.hero::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6);}
+.hero h1{font-size:3rem; font-weight:700; margin-bottom:1rem; position:relative; z-index:1;}
+.hero p{font-size:1.1rem; max-width:700px; margin:0 auto 2rem; line-height:1.6; position:relative; z-index:1; color:#e2e8f0;}
+
+/* ===== SAVED JOB CARDS ===== */
+.saved-container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:2rem; max-width:1200px; margin:3rem auto; padding:0 1rem;
+}
+.saved-card {
+  background:#fff; padding:2rem 1.5rem; border-radius:20px;
+  text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.1);
+  transition:all 0.3s ease; position:relative;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.saved-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+.job-icon {
+  font-size:3rem;
+  color:#fff;
+  background:linear-gradient(135deg, #3b82f6, #60a5fa);
+  padding:18px; border-radius:50%;
+  margin-bottom:1rem;
+}
+.saved-card h3 {
+  font-size:1.4rem; margin-bottom:0.8rem; color:#2563eb; position:relative;
+}
+.saved-card h3::after {
+  content:""; display:block; width:0; height:2px;
+  background:linear-gradient(90deg, #3b82f6, #60a5fa);
+  transition:width 0.3s; margin:5px auto 0;
+}
+.saved-card:hover h3::after {width:50%;}
+.saved-card p {
+  font-size:1rem; color:#1e293b; margin:0.3rem 0;
+  display:flex; align-items:center; gap:8px; justify-content:center;
+}
+.heart {
+  font-size:1.4rem; color:#60a5fa;
+  position:absolute; top:15px; right:15px; cursor:pointer;
+  transition:all 0.3s ease;
+}
+.heart.liked {color:#ef4444; transform:scale(1.2);}
+.remove-btn {
+  margin-top:1rem; padding:0.6rem 1.5rem;
+  background:#2563eb; color:white; border:none;
+  border-radius:50px; font-weight:600;
+  cursor:pointer; transition:background 0.3s;
+}
+.remove-btn:hover {background:#1e40af;}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+.job-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px auto;
+  color: white;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.job-icon:hover {
+  transform: scale(1.05);
+}
+.job-icon {
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+</style>
 </head>
 <body>
-    <h1>Your Saved Jobs</h1>
-    <div class="jobs-container"></div>
 
-    <script src="saved-jobs.js"></script>
+<header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html"><img src="assets/logo.webp"></a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="internships.html">Internship</a></li>
+            <li><a href="part-time.html">Part-time</a></li>
+            <li><a href="remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="career-guides.html">Career Guide</a></li>
+            <li><a href="resume-builder.html">Resume Builder</a></li>
+            <li><a href="interview-prep.html">Interview</a></li>
+            <li><a href="personal-branding.html">Personal Branding</a></li>
+            <li><a href="workplace-communication.html">Workplace</a></li>
+            <li><a href="career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="signup.html">Sitemap</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
+    </div>
+
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+
+<section class="hero">
+  <h1>Saved Jobs</h1>
+  <p>Your favorite jobs will appear here. Save jobs you are interested in and apply when ready.</p>
+</section>
+
+<section class="saved-container">
+  <div class="saved-card">
+    <i class="fas fa-briefcase job-icon"></i>
+    <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
+    <h3>Frontend Developer</h3>
+    <p><i class="fas fa-building"></i> Tech Innovators</p>
+    <p><i class="fas fa-clock"></i> Part-Time</p>
+    <p><i class="fas fa-map-marker-alt"></i> Mumbai</p>
+    <button class="remove-btn">Remove</button>
+  </div>
+
+  <div class="saved-card">
+    <i class="fas fa-paint-brush job-icon"></i>
+    <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
+    <h3>UI/UX Designer</h3>
+    <p><i class="fas fa-building"></i> Creative Minds</p>
+    <p><i class="fas fa-clock"></i> Part-Time</p>
+    <p><i class="fas fa-map-marker-alt"></i> Pune</p>
+    <button class="remove-btn">Remove</button>
+  </div>
+
+  <div class="saved-card">
+    <i class="fas fa-server job-icon"></i>
+    <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
+    <h3>Backend Engineer</h3>
+    <p><i class="fas fa-building"></i> Cloud Solutions</p>
+    <p><i class="fas fa-clock"></i> Part-Time</p>
+    <p><i class="fas fa-map-marker-alt"></i> Bangalore</p>
+    <button class="remove-btn">Remove</button>
+  </div>
+</section>
+  
+ <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </footer>
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const dropdowns = document.querySelectorAll(".dropdown");
+const themeToggle = document.getElementById('themeToggle');
+
+// Hamburger toggle
+hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
+
+// Mobile dropdown toggle
+dropdowns.forEach(drop => {
+  drop.addEventListener("click", e => {
+    if(window.innerWidth <= 992){
+      e.stopPropagation();
+      drop.classList.toggle("active");
+    }
+  });
+});
+
+// Dark/Light toggle
+const currentTheme = localStorage.getItem("theme");
+if(currentTheme === "dark") document.body.classList.add("dark");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+});
+</script>
+
 </body>
 </html>

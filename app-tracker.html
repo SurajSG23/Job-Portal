@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <title>Application Tracker</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f5f9;
+      color: #333;
+      padding: 20px;
+    }
+
+    .top-left {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .top-left a {
+      display: inline-block;
+      background: #2b3a67;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+
+    .top-left a:hover {
+      background: #1a253f;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeInDown 1s ease;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #2b3a67;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #666;
+    }
+
+    .tracker-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      animation: fadeInUp 1.2s ease;
+    }
+
+    thead {
+      background-color: #2b3a67;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 15px 20px;
+      text-align: left;
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background-color: #f0f8ff;
+    }
+
+    .status {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .Applied { background-color: #3498db; }
+    .Review { background-color: #9b59b6; }
+    .Interview { background-color: #f39c12; }
+    .Hired { background-color: #2ecc71; }
+    .Rejected { background-color: #e74c3c; }
+
+    .note-btn {
+      padding: 6px 10px;
+      border: none;
+      background: #2b3a67;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background 0.3s ease;
+    }
+
+    .note-btn:hover {
+      background: #1a253f;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      td {
+        position: relative;
+        padding-left: 50%;
+        margin-bottom: 10px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-weight: bold;
+        color: #2b3a67;
+      }
+
+      .note-btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .top-left {
+        top: 10px;
+        left: 10px;
+      }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .modal-content textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin-top: 10px;
+      resize: none;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #2b3a67;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background: #1a253f;
+    }
+
+    .close-btn {
+      background: #e74c3c !important;
+      float: right;
+      margin-left: 10px;
+    }
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-col p:hover {
+      color: #2563eb;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .social-icons a {
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons a:hover {
+      color: #2563eb;
+    }
+
+    .social-icons a i {
+      margin-right: 8px;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    /* ✅ Mobile Responsive Fix */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-col p {
+        display: block;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        flex-direction: row;  /* icons side by side on mobile */
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back to Top Button -->
+  <div class="top-left">
+    <a href="home.html">⬅ Back to Home</a>
+  </div>
+
+  <header>
+    <h1>📝 Application Tracker</h1>
+    <p>Track your job applications and stay updated</p>
+  </header>
+
+  <div class="tracker-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Role</th>
+          <th>Date Applied</th>
+          <th>Status</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Company">TechNova</td>
+          <td data-label="Role">Frontend Developer</td>
+          <td data-label="Date Applied">2025-09-01</td>
+          <td data-label="Status"><span class="status Applied">Applied</span></td>
+          <td data-label="Note"><button class="note-btn" onclick="openNote('Frontend Developer at TechNova')">Add Note</button></td>
+        </tr>
+        <tr>
+          <td data-label="Company">DesignPro</td>
+          <td data-label="Role">UI/UX Designer</td>
+          <td data-label="Date Applied">2025-09-03</td>
+          <td data-label="Status"><span class="status Review">Under Review</span></td>
+          <td data-label="Note"><button class="note-btn" onclick="openNote('UI/UX Designer at DesignPro')">Add Note</button></td>
+        </tr>
+        <tr>
+          <td data-label="Company">CloudCore</td>
+          <td data-label="Role">Backend Engineer</td>
+          <td data-label="Date Applied">2025-09-05</td>
+          <td data-label="Status"><span class="status Interview">Interview</span></td>
+          <td data-label="Note"><button class="note-btn" onclick="openNote('Backend Engineer at CloudCore')">Add Note</button></td>
+        </tr>
+        <tr>
+          <td data-label="Company">StartEdge</td>
+          <td data-label="Role">Product Manager</td>
+          <td data-label="Date Applied">2025-09-07</td>
+          <td data-label="Status"><span class="status Hired">Hired</span></td>
+          <td data-label="Note"><button class="note-btn" onclick="openNote('Product Manager at StartEdge')">Add Note</button></td>
+        </tr>
+        <tr>
+          <td data-label="Company">RejectCo</td>
+          <td data-label="Role">QA Engineer</td>
+          <td data-label="Date Applied">2025-08-28</td>
+          <td data-label="Status"><span class="status Rejected">Rejected</span></td>
+          <td data-label="Note"><button class="note-btn" onclick="openNote('QA Engineer at RejectCo')">Add Note</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div id="noteModal" class="modal">
+    <div class="modal-content">
+      <h3 id="noteTitle">Add Note</h3>
+      <textarea placeholder="Write your note here..."></textarea>
+      <br />
+      <button onclick="saveNote()">Save</button>
+      <button class="close-btn" onclick="closeNote()">Close</button>
+    </div>
+  </div>
+<footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    let noteModal = document.getElementById("noteModal");
+    let noteTitle = document.getElementById("noteTitle");
+
+    function openNote(job) {
+      noteTitle.innerText = "Add Note for " + job;
+      noteModal.style.display = "flex";
+    }
+
+    function closeNote() {
+      noteModal.style.display = "none";
+    }
+
+    function saveNote() {
+      alert("Note saved! (You can integrate this with a backend later.)");
+      closeNote();
+    }
+
+    window.onclick = function(event) {
+      if (event.target == noteModal) {
+        closeNote();
+      }
+    }
+  </script>
+</body>
+</html>
+

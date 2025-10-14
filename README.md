@@ -61,10 +61,10 @@ Client (Browser) ─────────────────────
 
 | Page               | Preview                                                   |
 |--------------------|-----------------------------------------------------------|
-| Landing Page       | ![Landing](./assets/screenshots/landing-page.webp)         |
-| User Role Selector | ![User Role](./assets/screenshots/user-role.webp)          |
-| Seeker Dashboard   | ![Seeker](./assets/screenshots/seeker-dashboard.webp)      |
-| Employer Dashboard | ![Employer](./assets/screenshots/employer-dashboard.webp)  |
+| Landing Page       | ![Landing](./assets/screenshots/landing-page.webp)        |
+| User Role Selector | ![User Role](./assets/screenshots/user-role.webp)         |
+| Seeker Dashboard   | ![Seeker](./assets/screenshots/seeker-dashboard.webp)     |
+| Employer Dashboard | ![Employer](./assets/screenshots/employer-dashboard.webp) |
 
 
 
