@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Job Filtering | Job Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f6f8fa;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 20px;
+    }
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input, select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      width: 200px;
+    }
+
+    input:focus, select:focus {
+      border-color: #004aad;
+    }
+
+    .job-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .job-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .job-title {
+      color: #004aad;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .job-company {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .job-info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .no-result {
+      text-align: center;
+      color: #777;
+      font-size: 18px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Available Jobs</h1>
+
+  <div class="filter-container">
+    <input type="text" id="searchInput" placeholder="Search by title or company...">
+
+    <select id="typeFilter">
+      <option value="">All Job Types</option>
+      <option value="Full-Time">Full-Time</option>
+      <option value="Part-Time">Part-Time</option>
+      <option value="Internship">Internship</option>
+    </select>
+
+    <select id="locationFilter">
+      <option value="">All Locations</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Ahmedabad">Ahmedabad</option>
+    </select>
+
+    <select id="salaryFilter">
+      <option value="">All Salaries</option>
+      <option value="0-30000">Below ₹30,000</option>
+      <option value="30000-70000">₹30,000 - ₹70,000</option>
+      <option value="70000-150000">Above ₹70,000</option>
+    </select>
+  </div>
+
+  <div class="job-list" id="jobList"></div>
+
+  <script>
+    const jobs = [
+      { title: "Frontend Developer", company: "Google", type: "Full-Time", location: "Bangalore", salary: 120000 },
+      { title: "Backend Developer", company: "Microsoft", type: "Full-Time", location: "Delhi", salary: 100000 },
+      { title: "Graphic Designer", company: "Zomato", type: "Part-Time", location: "Mumbai", salary: 40000 },
+      { title: "Software Intern", company: "Amazon", type: "Internship", location: "Bangalore", salary: 25000 },
+      { title: "UI/UX Designer", company: "TCS", type: "Full-Time", location: "Ahmedabad", salary: 75000 },
+      { title: "Data Analyst", company: "Accenture", type: "Full-Time", location: "Mumbai", salary: 90000 },
+      { title: "Web Developer Intern", company: "Infosys", type: "Internship", location: "Delhi", salary: 20000 }
+    ];
+
+    const jobList = document.getElementById("jobList");
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const locationFilter = document.getElementById("locationFilter");
+    const salaryFilter = document.getElementById("salaryFilter");
+
+    function displayJobs(filteredJobs) {
+      jobList.innerHTML = "";
+      if (filteredJobs.length === 0) {
+        jobList.innerHTML = '<div class="no-result">No jobs found.</div>';
+        return;
+      }
+      filteredJobs.forEach(job => {
+        const card = document.createElement("div");
+        card.classList.add("job-card");
+        card.innerHTML = `
+          <div class="job-title">${job.title}</div>
+          <div class="job-company">${job.company}</div>
+          <div class="job-info">Type: ${job.type}</div>
+          <div class="job-info">Location: ${job.location}</div>
+          <div class="job-info">Salary: ₹${job.salary.toLocaleString()}</div>
+        `;
+        jobList.appendChild(card);
+      });
+    }
+
+    function filterJobs() {
+      const searchValue = searchInput.value.toLowerCase();
+      const typeValue = typeFilter.value;
+      const locationValue = locationFilter.value;
+      const salaryValue = salaryFilter.value;
+
+      const filtered = jobs.filter(job => {
+        const matchesSearch = job.title.toLowerCase().includes(searchValue) || job.company.toLowerCase().includes(searchValue);
+        const matchesType = typeValue === "" || job.type === typeValue;
+        const matchesLocation = locationValue === "" || job.location === locationValue;
+
+        let matchesSalary = true;
+        if (salaryValue) {
+          const [min, max] = salaryValue.split("-").map(Number);
+          if (max) {
+            matchesSalary = job.salary >= min && job.salary <= max;
+          } else {
+            matchesSalary = job.salary >= min;
+          }
+        }
+
+        return matchesSearch && matchesType && matchesLocation && matchesSalary;
+      });
+
+      displayJobs(filtered);
+    }
+    searchInput.addEventListener("input", filterJobs);
+    typeFilter.addEventListener("change", filterJobs);
+    locationFilter.addEventListener("change", filterJobs);
+    salaryFilter.addEventListener("change", filterJobs);
+
+    displayJobs(jobs);
+  </script>
+
+</body>
+</html>
