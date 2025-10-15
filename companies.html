@@ -600,6 +600,9 @@
     font-size: 0.95rem;
   }
 }
+html{
+  scroll-behavior: smooth;
+}
 
 
 </style></head>
@@ -648,12 +651,17 @@
     <p class="hero-subtitle animate">
       Explore the top employers hiring through Job Junction. Find opportunities by company and start your career journey.
     </p>
-    <a href="#partner-grid" class="hero-btn animate">View Companies</a>
+    
+    <a
+    href="#p-grid" class="hero-btn animate"
+    >View Companies</a>
   </div>
 </section>
 
 
-    <div class="partner-grid">
+    <div 
+      class="partner-grid" id="p-grid"
+    >
       <!-- Company Card 1 -->
       <div class="partner-card animate">
         <img src="tech_solutions_company.jpg" alt="Tech Solutions Logo">
