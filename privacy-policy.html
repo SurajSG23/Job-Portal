@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - Job Junction</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
   <style>
     /* ===== GLOBAL ===== */
     body {
@@ -86,7 +84,7 @@
       margin: 1rem 0;
       box-shadow: 0 8px 20px rgba(59,130,246,0.15);
       border: 2px solid #dbeafe;
-      transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s, border-color 0.3s;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -108,23 +106,109 @@
     .social-icons a:hover { color: #2563eb; }
     .footer-credit { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #9ca3af; }
 
-    /* ===== DARK MODE ===== */
-    body.dark-mode { background: #1f2937; color: #f3f4f6; }
-    body.dark-mode header { background: #1f2937; border-bottom-color: #60a5fa; color: #f3f4f6; }
-    body.dark-mode .logo { color: #60a5fa; }
-    body.dark-mode nav a { color: #f3f4f6; }
-    body.dark-mode nav a:hover { color: #60a5fa; }
-    body.dark-mode .card { background: #374151; color: #f3f4f6; border-color: #60a5fa; }
-    body.dark-mode footer { background: #111827; color: #f3f4f6; }
+    /* ===== DARK MODE (ENHANCED) ===== */
+    body.dark-mode {
+      background: #111827; /* Darker background for more contrast */
+      color: #d1d5db;     /* Slightly softer text color */
+    }
+
+    body.dark-mode header {
+      background: #1f2937; /* A slightly lighter shade for the header */
+      border-bottom-color: #3b82f6;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added subtle shadow for depth */
+    }
+
+    body.dark-mode .logo {
+      color: #60a5fa;
+    }
+
+    body.dark-mode nav a {
+      color: #d1d5db;
+    }
+
+    body.dark-mode nav a:hover {
+      color: #60a5fa;
+    }
+
+    /* NEW: Make headings pop with the accent color */
+    body.dark-mode h1 {
+      color: #60a5fa;
+    }
+
+    body.dark-mode .card h2 {
+      color: #93c5fd; /* A slightly lighter blue for subheadings */
+    }
+
+    body.dark-mode .card {
+      background: #1f2937;
+      color: #d1d5db;
+      border-color: #374151; /* Darker border for subtlety */
+      /* NEW: A cool, diffused shadow for dark mode */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* NEW: Enhanced hover effect for cards in dark mode */
+    body.dark-mode .card:hover {
+      border-color: #60a5fa;
+      transform: translateY(-5px); /* Keep the hover transform */
+      box-shadow: 0 12px 25px rgba(96, 165, 250, 0.2); /* A nice blue glow on hover */
+    }
+
+    /* NEW: Better visibility for toggle buttons */
+    body.dark-mode .menu-toggle,
+    body.dark-mode .theme-toggle {
+      color: #d1d5db;
+    }
+    body.dark-mode .theme-toggle:hover {
+      color: #60a5fa;
+    }
+
+    /* NEW: More consistent dropdown styling */
+    body.dark-mode .dropdown-menu {
+      background: #1f2937;
+      border-color: #60a5fa;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    body.dark-mode .dropdown-menu a {
+      color: #d1d5db;
+    }
+
+    body.dark-mode .dropdown-menu a:hover {
+      background: #3b82f6; /* Consistent blue hover */
+      color: #fff;
+    }
+
+
+    body.dark-mode footer {
+      background: #111827;
+      color: #d1d5db;
+      /* NEW: A subtle top border to separate footer from content */
+      border-top: 1px solid #374151;
+    }
+
+    /* NEW: Make sure footer links use the right accent color */
+    body.dark-mode .footer-col h3 {
+      color: #60a5fa;
+    }
+
+    body.dark-mode .footer-col a:hover,
+    body.dark-mode .social-icons a:hover {
+      color: #60a5fa;
+    }
 
     /* ===== MEDIA QUERIES ===== */
     @media (max-width: 1024px) { main { padding:0 1rem; } h1{font-size:1.8rem;} .card h2{font-size:1.3rem;} }
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; padding: 1rem; }
-      nav { display: none; flex-direction: column; gap: 1rem; width: 100%; background: #fff; position: absolute; top: 70px; right: 20px; border: 2px solid #2563eb; border-radius: 0.5rem; padding: 1rem; }
+      header { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+      nav { display: none; flex-direction: column; gap: 1rem; width: 100%; background: #fff; order: 3; margin-top: 1rem; border: 2px solid #2563eb; border-radius: 0.5rem; padding: 1rem; box-shadow: 0 8px 20px rgba(59,130,246,0.2); }
+      body.dark-mode nav { background: #1f2937; border-color: #60a5fa; }
       nav.show { display: flex; }
-      .menu-toggle { display: block; }
-      .dropdown-menu { position: static; display: none; border: 1px solid #2563eb; border-radius: 0.5rem; }
+      .menu-toggle { display: block; order: 2;}
+      .theme-toggle { order: 1; }
+      .logo { order: 0; }
+      .dropdown-menu { position: static; display: none; border: none; box-shadow: none; background: transparent; }
+      body.dark-mode .dropdown-menu { background: transparent; }
       .dropdown.active .dropdown-menu { display: flex; flex-direction: column; }
       main { margin:1rem; padding:1rem; }
       .card { padding:1rem; }
@@ -133,112 +217,17 @@
       .footer-col a, .social-icons a, .footer-col p { justify-content:center; }
     }
     @media (max-width:480px) { h1{font-size:1.4rem;} .card h2{font-size:1.1rem;} .card{padding:0.8rem;} header{padding:0.8rem;} nav a{font-size:0.95rem;} }
+    
     /* Show dropdown on desktop hover */
-@media(min-width: 769px){
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-    flex-direction: column;
-  }
-}
-/* Make sure dropdown is above everything */
-.dropdown {
-  position: relative;
-  z-index: 1000;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 2rem;
-  left: 0;
-  flex-direction: column;
-  min-width: 180px;
-  background: #fff;  /* light mode */
-  border: 2px solid #2563eb;
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 20px rgba(59,130,246,0.2);
-  z-index: 2000;   /* higher than header */
-}
-
-/* Light mode link colors */
-.dropdown-menu a {
-  padding: 0.5rem 1rem;
-  display: block;
-  color: #111827;
-}
-
-/* Hover effect */
-.dropdown-menu a:hover {
-  background: #2563eb;
-  color: #fff;
-}
-
-/* Dark mode dropdown */
-body.dark-mode .dropdown-menu {
-  background: #374151;
-}
-
-body.dark-mode .dropdown-menu a {
-  color: #f3f4f6;
-}
-
-body.dark-mode .dropdown-menu a:hover {
-  background: #2563eb;
-  color: #fff;
-}
-
-/* Show dropdown when active */
-.dropdown.active .dropdown-menu {
-  display: flex;
-}
-/* Make sure dropdown is always on top */
-.dropdown {
-  position: relative;
-  z-index: 1000; /* added */
-}
-
-/* Dropdown menu */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 180px;
-  background: #fff;
-  border: 2px solid #2563eb;
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 20px rgba(59,130,246,0.2);
-  display: none;
-  flex-direction: column;
-  z-index: 1001; /* added */
-}
-
-/* Show dropdown when active */
-.dropdown.active .dropdown-menu {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Dark mode dropdown */
-body.dark-mode .dropdown-menu {
-  background: #374151;
-  border-color: #60a5fa;
-  color: #f3f4f6;
-}
-
-body.dark-mode .dropdown-menu a {
-  color: #f3f4f6;
-}
-
-body.dark-mode .dropdown-menu a:hover {
-  background: #60a5fa;
-  color: #fff;
-}
-
-
+    @media(min-width: 769px){
+      .dropdown:hover .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
   <header>
     <div class="logo">Job Junction</div>
     <button class="menu-toggle" id="menuToggle">☰</button>
@@ -259,7 +248,6 @@ body.dark-mode .dropdown-menu a:hover {
     <button class="theme-toggle" id="themeToggle">🌓</button>
   </header>
 
-  <!-- ===== MAIN ===== -->
   <main>
     <h1>Privacy Policy</h1>
 
@@ -294,7 +282,6 @@ body.dark-mode .dropdown-menu a:hover {
     </div>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -327,80 +314,64 @@ body.dark-mode .dropdown-menu a:hover {
     <div class="footer-credit">&copy; 2025 Job Junction. All rights reserved.</div>
   </footer>
 
-  <!-- ===== JS ===== -->
   <script>
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-const jobsDropdown = document.getElementById('jobsDropdown');
-const jobsToggle = jobsDropdown.querySelector('.dropdown-toggle');
-const jobsMenu = jobsDropdown.querySelector('.dropdown-menu');
-const themeToggle = document.getElementById('themeToggle');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const jobsDropdown = document.getElementById('jobsDropdown');
+    const jobsToggle = jobsDropdown.querySelector('.dropdown-toggle');
+    const themeToggle = document.getElementById('themeToggle');
 
-// ===== Mobile nav toggle =====
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
+    // ===== Mobile nav toggle =====
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
 
-// ===== Jobs dropdown toggle =====
-// Mobile toggle
-jobsToggle.addEventListener('click', (e) => {
-  if (window.innerWidth <= 768) {
-    e.preventDefault();
-    jobsDropdown.classList.toggle('active');
-  }
-});
+    // ===== Jobs dropdown toggle (for mobile) =====
+    jobsToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const isActive = jobsDropdown.classList.contains('active');
+        // Close other dropdowns if any
+        document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+        if (!isActive) {
+          jobsDropdown.classList.add('active');
+        }
+      }
+    });
 
-// Desktop: show dropdown on hover
-if (window.innerWidth > 768) {
-  jobsDropdown.addEventListener('mouseenter', () => jobsDropdown.classList.add('active'));
-  jobsDropdown.addEventListener('mouseleave', () => jobsDropdown.classList.remove('active'));
-}
-
-// Click submenu links (mobile)
-jobsMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      navMenu.classList.remove('show');
-      jobsDropdown.classList.remove('active');
+    // ===== Dark / Light mode =====
+    function applyDarkMode(dark) {
+      document.body.classList.toggle('dark-mode', dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
     }
-  });
-});
 
-// ===== Dark / Light mode =====
-function applyDarkMode(dark) {
-  document.body.classList.toggle('dark-mode', dark);
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-}
+    themeToggle.addEventListener('click', () => {
+      applyDarkMode(!document.body.classList.contains('dark-mode'));
+    });
+    
+    window.addEventListener('load', () => {
+      applyDarkMode(localStorage.getItem('theme') === 'dark');
+    });
 
-// Toggle dark/light mode
-themeToggle.addEventListener('click', () => {
-  applyDarkMode(!document.body.classList.contains('dark-mode'));
-});
-
-// Load saved theme
-window.addEventListener('load', () => {
-  applyDarkMode(localStorage.getItem('theme') === 'dark');
-});
-
-// ===== Close mobile menu if clicking outside =====
-document.addEventListener('click', (e) => {
-  if (window.innerWidth <= 768) {
-    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-      navMenu.classList.remove('show');
-      jobsDropdown.classList.remove('active');
-    }
-  }
-});
-
-// ===== Recalculate on window resize =====
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navMenu.classList.remove('show');
-    jobsDropdown.classList.remove('active');
-  }
-});
-
-
+    // ===== Close mobile menu if clicking outside =====
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        const isClickInsideNav = navMenu.contains(e.target);
+        const isClickOnToggle = menuToggle.contains(e.target);
+        if (!isClickInsideNav && !isClickOnToggle) {
+          navMenu.classList.remove('show');
+          document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+        }
+      }
+    });
+    
+    // ===== Recalculate on window resize =====
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navMenu.classList.remove('show');
+        document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+      }
+    });
   </script>
 </body>
 </html>
