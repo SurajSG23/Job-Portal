@@ -224,6 +224,73 @@
   }
 }
 
+/* Dark Mode Styles */
+    body.dark {
+    background: #111827;
+    color: #f9fafb;
+  }
+
+  body.dark .hero {
+    background: linear-gradient(135deg, #1f2937, #374151);
+     color: #60a5fa;
+  }
+
+ body.dark  .hero h1 {
+  color: #60a5fa;
+      
+    }
+
+   body.dark .hero p {
+      color: #60a5fa;
+    }
+
+  body.dark .cards .card {
+    background: #1e293b;
+    color: #f9fafb;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark .cards .card:hover {
+    background: #273449;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+  }
+
+  body.dark .card i,
+  body.dark .card h3,
+  body.dark .card button {
+    color: #60a5fa;
+  }
+
+  body.dark .card button {
+    background: #2563eb;
+    color:white;
+  }
+
+  body.dark .card button:hover {
+    background: #1e40af;
+  }
+
+  body.dark .info-container {
+    background: #1e293b;
+    color: #f9fafb;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark .info-container h4 {
+    color: #60a5fa;
+  }
+
+  body.dark .back-btn {
+    background: #1e293b;
+    color: #60a5fa;
+    border: 1px solid #2563eb;
+  }
+
+  body.dark .back-btn:hover {
+    background: #2563eb;
+    color: #fff;
+  }
+
   </style>
 </head>
 <body>
@@ -305,6 +372,58 @@
       infoContainer.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
+
+  <script>
+  // Apply dark mode based on Resources page setting
+  function applyDarkMode(dark) {
+    document.body.classList.toggle('dark', dark);
+
+    // Cards
+    document.querySelectorAll('.card').forEach(card => {
+      if(dark){
+        card.style.background = '#1e293b';
+        card.style.color = '#f9fafb';
+        card.style.boxShadow = '0 4px 15px rgba(255,255,255,0.05)';
+      } else {
+        card.style.background = '#eaf4ff';
+        card.style.color = '#ffffff';
+        card.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+      }
+    });
+
+    // Hero section
+    document.querySelector('.hero').style.background = dark 
+      ? 'linear-gradient(135deg, #1f2937, #374151)' 
+      : 'linear-gradient(135deg, #007bff, #66b3ff)';
+    document.querySelector('.hero').style.color = dark ? '#f9fafb' : '#ffffff';
+
+    // Info container
+    const infoContainer = document.getElementById('info-container');
+    if(infoContainer){
+      infoContainer.style.background = dark ? '#1e293b' : '#d6ebff';
+      infoContainer.style.color = dark ? '#f9fafb' : '#333';
+      infoContainer.style.boxShadow = dark ? '0 4px 15px rgba(255,255,255,0.05)' : '0 4px 15px rgba(0,0,0,0.1)';
+    }
+
+    // Back button
+    const backBtn = document.querySelector('.back-btn');
+    if(backBtn){
+      backBtn.style.background = dark ? '#1e293b' : '#fff';
+      backBtn.style.color = dark ? '#60a5fa' : '#007bff';
+      backBtn.style.border = dark ? '1px solid #2563eb' : 'none';
+    }
+  }
+
+  // Load dark mode from localStorage
+  window.addEventListener('load', () => {
+    const dark = localStorage.getItem('theme') === 'dark';
+    applyDarkMode(dark);
+  });
+
+  
+  
+</script>
+
 
 </body>
 </html>
