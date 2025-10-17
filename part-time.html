@@ -647,6 +647,56 @@
   background: #60a5fa;
 }
 
+
+
+/* Dark Mode for Search Bar */
+body.dark .job-filter input {
+  background: #1f2937;      /* dark gray background */
+  color: #e5e7eb;           /* light text */
+  border: 1px solid #374151; /* darker border */
+}
+
+body.dark .job-filter input::placeholder {
+  color: #9ca3af;           /* lighter placeholder text */
+}
+
+/* Dark Mode for Job Cards */
+body.dark .job-card {
+  background: #1f2937;       /* dark card background */
+  color: #e5e7eb;            /* light text for normal paragraphs */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* darker shadow for depth */
+}
+
+body.dark .job-card h3 {
+  color: #60a5fa;            /* title color */
+}
+
+body.dark .job-card p {
+  color: #d1d5db;            /* light gray text */
+}
+
+body.dark .job-card i.job-icon {
+  color: #2563eb;            /* icons color for contrast */
+}
+
+/* Apply Now Button Dark Mode */
+body.dark .job-card .get-started-btn {
+  background: #2563eb;       /* button background */
+  color: #fff;               /* button text */
+}
+
+body.dark .job-card .get-started-btn:hover {
+  background: #60a5fa;       /* hover effect */
+}
+
+/* Applied message styling for dark mode */
+body.dark .job-card .apply-msg {
+  color: #4ade80;            /* light green message */
+}
+
+
+
+
 </style>
 </head>
 <body>
@@ -855,6 +905,8 @@ searchInput.addEventListener('input', () => {
     }
   });
 });
+
+
 
 </script>
 
