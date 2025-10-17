@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <style>
 *{margin:0; padding:0; box-sizing:border-box;}
-body{font-family:'Arial', sans-serif; background:#f4f4f4; transition:0.3s;}
+body{font-family:'Arial', sans-serif; background:#f4f4f4; color:#1e293b; transition: background-color 0.3s, color 0.3s;}
 
 /* ===== HEADER ===== */
 header {
@@ -28,7 +28,7 @@ nav ul li a:hover{background:#2563eb; color:white;}
 .btn{padding:10px 22px; border:none; border-radius:6px; font-weight:600; cursor:pointer; transition:0.3s;}
 .login-btn{background:#2563eb;color:#fff;}
 .login-btn:hover{background:#1e40af;}
-.signup-btn{background:#fff;color:#2563eb;}
+.signup-btn{background:#fff;color:#2563eb; border: 1px solid #2563eb;}
 .signup-btn:hover{background:#e0f2fe;}
 .hamburger{display:none;font-size:26px;cursor:pointer;color:#2563eb;}
 .theme-toggle{margin-left:10px; cursor:pointer; font-size:20px; color:#60a5fa; transition:0.3s;}
@@ -40,24 +40,13 @@ nav ul li:hover a i{transform:rotate(180deg);}
   nav ul{position:fixed;top:0;left:-100%;height:100%;width:260px;flex-direction:column;padding-top:70px;background:#60a5fa;transition:0.3s;}
   nav ul.show{left:0;}
   nav ul li{width:100%;}
-  nav ul li a{padding:15px 20px;}
-  .dropdown-menu{position:static; display:none;}
+  nav ul li a{padding:15px 20px; color: white;}
+  .dropdown-menu{position:static; display:none; background: transparent; box-shadow: none;}
   .dropdown.active .dropdown-menu{display:block;}
   .hamburger{display:block;}
   .login-btn,.signup-btn{width:90%; margin:5px 20px;}
-  .theme-toggle{position:absolute; bottom:120px; left:20px;}
+  .theme-toggle{position:absolute; bottom:120px; left:20px; color: white;}
 }
-
-/* ===== DARK THEME ===== */
-body.dark{background:#121212;color:#fff;}
-body.dark header{background:#1e3a8a;}
-body.dark nav ul li a:hover{background:#2563eb;}
-body.dark .dropdown-menu{background:#1e3a8a;}
-body.dark .login-btn{background:#3b82f6;color:#fff;}
-body.dark .login-btn:hover{background:#2563eb;}
-body.dark .signup-btn{background:#2563eb;color:#fff;}
-body.dark .signup-btn:hover{background:#3b82f6;}
-body.dark .theme-toggle{color:#fff;}
 
 /* ===== HERO SECTION ===== */
 .hero {
@@ -67,6 +56,36 @@ body.dark .theme-toggle{color:#fff;}
 .hero::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6);}
 .hero h1{font-size:3rem; font-weight:700; margin-bottom:1rem; position:relative; z-index:1;}
 .hero p{font-size:1.1rem; max-width:700px; margin:0 auto 2rem; line-height:1.6; position:relative; z-index:1; color:#e2e8f0;}
+
+/* ===== NEW: SEARCH BAR STYLES ===== */
+.search-wrapper {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+    position: relative;
+}
+#savedJobSearch {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+#savedJobSearch:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
+}
+#noResults {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #555;
+    display: none; /* Hidden by default */
+}
+/* =============================== */
+
 
 /* ===== SAVED JOB CARDS ===== */
 .saved-container {
@@ -85,11 +104,21 @@ body.dark .theme-toggle{color:#fff;}
   box-shadow:0 12px 25px rgba(0,0,0,0.15);
 }
 .job-icon {
-  font-size:3rem;
+  font-size:30px;
   color:#fff;
+  width: 70px;
+  height: 70px;
   background:linear-gradient(135deg, #3b82f6, #60a5fa);
-  padding:18px; border-radius:50%;
-  margin-bottom:1rem;
+  border-radius:50%;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  transition: transform 0.3s ease;
+}
+.job-icon:hover {
+  transform: scale(1.05);
 }
 .saved-card h3 {
   font-size:1.4rem; margin-bottom:0.8rem; color:#2563eb; position:relative;
@@ -133,7 +162,6 @@ footer {
 }
 .footer-col a:hover {color:#2563eb;}
 .footer-col p {margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;}
-.footer-col p:hover {color:#2563eb;}
 .social-icons {display:flex; flex-direction:column; gap:0.5rem;}
 .social-icons a {
   font-size:1.1rem; color:#fff; text-decoration:none; display:flex; align-items:center;
@@ -144,6 +172,24 @@ footer {
   text-align:center; margin-top:2rem; font-size:0.9rem; color:#9ca3af;
 }
 
+/* ===== DARK THEME ===== */
+body.dark{background:#111827;color:#e5e7eb;}
+body.dark header{background:#1e3a8a; box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+body.dark .logo a, body.dark nav ul li a, body.dark .hamburger, body.dark .theme-toggle{color:#dbeafe;}
+body.dark nav ul li a:hover{background:#2563eb; color:white;}
+body.dark .dropdown-menu{background:#1e3a8a;}
+body.dark .login-btn{background:#3b82f6;color:#fff;}
+body.dark .login-btn:hover{background:#2563eb;}
+body.dark .signup-btn{background:transparent;color:#dbeafe; border-color: #dbeafe;}
+body.dark .signup-btn:hover{background:#2563eb;}
+body.dark #savedJobSearch {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #e5e7eb;
+}
+body.dark #savedJobSearch::placeholder { color: #9ca3af; }
+body.dark #noResults { color: #9ca3af; }
+
 /* ===== RESPONSIVE FOOTER ===== */
 @media (max-width:992px){
   .footer-container{grid-template-columns:repeat(2,1fr);}
@@ -152,37 +198,8 @@ footer {
 @media (max-width:768px){
   .footer-container{grid-template-columns:1fr; text-align:center;}
   .footer-col{align-items:center;}
-  .footer-col p, .footer-col a{text-align:center;}
   .social-icons{flex-direction:row; justify-content:center;}
 }
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
-}
-.job-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 10px auto;
-  color: white;
-  font-size: 30px;
-  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.job-icon:hover {
-  transform: scale(1.05);
-}
-.job-icon {
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
-}
-
 </style>
 </head>
 <body>
@@ -220,6 +237,10 @@ footer {
   <p>Your favorite jobs will appear here. Save jobs you are interested in and apply when ready.</p>
 </section>
 
+<div class="search-wrapper">
+    <input type="text" id="savedJobSearch" placeholder="Search saved jobs by title, company, etc...">
+</div>
+
 <section class="saved-container">
   <div class="saved-card">
     <i class="fas fa-briefcase job-icon"></i>
@@ -251,6 +272,7 @@ footer {
     <button class="remove-btn">Remove</button>
   </div>
 </section>
+<p id="noResults">Oops! Can't find that job in your saved list... 🤷‍♂️</p>
 
 <footer>
   <div class="footer-container">
@@ -285,47 +307,105 @@ footer {
 </footer>
 
 <script>
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const dropdowns = document.querySelectorAll(".dropdown");
-const themeToggle = document.getElementById('themeToggle');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const dropdowns = document.querySelectorAll(".dropdown");
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
 
-// Hamburger toggle
-hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
+    // Hamburger toggle
+    hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
 
-// Mobile dropdown toggle
-dropdowns.forEach(drop => {
-  drop.addEventListener("click", e => {
-    if(window.innerWidth <= 992){
-      e.stopPropagation();
-      drop.classList.toggle("active");
+    // Mobile dropdown toggle
+    dropdowns.forEach(drop => {
+        drop.addEventListener("click", e => {
+            if(window.innerWidth <= 992){
+                e.stopPropagation();
+                drop.classList.toggle("active");
+            }
+        });
+    });
+
+    // Dark/Light toggle
+    function applyTheme(theme) {
+        if (theme === "dark") {
+            body.classList.add("dark");
+            themeToggle.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            body.classList.remove("dark");
+            themeToggle.classList.replace('fa-sun', 'fa-moon');
+        }
     }
-  });
-});
+    const currentTheme = localStorage.getItem("theme") || "light";
+    applyTheme(currentTheme);
 
-// Dark/Light toggle
-const currentTheme = localStorage.getItem("theme");
-if(currentTheme === "dark") document.body.classList.add("dark");
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-});
+    themeToggle.addEventListener("click", () => {
+        const newTheme = body.classList.contains("dark") ? "light" : "dark";
+        localStorage.setItem("theme", newTheme);
+        applyTheme(newTheme);
+    });
 
-// Heart animation
-document.querySelectorAll('.heart').forEach(h => {
-  h.addEventListener('click', () => {
-    h.classList.toggle('liked');
-    const icon = h.querySelector('i');
-    icon.classList.toggle('fa-solid');
-    icon.classList.toggle('fa-regular');
-  });
-});
+    // Heart animation
+    document.querySelectorAll('.heart').forEach(h => {
+        h.addEventListener('click', () => {
+            h.classList.toggle('liked');
+            const icon = h.querySelector('i');
+            icon.classList.toggle('fa-solid');
+            icon.classList.toggle('fa-regular');
+        });
+    });
 
-// Remove card
-document.querySelectorAll('.remove-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('.saved-card').remove();
-  });
+    // Remove card
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.saved-card');
+            card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+            card.style.transform = 'scale(0.9)';
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.remove();
+                // Trigger the search function again to update the "no results" message if needed
+                document.getElementById('savedJobSearch').dispatchEvent(new Event('input'));
+            }, 300);
+        });
+    });
+
+    // ===== NEW: SEARCH FUNCTIONALITY =====
+    const searchInput = document.getElementById('savedJobSearch');
+    const noResultsMsg = document.getElementById('noResults');
+    const container = document.querySelector('.saved-container');
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        // We get a fresh list of cards every time, in case some were removed
+        const jobCards = container.querySelectorAll('.saved-card');
+        let visibleCards = 0;
+
+        jobCards.forEach(card => {
+            const cardText = card.textContent.toLowerCase();
+            if (cardText.includes(searchTerm)) {
+                card.style.display = 'flex';
+                visibleCards++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update the "no results" message visibility
+        if (jobCards.length === 0) {
+            // This case handles when ALL cards are removed
+            noResultsMsg.textContent = "You have no saved jobs. Go find some! 🚀";
+            noResultsMsg.style.display = 'block';
+        } else if (visibleCards === 0) {
+            // This case handles when cards exist but don't match the search
+            noResultsMsg.textContent = "Oops! Can't find that job in your saved list... 🤷‍♂️";
+            noResultsMsg.style.display = 'block';
+        } else {
+            // This case handles when there are matching results
+            noResultsMsg.style.display = 'none';
+        }
+    });
 });
 </script>
 </body>
