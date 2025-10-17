@@ -17,42 +17,121 @@
     body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #111827; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
 
     /* ===== HEADER ===== */
-    .header-div {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
-      border-bottom: 3px solid #2563eb;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .logo { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
-    nav { display: flex; align-items: center; gap: 1.5rem; }
-    nav a { text-decoration: none; color: #111827; font-weight: 500; }
-    nav a:hover { color: #2563eb; }
-    .dropdown { position: relative; }
-    .dropdown-menu { display: none; position: absolute; background: #fff; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2); border: 2px solid #2563eb; border-radius: 0.5rem; top: 2rem; left: 0; flex-direction: column; min-width: 180px; z-index: 999; }
-    .dropdown-menu a { padding: 0.5rem 1rem; display: block; color: #111827; }
-    .dropdown-menu a:hover { background: #2563eb; color: #fff; }
-    .dropdown-menu.show { display: flex; }
-    .menu-toggle, .theme-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-    .menu-toggle { display: none; }
+    header {
+  width: 100%; /* full width */
+  background: white; /* navbar background */
+  color: #60a5fa;
+  padding: 12px 0; /* reduce horizontal padding here */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
 
-    /* ===== WELCOME SECTION ===== */
-    .homepage-header-div {
-      width: 100%;
-      padding: 2rem 0 1rem 0;
-      text-align: center;
-      color: #fff;
-    }
-    .homepage-header-div .logo-img { width: 80px; height: 80px; border-radius: 16px; box-shadow: 0 4px 24px rgba(30,58,138,0.10); margin-bottom: 1rem; }
-    .homepage-header-div h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 1px; }
-    .homepage-header-div p { font-size: 1.15rem; margin-bottom: 2rem; color: #e0e7ff; }
+/* Keep .container to center the content */
+header .container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 2rem; /* horizontal padding for content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#60a5fa;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#60a5fa;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:white;
+    
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#60a5fa;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {color:#2563eb;}
+
+  nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
+
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
     /* ===== ROLE CARDS ===== */
     .role-cards { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
     .role-card { background: rgba(255,255,255,0.95); border-radius: 1.5rem; box-shadow: 0 8px 32px rgba(30,58,138,0.10); padding: 2.5rem 2rem 2rem 2rem; width: 260px; text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
@@ -89,26 +168,69 @@
 
 <body>
   <!-- Header -->
-  <div class="header-div">
-    <div class="logo">Job Junction</div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <nav id="navMenu">
-      <a href="home.html">Home</a>
-      <div class="dropdown" id="jobsDropdown">
-        <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
-        <div class="dropdown-menu" id="jobsMenu">
-          <a href="internships.html">Internships</a>
-          <a href="part-time.html">Part Time Jobs</a>
-          <a href="remote.html">Remote Jobs</a>
-        </div>
-      </div>
-      <a href="companies.html">Companies</a>
-      <a href="about.html">About</a>
-      <a href="ContactPage.html">Contact</a>
-    </nav>
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-  </div>
+  <header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="../home.html"><img src="../assets/logo.webp"></a>
+    </div>
 
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="../about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../internships.html">Internship</a></li>
+            <li><a href="../part-time.html">Part-time</a></li>
+            <li><a href="../remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="../companies.html">Companies</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="../resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../career-guides.html">Career Guide</a></li>
+            <li><a href="../resume-builder.html">Resume Builder</a></li>
+            <li><a href="../interview-prep.html">Interview</a></li>
+            <li><a href="../personal-branding.html">Personal Branding</a></li>
+            <li><a href="../workplace-communication.html">Workplace</a></li>
+            <li><a href="../career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../signup.html">Sitemap</a></li>
+            <li><a href="../privacy-policy.html">Privacy</a></li>
+            <li><a href="../terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='../login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='../signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
+    </div>
+
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
   <!-- Welcome Section -->
   <div class="homepage-header-div">
     <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img" loading="lazy">
@@ -176,28 +298,52 @@
 
   <!-- JS -->
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-    });
-    const jobsToggle = document.getElementById("jobsToggle");
-    const jobsMenu = document.getElementById("jobsMenu");
-    jobsToggle.addEventListener("click", (e) => {
+  // Function to enable dark mode
+  function enableDarkMode() {
+    document.body.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  }
+
+  // Function to disable dark mode
+  function disableDarkMode() {
+    document.body.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }
+
+  // Toggle dark mode on button click
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.addEventListener("click", () => {
+    if (document.body.classList.contains("dark")) {
+      disableDarkMode();
+    } else {
+      enableDarkMode();
+    }
+  });
+
+  // Apply saved theme on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      enableDarkMode();
+    }
+  });
+
+  // Optional: Hamburger and dropdown menu scripts
+  const menuToggle = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  const dropdowns = document.querySelectorAll(".dropdown");
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener("click", e => {
       e.preventDefault();
-      jobsMenu.classList.toggle("show");
+      dropdown.querySelector(".dropdown-menu").classList.toggle("show");
     });
-    const themeToggle = document.getElementById("themeToggle");
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      if (document.body.classList.contains("dark")) {
-        document.body.style.background = "#111827";
-        document.body.style.color = "#f9fafb";
-      } else {
-        document.body.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
-        document.body.style.color = "#111827";
-      }
-    });
-  </script>
+  });
+</script>
+
+ 
 </body>
 </html>
