@@ -258,19 +258,80 @@
       font-weight: 600;
     }
 
-    /* --- Responsive Design --- */
-    @media (max-width: 768px) {
-      .left-panel {
-        display: none;
-      }
-      .right-panel {
-        border-radius: 12px;
-      }
-      .split-container {
-        flex-direction: column;
-        max-width: 400px;
-      }
-    }
+    /* ===== DARK MODE STYLING ===== */
+body.dark-mode {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .split-container {
+  background: #1a1a1a;
+  box-shadow: 0 8px 60px rgba(255, 255, 255, 0.1);
+  border:1px solid white;
+}
+
+body.dark-mode .left-panel{
+  border:1px solid white;
+}
+
+body.dark-mode .right-panel {
+  background-color: #121212;
+  color: #e0e0e0;
+  border:1px solid white;
+}
+
+body.dark-mode .brand-logo {
+  color: #f1f1f1;
+}
+
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"] {
+  background: #222;
+  border: 1px solid #444;
+  color: #eee;
+}
+
+body.dark-mode input:focus {
+  border-color: #5a7cff;
+  box-shadow: 0 0 5px rgba(90, 124, 255, 0.5);
+}
+
+body.dark-mode label {
+  color: #ccc;
+}
+
+body.dark-mode .btn {
+  background-color: #5a7cff;
+  color: white;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #748cff;
+}
+
+body.dark-mode .google-btn {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-mode .google-btn:hover {
+  background-color: #333;
+}
+
+body.dark-mode .divider span {
+  color: #bbb;
+}
+
+body.dark-mode .forgot-password,
+body.dark-mode .link-footer a {
+  color: #82aaff;
+}
+
+body.dark-mode .inline-feedback {
+  color: #ff8080;
+}
+
   </style>
 </head>
 <body>
@@ -389,5 +450,14 @@
       });
     });
   </script>
+  <script>
+  // --- Detect saved theme ---
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+</script>
+
 </body>
 </html>
