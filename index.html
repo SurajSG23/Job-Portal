@@ -14,47 +14,54 @@
       box-sizing: border-box;
     }
 
-    :root {
-      --primary: #4f46e5;
-      --primary-dark: #4338ca;
-      --secondary: #06b6d4;
-      --bg-light: #ffffff;
-      --bg-gray: #f8fafc;
-      --text-primary: #1e293b;
-      --text-secondary: #64748b;
-      --border: #e2e8f0;
-      --shadow: rgba(15, 23, 42, 0.08);
-      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --secondary: #06b6d4;
+  --bg-light: #ffffff;
+  --bg-gray: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --shadow: rgba(15, 23, 42, 0.08);
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --navbar-bg: rgba(255, 255, 255, 0.5); 
+  --navbar-border: var(--border);
+}
 
-    body.dark {
-      --bg-light: #0f172a;
-      --bg-gray: #1e293b;
-      --text-primary: #f1f5f9;
-      --text-secondary: #cbd5e1;
-      --border: #334155;
-      --shadow: rgba(0, 0, 0, 0.3);
-    }
+body.dark {
+  --bg-light: #0f172a;
+  --bg-gray: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border: #334155;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --navbar-bg: rgba(15, 23, 42, 0.5); 
+  --navbar-border: var(--border);
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-primary);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
 
-    /* Header & Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--bg-light);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 2px 16px var(--shadow);
-      backdrop-filter: blur(10px);
-    }
+/* 4. Header & Navigation (Using Variables) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border); 
+  box-shadow: 0 2px 16px var(--shadow); 
+
+  /* --- GLASSMORPHISM EFFECT --- */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* For Safari compatibility */
+}
 
     .navbar {
       max-width: 1280px;
