@@ -2,182 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Job Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="./components/firebase.js" defer type="module"></script>
-  <title>Sign Up</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <style>
+    /* --- CSS Variables for Easy Theming --- */
+    :root {
+      --primary-color: #3d55b4;
+      --primary-hover: #314592;
+      --text-color-dark: #333;
+      --text-color-light: #666;
+      --border-color: #ccc;
+      --background-color: #000000;
+      --form-background: #ffffff;
+      --error-color: #d93025;
+    }
+
+    /* --- General & Body Styles --- */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
-    
+
     body {
-      background: #000000;
+      background: var(--background-color);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
     }
+
+    /* --- Main Layout Container --- */
     .split-container {
       display: flex;
-      width: 900px;
-      max-width: 90%;
+      width: 100%;
+      max-width: 900px;
       border-radius: 12px;
-      box-shadow: 0 8px 150px rgba(255, 255, 255, 0.247);
+      box-shadow: 0 8px 150px rgba(255, 255, 255, 0.2);
       overflow: hidden;
-      background: white;
+      background: var(--form-background);
     }
- .left-panel {
-  flex: 1;
-  position: relative;
-  background-image: url('./assets/regi_final.png');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 1px solid #ccc;
-}
+
+    .left-panel, .right-panel {
+      flex: 1;
+      padding: 2.5rem;
+    }
+
+    /* --- Left Panel (Image & Quote) --- */
+    .left-panel {
+      position: relative;
+      background-image: url('./assets/regi_final.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: center;
+    }
 
     .left-panel::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
     }
-    .left-panel > * {
+
+    .left-panel .quote-content {
+      position: relative;
       z-index: 1;
     }
-    .left-panel .quote-header {
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .left-panel h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 0rem;
-      margin-left: 30px;
-      text-align: center;
 
+    .left-panel h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
+
     .left-panel p {
-      font-size: 0.8rem;
-      max-width: 90%;
-      margin-top:5px;
-            margin-bottom: 0rem;
-      margin-left: 30px;
-text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
+
+    /* --- Right Panel (Form) --- */
     .right-panel {
-      flex: 1;
-      padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .brand-logo {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 8px;
-      color: #333;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    .signup-form-header {
-      text-align: left;
-      margin-bottom: 1.5rem;
-    }
+
     .signup-form-header h2 {
       font-size: 2rem;
       margin-bottom: 0.25rem;
+      color: var(--text-color-dark);
     }
+
     .signup-form-header p {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--text-color-light);
+      margin-bottom: 1.5rem;
     }
+
+    /* --- Form Elements --- */
     .form-group {
       margin-bottom: 1rem;
       position: relative;
     }
+
     label {
       display: block;
       margin-bottom: 5px;
       font-size: 0.9rem;
+      color: var(--text-color-dark);
     }
+
     input[type="email"],
     input[type="password"],
     input[type="text"] {
       width: 100%;
-      padding: 10px;
-      padding-right: 40px;
-      border: 1px solid #ccc;
+      padding: 10px 40px 10px 10px;
+      border: 1px solid var(--border-color);
       border-radius: 6px;
       font-size: 0.9rem;
       outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
-    input:focus {
-      border-color: #3d55b4;
+
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="text"]:focus {
+      border-color: var(--primary-color);
       box-shadow: 0 0 5px rgba(61, 85, 180, 0.4);
     }
+
     .toggle-password {
       position: absolute;
-      right: 10px;
+      right: 12px;
       top: 38px;
       cursor: pointer;
-      color: #555;
+      color: var(--text-color-light);
       font-size: 1rem;
     }
+
     .inline-feedback {
       font-size: 0.8rem;
-      color: red;
+      color: var(--error-color);
       margin-top: 5px;
+      min-height: 1.2em;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
+
     .btn {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border: none;
       border-radius: 6px;
-      background-color:#3d55b4;
+      background-color: var(--primary-color);
       color: white;
       font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-    .btn:disabled {
-      background-color: #999;
-      cursor: not-allowed;
+
+    .btn:hover {
+      background-color: var(--primary-hover);
     }
-    .spinner {
-      display: none;
-      width: 24px;
-      height: 24px;
-      margin: 1rem auto 0;
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid#3d55b4;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    .form-switch {
+
+    /* --- Divider & Social Login --- */
+    .divider {
+      display: flex;
+      align-items: center;
       text-align: center;
-      margin-top: 1rem;
+      margin: 1.5rem 0;
+      color: #888;
       font-size: 0.9rem;
     }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .divider:not(:empty)::before { margin-right: 10px; }
+    .divider:not(:empty)::after { margin-left: 10px; }
+
+    /* --- Footer Link --- */
+    .form-switch {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
     .form-switch a {
-      color: #3d55b4;
+      color: var(--primary-color);
       text-decoration: none;
       cursor: pointer;
       font-weight: 600;
@@ -246,104 +274,166 @@ body.dark-mode .form-switch a {
 
   </style>
 </head>
+
 <body>
-  <div class="split-container">
-    <div class="left-panel">
-      <div>
-      </div>
-      <div>
+  <main class="split-container">
+    <section class="left-panel">
+      <div class="quote-content">
         <h1>Get Everything You Want</h1>
         <p>You can get everything you want if you work hard, trust the process, and stick to the plan.</p>
       </div>
-    </div>
-    <div class="right-panel">
-      <div class="brand-logo">
-        <span>Job-Portal</span>
-      </div>
-      <div class="signup-form-header">
+    </section>
+
+    <section class="right-panel">
+      <header class="signup-form-header">
         <h2>Create Account</h2>
         <p>Get started by creating your account!</p>
-      </div>
-      <form id="signup-form">
+      </header>
+
+      <form id="signup-form" novalidate>
         <div class="form-group">
-          <label>Name</label>
+          <label for="signup-name">Name</label>
           <input type="text" id="signup-name" placeholder="Enter your name" required />
-          <div id="signupNameFeedback" class="inline-feedback"></div>
+          <div id="signupNameFeedback" class="inline-feedback">Name is required.</div>
         </div>
+
         <div class="form-group">
-          <label>Email</label>
+          <label for="signup-email">Email</label>
           <input type="email" id="signup-email" placeholder="Enter your email" required />
-          <div id="signupEmailFeedback" class="inline-feedback"></div>
+          <div id="signupEmailFeedback" class="inline-feedback">A valid email is required.</div>
         </div>
+
         <div class="form-group">
-          <label>Password</label>
-          <input type="password" id="signup-password" placeholder="Enter Password" required />
-          <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Create a password" required minlength="6" />
+          <i class="fa-solid fa-eye toggle-password" data-target="signup-password"></i>
+          <div id="passwordStrengthFeedback" class="inline-feedback">Password is too short.</div>
         </div>
+
         <div class="form-group">
-          <label>Confirm Password</label>
-          <input type="password" id="confirm-password" placeholder="Confirm Password" required />
-          <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
-          <div id="matchFeedback" class="inline-feedback"></div>
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Confirm your password" required />
+          <i class="fa-solid fa-eye toggle-password" data-target="confirm-password"></i>
+          <div id="matchFeedback" class="inline-feedback">Passwords do not match.</div>
         </div>
-        <button type="submit" class="btn">Sign Up</button>
-        <div class="spinner" id="signup-spinner"></div>
+
+        <button type="submit" class="btn">Create Account</button>
+
+        <div class="divider">or</div>
+
+        <!-- Google Sign-In Button -->
+        <div id="g_id_onload"
+             data-client_id="YOUR_CLIENT_ID_HERE"
+             data-context="signup"
+             data-ux_mode="popup"
+             data-login_uri="http://localhost:5500/login.html"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signup_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+
         <div class="form-switch">
           <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
       </form>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <script>
-    function togglePassword(id) {
-      const input = document.getElementById(id);
-      input.type = input.type === "password" ? "text" : "password";
+    document.addEventListener('DOMContentLoaded', () => {
+      const signupForm = document.getElementById("signup-form");
+      const signupName = document.getElementById("signup-name");
+      const signupEmail = document.getElementById("signup-email");
+      const signupPassword = document.getElementById("signup-password");
+      const confirmPassword = document.getElementById("confirm-password");
+
+      const nameFeedback = document.getElementById("signupNameFeedback");
+      const emailFeedback = document.getElementById("signupEmailFeedback");
+      const strengthFeedback = document.getElementById("passwordStrengthFeedback");
+      const matchFeedback = document.getElementById("matchFeedback");
+      const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+
+      const showFeedback = (element, message, show) => {
+        element.textContent = message;
+        element.style.visibility = show ? 'visible' : 'hidden';
+        element.style.opacity = show ? '1' : '0';
+      };
+
+      togglePasswordIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+          const targetId = icon.getAttribute('data-target');
+          const passwordInput = document.getElementById(targetId);
+          const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+          passwordInput.setAttribute('type', type);
+          icon.classList.toggle('fa-eye-slash');
+        });
+      });
+
+      signupName.addEventListener("input", () => {
+        const isValid = signupName.value.trim() !== "";
+        showFeedback(nameFeedback, "Name cannot be empty.", !isValid && signupName.value.length > 0);
+      });
+
+      signupEmail.addEventListener("input", () => {
+        const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+        const isValid = regex.test(signupEmail.value);
+        showFeedback(emailFeedback, "Please enter a valid email.", !isValid && signupEmail.value.length > 0);
+      });
+
+      signupPassword.addEventListener("input", () => {
+        const isValid = signupPassword.value.length >= 6;
+        showFeedback(strengthFeedback, "Password must be at least 6 characters.", !isValid && signupPassword.value.length > 0);
+        confirmPassword.dispatchEvent(new Event('input'));
+      });
+
+      confirmPassword.addEventListener("input", () => {
+        const isValid = confirmPassword.value === signupPassword.value;
+        showFeedback(matchFeedback, "Passwords do not match.", !isValid && confirmPassword.value.length > 0);
+      });
+
+      signupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const isNameValid = signupName.value.trim() !== "";
+        const isEmailValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(signupEmail.value);
+        const isPasswordValid = signupPassword.value.length >= 6;
+        const doPasswordsMatch = signupPassword.value === confirmPassword.value;
+
+        showFeedback(nameFeedback, "Name cannot be empty.", !isNameValid);
+        showFeedback(emailFeedback, "Please enter a valid email.", !isEmailValid);
+        showFeedback(strengthFeedback, "Password must be at least 6 characters.", !isPasswordValid);
+        showFeedback(matchFeedback, "Passwords do not match.", !doPasswordsMatch);
+
+        if (isNameValid && isEmailValid && isPasswordValid && doPasswordsMatch) {
+          alert("Account created successfully!");
+          window.location.href = "login.html";
+        }
+      });
+    });
+
+    // Google Sign-In callback
+    function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
+      alert("Google Sign-In successful! 🌟");
+      window.location.href = "login.html";
     }
 
-    const signupForm = document.getElementById("signup-form");
-    const signupEmail = document.getElementById("signup-email");
-    const signupPassword = document.getElementById("signup-password");
-    const confirmPassword = document.getElementById("confirm-password");
-    const signupEmailFeedback = document.getElementById("signupEmailFeedback");
-    const matchFeedback = document.getElementById("matchFeedback");
-    const signupSpinner = document.getElementById("signup-spinner");
-
-    confirmPassword.addEventListener("input", () => {
-      matchFeedback.textContent = confirmPassword.value !== signupPassword.value
-        ? "Passwords do not match"
-        : "";
-    });
-
-    signupEmail.addEventListener("input", () => {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      signupEmailFeedback.textContent = regex.test(signupEmail.value)
-        ? ""
-        : "Enter a valid email address";
-    });
-
-    signupForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (signupPassword.value.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return;
-      }
-      if (signupPassword.value !== confirmPassword.value) {
-        alert("Passwords do not match.");
-        return;
-      }
-      signupSpinner.style.display = "block";
-      // Simulate form submission
-      setTimeout(() => {
-        signupSpinner.style.display = "none";
-        alert("Account created successfully!");
-        
-      
-        window.location.href = "login.html"; 
-
-        
-      }, 1500);
-    });
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "YOUR_CLIENT_ID_HERE",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.querySelector(".g_id_signin"),
+        { theme: "outline", size: "large" }
+      );
+    };
   </script>
   <script>
   // Detect saved theme from home page
