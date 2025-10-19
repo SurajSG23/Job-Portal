@@ -2,64 +2,14 @@
 <html lang="en">
 
 <head>
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "logo": "../assets/logo.webp",
-      "sameAs": [
-        "https://github.com/SurajSG23/Job-Portal"
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Job Junction",
-      "url": "https://surajsg23.github.io/Job-Portal/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://surajsg23.github.io/Job-Portal/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Junction | Seeker</title>
-    <meta name="description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
-    <meta name="keywords" content="seeker, job portal, find jobs, apply, careers, HTML, CSS, JavaScript, Firebase" />
-    <meta name="author" content="Job Junction Team" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Job Junction | Seeker" />
-    <meta property="og:description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
-    <meta property="og:image" content="../assets/logo.webp" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://surajsg23.github.io/Job-Portal/components/seeker.html" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Job Junction | Seeker" />
-    <meta name="twitter:description" content="Job seekers: Find jobs, apply, and manage your profile on Job Junction." />
-    <meta name="twitter:image" content="../assets/logo.webp" />
-
-    <!-- For development: -->
-    <link rel="stylesheet" href="../components/seeker.css">
-    <link rel="stylesheet" href="../components/skills.css" />
-
-    <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="companies.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Junction | Seeker</title>
+  <link rel="shortcut icon" href="../assets/favicon.webp" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* Dark Mode Variables */
+    /* =================== Variables =================== */
     :root {
       --bg-primary: #f0f4ff;
       --bg-secondary: #ffffff;
@@ -86,175 +36,129 @@
       --card-hover: linear-gradient(145deg, #334155, #475569);
     }
 
-    /* Dark Mode Toggle Button */
-    /* Dark Mode Toggle Button */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--accent-primary);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--text-primary);
-  z-index: 9999; /* Increased z-index to ensure it's always on top */
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  visibility: visible !important; /* Force visibility */
-  opacity: 1 !important; /* Force opacity */
-}
+    /* =================== Base =================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.theme-toggle:hover {
-  transform: scale(1.1);
-  background: var(--accent-primary);
-  color: white;
-}
-
-    /* Dark Mode Styles */
     body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       background: var(--bg-primary);
       color: var(--text-primary);
+      font-family: Arial, sans-serif;
       transition: all 0.3s ease;
     }
 
-    /* Update existing styles with CSS variables */
-    .body2 {
-      background: var(--bg-primary);
-      box-shadow: 0 6px 24px var(--shadow-color);
+    main {
+      flex: 1 0 auto;
     }
 
-    .body2 .heading h2 {
+    /* =================== Header =================== */
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .headlinks a {
+      margin-left: 1.2rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    header .headlinks a:hover {
+      color: var(--accent-primary);
+    }
+
+    /* =================== Dark Mode Toggle =================== */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--bg-secondary);
+      border: 2px solid var(--accent-primary);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 9999;
+      transition: all 0.3s ease;
       color: var(--text-primary);
     }
 
-    .body2 .heading p {
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: var(--accent-primary);
+      color: white;
+    }
+
+    /* =================== Heading & Search =================== */
+    .body2 {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+
+    .heading h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .heading p {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
       color: var(--text-secondary);
     }
 
-    .fancy-input, .fancy-select {
-      background: var(--bg-secondary);
-      border-color: var(--border-color);
-      color: var(--text-primary);
+    .custom-search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
-    .fancy-input:focus, .fancy-select:focus {
+    .custom-search-input,
+    .custom-select-dropdown {
+      padding: 6px 12px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      height: 32px;
+      transition: 0.3s;
+    }
+
+    .custom-search-input:focus,
+    .custom-select-dropdown:focus {
       border-color: var(--accent-primary);
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-      background: var(--bg-primary);
+      box-shadow: 0 0 4px rgba(37, 99, 235, 0.4);
     }
 
-    .job-card {
-      background: var(--card-bg);
-      color: var(--text-primary);
-    }
-
-    .job-card:hover {
-      background: var(--card-hover);
-    }
-
-    .job-card h3 {
-      color: var(--text-primary);
-    }
-
-    .job-card p {
-      color: var(--text-primary);
-    }
-
-    header {
-      background: var(--bg-secondary);
-      border-bottom-color: var(--border-color);
-    }
-
-    .headlinks a, .apply-btn {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-    }
-
-    footer {
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      border-top-color: var(--border-color);
-    }
-
-    /* Rest of your existing styles remain the same but will use CSS variables */
-    /* --- Jobs Section Container --- */
-    .body2 {
-        max-width: 1100px;
-        margin: 2rem auto;
-        padding: 1.5rem;
-        border-radius: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .body2 .heading h2 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-
-    .body2 .heading p {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
-    .search-filter-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .fancy-input, .fancy-select {
-        flex: 1 1 250px;
-        max-width: 320px;
-        padding: 0.9rem 1.2rem;
-        border-radius: 12px;
-        font-size: 1rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
-    }
-
-    .fancy-input:focus, .fancy-select:focus {
-        outline: none;
-    }
-
-    .fancy-select {
-        background: var(--bg-secondary) url("data:image/svg+xml,%3Csvg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 1rem center;
-        background-size: 1rem;
-    }
-
-    .fancy-input:hover, .fancy-select:hover {
-        transform: scale(1.03);
-        box-shadow: 0 6px 18px var(--shadow-color);
-    }
-
-    @media (max-width: 768px) {
-        .search-filter-container {
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .fancy-input, .fancy-select {
-            max-width: 100%;
-        }
-    }
-
+    /* =================== Jobs Grid =================== */
     .jobs-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-top: 2rem;
-      padding: 0 1rem;
+      gap: 2rem;
       text-align: center;
+      padding: 0 1rem;
     }
 
     @media (max-width: 1024px) {
@@ -270,10 +174,10 @@
     }
 
     .job-card {
+      background: var(--card-bg);
       border-radius: 20px;
       box-shadow: 0 12px 28px var(--shadow-color);
       padding: 2rem;
-      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -288,362 +192,490 @@
     }
 
     .job-card img {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       object-fit: contain;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       transition: transform 0.4s ease;
     }
 
-    .job-card:hover img {
-      transform: scale(1.15);
-    }
-
     .job-card h3 {
-      margin-top: 10px;
-      font-size: 2rem;
-      font-weight: 1000;
-      margin: 0.8rem 0;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-
-    .job-card .badge {
-      background: var(--accent-primary);
-      color: #fff;
-      font-size: 0.85rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 16px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-    }
-
-    .job-card .badge:hover {
-      background: var(--accent-secondary);
-      transform: scale(1.05);
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
     }
 
     .job-card p {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     .job-card button {
       background: var(--accent-primary);
       color: #fff;
-      padding: 0.9rem 1.6rem;
       border: none;
-      border-radius: 12px;
-      font-size: 1rem;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s, background 0.3s;
     }
 
     .job-card button:hover {
       background: var(--accent-secondary);
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
-    .jobs-container :hover{
-      text-align: center;
+    /* =================== Footer =================== */
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      flex-shrink: 0;
     }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .footer-credit {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-col .social-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+     /* Header */
+  header {
+    background:#60a5fa;
+    color:#fff;
+    padding:12px 25px;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+
+  .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1300px;
+    margin:auto;
+  }
+
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#fff;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#fff;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:#fff;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#60a5fa;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#fff;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#fff;
+    transition:0.3s;
+    color:#2563eb;
+    margin-top: 0px;
+  }
+  .theme-toggle:hover {color:#010610;}
+
+  /* Responsive */
+  @media(max-width:992px){
+    nav ul {
+      position:fixed;
+      top:0;
+      left:-100%;
+      height:100%;
+      width:260px;
+      flex-direction:column;
+      padding-top:70px;
+      background:#60a5fa;
+      transition:0.3s;
+    }
+    nav ul.show {left:0;}
+    nav ul li {width:100%;}
+    nav ul li a {padding:15px 20px;}
+    .dropdown-menu {position:static; display:none;}
+    .dropdown.active .dropdown-menu {display:block;}
+    .hamburger {display:block;}
+    .login-btn, .signup-btn {width:90%; margin:5px 20px;}
+    .theme-toggle {position:absolute; bottom:120px; left:20px;}
+  }
+
+  nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
+
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
+
+  /* Remove underline from links inside job cards */
+.job-card a.job-links {
+    text-decoration: none; /* remove underline */
+    color: inherit; /* inherit color from card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make the button stretch full width of the card */
+.job-card button.save-job-btn {
+    width: 100%; /* full width of the card */
+    padding: 1rem; /* more padding for bigger button */
+    font-size: 1.1rem; 
+    border-radius: 12px;
+    margin-top: auto; /* push button to bottom of card */
+    background: var(--accent-primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.job-card button.save-job-btn:hover {
+    background: var(--accent-secondary);
+    transform: scale(1.05);
+}
+.job-card a.job-links {
+    text-decoration: none; /* remove underline */
+    color: inherit; /* inherit card text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.job-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
   </style>
 </head>
 
 <body>
-    <!-- Dark Mode Toggle Button -->
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
+  <!-- Dark Mode Toggle -->
 
-    <header>
-        <div class="headContainer">
-            <img src="../assets/logo.webp" alt="Job Junction logo" loading="lazy" class="logo" />
-
-            <nav class="headlinks">
-                <a href="../index.html">Home</a>
-                <a href="../components/about.html">About</a>
-                <a href="../components/homepage.html">Role</a>
-                <a href="../components/homepage.html">Apply</a>
-                <a href="../components/saved-jobs.html">Saved Jobs</a>
-            </nav>
-        </div>
-    </header>
-    <hr>
-
-    <div class="">
-        <div class="heading">
-            <h2>Jobs In Demand</h2>
-            <p>Most viewed and all-time-top-selling services</p>
-        </div>
-        <div class="search-filter-container">
-            <input type="text" id="searchInput" class="search-bar fancy-input" placeholder=" Search by position..." />
-            <select id="salaryFilter" class="filter-dropdown fancy-select">
-                <option value=""> All Salaries</option>
-                <option value="500">$500+/m</option>
-                <option value="900">$900+/m</option>
-                <option value="1200">$1200+/m</option>
-            </select>
-        </div>
+<header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html"><img src="../assets/logo.webp"></a>
     </div>
 
-    <!-- Jobs Grid -->
-    <div class="jobs-container" id="jobsContainer">
-        <!-- Jobs will be populated by JavaScript -->
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="internships.html">Internship</a></li>
+            <li><a href="part-time.html">Part-time</a></li>
+            <li><a href="remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="career-guides.html">Career Guide</a></li>
+            <li><a href="resume-builder.html">Resume Builder</a></li>
+            <li><a href="interview-prep.html">Interview</a></li>
+            <li><a href="personal-branding.html">Personal Branding</a></li>
+            <li><a href="workplace-communication.html">Workplace</a></li>
+            <li><a href="career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="signup.html">Sitemap</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
     </div>
 
-    <!-- Back to Top Button -->
-    <button id="backToTopBtn" title="Go to top">↑</button>
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
 
-    <footer>
-        <div id="footer-statement">
-          <p>Connecting Talent with Opportunity. Your Career Journey Starts Here!</p>
-        </div>
-      
-        <div>
-          <div class="footer-links">
-            <h3>For Job Seekers</h3>
-            <ul>
-              <li><a href="#">Browse Job</a></li>
-              <li><a href="internships.html">Internships</a></li>
-              <li><a href="#">Advice</a></li>
-              <li><a href="#">Salary Guide</a></li>
-              <li><a href="#">Resume Builder</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-links">
-            <h3>For Employers</h3>
-            <ul>
-              <li><a href="#">Post a Job</a></li>
-              <li><a href="#">Talent Search</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Enterprise</a></li>
-            </ul>
-          </div>
-      
-          <div class="footer-links">
-            <h3>Company</h3>
-            <ul>
-              <li><a href="components/about.html">About Us</a></li>
-              <li><a href="ContactPage.html">Contact</a></li>
-              <li><a href="open-source.html">Open Source</a></li>
-              <li><a href="masthead.html">Masthead</a></li>
-              <li><a href="privacypolicy.html">Privacy Policy</a></li>
-              <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-      
+
+  <main>
+    <div class="body2">
+      <div class="heading">
+        <h2>Jobs In Demand</h2>
+        <p>Most viewed and all-time-top-selling services</p>
+      </div>
+
+      <div class="custom-search-container">
+        <input type="text" id="searchInput" class="custom-search-input" placeholder="Search by position...">
+        <select id="salaryFilter" class="custom-select-dropdown">
+          <option value="">All Salaries</option>
+          <option value="500">$500+/m</option>
+          <option value="900">$900+/m</option>
+          <option value="1200">$1200+/m</option>
+        </select>
+      </div>
+
+      <div class="jobs-container" id="jobsContainer"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
         <div class="social-icons">
-          <a href="https://github.com/SurajSG23" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.instagram.com/suraj_sg23/" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/suraj-s-g-dhanva-995a23298/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
-      
-        <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
-      </footer>
+      </div>
+    </div>
+    <div class="footer-credit">&copy; 2025 Job Junction. All rights reserved.</div>
+  </footer>
 
-    <script>
-        // Dark Mode Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
+  <script>
+   
+    // ===== Jobs Data =====
+    const jlist = [
+      { img: "../assets/google-logo.webp", position: "Web Developer", salary: "$900-1200/m", type: "Full Time", link: "https://www.google.com/about/careers/applications/" },
+      { img: "../assets/netflix-logo.webp", position: "Designer", salary: "$700-1100/m", type: "Part Time", link: "https://jobs.netflix.com/" },
+      { img: "../assets/github-logo.webp", position: "Open source contributor", salary: "$900-1200/m", type: "Freelancer", link: "https://www.github.careers/careers-home" },
+      { img: "../assets/amazon-logo.webp", position: "Customer Service", salary: "$600-900/m", type: "Full time", link: "https://www.amazon.jobs/en/" },
+      { img: "../assets/apple-logo.webp", position: "Front End Developer", salary: "$700-1400/m", type: "Part Time", link: "https://www.apple.com/careers/in/" },
+      { img: "../assets/meta-logo.webp", position: "Designer", salary: "$500-1200/m", type: "Part Time", link: "https://www.metacareers.com/jobs" },
+      { img: "../assets/linkedin-logo.webp", position: "Human Resource", salary: "$400-900/m", type: "Part Time", link: "https://www.linkedin.com/jobs/" },
+      { img: "../assets/samsung-logo.webp", position: "Back-end Developer", salary: "$1100-1700/m", type: "Freelancer", link: "https://www.samsung.com/in/about-us/careers/?srsltid=AfmBOooetR8lgJbiBWWHc3NO0CRxOUE-8ornVLq-Q2I4ZnpIXxCHqjOK" },
+      { img: "../assets/udemy-logo.webp", position: "Teacher/Professor", salary: "$500-1200/m", type: "Full time", link: "https://about.udemy.com/careers/" },
+      { img: "../assets/ChatGPT-logo.webp", position: "AI Engineer", salary: "$1200-1600/m", type: "Part Time", link: "https://openai.com/careers/" },
+      { img: "../assets/insta-logo.webp", position: "Content Creator", salary: "$200-600/m", type: "Freelancer", link: "https://about.instagram.com/about-us/careers" },
+    ];
 
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
+    const jobsContainer = document.getElementById("jobsContainer");
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
+function renderJobs(jobs) {
+  jobsContainer.innerHTML = '';
+  jobs.forEach(job => {
+    jobsContainer.innerHTML += `
+      <div class="job-card">
+        <a href="${job.link}" target="_blank" class="job-links">
+          <img src="${job.img}" alt="${job.position}">
+          <h3>${job.position}</h3>
+          <p>${job.salary}</p>
+          <div class="badge"><p>${job.type}</p></div>
+        </a>
+        <button class="save-job-btn" data-job='${JSON.stringify(job)}'>Save Job</button>
+      </div>`;
+  });
+}
 
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.className = 'fas fa-sun';
-            } else {
-                themeIcon.className = 'fas fa-moon';
-            }
+
+    renderJobs(jlist);
+
+    // ===== Save Job =====
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("save-job-btn")) {
+        const jobData = JSON.parse(e.target.getAttribute("data-job"));
+        let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+        if (!savedJobs.some(j => j.link === jobData.link)) {
+          savedJobs.push(jobData);
+          localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
+          alert("Job saved!");
+        } else {
+          alert("Job already saved!");
         }
+      }
+    });
 
-        // Your existing JavaScript code
-        const jlist = [
-            {
-                img: "../assets/google-logo.webp",
-                position: "Web Developer",
-                salary: "$900-1200/m",
-                type: "Full Time",
-                link: "https://www.google.com/about/careers/applications/"
-            },
-            {
-                img: "../assets/netflix-logo.webp",
-                position: "Designer",
-                salary: "$700-1100/m",
-                type: "Part Time",
-                link: "https://jobs.netflix.com/"
-            },
-            {
-                img: "../assets/github-logo.webp",
-                position: "Open source contributor",
-                salary: "$900-1200/m",
-                type: "Freelancer",
-                link: "https://www.github.careers/careers-home"
-            },
-            {
-                img: "../assets/amazon-logo.webp",
-                position: "Customer Service",
-                salary: "$600-900/m",
-                type: "Full time",
-                link: "https://www.amazon.jobs/en/"
-            },
-            {
-                img: "../assets/apple-logo.webp",
-                position: "Front End Developer",
-                salary: "$700-1400/m",
-                type: "Part Time",
-                link: "https://www.apple.com/careers/in/"
-            },
-            {
-                img: "../assets/meta-logo.webp",
-                position: "Designer",
-                salary: "$500-1200/m",
-                type: "Part Time",
-                link: "https://www.metacareers.com/jobs"
-            },
-            {
-                img: "../assets/linkedin-logo.webp",
-                position: "Human Resource",
-                salary: "$400-900/m",
-                type: "Part Time",
-                link: "https://www.linkedin.com/jobs/"
-            },
-            {
-                img: "../assets/samsung-logo.webp",
-                position: "Back-end Developer",
-                salary: "$1100-1700/m",
-                type: "Freelancer",
-                link: "https://www.samsung.com/in/about-us/careers/?srsltid=AfmBOooetR8lgJbiBWWHc3NO0CRxOUE-8ornVLq-Q2I4ZnpIXxCHqjOK"
-            },
-            {
-                img: "../assets/udemy-logo.webp",
-                position: "Teacher/Professor",
-                salary: "$500-1200/m",
-                type: "Full time",
-                link: "https://about.udemy.com/careers/"
-            },
-            {
-                img: "../assets/ChatGPT-logo.webp",
-                position: "AI Engineer",
-                salary: "$1200-1600/m",
-                type: "Part Time",
-                link: "https://openai.com/careers/"
-            },
-            {
-                img: "../assets/insta-logo.webp",
-                position: "Content Creator",
-                salary: "$200-600/m",
-                type: "Freelancer",
-                link: "https://about.instagram.com/about-us/careers"
-            },
-        ];
+    // ===== Search & Filter =====
+    function searchandfilterInput() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const salary = document.getElementById('salaryFilter').value.toLowerCase();
+      const filteredJobs = jlist.filter(job => {
+        const minSalary = parseInt(job.salary.replace(/[^0-9\-]/g, '').split('-')[0]);
+        const matchesQuery = job.position.toLowerCase().includes(query);
+        const matchesSalary = !salary || minSalary >= parseInt(salary);
+        return matchesQuery && matchesSalary;
+      });
+      renderJobs(filteredJobs);
+    }
 
-        const jobsContainer = document.getElementById("jobsContainer");
-        
-        function renderJobs(jobs) {
-            jobsContainer.innerHTML = '';
-            for (const job of jobs) {
-                jobsContainer.innerHTML += `
-                <div class="job-card">
-                    <a href="${job.link}" class="job-links" target="_blank">
-                        <img src="${job.img}" alt="${job.position}" style="width: 200px; height: 200px;">
-                        <h3>${job.position}</h3>
-                        <p>${job.salary}</p>
-                        <div class="badge">
-                            <p>${job.type}</p>
-                        </div>
-                    </a>
-                    <button class="save-job-btn" data-job='${JSON.stringify(job)}' style="
-                        background-color: var(--accent-primary);
-                        color: #fff;
-                        border: none;
-                        border-radius: 4px;
-                        padding: 8px 16px;
-                        margin-top: 10px;
-                        cursor: pointer;
-                        font-size: 1rem;
-                        transition: background 0.2s;
-                    ">Save Job</button>
-                </div>`;
-            }
-        }
+    document.getElementById('searchInput').addEventListener('input', searchandfilterInput);
+    document.getElementById('salaryFilter').addEventListener('change', searchandfilterInput);
 
-        // Initial render
-        renderJobs(jlist);
+    
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const dropdowns = document.querySelectorAll(".dropdown");
+const themeToggle = document.getElementById('themeToggle');
 
-        // Save job functionality
-        document.addEventListener("click", function (e) {
-            if (e.target.classList.contains("save-job-btn")) {
-                const jobData = JSON.parse(e.target.getAttribute("data-job"));
-                let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+// Hamburger toggle
+hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
 
-                if (!savedJobs.some(j => j.link === jobData.link)) {
-                    savedJobs.push(jobData);
-                    localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
-                    alert("Job saved!");
-                } else {
-                    alert("Job already saved!");
-                }
-            }
-        });
+// Mobile dropdown toggle
+dropdowns.forEach(drop => {
+  drop.addEventListener("click", e => {
+    if(window.innerWidth <= 992){
+      e.stopPropagation();
+      drop.classList.toggle("active");
+    }
+  });
+});
 
-        // Search and filter functionality
-        function searchandfilterInput(){
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const salary = document.getElementById('salaryFilter').value.toLowerCase();
+// Dark/Light toggle
+const currentTheme = localStorage.getItem("theme");
+if(currentTheme === "dark") document.body.classList.add("dark");
 
-            const filteredJobs = jlist.filter(job => {
-                const minSalary = parseInt(job.salary.replace(/[^0-9\-]/g, '').split('-')[0]);
-                const matchesQuery = job.position.toLowerCase().includes(query);
-                const matchesSalary = !salary || minSalary >= parseInt(salary);
-                return matchesQuery && matchesSalary;
-            });
-
-            renderJobs(filteredJobs);
-        }
-
-        document.getElementById('searchInput').addEventListener('input', searchandfilterInput);
-        document.getElementById('salaryFilter').addEventListener('change', searchandfilterInput);
-
-        // Back to Top Button Functionality
-        document.addEventListener("DOMContentLoaded", function () {
-            const backToTopBtn = document.getElementById("backToTopBtn");
-
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 50) {
-                    backToTopBtn.classList.add("show");
-                } else {
-                    backToTopBtn.classList.remove("show");
-                }
-            });
-
-            backToTopBtn.addEventListener("click", function () {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-        });
-    </script>
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+});
+  </script>
 </body>
 </html>
