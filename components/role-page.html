@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Junction | Role Page</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== GLOBAL ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', Arial, sans-serif; }
+    body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #111827; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+
+    /* ===== HEADER ===== */
+   header {
+  width: 100%; /* full width */
+  background: white; /* navbar background */
+  color: #60a5fa;
+  padding: 12px 0; /* reduce horizontal padding here */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* Keep .container to center the content */
+header .container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 2rem; /* horizontal padding for content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#60a5fa;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#60a5fa;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:white;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#60a5fa;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {color:#2563eb;}
+   nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
+
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
+    
+
+    /* ===== WELCOME SECTION ===== */
+    .homepage-header-div {
+      width: 100%;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      color: #fff;
+    }
+    .homepage-header-div .logo-img { width: 80px; height: 80px; border-radius: 16px; box-shadow: 0 4px 24px rgba(30,58,138,0.10); margin-bottom: 1rem; }
+    .homepage-header-div h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 1px; }
+    .homepage-header-div p { font-size: 1.15rem; margin-bottom: 2rem; color: #e0e7ff; }
+
+    /* ===== ROLE CARDS ===== */
+    .role-cards { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .role-card { background: rgba(255,255,255,0.95); border-radius: 1.5rem; box-shadow: 0 8px 32px rgba(30,58,138,0.10); padding: 2.5rem 2rem 2rem 2rem; width: 260px; text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+    .role-card:hover { transform: translateY(-8px) scale(1.04); box-shadow: 0 16px 40px rgba(102,126,234,0.18); border: 1.5px solid #764ba2; }
+    .role-card img { width: 90px; height: 90px; margin-bottom: 1.2rem; border-radius: 1rem; box-shadow: 0 2px 12px rgba(102,126,234,0.10); background: #f9fafb; }
+    .role-card h3 { font-size: 1.25rem; font-weight: 600; color: #3d55b4; margin-bottom: 0.5rem; }
+    .role-card p { font-size: 1rem; color: #64748b; margin-bottom: 1.2rem; }
+    .role-card .get-started-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 8px; padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; box-shadow: 0 2px 8px rgba(102,126,234,0.10); }
+    .role-card .get-started-btn:hover { background: linear-gradient(135deg, #764ba2, #667eea); }
+
+    /* ===== FOOTER ===== */
+    .footer-div { background: #111827; color: #fff; padding: 2rem; width: 100%; margin-top: 2rem; }
+    .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+    .footer-col h3 { margin-bottom: 1rem; color: #2563eb; }
+    .footer-col a { display: block; color: #d1d5db; text-decoration: none; margin-bottom: 0.5rem; }
+    .footer-col a:hover { color: #2563eb; }
+    .footer-col p:hover { color: #2563eb; }
+    .social-icons { display: flex; flex-direction: column; gap: 0.5rem; }
+    .social-icons a { font-size: 1.1rem; color: #fff; text-decoration: none; display: flex; align-items: center; }
+    .social-icons a:hover { color: #2563eb; }
+    .social-icons a i { margin-right: 8px; }
+    .footer-col p { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .footer-credit { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #9ca3af; }
+
+    @media(max-width: 768px){
+      .role-cards { flex-direction: column; gap: 1.5rem; }
+      .role-card { width: 90vw; max-width: 340px; }
+      .homepage-header-div h1 { font-size: 2rem; }
+      .footer-container { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+      .footer-col .social-icons { flex-direction: row; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    }
+
+.role-cards {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Flip Card Base */
+.flip-card {
+  background: transparent;
+  width: 340px;
+  height: 430px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.flip-card-front {
+  background: #1b263b;
+}
+
+.flip-card-back {
+  background: linear-gradient(145deg, #415a77, #1b263b);
+  transform: rotateY(180deg);
+}
+
+.flip-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.flip-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #e0e1dd;
+}
+
+.flip-card p {
+  font-size: 1rem;
+  color: #a8b3c1;
+  margin-bottom: 30px;
+}
+
+.get-started-btn {
+  background: #778da9;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.get-started-btn:hover {
+  background: #e0e1dd;
+  color: #0d1b2a;
+}
+    /* ===== Welcome Section ===== */
+.homepage-header-div {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.homepage-header-div img.logo-img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+  transition: transform 0.4s ease;
+}
+
+.homepage-header-div img.logo-img:hover {
+  transform: scale(1.1);
+}
+
+.homepage-header-div h1 {
+  font-size: 2.4rem;
+  color: #e0e1dd;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+.homepage-header-div p {
+  font-size: 1.1rem;
+  color: #a8b3c1;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+/* Small screen adjustment */
+@media (max-width: 768px) {
+  .homepage-header-div h1 {
+    font-size: 2rem;
+  }
+  .homepage-header-div p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+/* Fade animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="../home.html"><img src="../assets/logo.webp"></a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="../about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../internships.html">Internship</a></li>
+            <li><a href="../part-time.html">Part-time</a></li>
+            <li><a href="../remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="../companies.html">Companies</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="../resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../career-guides.html">Career Guide</a></li>
+            <li><a href="../resume-builder.html">Resume Builder</a></li>
+            <li><a href="../interview-prep.html">Interview</a></li>
+            <li><a href="../personal-branding.html">Personal Branding</a></li>
+            <li><a href="../workplace-communication.html">Workplace</a></li>
+            <li><a href="../career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="signup.html">Sitemap</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
+    </div>
+
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+  <!-- Welcome Section -->
+  <div class="homepage-header-div">
+    <img src="../assets/logo.webp" alt="Job Junction Logo" class="logo-img" loading="lazy">
+    <h1>Welcome to Job Junction</h1>
+    <p>Choose your role and start your journey.<br>
+      <span style="font-size:0.98rem;">Find jobs, connect with employers, and grow your career.</span></p>
+  </div>
+
+  <!-- Role Cards -->
+<main>
+  <div class="role-cards">
+
+    <!-- Seeker Card -->
+    <a href="../components/seeker.html" style="text-decoration:none;">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../assets/seeker.webp" alt="Job Seeker illustration" loading="lazy">
+            <h3>I am a seeker</h3>
+            <p>Browse jobs, apply easily, and track your applications.</p>
+            <button class="get-started-btn">Get Started</button>
+          </div>
+          <div class="flip-card-back">
+            <h3>Ready to Explore?</h3>
+            <p>Start your job journey today.</p>
+            <button class="get-started-btn">Let's Go</button>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Employer Card -->
+    <a href="../components/employer.html" style="text-decoration:none;">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../assets/employer.webp" alt="Employer illustration" loading="lazy">
+            <h3>I am an employer</h3>
+            <p>Post jobs, manage applicants, and find top talent.</p>
+            <button class="get-started-btn">Get Started</button>
+          </div>
+          <div class="flip-card-back">
+            <h3>Find Your Team</h3>
+            <p>Post openings and hire the best candidates.</p>
+            <button class="get-started-btn">Start Hiring</button>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+
+  <!-- Footer -->
+  <div class="footer-div">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="par"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">
+      &copy; 2025 Job Junction. All rights reserved.
+    </div>
+  </div>
+
+  <!-- JS -->
+ <script>
+  // Function to enable dark mode
+  function enableDarkMode() {
+    document.body.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  }
+
+  // Function to disable dark mode
+  function disableDarkMode() {
+    document.body.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }
+
+  // Toggle dark mode on button click
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.addEventListener("click", () => {
+    if (document.body.classList.contains("dark")) {
+      disableDarkMode();
+    } else {
+      enableDarkMode();
+    }
+  });
+
+  // Apply saved theme on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      enableDarkMode();
+    }
+  });
+
+  // Optional: Hamburger and dropdown menu scripts
+  const menuToggle = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  const dropdowns = document.querySelectorAll(".dropdown");
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener("click", e => {
+      e.preventDefault();
+      dropdown.querySelector(".dropdown-menu").classList.toggle("show");
+    });
+  });
+</script>
+
+</body>
+</html>
