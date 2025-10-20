@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now | Job Junction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ========== HEADER ========== */
+    header {
+    background:white;
+    color:#60a5fa;
+    padding:12px 25px;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+
+  .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1300px;
+    margin:auto;
+  }
+
+  /* Logo */
+  .logo a {
+    display:flex;
+    align-items:center;
+    color:#60a5fa;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .logo img {height:40px; margin-right:8px;}
+
+  /* Nav */
+  nav ul {
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  nav ul li {position:relative;}
+  nav ul li a {
+    color:#60a5fa;
+    text-decoration:none;
+    padding:10px 18px;
+    display:block;
+    font-weight:500;
+    border-radius:5px;
+    transition:0.3s;
+    font-size: 18px;
+  }
+  nav ul li a:hover {
+    background:#2563eb;
+    color:white;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.15);
+    z-index:1000;
+    transition:0.3s;
+  }
+  .dropdown-menu li a {padding:10px 15px;}
+  .dropdown:hover .dropdown-menu {display:block;}
+
+  /* Buttons */
+  .btn {
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .login-btn {background:#2563eb; color:#fff;}
+  .login-btn:hover {background:#1e40af;}
+  .signup-btn {background:#fff; color:#2563eb;}
+  .signup-btn:hover {background:#e0f2fe;}
+
+  /* Hamburger */
+  .hamburger {display:none; font-size:26px; cursor:pointer; color:#2563eb;}
+
+  /* Dark/Light Toggle */
+  .theme-toggle {
+    margin-left:10px;
+    cursor:pointer;
+    font-size:20px;
+    color:#60a5fa;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {color:#2563eb;}
+
+  /* Responsive */
+  @media(max-width:992px){
+    nav ul {
+      position:fixed;
+      top:0;
+      left:-100%;
+      height:100%;
+      width:260px;
+      flex-direction:column;
+      padding-top:70px;
+      background:#60a5fa;
+      transition:0.3s;
+    }
+    nav ul.show {left:0;}
+    nav ul li {width:100%;}
+    nav ul li a {padding:15px 20px;}
+    .dropdown-menu {position:static; display:none;}
+    .dropdown.active .dropdown-menu {display:block;}
+    .hamburger {display:block;}
+    .login-btn, .signup-btn {width:90%; margin:5px 20px;}
+    .theme-toggle {position:absolute; bottom:120px; left:20px;}
+  }
+
+  nav ul li a i {margin-left:5px; transition:0.3s;}
+  nav ul li:hover a i {transform: rotate(180deg);}
+
+  /* Dark Theme */
+  body.dark {background:#121212; color:#fff;}
+  body.dark header {background:#1e3a8a;}
+  body.dark nav ul li a:hover {background:#2563eb;}
+  body.dark .dropdown-menu {background:#1e3a8a;}
+  body.dark .login-btn {background:#3b82f6; color:#fff;}
+  body.dark .login-btn:hover {background:#2563eb;}
+  body.dark .signup-btn {background:#2563eb; color:#fff;}
+  body.dark .signup-btn:hover {background:#3b82f6;}
+  body.dark .theme-toggle {color:#fff;}
+
+    /* ========== FOOTER ========== */
+    footer {background: #111827; color: #fff; padding: 2rem; margin-top: 3rem;}
+    .footer-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1200px; margin: auto;}
+    .footer-col h3 {margin-bottom: 1rem; color: #2563eb;}
+    .footer-col a {display:block; color:#d1d5db; text-decoration:none; margin-bottom:0.5rem;}
+    .footer-col a:hover {color:#2563eb;}
+    .footer-col p {margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;}
+    .social-icons {display:flex; flex-direction:column; gap:0.5rem; }
+    .social-icons a {color:#fff; text-decoration:none; display:flex; align-items:center;}
+    .social-icons a:hover {color:#2563eb;}
+    .footer-credit {text-align:center; margin-top:2rem; font-size:0.9rem; color:#9ca3af;}
+
+  
+/* ========== APPLY FORM SECTION ========== */
+/* General Section Styling */
+.apply-section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background-color: #ffffff; /* changed to white for clean look */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.apply-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #2563eb; /* primary blue */
+}
+
+/* Form Styling */
+.apply-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.apply-form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2563eb; /* label color blue */
+}
+
+.apply-form input[type="text"],
+.apply-form input[type="email"],
+.apply-form input[type="tel"],
+.apply-form input[type="file"],
+.apply-form textarea {
+    padding: 12px 15px;
+    border: 2px solid #60a5fa; /* highlight blue */
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+    background-color: #f8fafc; /* light background */
+    color: #1e293b; /* dark text */
+}
+
+.apply-form input:hover,
+.apply-form textarea:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+}
+
+.apply-form input:focus,
+.apply-form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37,99,235,0.4);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.apply-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Full width inputs */
+.full-width {
+    width: 100%;
+}
+
+/* Button Styling */
+.apply-btn-main {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #2563eb; /* primary blue */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.apply-btn-main:hover {
+    background-color: #1e40af; /* darker blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Dropdown Styling */
+.apply-form select {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #60a5fa;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  color: #1e293b;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  appearance: none; /* remove default arrow */
+  cursor: pointer;
+}
+
+/* Placeholder option color */
+.apply-form select:invalid {
+  color: #66686a; /* gray color for "Select a role" */
+}
+
+/* Hover & Focus */
+.apply-form select:hover {
+  border-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+}
+.apply-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37,99,235,0.4);
+  background: #ffffff;
+}
+
+/* Dark Mode */
+body.dark .apply-form select {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 2px solid #2563eb;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+
+body.dark .apply-form select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(37,99,235,0.5);
+}
+
+body.dark  .apply-form select:invalid {
+  color: #66686a; /* gray color for "Select a role" */
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .apply-section {
+        padding: 30px 20px;
+    }
+    
+    .apply-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .apply-form input,
+    .apply-form textarea {
+        font-size: 0.95rem;
+    }
+}
+ /* Dark Mode */
+    body.dark .apply-section {
+      background: #1f2937;
+      color: #e5e7eb;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    body.dark .apply-form input,
+    body.dark .apply-form textarea,
+    body.dark .apply-form select {
+      background: #1f2937;
+      color: #e5e7eb;
+      border: 2px solid white;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+    body.dark .apply-form input:focus,
+    body.dark .apply-form textarea:focus,
+    body.dark .apply-form select:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 10px rgba(37,99,235,0.5);
+    }
+    body.dark .apply-btn-main {background: #2563eb; color:#fff;}
+
+
+
+  </style>
+</head>
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+ <header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html"><img src="assets/logo.webp"></a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li class="dropdown">
+          <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="internships.html">Internship</a></li>
+            <li><a href="part-time.html">Part-time</a></li>
+            <li><a href="remote.html">Remote</a></li>
+          </ul>
+        </li>
+
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="resources.html">Resources <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="career-guides.html">Career Guide</a></li>
+            <li><a href="resume-builder.html">Resume Builder</a></li>
+            <li><a href="interview-prep.html">Interview</a></li>
+            <li><a href="personal-branding.html">Personal Branding</a></li>
+            <li><a href="workplace-communication.html">Workplace</a></li>
+            <li><a href="career-growth.html">Career Growth</a></li>
+          </ul>
+        </li>
+
+        <!-- More Dropdown -->
+        <li class="dropdown">
+          <a href="#">More <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="signup.html">Sitemap</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+            <li><a href="terms-of-use.html">Terms</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="right-buttons" style="display:flex; align-items:center; gap:10px;">
+      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
+<button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
+
+      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
+    </div>
+
+    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+  </div>
+</header>
+
+
+  <!-- ====== APPLY FORM SECTION ====== -->
+  <section class="apply-section">
+    <h2>Apply for Intern</h2>
+    <form class="apply-form">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+      </div><br>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div><br>
+      <div>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div><br>
+      <div>
+    <label for="role">Select Role</label>
+    <select id="role" required>
+      <option value="" disabled selected>Select a role</option>
+      <option value="frontend">Frontend Developer Intern</option>
+      <option value="marketing">Marketing Intern</option>
+      <option value="uiux">UI/UX Designer Intern</option>
+      <option value="backend">Backend Developer Intern</option>
+      <option value="graphic">Graphic Designer Intern</option>
+      <option value="socialmedia">Social Media Marketing Intern</option>
+      <option value="fullstack">Full Stack Developer Intern</option>
+    </select>
+  </div><br>
+
+      <div>
+        <label for="location">Preferred Location</label>
+        <input type="text" id="location" placeholder="e.g. Remote / Bangalore">
+      </div><br>
+      <div class="full-width">
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+      </div><br>
+      <div class="full-width">
+        <label for="message">Why should we hire you?</label>
+        <textarea id="message" placeholder="Write a short note about your skills, experience, and motivation..." required></textarea>
+      </div><br>
+      <button type="submit" class="apply-btn-main">Submit Application</button>
+    </form>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-credit">&copy; 2025 Job Junction. All rights reserved.</div>
+  </footer>
+
+  <!-- ====== JS for Theme Toggle ====== -->
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") document.body.classList.add("dark");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+  </script>
+
+</body>
+</html>
