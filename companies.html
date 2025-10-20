@@ -337,6 +337,141 @@
     .hero-title { font-size: 1.8rem; }
     .hero-subtitle { font-size: 0.95rem; }
   }
+
+  /* Base light mode (default) */
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+/* ---------------- DARK THEME ---------------- */
+.dark-theme {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* ===== Hero Section ===== */
+.dark-theme .partner-hero {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #e2e8f0;
+}
+
+.dark-theme .hero-title,
+.dark-theme .hero-subtitle {
+  color: #f8fafc;
+}
+
+.dark-theme .hero-btn {
+  background-color: #2563eb;
+  color: #f8fafc;
+  border: 1px solid #3b82f6;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dark-theme .hero-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ===== Search Box ===== */
+.dark-theme .search-container {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+.dark-theme #companySearch {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+}
+
+.dark-theme #companySearch::placeholder {
+  color: #94a3b8;
+}
+
+.dark-theme .search-icon {
+  color: #60a5fa;
+}
+
+/* ===== Partner Grid ===== */
+.dark-theme .partner-section {
+  background-color: #0f172a;
+}
+
+.dark-theme .partner-card {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-theme .partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+.dark-theme .partner-card img {
+  filter: brightness(0.9);
+  border-radius: 10px;
+}
+
+.dark-theme .btn-view {
+  background-color: #2563eb;
+  color: #f8fafc;
+  border: 1px solid #3b82f6;
+  transition: background 0.3s ease;
+}
+
+.dark-theme .btn-view:hover {
+  background-color: #1e40af;
+}
+
+/* ===== No Results Message ===== */
+.dark-theme #noResultsMessage {
+  color: #94a3b8;
+}
+
+/* ===== Footer ===== */
+.dark-theme footer {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-top: 1px solid #334155;
+}
+
+.dark-theme .footer-container {
+  background-color: #1e293b;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.dark-theme .footer-col h3 {
+  color: #60a5fa;
+}
+
+.dark-theme .footer-col a {
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.dark-theme .footer-col a:hover {
+  color: #60a5fa;
+}
+
+.dark-theme .social-icons a i {
+  color: #60a5fa;
+}
+
+.dark-theme .footer-credit {
+  background-color: #0f172a;
+  color: #94a3b8;
+  border-top: 1px solid #1e293b;
+  padding-top: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -525,6 +660,30 @@
         noResultsMessage.style.display = visibleCards === 0 ? 'block' : 'none';
       });
     });
+
+    // Select the toggle button and icon
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+
+// Check saved theme from localStorage
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-theme");
+  themeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
+}
+
+// Toggle theme on click
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-theme");
+
+  if (body.classList.contains("dark-theme")) {
+    localStorage.setItem("theme", "dark");
+    themeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    localStorage.setItem("theme", "light");
+    themeToggle.innerHTML = `<i class="fas fa-moon"></i>`;
+  }
+});
+
   </script>
 </body>
 </html>
