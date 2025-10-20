@@ -193,102 +193,92 @@ body.dark .remove-btn:hover {
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <div class="logo"><a href="home.html"><img src="assets/logo.webp" alt="Logo">JobPortal</a></div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about-us.html">About</a></li>
-        <li class="dropdown"><a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="internships.html">Internship</a></li>
-            <li><a href="part-time.html">Part-time</a></li>
-            <li><a href="remote.html">Remote</a></li>
-          </ul>
-        </li>
-        <li><a href="companies.html">Companies</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="ContactPage.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <button class="btn login-btn" onclick="window.location.href='login.html'">Login</button>
-      <button class="btn signup-btn" onclick="window.location.href='signup.html'">Signup</button>
-      <i class="fa-solid fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light"></i>
-    </div>
-    <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
-  </div>
-</header>
-
-<section class="hero">
-  <h1>Saved Jobs</h1>
-  <p>Your favorite jobs will appear here. Save jobs you are interested in and apply when ready.</p>
-</section>
-
-<section class="saved-container">
-  <div class="saved-card">
-    <i class="fas fa-briefcase job-icon"></i>
-    <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
-    <h3>Frontend Developer</h3>
-    <p><i class="fas fa-building"></i> Tech Innovators</p>
-    <p><i class="fas fa-clock"></i> Part-Time</p>
-    <p><i class="fas fa-map-marker-alt"></i> Mumbai</p>
-    <button class="remove-btn">Remove</button>
-  </div>
-
-  <div class="saved-card">
-    <i class="fas fa-paint-brush job-icon"></i>
-    <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
-    <h3>UI/UX Designer</h3>
-    <p><i class="fas fa-building"></i> Creative Minds</p>
-    <p><i class="fas fa-clock"></i> Part-Time</p>
-    <p><i class="fas fa-map-marker-alt"></i> Pune</p>
-    <button class="remove-btn">Remove</button>
-  </div>
-
-  <div class="saved-card">
-    <i class="fas fa-server job-icon"></i>
-    <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
-    <h3>Backend Engineer</h3>
-    <p><i class="fas fa-building"></i> Cloud Solutions</p>
-    <p><i class="fas fa-clock"></i> Part-Time</p>
-    <p><i class="fas fa-map-marker-alt"></i> Bangalore</p>
-    <button class="remove-btn">Remove</button>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-      <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
-    </div>
-    <div class="footer-col">
-      <h3>Important Links</h3>
-      <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-      <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
-      <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
-      <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
-    </div>
-    <div class="footer-col">
-      <h3>Contact</h3>
-      <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-      <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
-    </div>
-    <div class="footer-col">
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
-        <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <section class="saved-container">
+      <div class="saved-card">
+        <i class="fas fa-briefcase job-icon"></i>
+        <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
+        <h3>Frontend Developer</h3>
+        <p><i class="fas fa-building"></i> Tech Innovators</p>
+        <p><i class="fas fa-clock"></i> Part-Time</p>
+        <p><i class="fas fa-map-marker-alt"></i> Mumbai</p>
+        <button class="remove-btn">Remove</button>
       </div>
-    </div>
-  </div>
-  <div class="footer-credit">&copy; 2025 Job Junction. All rights reserved.</div>
-</footer>
+
+      <div class="saved-card">
+        <i class="fas fa-paint-brush job-icon"></i>
+        <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
+        <h3>UI/UX Designer</h3>
+        <p><i class="fas fa-building"></i> Creative Minds</p>
+        <p><i class="fas fa-clock"></i> Part-Time</p>
+        <p><i class="fas fa-map-marker-alt"></i> Pune</p>
+        <button class="remove-btn">Remove</button>
+      </div>
+
+      <div class="saved-card">
+        <i class="fas fa-server job-icon"></i>
+        <span class="heart liked"><i class="fa-solid fa-heart"></i></span>
+        <h3>Backend Engineer</h3>
+        <p><i class="fas fa-building"></i> Cloud Solutions</p>
+        <p><i class="fas fa-clock"></i> Part-Time</p>
+        <p><i class="fas fa-map-marker-alt"></i> Bangalore</p>
+        <button class="remove-btn">Remove</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+          <p>
+            Find internships, part-time jobs, and remote opportunities tailored
+            for you.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Important Links</h3>
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="internships.html"
+            ><i class="fa-solid fa-graduation-cap"></i> Internships</a
+          >
+          <a href="part-time.html"
+            ><i class="fa-solid fa-clock"></i> Part Time Jobs</a
+          >
+          <a href="remote.html"
+            ><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a
+          >
+          <a href="companies.html"
+            ><i class="fa-solid fa-building"></i> Companies</a
+          >
+          <a href="privacy-policy.html"
+            ><i class="fa-solid fa-user-shield"></i> Privacy Policy</a
+          >
+          <a href="terms-of-use.html"
+            ><i class="fa-solid fa-file-contract"></i> Terms of Use</a
+          >
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
+    </footer>
 
 <script>
 const hamburger = document.querySelector(".hamburger");
@@ -297,8 +287,10 @@ const dropdowns = document.querySelectorAll(".dropdown");
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
-// Hamburger toggle
-hamburger.addEventListener("click", () => navLinks.classList.toggle("show"));
+      // Hamburger toggle
+      hamburger.addEventListener("click", () =>
+        navLinks.classList.toggle("show")
+      );
 
 // Mobile dropdown toggle
 dropdowns.forEach(drop => {

@@ -1,508 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Career Resources | Job Junction</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <style>
-    /* General styles */
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9fafb;
-      color: #333;
-    }
-    header {
-      background: #60a5fa;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-      animation: fadeSlide 1s ease;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    /* Container */
-    .resources-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 15px;
-    }
-
-    /* Resource card */
-    .resource-card {
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.8s ease forwards;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 300px;
-    }
-    .resource-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      
-    }
-    .resource-card i {
-      font-size: 2.5rem;
-      color: #60a5fa;
-      margin-bottom: 15px;
-    }
-    .resource-card h3 {
-      margin: 10px 0;
-      font-size: 1.4rem;
-      color: #333;
-    }
-    .resource-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #555;
-    }
-    .resource-card a {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      background: #60a5fa;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: background 0.3s ease;
-    }
-    .resource-card a:hover {
-      background: #3b82f6;
-    }
-
-
-    /* Keyframes */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111827;
-      color: #fff;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-col h3 {
-      margin-bottom: 1rem;
-      color: #2563eb;
-    }
-
-    .footer-col a {
-      display: block;
-      color: #d1d5db;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-col a:hover {
-      color: #2563eb;
-    }
-
-    .footer-col p {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-col p:hover {
-      color: #2563eb;
-    }
-
-    .social-icons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .social-icons a {
-      font-size: 1.1rem;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .social-icons a:hover {
-      color: #2563eb;
-    }
-
-    .social-icons a i {
-      margin-right: 8px;
-    }
-
-    .footer-credit {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    /* ✅ Mobile Responsive Fix */
-    @media (max-width: 768px) {
-      .footer-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Resources | Job Junction</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* General styles */
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f9fafb;
+        color: #333;
+      }
+      header {
+        background: #60a5fa;
+        color: #fff;
+        padding: 2rem;
         text-align: center;
+        animation: fadeSlide 1s ease;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      header p {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
       }
 
-      .footer-col {
+      /* Container */
+      .resources-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 15px;
+      }
+
+      /* Resource card */
+      .resource-card {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 15px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease forwards;
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        min-height: 300px;
+      }
+      .resource-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .resource-card i {
+        font-size: 2.5rem;
+        color: #60a5fa;
+        margin-bottom: 15px;
+      }
+      .resource-card h3 {
+        margin: 10px 0;
+        font-size: 1.4rem;
+        color: #333;
+      }
+      .resource-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .resource-card a {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 8px;
+        background: #60a5fa;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: background 0.3s ease;
+      }
+      .resource-card a:hover {
+        background: #3b82f6;
+      }
+
+      /* Keyframes */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* ===== FOOTER ===== */
+      footer {
+        background: #111827;
+        color: #fff;
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        margin-bottom: 1rem;
+        color: #2563eb;
+      }
+
+      .footer-col a {
+        display: block;
+        color: #d1d5db;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-col a:hover {
+        color: #2563eb;
       }
 
       .footer-col p {
-        display: block;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-col p:hover {
+        color: #2563eb;
+      }
+
+      .social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .social-icons a {
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .social-icons a:hover {
+        color: #2563eb;
+      }
+
+      .social-icons a i {
+        margin-right: 8px;
+      }
+
+      .footer-credit {
         text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #9ca3af;
       }
 
-      .footer-col .social-icons {
-        flex-direction: row;  /* icons side by side on mobile */
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+      /* ✅ Mobile Responsive Fix */
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          text-align: center;
+        }
+
+        .footer-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-col p {
+          display: block;
+          text-align: center;
+        }
+
+        .footer-col .social-icons {
+          flex-direction: row; /* icons side by side on mobile */
+          justify-content: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
       }
-    }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      /* ===== HEADER MAIN ===== */
+      .header-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        border-bottom: 3px solid #2563eb;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s, border-color 0.3s;
       }
-    }
-    /* ===== HEADER MAIN ===== */
-.header-main {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(59,130,246,0.2);
-  border-bottom: 3px solid #2563eb;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
-}
 
-.header-main .logo { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
-.header-main nav { display: flex; align-items: center; gap: 1.5rem; }
-.header-main nav a { font-weight: 500; color: #111827; transition: color 0.3s; }
-.header-main nav a:hover { color: #2563eb; }
+      .header-main .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2563eb;
+      }
+      .header-main nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .header-main nav a {
+        font-weight: 500;
+        color: #111827;
+        transition: color 0.3s;
+      }
+      .header-main nav a:hover {
+        color: #2563eb;
+      }
 
-/* Dropdown */
-.header-main .dropdown { position: relative; z-index: 1000; }
-.header-main .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  flex-direction: column;
-  min-width: 180px;
-  background: #fff;
-  border: 2px solid #2563eb;
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 20px rgba(59,130,246,0.2);
-  z-index: 1001;
-}
-.header-main .dropdown-menu a {
-  padding: 0.5rem 1rem;
-  display: block;
-  color: #111827;
-}
-.header-main .dropdown-menu a:hover { background: #2563eb; color: #fff; }
+      /* Dropdown */
+      .header-main .dropdown {
+        position: relative;
+        z-index: 1000;
+      }
+      .header-main .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column;
+        min-width: 180px;
+        background: #fff;
+        border: 2px solid #2563eb;
+        border-radius: 0.5rem;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        z-index: 1001;
+      }
+      .header-main .dropdown-menu a {
+        padding: 0.5rem 1rem;
+        display: block;
+        color: #111827;
+      }
+      .header-main .dropdown-menu a:hover {
+        background: #2563eb;
+        color: #fff;
+      }
 
-/* Mobile Buttons */
-.header-main .menu-toggle, .header-main .theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #111827;
-}
-.header-main .menu-toggle { display: none; }
+      /* Mobile Buttons */
+      .header-main .menu-toggle,
+      .header-main .theme-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #111827;
+      }
+      .header-main .menu-toggle {
+        display: none;
+      }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header-main { flex-direction: column; align-items: flex-start; padding: 1rem; }
-  .header-main nav {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    background: #fff;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border: 2px solid #2563eb;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-  .header-main nav.show { display: flex; }
-  .header-main .dropdown-menu { position: static; display: none; border: 1px solid #2563eb; border-radius: 0.5rem; }
-  .header-main .dropdown.active .dropdown-menu { display: flex; flex-direction: column; }
-  .header-main .menu-toggle { display: block; }
-}
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-main {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem;
+        }
+        .header-main nav {
+          display: none;
+          flex-direction: column;
+          gap: 1rem;
+          width: 100%;
+          background: #fff;
+          position: absolute;
+          top: 70px;
+          right: 20px;
+          border: 2px solid #2563eb;
+          border-radius: 0.5rem;
+          padding: 1rem;
+        }
+        .header-main nav.show {
+          display: flex;
+        }
+        .header-main .dropdown-menu {
+          position: static;
+          display: none;
+          border: 1px solid #2563eb;
+          border-radius: 0.5rem;
+        }
+        .header-main .dropdown.active .dropdown-menu {
+          display: flex;
+          flex-direction: column;
+        }
+        .header-main .menu-toggle {
+          display: block;
+        }
+      }
 
-/* Desktop hover dropdown */
-@media(min-width: 769px){
-  .header-main .dropdown:hover .dropdown-menu { display: flex; flex-direction: column; }
-}
+      /* Desktop hover dropdown */
+      @media (min-width: 769px) {
+        .header-main .dropdown:hover .dropdown-menu {
+          display: flex;
+          flex-direction: column;
+        }
+      }
 
-/* Dark Mode */
-body.dark-mode .header-main { background: #1f2937; border-bottom-color: #60a5fa; color: #f3f4f6; }
-body.dark-mode .header-main .logo { color: #60a5fa; }
-body.dark-mode .header-main nav a { color: #f3f4f6; }
-body.dark-mode .header-main nav a:hover { color: #60a5fa; }
-body.dark-mode .header-main .dropdown-menu { background: #374151; border-color: #60a5fa; }
-body.dark-mode .header-main .dropdown-menu a { color: #f3f4f6; }
-body.dark-mode .header-main .dropdown-menu a:hover { background: #60a5fa; color: #fff; }
+      /* Dark Mode */
+      body.dark-mode .header-main {
+        background: #1f2937;
+        border-bottom-color: #60a5fa;
+        color: #f3f4f6;
+      }
+      body.dark-mode .header-main .logo {
+        color: #60a5fa;
+      }
+      body.dark-mode .header-main nav a {
+        color: #f3f4f6;
+      }
+      body.dark-mode .header-main nav a:hover {
+        color: #60a5fa;
+      }
+      body.dark-mode .header-main .dropdown-menu {
+        background: #374151;
+        border-color: #60a5fa;
+      }
+      body.dark-mode .header-main .dropdown-menu a {
+        color: #f3f4f6;
+      }
+      body.dark-mode .header-main .dropdown-menu a:hover {
+        background: #60a5fa;
+        color: #fff;
+      }
 
+      /* Underline all links in header-main */
+      .header-main nav a {
+        font-weight: 500;
+        color: #111827;
+        text-decoration: none; /* make underline visible */
+        transition: color 0.3s, text-decoration-color 0.3s;
+      }
 
-/* Underline all links in header-main */
-.header-main nav a {
-  font-weight: 500;
-  color: #111827;
-  text-decoration: none; /* make underline visible */
-  transition: color 0.3s, text-decoration-color 0.3s;
-}
+      /* Optional: underline on hover (darker/blue) */
+      .header-main nav a:hover {
+        color: #2563eb;
+        text-decoration-color: #2563eb; /* change underline color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER MAIN ===== -->
+    <header class="header-main">
+      <div class="logo">Job Junction</div>
+      <button class="menu-toggle" id="menuToggleMain">☰</button>
+      <nav id="navMenuMain">
+        <a href="home.html">Home</a>
+        <div class="dropdown" id="jobsDropdownMain">
+          <a href="#" class="dropdown-toggle">Jobs ▼</a>
+          <div class="dropdown-menu">
+            <a href="internships.html">Internships</a>
+            <a href="part-time.html">Part Time Jobs</a>
+            <a href="remote.html">Remote Jobs</a>
+          </div>
+        </div>
+        <a href="companies.html">Companies</a>
+        <a href="about.html">About</a>
+        <a href="ContactPage.html">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggleMain">🌓</button>
+    </header>
 
-/* Optional: underline on hover (darker/blue) */
-.header-main nav a:hover {
-  color: #2563eb;
-  text-decoration-color: #2563eb; /* change underline color on hover */
-}
+    <header>
+      <h1>Career Resources</h1>
+      <p>
+        Guides, tips, and templates to help you grow in your career journey 🚀
+      </p>
+    </header>
 
-  </style>
-
-</head>
-<body>
-  <!-- ===== HEADER MAIN ===== -->
-<header class="header-main">
-  <div class="logo">Job Junction</div>
-  <button class="menu-toggle" id="menuToggleMain">☰</button>
-  <nav id="navMenuMain">
-    <a href="home.html">Home</a>
-    <div class="dropdown" id="jobsDropdownMain">
-      <a href="#" class="dropdown-toggle">Jobs ▼</a>
-      <div class="dropdown-menu">
-        <a href="internships.html">Internships</a>
-        <a href="part-time.html">Part Time Jobs</a>
-        <a href="remote.html">Remote Jobs</a>
+    <main class="resources-container">
+      <!-- Career Guides -->
+      <div class="resource-card">
+        <i class="fas fa-book-open"></i>
+        <h3>Career Guides</h3>
+        <p>
+          Step-by-step resources for beginners and professionals to navigate job
+          search, workplace culture, and career paths.
+        </p>
+        <a href="career-guides.html">Read Guides</a>
       </div>
-    </div>
-    <a href="companies.html">Companies</a>
-    <a href="about.html">About</a>
-    <a href="ContactPage.html">Contact</a>
-  </nav>
-  <button class="theme-toggle" id="themeToggleMain">🌓</button>
-</header>
 
-
-  <header>
-    <h1>Career Resources</h1>
-    <p>Guides, tips, and templates to help you grow in your career journey 🚀</p>
-  </header>
-
-  <main class="resources-container">
-    <!-- Career Guides -->
-    <div class="resource-card">
-      <i class="fas fa-book-open"></i>
-      <h3>Career Guides</h3>
-      <p>Step-by-step resources for beginners and professionals to navigate job search, workplace culture, and career paths.</p>
-      <a href="career-guides.html">Read Guides</a>
-    </div>
-
-    <!-- Resume Building -->
-    <div class="resource-card">
-      <i class="fas fa-file-alt"></i>
-      <h3>Resume & Cover Letters</h3>
-      <p>Tips on crafting impactful resumes and cover letters. Download ready-to-use templates.</p>
-      <a href="resume-builder.html">Download Templates</a>
-    </div>
-
-    <!-- Interview Prep -->
-    <div class="resource-card">
-      <i class="fas fa-microphone"></i>
-      <h3>Interview Prep</h3>
-      <p>Checklists, common questions, and strategies to ace both in-person and virtual interviews.</p>
-      <a href="interview-prep.html">View Checklist</a>
-    </div>
-
-    <!-- Personal Branding -->
-    <div class="resource-card">
-      <i class="fas fa-user-astronaut"></i>
-      <h3>Personal Branding</h3>
-      <p>Learn how to build your LinkedIn, portfolio, and online presence to stand out to employers.</p>
-      <a href="personal-branding.html">Explore Branding</a>
-    </div>
-
-    <!-- Workplace Communication -->
-    <div class="resource-card">
-      <i class="fas fa-comments"></i>
-      <h3>Workplace Communication</h3>
-      <p>Improve your professional communication skills, teamwork, and conflict resolution.</p>
-      <a href="workplace-communication.html">Read Articles</a>
-    </div>
-
-    <!-- Career Growth -->
-    <div class="resource-card">
-      <i class="fas fa-rocket"></i>
-      <h3>Career Growth</h3>
-      <p>Advanced strategies for promotions, leadership, and continuous skill development.</p>
-      <a href="career-growth.html">Explore Growth</a>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      <!-- Resume Building -->
+      <div class="resource-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Resume & Cover Letters</h3>
+        <p>
+          Tips on crafting impactful resumes and cover letters. Download
+          ready-to-use templates.
+        </p>
+        <a href="resume-builder.html">Download Templates</a>
       </div>
-      <div class="footer-col">
-        <h3>Important Links</h3>
-        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
-        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
-        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+
+      <!-- Interview Prep -->
+      <div class="resource-card">
+        <i class="fas fa-microphone"></i>
+        <h3>Interview Prep</h3>
+        <p>
+          Checklists, common questions, and strategies to ace both in-person and
+          virtual interviews.
+        </p>
+        <a href="interview-prep.html">View Checklist</a>
       </div>
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+
+      <!-- Personal Branding -->
+      <div class="resource-card">
+        <i class="fas fa-user-astronaut"></i>
+        <h3>Personal Branding</h3>
+        <p>
+          Learn how to build your LinkedIn, portfolio, and online presence to
+          stand out to employers.
+        </p>
+        <a href="personal-branding.html">Explore Branding</a>
       </div>
-      <div class="footer-col">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+
+      <!-- Workplace Communication -->
+      <div class="resource-card">
+        <i class="fas fa-comments"></i>
+        <h3>Workplace Communication</h3>
+        <p>
+          Improve your professional communication skills, teamwork, and conflict
+          resolution.
+        </p>
+        <a href="workplace-communication.html">Read Articles</a>
+      </div>
+
+      <!-- Career Growth -->
+      <div class="resource-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Career Growth</h3>
+        <p>
+          Advanced strategies for promotions, leadership, and continuous skill
+          development.
+        </p>
+        <a href="career-growth.html">Explore Growth</a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+          <p>
+            Find internships, part-time jobs, and remote opportunities tailored
+            for you.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Important Links</h3>
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="internships.html"
+            ><i class="fa-solid fa-graduation-cap"></i> Internships</a
+          >
+          <a href="part-time.html"
+            ><i class="fa-solid fa-clock"></i> Part Time Jobs</a
+          >
+          <a href="remote.html"
+            ><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a
+          >
+          <a href="companies.html"
+            ><i class="fa-solid fa-building"></i> Companies</a
+          >
+          <a href="privacy-policy.html"
+            ><i class="fa-solid fa-user-shield"></i> Privacy Policy</a
+          >
+          <a href="terms-of-use.html"
+            ><i class="fa-solid fa-file-contract"></i> Terms of Use</a
+          >
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-credit">
-      &copy; 2025 Job Junction. All rights reserved.
-    </div>
-  </footer>
 
-  <script>
-    // Staggered animation for cards
-    document.querySelectorAll('.resource-card').forEach((card, i) => {
-      card.style.animationDelay = `${i * 0.15}s`;
-    });
-    const menuToggleMain = document.getElementById('menuToggleMain');
-const navMenuMain = document.getElementById('navMenuMain');
-const jobsDropdownMain = document.getElementById('jobsDropdownMain');
-const jobsToggleMain = jobsDropdownMain.querySelector('.dropdown-toggle');
-const jobsMenuMain = jobsDropdownMain.querySelector('.dropdown-menu');
-const themeToggleMain = document.getElementById('themeToggleMain');
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
+    </footer>
 
-// Mobile nav toggle
-menuToggleMain.addEventListener('click', () => {
-  navMenuMain.classList.toggle('show');
-});
+    <script>
+      // Staggered animation for cards
+      document.querySelectorAll(".resource-card").forEach((card, i) => {
+        card.style.animationDelay = `${i * 0.15}s`;
+      });
+      const menuToggleMain = document.getElementById("menuToggleMain");
+      const navMenuMain = document.getElementById("navMenuMain");
+      const jobsDropdownMain = document.getElementById("jobsDropdownMain");
+      const jobsToggleMain = jobsDropdownMain.querySelector(".dropdown-toggle");
+      const jobsMenuMain = jobsDropdownMain.querySelector(".dropdown-menu");
+      const themeToggleMain = document.getElementById("themeToggleMain");
 
-// Jobs dropdown toggle for mobile
-jobsToggleMain.addEventListener('click', (e) => {
-  if (window.innerWidth <= 768) {
-    e.preventDefault();
-    jobsDropdownMain.classList.toggle('active');
-  }
-});
+      // Mobile nav toggle
+      menuToggleMain.addEventListener("click", () => {
+        navMenuMain.classList.toggle("show");
+      });
 
-// Desktop hover dropdown
-if (window.innerWidth > 768) {
-  jobsDropdownMain.addEventListener('mouseenter', () => jobsDropdownMain.classList.add('active'));
-  jobsDropdownMain.addEventListener('mouseleave', () => jobsDropdownMain.classList.remove('active'));
-}
+      // Jobs dropdown toggle for mobile
+      jobsToggleMain.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          jobsDropdownMain.classList.toggle("active");
+        }
+      });
 
-// Close dropdown/menu on link click (mobile)
-jobsMenuMain.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      navMenuMain.classList.remove('show');
-      jobsDropdownMain.classList.remove('active');
-    }
-  });
-});
+      // Desktop hover dropdown
+      if (window.innerWidth > 768) {
+        jobsDropdownMain.addEventListener("mouseenter", () =>
+          jobsDropdownMain.classList.add("active")
+        );
+        jobsDropdownMain.addEventListener("mouseleave", () =>
+          jobsDropdownMain.classList.remove("active")
+        );
+      }
 
-// Dark/Light Mode
-function applyDarkModeMain(dark) {
-  document.body.classList.toggle('dark-mode', dark);
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-}
+      // Close dropdown/menu on link click (mobile)
+      jobsMenuMain.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            navMenuMain.classList.remove("show");
+            jobsDropdownMain.classList.remove("active");
+          }
+        });
+      });
 
-themeToggleMain.addEventListener('click', () => {
-  applyDarkModeMain(!document.body.classList.contains('dark-mode'));
-});
+      // Dark/Light Mode
+      function applyDarkModeMain(dark) {
+        document.body.classList.toggle("dark-mode", dark);
+        localStorage.setItem("theme", dark ? "dark" : "light");
+      }
 
-window.addEventListener('load', () => {
-  applyDarkModeMain(localStorage.getItem('theme') === 'dark');
-});
+      themeToggleMain.addEventListener("click", () => {
+        applyDarkModeMain(!document.body.classList.contains("dark-mode"));
+      });
 
-// Close mobile menu if clicking outside
-document.addEventListener('click', (e) => {
-  if (window.innerWidth <= 768) {
-    if (!navMenuMain.contains(e.target) && !menuToggleMain.contains(e.target)) {
-      navMenuMain.classList.remove('show');
-      jobsDropdownMain.classList.remove('active');
-    }
-  }
-});
+      window.addEventListener("load", () => {
+        applyDarkModeMain(localStorage.getItem("theme") === "dark");
+      });
 
-// Reset on window resize
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navMenuMain.classList.remove('show');
-    jobsDropdownMain.classList.remove('active');
-  }
-});
+      // Close mobile menu if clicking outside
+      document.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          if (
+            !navMenuMain.contains(e.target) &&
+            !menuToggleMain.contains(e.target)
+          ) {
+            navMenuMain.classList.remove("show");
+            jobsDropdownMain.classList.remove("active");
+          }
+        }
+      });
 
-  </script>
-</body>
+      // Reset on window resize
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          navMenuMain.classList.remove("show");
+          jobsDropdownMain.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
 </html>
