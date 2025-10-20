@@ -6,15 +6,7 @@
       padding: 0;
     }
     
-    header {
-      background: linear-gradient(45deg, rgb(115, 89, 208), rgb(71, 49, 176), rgb(146, 146, 217));
-      color: #fff;
-      padding: 1.2rem;
-      text-align: center;
-    }
-   header h1 {
-      margin: 1rem;
-    }
+   
 #question-icon{
   font-weight: 600;
   font-size: 4vh;
