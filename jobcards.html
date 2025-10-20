@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Cards Flip Animation | Job Portal</title>
+
+  <style>
+ 
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f3f6fa;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .title {
+      color: #004aad;
+      margin-bottom: 30px;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .job-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+
+    .job-card {
+      width: 250px;
+      height: 200px;
+      perspective: 1000px; 
+    }
+
+   
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.6s; 
+      transform-style: preserve-3d; 
+    }
+    .job-card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden; 
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background: white;
+      padding: 20px;
+    }
+    .card-front {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+  
+    .card-back {
+      background: #004aad;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      margin-top: 15px;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      background: #004aad;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #003080;
+    }
+
+   
+    @media (max-width: 600px) {
+      .job-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="title">Available Jobs</h1>
+
+  <div class="job-container">
+
+    
+    <div class="job-card">
+      <div class="card-inner">
+       
+        <div class="card-front">
+          <h2>Frontend Developer</h2>
+          <p>Company: ABC Tech</p>
+          <button class="view-btn">View Details</button>
+        </div>
+
+        <div class="card-back">
+          <h3>Frontend Developer</h3>
+          <p>Experience: 1-3 years</p>
+          <p>Location: Remote</p>
+          <p>Salary: ₹6-8 LPA</p>
+          <button class="back-btn">Go Back</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Backend Engineer</h2>
+          <p>Company: XYZ Labs</p>
+          <button class="view-btn">View Details</button>
+        </div>
+
+        <div class="card-back">
+          <h3>Backend Engineer</h3>
+          <p>Experience: 2+ years</p>
+          <p>Location: Bangalore</p>
+          <p>Salary: ₹8-10 LPA</p>
+          <button class="back-btn">Go Back</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>UI/UX Designer</h2>
+          <p>Company: Design Studio</p>
+          <button class="view-btn">View Details</button>
+        </div>
+
+        <div class="card-back">
+          <h3>UI/UX Designer</h3>
+          <p>Experience: 0-2 years</p>
+          <p>Location: Mumbai</p>
+          <p>Salary: ₹5-7 LPA</p>
+          <button class="back-btn">Go Back</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+    const cards = document.querySelectorAll(".job-card");
+
+    cards.forEach(card => {
+
+      const viewBtn = card.querySelector(".view-btn");
+      const backBtn = card.querySelector(".back-btn");
+
+     
+      viewBtn.addEventListener("click", () => {
+        card.classList.add("flipped");
+      });
+      backBtn.addEventListener("click", () => {
+        card.classList.remove("flipped");
+      });
+
+    });
+  </script>
+
+</body>
+</html>

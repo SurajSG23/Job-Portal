@@ -5,10 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Junction | FAQ</title>
   <link rel="stylesheet" href="faq.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* ---------------- HEADER ---------------- */
-    main-header {
+    /* Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Main Navigation Header */
+    .main-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -18,35 +28,29 @@
       top: 0;
       z-index: 1000;
       background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
-      margin-bottom: 50px;
     }
-
-    .logo {
+    .main-header .logo {
       font-size: 24px;
       font-weight: bold;
     }
-
-    nav {
+    .main-header nav {
       display: flex;
       gap: 20px;
+      align-items: center;
     }
-
-    nav a {
+    .main-header nav a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
-
-    nav a:hover {
+    .main-header nav a:hover {
       color: #ffd700;
     }
-
-    .dropdown {
+    .main-header .dropdown {
       position: relative;
     }
-
-    .dropdown-menu {
+    .main-header .dropdown-menu {
       display: none;
       position: absolute;
       background: #fff;
@@ -58,24 +62,18 @@
       border-radius: 6px;
       overflow: hidden;
     }
-
-    .dropdown-menu a {
+    .main-header .dropdown-menu a {
       display: block;
       padding: 10px;
       color: #333;
-      text-decoration: none;
     }
-
-    .dropdown-menu a:hover {
+    .main-header .dropdown-menu a:hover {
       background: #eee;
     }
-
-    .dropdown:hover .dropdown-menu {
+    .main-header .dropdown:hover .dropdown-menu {
       display: block;
     }
-
-    .menu-toggle,
-    .theme-toggle {
+    .main-header .theme-toggle {
       background: none;
       border: none;
       color: #fff;
@@ -83,96 +81,188 @@
       cursor: pointer;
     }
 
-    /* ---------------- HEADER (Mobile) ---------------- */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #512da8;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 10px;
-        border-radius: 0 0 8px 8px;
-      }
-
-      nav a {
-        padding: 10px;
-      }
-
-      nav.show {
-        display: flex;
-      }
+    /* Page Header */
+    .page-header {
+        text-align: center;
+        padding: 40px 20px;
+        background: #f0f4f8;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    .page-header #question-icon {
+        font-size: 3rem;
+        color: #60a5fa;
+        margin-bottom: 15px;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+        color: #555;
     }
 
-    /* ---------------- DARK MODE STYLES ---------------- */
+    /* Search Box */
+    .search-box {
+        text-align: center;
+        padding: 20px;
+    }
+    .search-box input {
+        width: 100%;
+        max-width: 500px;
+        padding: 12px 20px;
+        border-radius: 50px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+    }
+
+    /* FAQ Container */
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .category h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #2563eb;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+    }
+    .faq {
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #60a5fa;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        animation: fadeInUp 0.5s ease forwards;
+        opacity: 0;
+    }
+    .faq.active {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .faq-question {
+        padding: 15px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq.active .faq-answer {
+        max-height: 200px; /* Adjust as needed */
+        padding: 15px 20px;
+    }
+    .faq .icon {
+        transition: transform 0.3s ease;
+    }
+    .faq.active .icon {
+        transform: rotate(180deg);
+    }
+    @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* ===== NEW FOOTER STYLES ===== */
+    .footer {
+      background: #111827;
+      color: #d1d5db;
+      padding: 3rem 1rem;
+      margin-top: 50px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-col p, .footer-col a {
+      text-decoration: none;
+      color: #d1d5db;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+    .social-icons a {
+      
+      font-size: 1.1rem;
+    }
+    .social-icons{
+      display: flex;
+      flex-direction: column;
+    }
+    .footer-credit {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      border-top: 1px solid #374151;
+      padding-top: 1.5rem;
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        text-align: center;
+      }
+      .footer-col h3, .footer-col p, .footer-col a {
+        justify-content: center;
+      }
+    }
+    /* ============================== */
+
+
+    /* DARK MODE STYLES */
     body.dark-mode {
       background-color: #121212;
       color: #e0e0e0;
     }
-
-    body.dark-mode header {
-      background-color: #1e1e1e;
-      color: #e0e0e0;
+    body.dark-mode .main-header {
+      background: #1e1e1e;
     }
-
-    body.dark-mode .faq-container {
-      background-color: #1e1e1e;
+    body.dark-mode .page-header {
+        background-color: #1e1e1e;
     }
-
-    body.dark-mode .category h2 {
-      color: #bb86fc;
-    }
-
+    body.dark-mode .page-header h1 { color: #e0e0e0; }
+    body.dark-mode .page-header p { color: #b0b0b0; }
+    body.dark-mode .page-header #question-icon { color: #bb86fc; }
     body.dark-mode .faq {
       background-color: #2d2d2d;
       border-left: 4px solid #bb86fc;
     }
-
-    body.dark-mode .faq-question {
-      color: #e0e0e0;
-    }
-
-    body.dark-mode .faq-answer {
-      color: #b0b0b0;
-    }
-
+    body.dark-mode .faq-question { color: #e0e0e0; }
+    body.dark-mode .faq-answer { color: #b0b0b0; }
+    body.dark-mode .category h2 { color: #bb86fc; }
     body.dark-mode .search-box input {
       background-color: #2d2d2d;
       color: #e0e0e0;
       border: 1px solid #444;
     }
-
-    body.dark-mode .footer {
-      background-color: #1e1e1e;
-      color: #e0e0e0;
-    }
-
-    body.dark-mode .footer-column h4 {
-      color: #bb86fc;
-    }
-
-    body.dark-mode .footer-column ul li a {
-      color: #b0b0b0;
-    }
-
-    body.dark-mode .footer-column ul li a:hover {
-      color: #bb86fc;
-    }
-
-    body.dark-mode .footer-social a {
-      color: #b0b0b0;
-    }
-
-    body.dark-mode .footer-social a:hover {
-      color: #bb86fc;
-    }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <main-header>
+  <header class="main-header">
     <div class="logo">Job Junction</div>
     <nav id="navMenu">
       <a href="home.html">Home</a>
@@ -191,23 +281,19 @@
         <i class="fas fa-moon"></i>
       </button>
     </nav>
-  </main-header>
-
-  <header>
-    <h1>Frequently Asked Questions</h1>
-     <i class="fa-solid fa-circle-question" id="question-icon"></i>
-    <p>Find answers to common questions about Job Junction</p>
-  <div><a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Home</a></div>
   </header>
 
-  <!-- Search -->
+  <header class="page-header">
+    <h1>Frequently Asked Questions</h1>
+    <i class="fa-solid fa-circle-question" id="question-icon"></i>
+    <p>Find answers to common questions about Job Junction</p>
+  </header>
+
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Search FAQs...">
   </div>
 
   <div class="faq-container" id="faqContainer">
-
-    <!-- Account Setup -->
     <div class="category">
       <h2>Account Setup</h2>
       <div class="faq">
@@ -220,7 +306,6 @@
       </div>
     </div>
 
-    <!-- Job Applications -->
     <div class="category">
       <h2>Job Applications</h2>
       <div class="faq">
@@ -232,90 +317,41 @@
         <div class="faq-answer">Yes, go to your profile dashboard to see the status of your applications.</div>
       </div>
     </div>
-
-    <!-- Internships -->
-    <div class="category">
-      <h2>Internships</h2>
-      <div class="faq">
-         <div class="faq-question">Who can apply for this internship ? <span class="icon">▼</span></div>
-        <div class="faq-answer">People with a strong grasp of tech concepts are encouraged to apply. If you're passionate about building, coding, or creating with technology, this internship is for you.</div>
-      </div>
-      <div class="faq">
-        <div class="faq-question">Are internships paid? <span class="icon">▼</span></div>
-        <div class="faq-answer">Some internships are paid, while others may be unpaid or offer stipends. Details are mentioned in each listing.</div>
-      </div>
-    </div>
-
-    <!-- Employers -->
-    <div class="category">
-      <h2>Employers</h2>
-      <div class="faq">
-        <div class="faq-question">How do employers post jobs? <span class="icon">▼</span></div>
-        <div class="faq-answer">Employers can register, log in, and use the "Post a Job" option to list openings.</div>
-      </div>
-     <div class="faq">
-        <div class="faq-question">What kind of onboarding or training should we provide ?<span class="icon">▼</span></div>
-        <div class="faq-answer">It depends on your job role, but you'll be working on real-world tech projects that sharpen your skills and expose you to industry practices.</div>
-      </div>
-  </div>
   </div>
 
-  <footer class="footer" style="margin-bottom: 0px;">
-  <!-- Tagline -->
-  <p class="footer-tagline" style="font-size: 20px;">
-    Connecting Talent with Opportunity. Your Career Journey Starts Here!
-  </p>
-  <br><br>
-
-  <!-- Footer Links -->
-  <div class="footer-links">
-    <div class="footer-column">
-      <h4>For Job Seekers</h4>
-      <ul>
-        <li><a href="components/seeker.html">Browse Jobs</a></li>
-        <li><a href="internships.html">Internships</a></li>
-        <li><a href="#">Advice</a></li>
-        <li><a href="salary-insights.html">Salary Guide</a></li>
-        <li><a href="resume-builder.html">Resume Builder</a></li>
-      </ul>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
     </div>
-
-    <div class="footer-column">
-      <h4>For Employers</h4>
-      <ul>
-        <li><a href="components/employer.html">Post a Job</a></li>
-        <li><a href="components/employer.html">Talent Search</a></li>
-        <li><a href="components/employer.html">Pricing</a></li>
-        <li><a href="components/employer.html">Enterprise</a></li>
-      </ul>
+    <div class="footer-credit">
+      © 2025 Job Junction. All rights reserved.
     </div>
-
-    <div class="footer-column">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="components/about.html">About Us</a></li>
-        <li><a href="ContactPage.html">Contact</a></li>
-        <li><a href="open-source.html">Open Source</a></li>
-        <li><a href="masthead.html">Masthead</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="terms-of-use.html">Terms of Use</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Social Links -->
-  <div class="footer-social">
-    <a href="https://github.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-github"></i></a>
-    <a href="https://instagram.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-instagram"></i></a>
-    <a href="https://linkedin.com/" target="_blank" style="font-size: 30px;"><i class="fab fa-linkedin"></i></a>
-  </div>
-
-  <!-- Copyright -->
-  <p class="footer-copy">
-    © 2025 Job Junction. All rights reserved.
-  </p>
-</footer>
-
+  </footer>
   <script>
     // Toggle FAQs
     document.querySelectorAll('.faq-question').forEach(q => {
@@ -351,7 +387,6 @@
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme') || 'light';
     if (savedTheme === 'dark') {
       body.classList.add('dark-mode');

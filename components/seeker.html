@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
       {
@@ -72,216 +73,309 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="companies.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <style>
-      /* --- Jobs Section Container --- */
-      /* --- Jobs Section Container --- */
-      .body2 {
+  <style>
+    /* Dark Mode Variables */
+    :root {
+      --bg-primary: #f0f4ff;
+      --bg-secondary: #ffffff;
+      --text-primary: #1e3a8a;
+      --text-secondary: #475569;
+      --accent-primary: #3b82f6;
+      --accent-secondary: #1e40af;
+      --border-color: #d1d5db;
+      --shadow-color: rgba(59, 130, 246, 0.15);
+      --card-bg: linear-gradient(145deg, #e0f2ff, #dbeafe);
+      --card-hover: linear-gradient(145deg, #bfdbfe, #93c5fd);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --accent-primary: #60a5fa;
+      --accent-secondary: #3b82f6;
+      --border-color: #334155;
+      --shadow-color: rgba(96, 165, 250, 0.15);
+      --card-bg: linear-gradient(145deg, #1e293b, #334155);
+      --card-hover: linear-gradient(145deg, #334155, #475569);
+    }
+
+    /* Dark Mode Toggle Button */
+    /* Dark Mode Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  z-index: 9999; /* Increased z-index to ensure it's always on top */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  visibility: visible !important; /* Force visibility */
+  opacity: 1 !important; /* Force opacity */
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: var(--accent-primary);
+  color: white;
+}
+
+    /* Dark Mode Styles */
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    /* Update existing styles with CSS variables */
+    .body2 {
+      background: var(--bg-primary);
+      box-shadow: 0 6px 24px var(--shadow-color);
+    }
+
+    .body2 .heading h2 {
+      color: var(--text-primary);
+    }
+
+    .body2 .heading p {
+      color: var(--text-secondary);
+    }
+
+    .fancy-input, .fancy-select {
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .fancy-input:focus, .fancy-select:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+      background: var(--bg-primary);
+    }
+
+    .job-card {
+      background: var(--card-bg);
+      color: var(--text-primary);
+    }
+
+    .job-card:hover {
+      background: var(--card-hover);
+    }
+
+    .job-card h3 {
+      color: var(--text-primary);
+    }
+
+    .job-card p {
+      color: var(--text-primary);
+    }
+
+    header {
+      background: var(--bg-secondary);
+      border-bottom-color: var(--border-color);
+    }
+
+    .headlinks a, .apply-btn {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    footer {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-top-color: var(--border-color);
+    }
+
+    /* Rest of your existing styles remain the same but will use CSS variables */
+    /* --- Jobs Section Container --- */
+    .body2 {
         max-width: 1100px;
         margin: 2rem auto;
         padding: 1.5rem;
-        background: #f0f4ff;
         border-radius: 1rem;
-        box-shadow: 0 6px 24px rgba(59, 130, 246, 0.15);
         transition: all 0.3s ease;
-      }
+    }
 
-      /* Heading */
-      .body2 .heading h2 {
+    .body2 .heading h2 {
         font-size: 2rem;
         font-weight: 700;
-        color: #1e40af;
         margin-bottom: 0.5rem;
         text-align: center;
-      }
+    }
 
-      .body2 .heading p {
+    .body2 .heading p {
         font-size: 1.1rem;
-        color: #475569;
         margin-bottom: 1.5rem;
         text-align: center;
-      }
+    }
 
-      /* Search + Filter Container */
-      .search-filter-container {
+    .search-filter-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
         margin-bottom: 2rem;
-      }
+    }
 
-      /* Input Field & Select */
-      .fancy-input,
-      .fancy-select {
+    .fancy-input, .fancy-select {
         flex: 1 1 250px;
         max-width: 320px;
         padding: 0.9rem 1.2rem;
         border-radius: 12px;
-        border: 1px solid #d1d5db;
         font-size: 1rem;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         transition: all 0.3s ease;
-      }
+    }
 
-      .fancy-input:focus,
-      .fancy-select:focus {
+    .fancy-input:focus, .fancy-select:focus {
         outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        background: #f0f4ff;
-      }
+    }
 
-      .fancy-select {
-        background: #fff
-          url("data:image/svg+xml,%3Csvg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E")
-          no-repeat right 1rem center;
+    .fancy-select {
+        background: var(--bg-secondary) url("data:image/svg+xml,%3Csvg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 1rem center;
         background-size: 1rem;
-      }
+    }
 
-      .fancy-input:hover,
-      .fancy-select:hover {
+    .fancy-input:hover, .fancy-select:hover {
         transform: scale(1.03);
-        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
-      }
+        box-shadow: 0 6px 18px var(--shadow-color);
+    }
 
-      /* Responsive tweaks */
-      @media (max-width: 768px) {
+    @media (max-width: 768px) {
         .search-filter-container {
-          flex-direction: column;
-          gap: 0.8rem;
+            flex-direction: column;
+            gap: 0.8rem;
         }
 
-        .fancy-input,
-        .fancy-select {
-          max-width: 100%;
+        .fancy-input, .fancy-select {
+            max-width: 100%;
         }
-      }
+    }
 
-      /* Jobs Container - Grid */
+    .jobs-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 2rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
       .jobs-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;
-        margin-top: 2rem;
-        padding: 0 1rem;
-        text-align: center;
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
 
-      @media (max-width: 1024px) {
-        .jobs-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
+    @media (max-width: 640px) {
+      .jobs-container {
+        grid-template-columns: 1fr;
       }
+    }
 
-      @media (max-width: 640px) {
-        .jobs-container {
-          grid-template-columns: 1fr;
-        }
-      }
+    .job-card {
+      border-radius: 20px;
+      box-shadow: 0 12px 28px var(--shadow-color);
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    }
 
-      /* Job Card - Attractive Blue Gradient Cards */
-      .job-card {
-        background: linear-gradient(145deg, #e0f2ff, #dbeafe);
-        border-radius: 20px;
-        box-shadow: 0 12px 28px rgba(59, 130, 246, 0.15);
-        padding: 2rem;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 400px;
-        transition: transform 0.4s ease, box-shadow 0.4s ease,
-          background 0.4s ease;
-      }
+    .job-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px var(--shadow-color);
+    }
 
-      .job-card:hover {
-        transform: translateY(-10px) scale(1.03);
-        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
-        background: linear-gradient(145deg, #bfdbfe, #93c5fd);
-      }
+    .job-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      transition: transform 0.4s ease;
+    }
 
-      /* Logo / Image */
-      .job-card img {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-        margin-bottom: 1.5rem;
-        transition: transform 0.4s ease;
-      }
+    .job-card:hover img {
+      transform: scale(1.15);
+    }
 
-      .job-card:hover img {
-        transform: scale(1.15);
-      }
+    .job-card h3 {
+      margin-top: 10px;
+      font-size: 2rem;
+      font-weight: 1000;
+      margin: 0.8rem 0;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
 
-      /* Job Title */
-      .job-card h3 {
-        margin-top: 10px;
-        font-size: 2rem;
-        font-weight: 1000;
-        margin: 0.8rem 0;
-        color: #1e3a8a;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      }
+    .job-card .badge {
+      background: var(--accent-primary);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
 
-      /* Job Type Badge */
-      .job-card .badge {
-        background: #3b82f6;
-        color: #fff;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 16px;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease;
-      }
+    .job-card .badge:hover {
+      background: var(--accent-secondary);
+      transform: scale(1.05);
+    }
 
-      .job-card .badge:hover {
-        background: #1e40af;
-        transform: scale(1.05);
-      }
+    .job-card p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
 
-      /* Salary */
-      .job-card p {
-        font-size: 1.05rem;
-        color: #1e40af;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-      }
+    .job-card button {
+      background: var(--accent-primary);
+      color: #fff;
+      padding: 0.9rem 1.6rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
 
-      /* Save Button */
-      .job-card button {
-        background: #2563eb;
-        color: #fff;
-        padding: 0.9rem 1.6rem;
-        border: none;
-        border-radius: 12px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease, transform 0.3s ease;
-      }
+    .job-card button:hover {
+      background: var(--accent-secondary);
+      transform: scale(1.08);
+    }
 
-      .job-card button:hover {
-        background: #1e40af;
-        transform: scale(1.08);
-      }
-      /* Jobs Container - Grid */
-      .jobs-container :hover {
-        text-align: center;
-        background-color: #e5ebf9;
-      }
-    </style>
-  </head>
+    .jobs-container :hover{
+      text-align: center;
+    }
+  </style>
+</head>
 
-  <body>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <header>
       <div class="headContainer">
         <img
@@ -330,40 +424,14 @@
             <!-- Dynamic suggestions will appear here -->
           </div>
         </div>
-
-        <div class="filters-wrapper">
-          <select id="locationFilter" class="filter-dropdown enhanced-filter">
-            <option value="">All Locations</option>
-            <option value="remote">Remote</option>
-            <option value="new-york">New York</option>
-            <option value="san-francisco">San Francisco</option>
-            <option value="london">London</option>
-            <option value="berlin">Berlin</option>
-          </select>
-
-          <select id="salaryFilter" class="filter-dropdown enhanced-filter">
-            <option value="">All Salaries</option>
-            <option value="30000">$30K+</option>
-            <option value="50000">$50K+</option>
-            <option value="75000">$75K+</option>
-            <option value="100000">$100K+</option>
-          </select>
-
-          <select id="jobTypeFilter" class="filter-dropdown enhanced-filter">
-            <option value="">All Types</option>
-            <option value="full-time">Full Time</option>
-            <option value="part-time">Part Time</option>
-            <option value="contract">Contract</option>
-            <option value="internship">Internship</option>
-          </select>
-
-          <button
-            class="filter-reset-btn"
-            id="resetFilters"
-            title="Reset all filters"
-          >
-            <i class="fas fa-redo"></i> Reset
-          </button>
+        <div class="search-filter-container">
+            <input type="text" id="searchInput" class="search-bar fancy-input" placeholder=" Search by position..." />
+            <select id="salaryFilter" class="filter-dropdown fancy-select">
+                <option value=""> All Salaries</option>
+                <option value="500">$500+/m</option>
+                <option value="900">$900+/m</option>
+                <option value="1200">$1200+/m</option>
+            </select>
         </div>
       </div>
       <div class="jobs-container"></div>
@@ -385,7 +453,9 @@
     </div>
 
     <!-- Jobs Grid -->
-    <div class="jobs-container" id="jobsContainer"></div>
+    <div class="jobs-container" id="jobsContainer">
+        <!-- Jobs will be populated by JavaScript -->
+    </div>
 
     <!-- Back to Top Button -->
     <button id="backToTopBtn" title="Go to top">↑</button>
@@ -459,7 +529,197 @@
       <h3>&copy; 2025 Job Junction. All rights are reserved.</h3>
     </footer>
 
-    <script src="../components/seeker.js"></script>
-    <script src="../components/skill.js" defer></script>
-  </body>
+    <script>
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Your existing JavaScript code
+        const jlist = [
+            {
+                img: "../assets/google-logo.webp",
+                position: "Web Developer",
+                salary: "$900-1200/m",
+                type: "Full Time",
+                link: "https://www.google.com/about/careers/applications/"
+            },
+            {
+                img: "../assets/netflix-logo.webp",
+                position: "Designer",
+                salary: "$700-1100/m",
+                type: "Part Time",
+                link: "https://jobs.netflix.com/"
+            },
+            {
+                img: "../assets/github-logo.webp",
+                position: "Open source contributor",
+                salary: "$900-1200/m",
+                type: "Freelancer",
+                link: "https://www.github.careers/careers-home"
+            },
+            {
+                img: "../assets/amazon-logo.webp",
+                position: "Customer Service",
+                salary: "$600-900/m",
+                type: "Full time",
+                link: "https://www.amazon.jobs/en/"
+            },
+            {
+                img: "../assets/apple-logo.webp",
+                position: "Front End Developer",
+                salary: "$700-1400/m",
+                type: "Part Time",
+                link: "https://www.apple.com/careers/in/"
+            },
+            {
+                img: "../assets/meta-logo.webp",
+                position: "Designer",
+                salary: "$500-1200/m",
+                type: "Part Time",
+                link: "https://www.metacareers.com/jobs"
+            },
+            {
+                img: "../assets/linkedin-logo.webp",
+                position: "Human Resource",
+                salary: "$400-900/m",
+                type: "Part Time",
+                link: "https://www.linkedin.com/jobs/"
+            },
+            {
+                img: "../assets/samsung-logo.webp",
+                position: "Back-end Developer",
+                salary: "$1100-1700/m",
+                type: "Freelancer",
+                link: "https://www.samsung.com/in/about-us/careers/?srsltid=AfmBOooetR8lgJbiBWWHc3NO0CRxOUE-8ornVLq-Q2I4ZnpIXxCHqjOK"
+            },
+            {
+                img: "../assets/udemy-logo.webp",
+                position: "Teacher/Professor",
+                salary: "$500-1200/m",
+                type: "Full time",
+                link: "https://about.udemy.com/careers/"
+            },
+            {
+                img: "../assets/ChatGPT-logo.webp",
+                position: "AI Engineer",
+                salary: "$1200-1600/m",
+                type: "Part Time",
+                link: "https://openai.com/careers/"
+            },
+            {
+                img: "../assets/insta-logo.webp",
+                position: "Content Creator",
+                salary: "$200-600/m",
+                type: "Freelancer",
+                link: "https://about.instagram.com/about-us/careers"
+            },
+        ];
+
+        const jobsContainer = document.getElementById("jobsContainer");
+        
+        function renderJobs(jobs) {
+            jobsContainer.innerHTML = '';
+            for (const job of jobs) {
+                jobsContainer.innerHTML += `
+                <div class="job-card">
+                    <a href="${job.link}" class="job-links" target="_blank">
+                        <img src="${job.img}" alt="${job.position}" style="width: 200px; height: 200px;">
+                        <h3>${job.position}</h3>
+                        <p>${job.salary}</p>
+                        <div class="badge">
+                            <p>${job.type}</p>
+                        </div>
+                    </a>
+                    <button class="save-job-btn" data-job='${JSON.stringify(job)}' style="
+                        background-color: var(--accent-primary);
+                        color: #fff;
+                        border: none;
+                        border-radius: 4px;
+                        padding: 8px 16px;
+                        margin-top: 10px;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        transition: background 0.2s;
+                    ">Save Job</button>
+                </div>`;
+            }
+        }
+
+        // Initial render
+        renderJobs(jlist);
+
+        // Save job functionality
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("save-job-btn")) {
+                const jobData = JSON.parse(e.target.getAttribute("data-job"));
+                let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+
+                if (!savedJobs.some(j => j.link === jobData.link)) {
+                    savedJobs.push(jobData);
+                    localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
+                    alert("Job saved!");
+                } else {
+                    alert("Job already saved!");
+                }
+            }
+        });
+
+        // Search and filter functionality
+        function searchandfilterInput(){
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const salary = document.getElementById('salaryFilter').value.toLowerCase();
+
+            const filteredJobs = jlist.filter(job => {
+                const minSalary = parseInt(job.salary.replace(/[^0-9\-]/g, '').split('-')[0]);
+                const matchesQuery = job.position.toLowerCase().includes(query);
+                const matchesSalary = !salary || minSalary >= parseInt(salary);
+                return matchesQuery && matchesSalary;
+            });
+
+            renderJobs(filteredJobs);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchandfilterInput);
+        document.getElementById('salaryFilter').addEventListener('change', searchandfilterInput);
+
+        // Back to Top Button Functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const backToTopBtn = document.getElementById("backToTopBtn");
+
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            });
+
+            backToTopBtn.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+    </script>
+</body>
 </html>
