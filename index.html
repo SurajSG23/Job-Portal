@@ -1,23 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Junction | Find Your Dream Career</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Junction | Find Your Dream Career</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #06b6d4;
+      --bg-light: #ffffff;
+      --bg-gray: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --shadow: rgba(15, 23, 42, 0.08);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.dark {
+      --bg-light: #0f172a;
+      --bg-gray: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border: #334155;
+      --shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 16px var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      gap: 2rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      height: 45px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-link {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link i {
+      font-size: 0.75rem;
+      transition: transform 0.3s;
+    }
+
+    .dropdown:hover .nav-link i {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 200px;
+      background: var(--bg-light);
+      box-shadow: 0 10px 30px var(--shadow);
+      border-radius: 12px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid var(--border);
+      list-style-type:none;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+      display: block;
+      animation: dropdownFade 0.3s ease;
+    }
+
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .dropdown-content a:hover {
+      background: var(--bg-gray);
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    /* Navigation Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      background: var(--bg-gray);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .btn {
+      padding: 0.65rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg-gray);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      box-shadow: 0 4px 12px var(--shadow);
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .hero-badge i {
+      color: var(--primary);
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .get-started-btn {
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+      transition: var(--transition);
+    }
+
+    .get-started-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.4);
+    }
+
+    .get-started-btn i {
+      transition: transform 0.3s;
+    }
+
+    .get-started-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    .learn-more-btn {
+      padding: 1rem 2rem;
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 2px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .learn-more-btn:hover {
+      background: var(--bg-gray);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 6rem 2rem;
+      background: var(--bg-light);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg-gray);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px var(--shadow);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.75rem;
+      color: white;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+      max-width: 1200px; /* limit width */
+      margin: 0 auto; /* center the footer */
+      gap: 2rem;
+  }
+  .footer-col .social-icons {
+      display: flex;
+      flex-direction: column; /* vertical */
+      gap: 1rem;
+      justify-content: flex-start; /* align left */
+      
+  }
+  .footer-col .social-icons a{
+    font-size: 1.1rem;
+  }
+  .footer-col {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+    
+  }
+  .footer-col h3{
+    margin-bottom: 1rem;
+    color: #2563eb;
+  }
+.footer-col a{
+    color: white;
+    text-decoration: none;
+}
+
+  .footer-credit {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #9CA3AF;
+  }
+  /* ================= Footer ================= */
+  footer {
+    background: var(--accent);
+    color: var(--white);
+    padding: 3rem var(--container-padding) 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+
+  #footer-statement p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--primary-100);
+    animation: fadeInDown 1s ease;
+  }
+
+  /* Footer Links Grid */
+  footer > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--secondary-100);
+    position: relative;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin: 6px 0;
+  }
+
+  /* Clean Links */
+  .footer-links a {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .footer-links a:hover {
+    color: var(--secondary-300);
+    transform: translateX(4px);
+  }
+
+  /* Social Icons */
+  .social-icons {
+    margin: 2rem 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .social-icons a {
+    font-size: 1.5rem;
+    color: var(--white);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    color: var(--secondary-300);
+  }
+
+  /* Footer Bottom */
+  footer h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    color: var(--primary-200);
+  }
+
+  /* Responsive Footer */
+  @media (max-width: 768px) {
+    footer div {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-links h3 {
+        margin-top: 1rem;
       }
 
       :root {
@@ -407,364 +967,64 @@
         gap: 2rem;
       }
 
-      .feature-card {
-        background: var(--bg-gray);
-        padding: 2.5rem;
-        border-radius: 16px;
-        border: 1px solid var(--border);
-        transition: var(--transition);
-        text-align: center;
-      }
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="./components/homepage.html" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">
+            Jobs <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="components/seeker.html">Browse Jobs</a></li>
+            <li><a href="remote.html">Remote Jobs</a></li>
+            <li><a href="featured-job.html">Featured Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          </ul>
+        </li>
+        <li><a href="companies.html" class="nav-link">Companies</a></li>
+        <li><a href="components/about.html" class="nav-link">About</a></li>
+        <li><a href="ContactPage.html" class="nav-link">Contact</a></li>
+        <li><a href="components/events.html" class="nav-link">Events</a></li>
+        <li><a href="faq.html" class="nav-link">FAQs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="./login.html" class="btn btn-ghost">Login</a>
+        <a href="./signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fa fa-bars"></i>
+      </button>
+    </nav>
+  </header>
 
-      .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 32px var(--shadow);
-        border-color: var(--primary);
-      }
-
-      .feature-icon {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--secondary) 100%
-        );
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-        font-size: 1.75rem;
-        color: white;
-        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-      }
-
-      .feature-card h3 {
-        font-size: 1.35rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-      }
-
-      .feature-card p {
-        color: var(--text-secondary);
-        line-height: 1.7;
-      }
-
-      /* Footer */
-      .footer {
-        background: #111827;
-        color: #fff;
-        padding: 2rem;
-        margin-top: 2rem;
-      }
-      .footer-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-        max-width: 1200px; /* limit width */
-        margin: 0 auto; /* center the footer */
-        gap: 2rem;
-      }
-      .footer-col .social-icons {
-        display: flex;
-        flex-direction: column; /* vertical */
-        gap: 1rem;
-        justify-content: flex-start; /* align left */
-      }
-      .footer-col .social-icons a {
-        font-size: 1.1rem;
-      }
-      .footer-col {
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-      }
-      .footer-col h3 {
-        margin-bottom: 1rem;
-        color: #2563eb;
-      }
-      .footer-col a {
-        color: white;
-        text-decoration: none;
-      }
-
-      .footer-credit {
-        text-align: center;
-        margin-top: 2rem;
-        font-size: 0.9rem;
-        color: #9ca3af;
-      }
-      /* ================= Footer ================= */
-      footer {
-        background: var(--accent);
-        color: var(--white);
-        padding: 3rem var(--container-padding) 1.5rem;
-        text-align: center;
-        box-shadow: var(--shadow-lg);
-      }
-
-      #footer-statement p {
-        font-size: 1.1rem;
-        font-weight: 500;
-        margin-bottom: 2rem;
-        color: var(--primary-100);
-        animation: fadeInDown 1s ease;
-      }
-
-      /* Footer Links Grid */
-      footer > div {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      .footer-links h3 {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        color: var(--secondary-100);
-        position: relative;
-      }
-
-      .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .footer-links li {
-        margin: 6px 0;
-      }
-
-      /* Clean Links */
-      .footer-links a {
-        display: inline-block;
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-        color: var(--white);
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.3s ease, transform 0.3s ease;
-        cursor: pointer;
-      }
-
-      .footer-links a:hover {
-        color: var(--secondary-300);
-        transform: translateX(4px);
-      }
-
-      /* Social Icons */
-      .social-icons {
-        margin: 2rem 0 1.5rem;
-        display: flex;
-        justify-content: center;
-        gap: 1.2rem;
-      }
-
-      .social-icons a {
-        font-size: 1.5rem;
-        color: var(--white);
-        transition: transform 0.3s ease, color 0.3s ease;
-      }
-
-      .social-icons a:hover {
-        transform: translateY(-5px) scale(1.1);
-        color: var(--secondary-300);
-      }
-
-      /* Footer Bottom */
-      footer h3 {
-        font-size: 0.9rem;
-        font-weight: 400;
-        margin-top: 1rem;
-        color: var(--primary-200);
-      }
-
-      /* Responsive Footer */
-      @media (max-width: 768px) {
-        footer div {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-
-        .footer-links h3 {
-          margin-top: 1rem;
-        }
-
-        .footer-container {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-          text-align: center;
-        }
-
-        .footer-col {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .footer-col p {
-          display: block;
-          text-align: center;
-        }
-
-        .footer-col .social-icons {
-          flex-direction: row;
-          justify-content: center;
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
-      }
-      @media (max-width: 480px) {
-        .footer-container {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-          max-width: 1200px; /* limit width */
-          margin: 0 auto; /* center the footer */
-          gap: 2rem;
-        }
-        .footer-col .social-icons {
-          display: flex;
-          flex-direction: column; /* vertical */
-          gap: 1rem;
-          justify-content: flex-start; /* align left */
-        }
-        .footer-col {
-          text-align: left;
-        }
-
-        .footer-credit {
-          text-align: center;
-          margin-top: 2rem;
-        }
-        .footer-container {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-          text-align: center;
-        }
-
-        .footer-col {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .footer-col p {
-          display: block;
-          text-align: center;
-        }
-
-        .footer-col .social-icons {
-          flex-direction: row;
-          justify-content: center;
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 900px) {
-        .nav-menu {
-          position: fixed;
-          left: 0;
-          top: 75px;
-          flex-direction: column;
-          background: var(--bg-light);
-          width: 100%;
-          padding: 2rem;
-          gap: 1rem;
-          box-shadow: 0 8px 24px var(--shadow);
-          border-top: 1px solid var(--border);
-          transform: translateX(-100%);
-          transition: transform 0.3s;
-          align-items: flex-start;
-        }
-
-        .nav-menu.active {
-          transform: translateX(0);
-        }
-
-        .mobile-toggle {
-          display: block;
-        }
-
-        .nav-actions {
-          gap: 0.5rem;
-        }
-
-        .nav-actions .btn {
-          padding: 0.5rem 1rem;
-          font-size: 0.85rem;
-        }
-
-        .dropdown-content {
-          position: static;
-          box-shadow: none;
-          border: none;
-          margin-top: 0.5rem;
-          padding-left: 1rem;
-        }
-
-        .dropdown.open .dropdown-content {
-          display: block;
-        }
-
-        .hero {
-          padding: 4rem 1.5rem;
-        }
-
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .hero-description {
-          font-size: 1rem;
-        }
-
-        .hero-actions {
-          flex-direction: column;
-        }
-
-        .get-started-btn,
-        .learn-more-btn {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .features {
-          padding: 4rem 1.5rem;
-        }
-
-        .section-header h2 {
-          font-size: 2rem;
-        }
-
-        .features-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="nav-brand">
-          <img src="assets/logo.webp" alt="Job Junction Logo" class="logo" />
-        </div>
-        <ul class="nav-menu" id="navMenu">
-          <li>
-            <a href="./components/homepage.html" class="nav-link active"
-              >Home</a
-            >
-          </li>
-          <li class="dropdown">
-            <a href="#" class="nav-link">
-              Jobs <i class="fas fa-chevron-down"></i>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-rocket"></i>
+            <span>Find Your Dream Job Today</span>
+          </div>
+          <h1 class="hero-title">
+            Discover Amazing <span class="gradient-text">Opportunities</span> & Start Your Career Journey
+          </h1>
+          <p class="hero-description">
+            Join thousands of professionals who found their perfect match. Browse through premium job listings from top companies worldwide.
+          </p>
+          <div class="hero-actions">
+            <a href="components/homepage.html" class="get-started-btn">
+              <span>Get Started</span> <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#features" class="learn-more-btn">
+              <span>Learn More</span> <i class="fas fa-play"></i>
             </a>
             <ul class="dropdown-content">
               <li><a href="components/seeker.html">Browse Jobs</a></li>
@@ -858,56 +1118,40 @@
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-col">
-          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-          <p>
-            Find internships, part-time jobs, and remote opportunities tailored
-            for you.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h3>Important Links</h3>
-          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-          <a href="internships.html"
-            ><i class="fa-solid fa-graduation-cap"></i> Internships</a
-          >
-          <a href="part-time.html"
-            ><i class="fa-solid fa-clock"></i> Part Time Jobs</a
-          >
-          <a href="remote.html"
-            ><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a
-          >
-          <a href="companies.html"
-            ><i class="fa-solid fa-building"></i> Companies</a
-          >
-          <a href="privacy-policy.html"
-            ><i class="fa-solid fa-user-shield"></i> Privacy Policy</a
-          >
-          <a href="terms-of-use.html"
-            ><i class="fa-solid fa-file-contract"></i> Terms of Use</a
-          >
-        </div>
-
-        <div class="footer-col">
-          <h3>Contact</h3>
-          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-          <p><i class="fa-solid fa-envelope"></i> support@jobjunction.com</p>
-        </div>
-
-        <div class="footer-col">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-          </div>
+  <footer class="footer">
+ 
+     <div class="footer-container">
+      <div class="footer-col">
+        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Important Links</h3>
+        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+        <p>
+          <i class="fa-solid fa-envelope"></i> 
+          <a href="mailto:support@jobjunction.com">support@jobjunction.com</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
       </div>
 

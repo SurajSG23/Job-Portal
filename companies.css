@@ -33,8 +33,7 @@
     transform: translateY(-15px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
-
-.company-card {
+.partner-card {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
@@ -43,24 +42,24 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.company-card img {
+.partner-card img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 15px;
 }
 
-.company-card h3 {
+.partner-card h3 {
   color: #333;
   margin-bottom: 8px;
 }
 
-.company-card p {
+.partner-card p {
   color: #666;
   margin: 4px 0;
 }
 
-.company-card .btn-view {
+.partner-card .btn-view {
   display: inline-block;
   margin-top: 12px;
   padding: 8px 16px;
@@ -71,6 +70,7 @@
   font-size: 0.9rem;
   transition: background 0.3s ease, transform 0.3s ease;
 }
+
 
 /* Hover Effects */
 .company-card:hover {
@@ -487,4 +487,138 @@ body.dark {
 
   --white: #000000; /* flip white/black meaning */
   --black: #ffffff;
+}
+body.dark .partner-card {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+body.dark .partner-card h3 {
+  color: #fff;
+}
+
+body.dark .partner-card p {
+  color: #ccc;
+}
+
+body.dark .partner-card .btn-view {
+  background: #3b82f6;
+  color: #fff;
+}
+
+body.dark .partner-card .btn-view:hover {
+  background: #2563eb;
+}
+/* Dark Mode Overrides */
+body.dark .companies {
+  background: #121212;
+}
+
+body.dark .companies h2 {
+  color: #93c5fd;
+}
+
+body.dark .companies-intro {
+  color: #ccc;
+}
+
+body.dark .partner-card {
+  background: #1f1f1f;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .partner-card h3 {
+  color: #f3f3f3;
+}
+
+body.dark .partner-card p {
+  color: #aaa;
+}
+
+body.dark .partner-card .btn-view {
+  background: #2563eb;
+  color: #fff;
+}
+/* 🌞 Light Mode (Default) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Header and sections */
+header,
+.navbar {
+  background-color: #f9f9f9;
+  transition: background-color 0.4s ease;
+}
+
+/* Cards default (light) */
+.company-card {
+  background: #ffffff;
+  color: #000000;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Buttons */
+button,
+.view-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+.view-btn:hover {
+  background-color: #155ab6;
+}
+
+/* 🌙 DARK MODE */
+body.dark {
+  background-color: #0d1117;
+  color: #e6e6e6;
+}
+
+/* Navbar and header in dark mode */
+body.dark header,
+body.dark .navbar {
+  background-color: #161b22;
+}
+
+/* Section backgrounds */
+body.dark section {
+  background-color: #0d1117;
+}
+
+/* Company cards in dark mode */
+body.dark .company-card {
+  background-color: #1e2229;
+  color: #e6e6e6;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+/* View Jobs button in dark mode */
+body.dark .view-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+body.dark .view-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Navbar links in dark mode */
+body.dark .navbar a {
+  color: #e6e6e6;
+}
+
+body.dark .navbar a:hover {
+  color: #60a5fa;
+}
+
+/* Optional: lighten borders if any */
+body.dark * {
+  border-color: rgba(255, 255, 255, 0.1);
 }

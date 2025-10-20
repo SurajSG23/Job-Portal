@@ -1,520 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saved Jobs</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Arial", sans-serif;
-        background: #f4f4f4;
-        transition: 0.3s;
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saved Jobs</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+*{margin:0; padding:0; box-sizing:border-box;}
+body{font-family:'Arial', sans-serif; background:#f4f4f4; color:#1e293b; transition: background-color 0.3s, color 0.3s;}
 
-      /* ===== HEADER ===== */
-      header {
-        background: white;
-        color: #60a5fa;
-        padding: 12px 25px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1300px;
-        margin: auto;
-      }
-      .logo a {
-        display: flex;
-        align-items: center;
-        color: #60a5fa;
-        text-decoration: none;
-        font-size: 28px;
-        font-weight: 700;
-      }
-      .logo img {
-        height: 40px;
-        margin-right: 8px;
-      }
-      nav ul {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-      nav ul li {
-        position: relative;
-      }
-      nav ul li a {
-        color: #60a5fa;
-        text-decoration: none;
-        padding: 10px 18px;
-        display: block;
-        font-weight: 500;
-        border-radius: 5px;
-        transition: 0.3s;
-      }
-      nav ul li a:hover {
-        background: #2563eb;
-        color: white;
-      }
-      .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: white;
-        min-width: 220px;
-        border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-      }
-      .dropdown-menu li a {
-        padding: 10px 15px;
-      }
-      .dropdown:hover .dropdown-menu {
-        display: block;
-      }
-      .btn {
-        padding: 10px 22px;
-        border: none;
-        border-radius: 6px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      .login-btn {
-        background: #2563eb;
-        color: #fff;
-      }
-      .login-btn:hover {
-        background: #1e40af;
-      }
-      .signup-btn {
-        background: #fff;
-        color: #2563eb;
-      }
-      .signup-btn:hover {
-        background: #e0f2fe;
-      }
-      .hamburger {
-        display: none;
-        font-size: 26px;
-        cursor: pointer;
-        color: #2563eb;
-      }
-      .theme-toggle {
-        margin-left: 10px;
-        cursor: pointer;
-        font-size: 20px;
-        color: #60a5fa;
-        transition: 0.3s;
-      }
-      .theme-toggle:hover {
-        color: #2563eb;
-      }
-      nav ul li a i {
-        margin-left: 5px;
-        transition: 0.3s;
-      }
-      nav ul li:hover a i {
-        transform: rotate(180deg);
-      }
+/* ===== HEADER ===== */
+header {
+  background:white; color:#60a5fa; padding:12px 25px;
+  position:sticky; top:0; z-index:1000;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
+}
+.container {display:flex; justify-content:space-between; align-items:center; max-width:1300px; margin:auto;}
+.logo a {display:flex; align-items:center; color:#60a5fa; text-decoration:none; font-size:28px; font-weight:700;}
+.logo img{height:40px; margin-right:8px;}
+nav ul{list-style:none; display:flex; align-items:center; gap:15px;}
+nav ul li{position:relative;}
+nav ul li a{color:#60a5fa; text-decoration:none; padding:10px 18px; display:block; font-weight:500; border-radius:5px; transition:0.3s;}
+nav ul li a:hover{background:#2563eb; color:white;}
+.dropdown-menu{display:none; position:absolute; top:100%; left:0; background:white; min-width:220px; border-radius:5px; overflow:hidden; box-shadow:0 5px 12px rgba(0,0,0,0.15);}
+.dropdown-menu li a{padding:10px 15px;}
+.dropdown:hover .dropdown-menu{display:block;}
+.btn{padding:10px 22px; border:none; border-radius:6px; font-weight:600; cursor:pointer; transition:0.3s;}
+.login-btn{background:#2563eb;color:#fff;}
+.login-btn:hover{background:#1e40af;}
+.signup-btn{background:#fff;color:#2563eb; border: 1px solid #2563eb;}
+.signup-btn:hover{background:#e0f2fe;}
+.hamburger{display:none;font-size:26px;cursor:pointer;color:#2563eb;}
+.theme-toggle{margin-left:10px; cursor:pointer; font-size:20px; color:#60a5fa; transition:0.3s;}
+.theme-toggle:hover{color:#2563eb;}
+nav ul li a i{margin-left:5px; transition:0.3s;}
+nav ul li:hover a i{transform:rotate(180deg);}
 
-      @media (max-width: 992px) {
-        nav ul {
-          position: fixed;
-          top: 0;
-          left: -100%;
-          height: 100%;
-          width: 260px;
-          flex-direction: column;
-          padding-top: 70px;
-          background: #60a5fa;
-          transition: 0.3s;
-        }
-        nav ul.show {
-          left: 0;
-        }
-        nav ul li {
-          width: 100%;
-        }
-        nav ul li a {
-          padding: 15px 20px;
-        }
-        .dropdown-menu {
-          position: static;
-          display: none;
-        }
-        .dropdown.active .dropdown-menu {
-          display: block;
-        }
-        .hamburger {
-          display: block;
-        }
-        .login-btn,
-        .signup-btn {
-          width: 90%;
-          margin: 5px 20px;
-        }
-        .theme-toggle {
-          position: absolute;
-          bottom: 120px;
-          left: 20px;
-        }
-      }
+@media(max-width:992px){
+  nav ul{position:fixed;top:0;left:-100%;height:100%;width:260px;flex-direction:column;padding-top:70px;background:#60a5fa;transition:0.3s;}
+  nav ul.show{left:0;}
+  nav ul li{width:100%;}
+  nav ul li a{padding:15px 20px; color: white;}
+  .dropdown-menu{position:static; display:none; background: transparent; box-shadow: none;}
+  .dropdown.active .dropdown-menu{display:block;}
+  .hamburger{display:block;}
+  .login-btn,.signup-btn{width:90%; margin:5px 20px;}
+  .theme-toggle{position:absolute; bottom:120px; left:20px; color: white;}
+}
 
-      /* ===== DARK THEME ===== */
-      body.dark {
-        background: #121212;
-        color: #fff;
-      }
-      body.dark header {
-        background: #1e3a8a;
-      }
-      body.dark nav ul li a:hover {
-        background: #2563eb;
-      }
-      body.dark .dropdown-menu {
-        background: #1e3a8a;
-      }
-      body.dark .login-btn {
-        background: #3b82f6;
-        color: #fff;
-      }
-      body.dark .login-btn:hover {
-        background: #2563eb;
-      }
-      body.dark .signup-btn {
-        background: #2563eb;
-        color: #fff;
-      }
-      body.dark .signup-btn:hover {
-        background: #3b82f6;
-      }
-      body.dark .theme-toggle {
-        color: #fff;
-      }
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:6rem 2rem; color:#ffffff; background:#2563eb; overflow:hidden;
+}
+.hero::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6);}
+.hero h1{font-size:3rem; font-weight:700; margin-bottom:1rem; position:relative; z-index:1;}
+.hero p{font-size:1.1rem; max-width:700px; margin:0 auto 2rem; line-height:1.6; position:relative; z-index:1; color:#e2e8f0;}
 
-      /* ===== HERO SECTION ===== */
-      .hero {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 6rem 2rem;
-        color: #ffffff;
-        background: #2563eb;
-        overflow: hidden;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(15, 23, 42, 0.6);
-      }
-      .hero h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 1;
-      }
-      .hero p {
-        font-size: 1.1rem;
-        max-width: 700px;
-        margin: 0 auto 2rem;
-        line-height: 1.6;
-        position: relative;
-        z-index: 1;
-        color: #e2e8f0;
-      }
+/* ===== SAVED JOB CARDS ===== */
+.saved-container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:2rem; max-width:1200px; margin:3rem auto; padding:0 1rem;
+}
+.saved-card {
+  background:#fff; padding:2rem 1.5rem; border-radius:20px;
+  text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.1);
+  transition:all 0.3s ease; position:relative;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.saved-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+.job-icon {
+  font-size:30px;
+  color:#fff;
+  width: 70px;
+  height: 70px;
+  background:linear-gradient(135deg, #3b82f6, #60a5fa);
+  border-radius:50%;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  transition: transform 0.3s ease;
+}
+.job-icon:hover {
+  transform: scale(1.05);
+}
+.saved-card h3 {
+  font-size:1.4rem; margin-bottom:0.8rem; color:#2563eb; position:relative;
+}
+.saved-card h3::after {
+  content:""; display:block; width:0; height:2px;
+  background:linear-gradient(90deg, #3b82f6, #60a5fa);
+  transition:width 0.3s; margin:5px auto 0;
+}
+.saved-card:hover h3::after {width:50%;}
+.saved-card p {
+  font-size:1rem; color:#1e293b; margin:0.3rem 0;
+  display:flex; align-items:center; gap:8px; justify-content:center;
+}
+.heart {
+  font-size:1.4rem; color:#60a5fa;
+  position:absolute; top:15px; right:15px; cursor:pointer;
+  transition:all 0.3s ease;
+}
+.heart.liked {color:#ef4444; transform:scale(1.2);}
+.remove-btn {
+  margin-top:1rem; padding:0.6rem 1.5rem;
+  background:#2563eb; color:white; border:none;
+  border-radius:50px; font-weight:600;
+  cursor:pointer; transition:background 0.3s;
+}
+.remove-btn:hover {background:#1e40af;}
 
-      /* ===== SAVED JOB CARDS ===== */
-      .saved-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 3rem auto;
-        padding: 0 1rem;
-      }
-      .saved-card {
-        background: #fff;
-        padding: 2rem 1.5rem;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .saved-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-      }
-      .job-icon {
-        font-size: 3rem;
-        color: #fff;
-        background: linear-gradient(135deg, #3b82f6, #60a5fa);
-        padding: 18px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-      }
-      .saved-card h3 {
-        font-size: 1.4rem;
-        margin-bottom: 0.8rem;
-        color: #2563eb;
-        position: relative;
-      }
-      .saved-card h3::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #3b82f6, #60a5fa);
-        transition: width 0.3s;
-        margin: 5px auto 0;
-      }
-      .saved-card:hover h3::after {
-        width: 50%;
-      }
-      .saved-card p {
-        font-size: 1rem;
-        color: #1e293b;
-        margin: 0.3rem 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        justify-content: center;
-      }
-      .heart {
-        font-size: 1.4rem;
-        color: #60a5fa;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .heart.liked {
-        color: #ef4444;
-        transform: scale(1.2);
-      }
-      .remove-btn {
-        margin-top: 1rem;
-        padding: 0.6rem 1.5rem;
-        background: #2563eb;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      .remove-btn:hover {
-        background: #1e40af;
-      }
+/* ===== FOOTER ===== */
+footer {
+  background:#111827; color:#fff; padding:2rem; margin-top:2rem;
+}
+.footer-container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:2rem; max-width:1200px; margin:auto;
+}
+.footer-col h3 {margin-bottom:1rem; color:#2563eb;}
+.footer-col a {
+  display:block; color:#d1d5db; text-decoration:none; margin-bottom:0.5rem;
+}
+.footer-col a:hover {color:#2563eb;}
+.footer-col p {margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;}
+.social-icons {display:flex; flex-direction:column; gap:0.5rem;}
+.social-icons a {
+  font-size:1.1rem; color:#fff; text-decoration:none; display:flex; align-items:center;
+}
+.social-icons a:hover {color:#2563eb;}
+.social-icons a i {margin-right:8px;}
+.footer-credit {
+  text-align:center; margin-top:2rem; font-size:0.9rem; color:#9ca3af;
+}
 
-      /* ===== FOOTER ===== */
-      footer {
-        background: #111827;
-        color: #fff;
-        padding: 2rem;
-        margin-top: 2rem;
-      }
-      .footer-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: auto;
-      }
-      .footer-col h3 {
-        margin-bottom: 1rem;
-        color: #2563eb;
-      }
-      .footer-col a {
-        display: block;
-        color: #d1d5db;
-        text-decoration: none;
-        margin-bottom: 0.5rem;
-      }
-      .footer-col a:hover {
-        color: #2563eb;
-      }
-      .footer-col p {
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .footer-col p:hover {
-        color: #2563eb;
-      }
-      .social-icons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .social-icons a {
-        font-size: 1.1rem;
-        color: #fff;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-      }
-      .social-icons a:hover {
-        color: #2563eb;
-      }
-      .social-icons a i {
-        margin-right: 8px;
-      }
-      .footer-credit {
-        text-align: center;
-        margin-top: 2rem;
-        font-size: 0.9rem;
-        color: #9ca3af;
-      }
+/* ===== DARK THEME ===== */
+body.dark{background:#111827;color:#e5e7eb;}
+body.dark header{background:#1e3a8a; box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+body.dark .logo a, body.dark nav ul li a, body.dark .hamburger, body.dark .theme-toggle{color:#dbeafe;}
+body.dark nav ul li a:hover{background:#2563eb; color:white;}
+body.dark .dropdown-menu{background:#1e3a8a;}
+body.dark .login-btn{background:#3b82f6;color:#fff;}
+body.dark .login-btn:hover{background:#2563eb;}
+body.dark .signup-btn{background:transparent;color:#dbeafe; border-color: #dbeafe;}
+body.dark .signup-btn:hover{background:#2563eb;}
 
-      /* ===== RESPONSIVE FOOTER ===== */
-      @media (max-width: 992px) {
-        .footer-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .social-icons {
-          flex-direction: row;
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
-      }
-      @media (max-width: 768px) {
-        .footer-container {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-        .footer-col {
-          align-items: center;
-        }
-        .footer-col p,
-        .footer-col a {
-          text-align: center;
-        }
-        .social-icons {
-          flex-direction: row;
-          justify-content: center;
-        }
-      }
+/* === NEW: DARK THEME FOR CARDS === */
+body.dark .saved-card {
+  background: #1f2937; /* Dark blue-gray */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  border: 1px solid #374151;
+}
+body.dark .saved-card:hover {
+  border-color: #4b5563;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+body.dark .saved-card h3 {
+  color: #93c5fd; /* Light blue */
+}
+body.dark .saved-card p {
+  color: #d1d5db; /* Light gray */
+}
+body.dark .remove-btn {
+  background: #3b82f6;
+}
+body.dark .remove-btn:hover {
+  background: #2563eb;
+}
+/* ================================== */
 
-      /* ===== ANIMATIONS ===== */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .job-icon {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, #3b82f6, #60a5fa);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto 10px auto;
-        color: white;
-        font-size: 30px;
-        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-        transition: transform 0.3s ease;
-      }
 
-      .job-icon:hover {
-        transform: scale(1.05);
-      }
-      .job-icon {
-        box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="logo">
-          <a href="home.html"
-            ><img src="assets/logo.webp" alt="Logo" />JobPortal</a
-          >
-        </div>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about-us.html">About</a></li>
-            <li class="dropdown">
-              <a href="#">Jobs <i class="fa-solid fa-chevron-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="internships.html">Internship</a></li>
-                <li><a href="part-time.html">Part-time</a></li>
-                <li><a href="remote.html">Remote</a></li>
-              </ul>
-            </li>
-            <li><a href="companies.html">Companies</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="ContactPage.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div style="display: flex; align-items: center; gap: 10px">
-          <button
-            class="btn login-btn"
-            onclick="window.location.href='login.html'"
-          >
-            Login
-          </button>
-          <button
-            class="btn signup-btn"
-            onclick="window.location.href='signup.html'"
-          >
-            Signup
-          </button>
-          <i
-            class="fa-solid fa-moon theme-toggle"
-            id="themeToggle"
-            title="Toggle Dark/Light"
-          ></i>
-        </div>
-        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
-      </div>
-    </header>
-
-    <section class="hero">
-      <h1>Saved Jobs</h1>
-      <p>
-        Your favorite jobs will appear here. Save jobs you are interested in and
-        apply when ready.
-      </p>
-    </section>
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width:992px){
+  .footer-container{grid-template-columns:repeat(2,1fr);}
+  .social-icons{flex-direction:row; flex-wrap:wrap; gap:1rem;}
+}
+@media (max-width:768px){
+  .footer-container{grid-template-columns:1fr; text-align:center;}
+  .footer-col{align-items:center;}
+  .social-icons{flex-direction:row; justify-content:center;}
+}
+</style>
+</head>
+<body>
 
     <section class="saved-container">
       <div class="saved-card">
@@ -603,54 +280,75 @@
       </div>
     </footer>
 
-    <script>
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-      const dropdowns = document.querySelectorAll(".dropdown");
-      const themeToggle = document.getElementById("themeToggle");
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const dropdowns = document.querySelectorAll(".dropdown");
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
 
       // Hamburger toggle
       hamburger.addEventListener("click", () =>
         navLinks.classList.toggle("show")
       );
 
-      // Mobile dropdown toggle
-      dropdowns.forEach((drop) => {
-        drop.addEventListener("click", (e) => {
-          if (window.innerWidth <= 992) {
-            e.stopPropagation();
-            drop.classList.toggle("active");
-          }
-        });
+// Mobile dropdown toggle
+dropdowns.forEach(drop => {
+  drop.addEventListener("click", e => {
+    if(window.innerWidth <= 992){
+      // e.preventDefault(); // Uncomment if the main link shouldn't navigate
+      e.stopPropagation();
+      // Close other open dropdowns
+      dropdowns.forEach(d => {
+        if (d !== drop) d.classList.remove("active");
       });
+      drop.classList.toggle("active");
+    }
+  });
+});
 
-      // Dark/Light toggle
-      const currentTheme = localStorage.getItem("theme");
-      if (currentTheme === "dark") document.body.classList.add("dark");
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem(
-          "theme",
-          document.body.classList.contains("dark") ? "dark" : "light"
-        );
-      });
+// Dark/Light toggle
+function applyTheme(theme) {
+  if (theme === "dark") {
+    body.classList.add("dark");
+    themeToggle.classList.replace('fa-moon', 'fa-sun');
+  } else {
+    body.classList.remove("dark");
+    themeToggle.classList.replace('fa-sun', 'fa-moon');
+  }
+}
 
-      // Heart animation
-      document.querySelectorAll(".heart").forEach((h) => {
-        h.addEventListener("click", () => {
-          h.classList.toggle("liked");
-          const icon = h.querySelector("i");
-          icon.classList.toggle("fa-solid");
-          icon.classList.toggle("fa-regular");
-        });
-      });
+const currentTheme = localStorage.getItem("theme") || "light";
+applyTheme(currentTheme);
 
-      // Remove card
-      document.querySelectorAll(".remove-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          btn.closest(".saved-card").remove();
-        });
-      });
-    </script>
-  </body>
+themeToggle.addEventListener("click", () => {
+  const newTheme = body.classList.contains("dark") ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
+});
+
+// Heart animation
+document.querySelectorAll('.heart').forEach(h => {
+  h.addEventListener('click', () => {
+    h.classList.toggle('liked');
+    const icon = h.querySelector('i');
+    icon.classList.toggle('fa-solid');
+    icon.classList.toggle('fa-regular'); // Assuming you might have fa-regular for the un-liked state
+  });
+});
+
+// Remove card with a cool animation
+document.querySelectorAll('.remove-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.saved-card');
+    card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    card.style.transform = 'scale(0.9)';
+    card.style.opacity = '0';
+    setTimeout(() => {
+        card.remove();
+    }, 300); // match transition duration
+  });
+});
+</script>
+</body>
 </html>

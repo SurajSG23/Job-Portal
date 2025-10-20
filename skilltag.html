@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Tag Filtering (#667)</title>
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 25px;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tag {
+      background: #004aad;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tag:hover {
+      background: #003380;
+    }
+
+    .tag.active {
+      background: #ffb703;
+      color: #004aad;
+      font-weight: 600;
+    }
+
+    .job-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .job-card {
+      background: white;
+      width: 260px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .job-card:hover {
+      transform: scale(1.03);
+    }
+
+    .job-card h3 {
+      color: #004aad;
+      margin-bottom: 8px;
+    }
+
+    .skills-required {
+      margin-top: 10px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+
+  <h1>Filter Jobs by Skills</h1>
+
+  <div class="skills">
+    <div class="tag" data-skill="HTML">HTML</div>
+    <div class="tag" data-skill="CSS">CSS</div>
+    <div class="tag" data-skill="JavaScript">JavaScript</div>
+    <div class="tag" data-skill="React">React</div>
+    <div class="tag" data-skill="Python">Python</div>
+  </div>
+
+  <div class="job-container">
+    <div class="job-card" data-skills="HTML CSS">
+      <h3>Frontend Developer</h3>
+      <p>Company: WebWorks</p>
+      <p class="skills-required">Skills: HTML, CSS</p>
+    </div>
+
+    <div class="job-card" data-skills="JavaScript React">
+      <h3>React Developer</h3>
+      <p>Company: CodeCraft</p>
+      <p class="skills-required">Skills: JavaScript, React</p>
+    </div>
+
+    <div class="job-card" data-skills="Python">
+      <h3>Backend Developer</h3>
+      <p>Company: DataNest</p>
+      <p class="skills-required">Skills: Python</p>
+    </div>
+
+    <div class="job-card" data-skills="HTML CSS JavaScript">
+      <h3>Web Designer</h3>
+      <p>Company: Designify</p>
+      <p class="skills-required">Skills: HTML, CSS, JavaScript</p>
+    </div>
+  </div>
+
+  <script>
+  
+    const tags = document.querySelectorAll('.tag');
+    const jobCards = document.querySelectorAll('.job-card');
+
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        
+        tags.forEach(t => t.classList.remove('active'));
+
+       
+        tag.classList.add('active');
+
+        const selectedSkill = tag.getAttribute('data-skill');
+
+      
+        jobCards.forEach(card => {
+          const cardSkills = card.getAttribute('data-skills');
+          if (cardSkills.includes(selectedSkill)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+
+    document.body.addEventListener('dblclick', () => {
+      tags.forEach(t => t.classList.remove('active'));
+      jobCards.forEach(card => card.classList.remove('hidden'));
+    });
+  </script>
+
+</body>
+</html>
