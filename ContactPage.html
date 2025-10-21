@@ -9,7 +9,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Navbar Styling */
+  /* Base & Utility Styling */
+  :root {
+      --primary-color: rgb(47, 31, 129); /* Dark Blue */
+      --secondary-color: rgb(142, 125, 201); /* Light Purple */
+      --accent-color: #ffd700; /* Gold/Yellow */
+      --text-light: #fff;
+      --text-dark: #333;
+      --bg-light: #f9f9f9;
+      --bg-card-light: #fff;
+      --bg-card-hover: #f0f0ff;
+      --border-color-light: #ccc;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark Mode Variables */
+  body.dark-mode {
+      --text-light: #f0f0f0;
+      --text-dark: #eee;
+      --bg-light: #121212;
+      --bg-card-light: #1e1e1e;
+      --bg-card-hover: #2a2a2a;
+      --border-color-light: #555;
+      --shadow-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Navbar Styling (Maintained) */
   main-header {
       display: flex;
       justify-content: space-between;
@@ -19,7 +50,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(45deg, rgb(142, 125, 201), rgb(47, 31, 129), rgb(58, 58, 148));
+      background: linear-gradient(45deg, var(--secondary-color), var(--primary-color), rgb(58, 58, 148));
       margin-bottom: 50px;
     }
 
@@ -30,18 +61,25 @@
 
     nav {
       display: flex;
+      align-items: center;
       gap: 20px;
     }
 
-    nav a {
+    .nav-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-actions a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #ffd700;
+    .nav-actions a:hover {
+      color: var(--accent-color);
     }
 
     .dropdown {
@@ -52,317 +90,561 @@
       display: none;
       position: absolute;
       background: #fff;
-      color: #333;
+      color: var(--text-dark);
       top: 100%;
       left: 0;
       min-width: 160px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px var(--shadow-color);
       border-radius: 6px;
       overflow: hidden;
+      z-index: 1001;
     }
 
     .dropdown-menu a {
       display: block;
       padding: 10px;
-      color: #333;
+      color: var(--text-dark);
       text-decoration: none;
     }
 
     .dropdown-menu a:hover {
-      background: #eee;
+      background: var(--bg-card-hover);
     }
 
     .dropdown:hover .dropdown-menu {
       display: block;
     }
 
-    .menu-toggle,
-    .theme-toggle {
+    .theme-toggle,
+    .mobile-toggle {
       background: none;
       border: none;
       color: #fff;
       font-size: 20px;
       cursor: pointer;
     }
+    
+    .mobile-toggle {
+      display: none;
+    }
 
-.mobile-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
+/* --- CONTACT PAGE SPECIFIC STYLES --- */
+
+/* Header and Visual Hierarchy Enhancement */
+.contact-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--bg-card-light);
+    border-bottom: 1px solid var(--border-color-light);
 }
 
-/* Media Queries */
-@media (max-width: 900px) {
-  .nav-actions a {
-    display: none; /* hide links initially */
-  }
-  .mobile-toggle {
-    display: block;
-  }
-  .nav-actions.active a {
-    display: block;
+.contact-heading h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
     margin-top: 10px;
-    background: white;
-    color: #1a73e8;
-  }
-  .nav-actions {
-    flex-direction: column;
-    align-items: flex-end;
-  }
+    display: inline-block;
+    vertical-align: middle;
 }
 
-@media (max-width: 500px) {
-  .nav-brand img {
-    height: 40px;
-  }
-  .navbar {
-    padding: 10px 15px;
-  }
+.contact-heading .fa-envelope {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    vertical-align: middle;
 }
 
-.theme-toggle {
-  font-size: 18px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  color: white;
+body.dark-mode .contact-heading h1,
+body.dark-mode .contact-heading .fa-envelope {
+    color: var(--accent-color);
+}
+body.dark-mode .contact-heading {
+    background-color: var(--bg-card-light);
+    border-bottom-color: #333;
 }
 
-.mobile-toggle {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Cards column is 1 part, Form is 2 parts */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .nav-actions a {
-    display: none;
-  }
-  .mobile-toggle {
-    display: block;
-  }
-  .nav-actions.active a {
+/* Cards Styling (Padding, Margin, Hover) */
+.cards-column {
     display: flex;
     flex-direction: column;
-    background: white;
-    color: #1a73e8;
-    margin-top: 10px;
-    padding: 8px 12px;
-  }
-  .nav-actions {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-  }
+    gap: 20px;
 }
 
+.card {
+    background-color: var(--bg-card-light);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border-left: 5px solid var(--secondary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(47, 31, 129, 0.15);
+    background-color: var(--bg-card-hover);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-weight: 600;
+}
+body.dark-mode .card h3 {
+    color: var(--accent-color);
+}
+body.dark-mode .card {
+    border-left-color: var(--accent-color);
+}
+
+/* Form Styling (Tailwind-like consistency) */
+.contact-column {
+    padding: 30px;
+    background-color: var(--bg-card-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.contact-column h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+body.dark-mode .contact-column h1 {
+    color: var(--text-light);
+}
+
+.contact-column .lead {
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+body.dark-mode .contact-column .lead {
+    color: var(--text-light);
+}
+
+form > div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+body.dark-mode label {
+    color: var(--text-light);
+}
+
+/* Input Consistency */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--bg-card-light);
+    color: var(--text-dark);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(47, 31, 129, 0.2);
+}
+
+body.dark-mode input, body.dark-mode textarea {
+    border-color: #333;
+    color: var(--text-light);
+    background-color: #2a2a2a;
+}
+body.dark-mode input:focus, body.dark-mode textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(142, 125, 201, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit Button Style */
+#submitBtn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#submitBtn:hover {
+    background-color: rgb(35, 23, 90);
+    transform: translateY(-1px);
+}
+
+#submitBtn:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Error Message Styling (Form Validation) */
+.error {
+    color: #e3342f; /* Tailwind Red-600 */
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: none;
+}
+
+/* Success Notice */
+.notice {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-right: 20px;
+    display: none;
+}
+.notice.ok {
+    background-color: #d4edda; /* Light Green */
+    color: #155724; /* Dark Green */
+}
+
+/* --- MODAL/TOAST STYLING (FOR SUCCESS MESSAGE) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-card-light);
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-content i {
+    color: #38c172; /* Success Green */
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+body.dark-mode .modal-content h3 {
+    color: var(--text-light);
+}
+body.dark-mode .modal-content {
+    background-color: #2a2a2a;
+}
+/* Responsive */
+@media (max-width: 900px) {
+  /* Navbar Mobile Styling (Adjusted for structure) */
+  .nav-actions {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  
+  .nav-actions.active {
+    display: flex;
+  }
+
+  .nav-actions .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    margin-top: 5px;
+  }
+  
+  .nav-actions .dropdown-menu a {
+    color: #fff;
+    padding-left: 20px;
+  }
+  
+  .nav-actions a {
+    color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    text-align: right;
+  }
+  
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* Grid for Contact section */
+  .grid-container {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 40px;
+  }
+  
+  .cards-column {
+    order: 2; /* Move cards below form on mobile */
+  }
+  .contact-column {
+    order: 1; /* Form first */
+  }
+
+  .contact-heading h1, .contact-heading .fa-envelope {
+    font-size: 2rem;
+  }
+  
+}
 </style>
   </head>
   <body>
     <main-header>
       <div class="logo">Job Junction</div>
       <nav id="navMenu">
-        <a href="home.html">Home</a>
-        <div class="dropdown" id="jobsDropdown">
-          <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
-          <div class="dropdown-menu" id="jobsMenu">
-            <a href="internships.html">Internships</a>
-            <a href="part-time.html">Part Time Jobs</a>
-            <a href="remote.html">Remote Jobs</a>
+        <div class="nav-actions">
+          <a href="home.html">Home</a>
+          <div class="dropdown" id="jobsDropdown">
+            <a class="dropdown-toggle" href="#" id="jobsToggle">Jobs ▼</a>
+            <div class="dropdown-menu" id="jobsMenu">
+              <a href="internships.html">Internships</a>
+              <a href="part-time.html">Part Time Jobs</a>
+              <a href="remote.html">Remote Jobs</a>
+            </div>
           </div>
+          <a href="companies.html">Companies</a>
+          <a href="about.html">About</a>
+          <a href="ContactPage.html">Contact</a>
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="login.html" class="btn-ghost">Login</a>
+          <a href="signup.html" class="btn-primary">Sign Up</a>
         </div>
-        <a href="companies.html">Companies</a>
-        <a href="about.html">About</a>
-        <a href="ContactPage.html">Contact</a>
-        <button class="theme-toggle" id="themeToggle">
-          <i class="fas fa-moon"></i>
-        </button>
-        <a href="login.html" class="btn-ghost">Login</a>
-        <a href="signup.html" class="btn-primary">Sign Up</a>
         <button class="mobile-toggle">
           <i class="fas fa-bars"></i>
         </button>
-      </div>
-    </nav>
-  </main-header>
-    <!-- Responsive Navbar -->
+      </nav>
+    </main-header>
 
-
-     <div class="contact-heading">
-          <i class="fa-solid fa-envelope"></i>
-           <h1 class="fade-in mob-res">Stay Connected</h1>
-        </div>
-
-        <section class="grid-container">
- <!-- Cards Column -->
-  <div class="cards-column">
-    <div class="card">
-      <h3>Connect with us</h3>
-      <p>Find your dream Job on our Job-Portal</p>
+    <div class="contact-heading">
+      <i class="fa-solid fa-envelope"></i>
+      <h1 class="fade-in mob-res">Stay Connected</h1>
     </div>
-    <div class="card">
-      <h3>24/7 at your service</h3>
-      <p>Feel free to reach out. We will appriciate your queries.</p>
-    </div>
-    <div class="card">
-      <h3>Grow your connections</h3>
-      <p>Job-Portal connects you with real-world. Network with like-minded people.</p>
-    </div>
-  </div>
-    <div class="contact-column">
-      <main class="wrap" role="main">
-      <h1>Contact us</h1>
-      <p class="lead">
-        Questions, feedback, or a friendly hello—drop a message below.
-      </p>
 
-      <form id="contactForm" novalidate>
-        <!-- Honeypot -->
-        <div class="honeypot" aria-hidden="true">
-          <label
-            >Leave this field empty
-            <input
-              type="text"
-              name="company"
-              tabindex="-1"
-              autocomplete="off"
-            />
-          </label>
+    <section class="grid-container">
+      <div class="cards-column">
+        <div class="card">
+          <h3>Connect with us</h3>
+          <p>Find your dream Job on our Job-Portal</p>
         </div>
-
-        <div class="full">
-          <label for="name"><i class="fa-solid fa-user"></i> Name *</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            maxlength="100"
-            minlength="3"
-            autocomplete="name"
-            placeholder="Your full name"
-          />
-          <div class="error" data-for="name"></div>
+        <div class="card">
+          <h3>24/7 at your service</h3>
+          <p>Feel free to reach out. We will appreciate your queries.</p>
         </div>
-
-        <div>
-          <label for="email"><i class="fa-solid fa-square-envelope"></i> Email *</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            maxlength="120"
-            autocomplete="email"
-            inputmode="email"
-            placeholder="your.email@example.com"
-          />
-          <div class="error" data-for="email"></div>
-        </div>
-
-        <div>
-          <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            maxlength="15"
-            minlength="10"
-            autocomplete="tel"
-            inputmode="tel"
-            placeholder="Enter your phone number"
-          />
-          <div class="error" data-for="phone"></div>
-        </div>
-
-        <div class="full">
-          <label for="subject"><i class="fa-solid fa-pen-to-square"></i>  Subject *</label>
-          <input
-            id="subject"
-            name="subject"
-            type="text"
-            required
-            minlength="3"
-            maxlength="150"
-            placeholder="What is this regarding?"
-          />
-          <div class="error" data-for="subject"></div>
-        </div>
-
-        <div class="full">
-          <label for="message"><i class="fa-solid fa-message"></i> Message *</label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            minlength="10"
-            maxlength="5000"
-            placeholder="Tell us a bit about your request…"
-          ></textarea>
-          <div class="error" data-for="message"></div>
-        </div>
-
-        <div
-          class="full row"
-          style="align-items: center; justify-content: space-between; flex-wrap: wrap;"
-         > <div
-            aria-live="polite"
-            aria-atomic="true"
-            class="notice"
-            id="formNotice"
-          ></div>
-          <button id="submitBtn" type="submit">Send message</button>
-        </div>
-      </form>
-    </main>
-  </div>
-</section>
-
-
-       <footer class="footer">
- 
-     <div class="footer-container">
-      <div class="footer-col">
-        <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
-        <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Important Links</h3>
-        <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
-        <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
-        <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
-        <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
-      </div>
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-        <p>
-          <i class="fa-solid fa-envelope"></i> 
-          <a href="mailto:support@jobjunction.com">support@jobjunction.com</a>
-        </p>
-      </div>
-      <div class="footer-col">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i> Facebook</a>
-          <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i> Twitter</a>
-          <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <div class="card">
+          <h3>Grow your connections</h3>
+          <p>Job-Portal connects you with real-world. Network with like-minded people.</p>
         </div>
       </div>
+      <div class="contact-column">
+        <main class="wrap" role="main">
+          <h1>Contact us</h1>
+          <p class="lead">
+            Questions, feedback, or a friendly hello—drop a message below.
+          </p>
+
+          <form id="contactForm" novalidate>
+            <div class="honeypot" aria-hidden="true">
+              <label
+                >Leave this field empty
+                <input
+                  type="text"
+                  name="company"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+
+            <div class="full">
+              <label for="name"><i class="fa-solid fa-user"></i> Name *</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                maxlength="100"
+                minlength="3"
+                autocomplete="name"
+                placeholder="Your full name"
+              />
+              <div class="error" data-for="name"></div>
+            </div>
+
+            <div>
+              <label for="email"><i class="fa-solid fa-square-envelope"></i> Email *</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                maxlength="120"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="your.email@example.com"
+              />
+              <div class="error" data-for="email"></div>
+            </div>
+
+            <div>
+              <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                maxlength="15"
+                minlength="10"
+                autocomplete="tel"
+                inputmode="tel"
+                placeholder="Enter your phone number"
+              />
+              <div class="error" data-for="phone"></div>
+            </div>
+
+            <div class="full">
+              <label for="subject"><i class="fa-solid fa-pen-to-square"></i>  Subject *</label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                required
+                minlength="3"
+                maxlength="150"
+                placeholder="What is this regarding?"
+              />
+              <div class="error" data-for="subject"></div>
+            </div>
+
+            <div class="full">
+              <label for="message"><i class="fa-solid fa-message"></i> Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                minlength="10"
+                maxlength="5000"
+                placeholder="Tell us a bit about your request…"
+              ></textarea>
+              <div class="error" data-for="message"></div>
+            </div>
+
+            <div
+              class="full row"
+              style="align-items: center; justify-content: flex-end; flex-wrap: wrap;"
+              >
+              <button id="submitBtn" type="submit">Send message</button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </section>
+    
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <i class="fa-regular fa-circle-check"></i>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. We will get back to you shortly.</p>
+        </div>
     </div>
-    <div class="footer-credit">
-      &copy; 2025 Job Junction. All rights reserved.
-    </div>
-  </footer>
+
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Job Junction</h3>
+          <p>Find internships, part-time jobs, and remote opportunities tailored for you.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Important Links</h3>
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="internships.html"><i class="fa-solid fa-graduation-cap"></i> Internships</a>
+          <a href="part-time.html"><i class="fa-solid fa-clock"></i> Part Time Jobs</a>
+          <a href="remote.html"><i class="fa-solid fa-laptop-code"></i> Remote Jobs</a>
+          <a href="companies.html"><i class="fa-solid fa-building"></i> Companies</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> 
+            <a href="mailto:support@jobjunction.com">support@jobjunction.com</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-credit">
+        &copy; 2025 Job Junction. All rights reserved.
+      </div>
+    </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
@@ -384,17 +666,16 @@
       };
 
       const form = $("#contactForm");
-      const notice = $("#formNotice");
       const btn = $("#submitBtn");
       const themeToggle = $("#themeToggle");
       const themeIcon = themeToggle.querySelector("i");
+      const successModal = $("#successModal");
 
       // Initialize intl-tel-input
       const phoneInput = document.querySelector("#phone");
       const iti = window.intlTelInput(phoneInput, {
         initialCountry: "auto",
         geoIpLookup: function(callback) {
-          // Use a free API for IP geolocation
           fetch("https://ipapi.co/json")
             .then(function(res) { return res.json(); })
             .then(function(data) { callback(data.country_code); })
@@ -409,16 +690,14 @@
         }
       });
 
-      // Update phone input when country changes
       phoneInput.addEventListener("countrychange", function() {
-        // Adjust the placeholder based on the selected country
         const placeholder = iti.getSelectedCountryData().placeholder;
         if (placeholder) {
           phoneInput.placeholder = placeholder.replace(/[0-9]/g, 'X');
         }
       });
 
-      // Check for saved theme preference or respect OS preference
+      // --- Theme Toggle Logic ---
       const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
       const currentTheme = localStorage.getItem("theme");
       
@@ -428,7 +707,6 @@
         themeIcon.classList.add("fa-sun");
       }
 
-      // Theme toggle functionality
       themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
         
@@ -443,24 +721,27 @@
         }
       });
 
+      // --- Mobile Toggle Menu ---
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navActions = document.querySelector(".nav-actions");
+
+      mobileToggle.addEventListener("click", () => {
+        navActions.classList.toggle("active");
+      });
+
+      // --- Form Submission & Validation (Enhanced) ---
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const phoneRe = /^[+()\-.\s\d]{7,20}$/; // permissive, formats like +1 555-555-5555
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        // Clear all previous errors
+        $$('.error').forEach(el => el.style.display = 'none');
+        
         // Anti-spam honeypot
         const honeypot = form.querySelector('input[name="company"]');
         if (honeypot && honeypot.value.trim() !== "") {
-          return; // silently drop bots
-        }
-
-        // Validate phone number if provided
-        if (phoneInput.value.trim()) {
-          if (!iti.isValidNumber()) {
-            setError("phone", "Please enter a valid phone number.");
-            return;
-          }
+          return;
         }
 
         // Collect values
@@ -474,60 +755,60 @@
 
         // Client-side validation
         let ok = true;
-        setError("name");
-        setError("email");
-        setError("phone");
-        setError("subject");
-        setError("message");
-        if (!data.name) {
-          setError("name", "Please enter your name.");
+        
+        if (!data.name || data.name.length < 3) {
+          setError("name", "Name is required and must be at least 3 characters.");
           ok = false;
         }
         if (!emailRe.test(data.email)) {
-          setError("email", "Please enter a valid email.");
+          setError("email", "A valid email address is required.");
           ok = false;
+        }
+        if (phoneInput.value.trim() && !iti.isValidNumber()) {
+          setError("phone", "Please enter a valid phone number.");
+          // Note: Phone is optional, but if entered, it must be valid.
         }
         if (!data.subject) {
           setError("subject", "Please enter a subject.");
           ok = false;
         }
         if (!data.message || data.message.length < 10) {
-          setError("message", "Message should be at least 10 characters.");
+          setError("message", "Message is required and must be at least 10 characters.");
           ok = false;
         }
 
         if (!ok) return;
 
-        // Submit
+        // Simulate API call and show modal/toast
         btn.disabled = true;
-        notice.className = "notice";
-        notice.style.display = "block";
-        notice.textContent = "Sending…";
+        btn.textContent = "Sending...";
 
-        // Simulate API call with timeout
         setTimeout(() => {
-          notice.className = "notice ok";
-          notice.textContent = "Thanks! Your message was sent successfully.";
+          
+          // 1. Show Success Modal/Toast
+          successModal.style.display = "flex";
+          setTimeout(() => {
+              successModal.classList.add("show");
+          }, 10);
+          
+          // 2. Reset Form
           form.reset();
           iti.setNumber("");
-          btn.disabled = false;
           
-          // Clear success message after 5 seconds
+          // 3. Reset Button
+          btn.disabled = false;
+          btn.textContent = "Send message";
+          
+          // 4. Hide Modal/Toast after 4 seconds
           setTimeout(() => {
-            notice.style.display = "none";
-          }, 5000);
+            successModal.classList.remove("show");
+            setTimeout(() => {
+                successModal.style.display = "none";
+            }, 300); // Wait for transition
+          }, 4000);
+          
         }, 1500);
       });
-
-  // Mobile toggle menu
-const mobileToggle = document.querySelector(".mobile-toggle");
-const navActions = document.querySelector(".nav-actions");
-
-mobileToggle.addEventListener("click", () => {
-  navActions.classList.toggle("active");
-});
-
-
     </script>
   </body>
 </html>
